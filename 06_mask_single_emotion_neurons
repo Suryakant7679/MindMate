@@ -1,0 +1,1790 @@
+#!/usr/bin/env python3
+"""
+Evaluate Sarvam-1 after masking ONLY degree-1 (single-emotion) neurons.
+
+For each selection percentage:
+
+    0.5%, 1%, 2%, 5%, 10%
+
+the script:
+
+1. Loads the pretrained frozen Sarvam-1 model.
+2. Loads the EXISTING trained linear probe.
+3. Reconstructs exactly the same test split used during probe training.
+4. Evaluates the unmodified model to obtain a baseline.
+5. Reads single_emotion_neurons.csv.
+6. Takes ALL degree-1 neurons for that selection percentage.
+7. Groups the selected neurons by transformer layer.
+8. Masks those MLP neurons at the input to down_proj.
+9. Evaluates the SAME frozen linear probe.
+10. Reports:
+      - accuracy
+      - macro-F1
+      - per-emotion precision
+      - per-emotion recall
+      - per-emotion F1
+      - true-class probability
+      - performance changes relative to baseline
+
+IMPORTANT:
+A physical MLP neuron is identified by:
+
+    (layer_index, neuron_id)
+
+Masking is applied at:
+
+    layer.mlp.down_proj input
+
+which corresponds to the SwiGLU intermediate representation used during
+neuron discovery.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import random
+from collections import defaultdict
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import torch
+from tqdm.auto import tqdm
+
+
+# ======================================================================
+# DATA PREPARATION
+# ======================================================================
+
+
+def prepare_dataframe(
+    path,
+    text_column="hinglish_genz_text",
+    label_column="label",
+):
+
+    df = pd.read_csv(path)[
+        [text_column, label_column]
+    ].rename(
+        columns={
+            text_column: "text",
+            label_column: "label",
+        }
+    )
+
+    df["text"] = (
+        df["text"]
+        .astype("string")
+        .str.strip()
+    )
+
+    df["label"] = (
+        df["label"]
+        .astype("string")
+        .str.strip()
+    )
+
+    df = (
+        df
+        .dropna()
+        .loc[
+            (df["text"] != "")
+            & (df["label"] != "")
+        ]
+        .drop_duplicates()
+        .reset_index(drop=True)
+    )
+
+    labels = sorted(
+        df["label"]
+        .unique()
+        .tolist()
+    )
+
+    mapping = {
+        label: index
+        for index, label
+        in enumerate(labels)
+    }
+
+    df["label_id"] = (
+        df["label"]
+        .map(mapping)
+        .astype(int)
+    )
+
+    return df, labels
+
+
+# ======================================================================
+# EXACT SAME SPLIT AS BASELINE PROBE
+# ======================================================================
+
+
+def stratified_split(
+    labels,
+    seed=42,
+):
+
+    rng = np.random.default_rng(seed)
+
+    groups = {
+        int(y): np.where(labels == y)[0].tolist()
+        for y in np.unique(labels)
+    }
+
+    train = []
+    validation = []
+    test = []
+
+    for indices in groups.values():
+
+        rng.shuffle(indices)
+
+        n = len(indices)
+
+        n_test = max(
+            1,
+            round(n * 0.15)
+        )
+
+        n_val = max(
+            1,
+            round(n * 0.15)
+        )
+
+        test += indices[:n_test]
+
+        validation += indices[
+            n_test:
+            n_test + n_val
+        ]
+
+        train += indices[
+            n_test + n_val:
+        ]
+
+    return (
+        np.array(train),
+        np.array(validation),
+        np.array(test),
+    )
+
+
+# ======================================================================
+# VALID TOKEN MASK
+# ======================================================================
+
+
+def valid_mask(
+    input_ids,
+    attention_mask,
+    tokenizer,
+):
+
+    mask = (
+        attention_mask
+        .bool()
+        .clone()
+    )
+
+    special_ids = set(
+        tokenizer.all_special_ids
+    )
+
+    for token_id in special_ids:
+
+        mask &= input_ids.ne(
+            token_id
+        )
+
+    return mask
+
+
+# ======================================================================
+# METRICS
+# ======================================================================
+
+
+def classification_metrics(
+    y_true,
+    y_pred,
+    num_classes,
+):
+
+    cm = np.zeros(
+        (
+            num_classes,
+            num_classes
+        ),
+        dtype=int,
+    )
+
+    for truth, pred in zip(
+        y_true,
+        y_pred
+    ):
+
+        cm[
+            int(truth),
+            int(pred)
+        ] += 1
+
+    precision = []
+    recall = []
+    f1 = []
+
+    for c in range(
+        num_classes
+    ):
+
+        tp = cm[c, c]
+
+        fp = (
+            cm[:, c].sum()
+            - tp
+        )
+
+        fn = (
+            cm[c, :].sum()
+            - tp
+        )
+
+        p = (
+            tp / (tp + fp)
+            if tp + fp
+            else 0.0
+        )
+
+        r = (
+            tp / (tp + fn)
+            if tp + fn
+            else 0.0
+        )
+
+        score = (
+            2 * p * r / (p + r)
+            if p + r
+            else 0.0
+        )
+
+        precision.append(
+            float(p)
+        )
+
+        recall.append(
+            float(r)
+        )
+
+        f1.append(
+            float(score)
+        )
+
+    accuracy = float(
+        np.trace(cm)
+        / max(
+            1,
+            cm.sum()
+        )
+    )
+
+    return {
+        "accuracy":
+        accuracy,
+
+        "macro_f1":
+        float(
+            np.mean(f1)
+        ),
+
+        "micro_f1":
+        accuracy,
+
+        "precision":
+        precision,
+
+        "recall":
+        recall,
+
+        "f1":
+        f1,
+
+        "confusion_matrix":
+        cm.tolist(),
+    }
+
+
+# ======================================================================
+# LOAD SINGLE-EMOTION NEURONS
+# ======================================================================
+
+
+def load_single_emotion_neurons(
+    csv_path,
+):
+
+    df = pd.read_csv(
+        csv_path
+    )
+
+    required = {
+        "percentage",
+        "emotion",
+        "layer",
+        "neuron_id",
+    }
+
+    missing = (
+        required
+        - set(df.columns)
+    )
+
+    if missing:
+
+        raise ValueError(
+            "single_emotion_neurons.csv "
+            f"is missing columns: {sorted(missing)}"
+        )
+
+    df["percentage"] = (
+        df["percentage"]
+        .astype(float)
+    )
+
+    df["layer"] = (
+        df["layer"]
+        .astype(int)
+    )
+
+    df["neuron_id"] = (
+        df["neuron_id"]
+        .astype(int)
+    )
+
+    return df
+
+
+# ======================================================================
+# GET SARVAM TRANSFORMER LAYERS
+# ======================================================================
+
+
+def get_transformer_layers(
+    model,
+):
+
+    # Most HuggingFace causal LMs
+    if (
+        hasattr(model, "model")
+        and hasattr(
+            model.model,
+            "layers"
+        )
+    ):
+
+        return model.model.layers
+
+    # Fallback
+    if hasattr(
+        model,
+        "layers"
+    ):
+
+        return model.layers
+
+    raise RuntimeError(
+        "Could not locate transformer layers. "
+        "Expected model.model.layers or model.layers."
+    )
+
+
+# ======================================================================
+# MASK CONTROLLER
+# ======================================================================
+
+
+class NeuronMaskController:
+    """
+    Stores the valid-token mask for the currently processed batch.
+
+    Forward-pre-hooks use this mask so that only valid content-token
+    activations are ablated.
+    """
+
+    def __init__(self):
+
+        self.current_valid_mask = None
+
+
+# ======================================================================
+# INSTALL MASK HOOKS
+# ======================================================================
+
+
+def install_mask_hooks(
+    model,
+    neurons_by_layer,
+    controller,
+):
+
+    layers = get_transformer_layers(
+        model
+    )
+
+    handles = []
+
+    for (
+        layer_index,
+        neuron_ids
+    ) in neurons_by_layer.items():
+
+        if (
+            layer_index < 0
+            or layer_index >= len(layers)
+        ):
+
+            raise ValueError(
+                f"Invalid layer index: "
+                f"{layer_index}"
+            )
+
+        layer = layers[
+            layer_index
+        ]
+
+        if (
+            not hasattr(
+                layer,
+                "mlp"
+            )
+            or not hasattr(
+                layer.mlp,
+                "down_proj"
+            )
+        ):
+
+            raise RuntimeError(
+                f"Layer {layer_index} "
+                "does not expose "
+                "layer.mlp.down_proj"
+            )
+
+        ids = tuple(
+            sorted(
+                set(
+                    int(x)
+                    for x
+                    in neuron_ids
+                )
+            )
+        )
+
+        def make_hook(
+            selected_ids,
+            layer_id,
+        ):
+
+            device_cache = {}
+
+            def hook(
+                module,
+                inputs,
+            ):
+
+                if not inputs:
+
+                    return inputs
+
+                x = inputs[0]
+
+                if (
+                    controller.current_valid_mask
+                    is None
+                ):
+
+                    raise RuntimeError(
+                        "Current valid-token "
+                        "mask was not set."
+                    )
+
+                # ----------------------------------------------
+                # Cache neuron-index tensor by device
+                # ----------------------------------------------
+
+                device_key = str(
+                    x.device
+                )
+
+                if (
+                    device_key
+                    not in device_cache
+                ):
+
+                    index = torch.tensor(
+                        selected_ids,
+                        dtype=torch.long,
+                        device=x.device,
+                    )
+
+                    if (
+                        index.numel() > 0
+                        and int(
+                            index.max()
+                        ) >= x.shape[-1]
+                    ):
+
+                        raise RuntimeError(
+                            f"Layer {layer_id}: "
+                            "neuron ID exceeds "
+                            f"MLP width {x.shape[-1]}"
+                        )
+
+                    device_cache[
+                        device_key
+                    ] = index
+
+                index = device_cache[
+                    device_key
+                ]
+
+                if (
+                    index.numel()
+                    == 0
+                ):
+
+                    return inputs
+
+                valid = (
+                    controller
+                    .current_valid_mask
+                    .to(
+                        device=x.device,
+                        dtype=torch.bool,
+                    )
+                )
+
+                if (
+                    x.ndim != 3
+                ):
+
+                    raise RuntimeError(
+                        "Expected down_proj input "
+                        "shape [batch, sequence, neurons], "
+                        f"got {tuple(x.shape)}"
+                    )
+
+                if (
+                    valid.shape[0]
+                    != x.shape[0]
+                    or valid.shape[1]
+                    != x.shape[1]
+                ):
+
+                    raise RuntimeError(
+                        "Valid-token mask shape "
+                        "does not match MLP input: "
+                        f"{tuple(valid.shape)} vs "
+                        f"{tuple(x.shape)}"
+                    )
+
+                # ----------------------------------------------
+                # Clone original MLP intermediate
+                # ----------------------------------------------
+
+                masked_x = x.clone()
+
+                # ----------------------------------------------
+                # Extract only selected neuron dimensions
+                #
+                # Shape:
+                # [B, T, number_of_selected_neurons]
+                # ----------------------------------------------
+
+                selected_values = (
+                    masked_x
+                    .index_select(
+                        -1,
+                        index
+                    )
+                )
+
+                # ----------------------------------------------
+                # Zero selected neuron activations ONLY at
+                # valid content-token positions.
+                # ----------------------------------------------
+
+                selected_values = (
+                    selected_values
+                    .masked_fill(
+                        valid.unsqueeze(-1),
+                        0.0,
+                    )
+                )
+
+                # ----------------------------------------------
+                # Write modified values back
+                # ----------------------------------------------
+
+                masked_x.index_copy_(
+                    -1,
+                    index,
+                    selected_values,
+                )
+
+                if len(inputs) == 1:
+
+                    return (
+                        masked_x,
+                    )
+
+                return (
+                    masked_x,
+                    *inputs[1:]
+                )
+
+            return hook
+
+        handle = (
+            layer
+            .mlp
+            .down_proj
+            .register_forward_pre_hook(
+                make_hook(
+                    ids,
+                    layer_index,
+                )
+            )
+        )
+
+        handles.append(
+            handle
+        )
+
+    return handles
+
+
+# ======================================================================
+# REMOVE HOOKS
+# ======================================================================
+
+
+def remove_hooks(
+    handles,
+):
+
+    for handle in handles:
+
+        handle.remove()
+
+
+# ======================================================================
+# EVALUATION
+# ======================================================================
+
+
+def evaluate(
+    model,
+    tokenizer,
+    classifier,
+    texts,
+    labels,
+    batch_size,
+    max_length,
+    controller=None,
+):
+
+    model.eval()
+    classifier.eval()
+
+    input_device = (
+        model
+        .get_input_embeddings()
+        .weight
+        .device
+    )
+
+    classifier_device = next(
+        classifier.parameters()
+    ).device
+
+    predictions = []
+    logits_all = []
+    probabilities_all = []
+
+    with torch.inference_mode():
+
+        for start in tqdm(
+            range(
+                0,
+                len(texts),
+                batch_size
+            ),
+            desc="Evaluating",
+        ):
+
+            batch_texts = texts[
+                start:
+                start + batch_size
+            ]
+
+            enc = tokenizer(
+                batch_texts,
+                return_tensors="pt",
+                padding=True,
+                truncation=True,
+                max_length=max_length,
+            )
+
+            enc = {
+                key:
+                value.to(
+                    input_device
+                )
+                for key, value
+                in enc.items()
+            }
+
+            mask = valid_mask(
+                enc["input_ids"],
+                enc["attention_mask"],
+                tokenizer,
+            )
+
+            # Hooks will access the same valid-token mask
+            if controller is not None:
+
+                controller.current_valid_mask = (
+                    mask
+                )
+
+            output = model.model(
+                **enc,
+                output_hidden_states=False,
+                use_cache=False,
+            )
+
+            hidden = (
+                output
+                .last_hidden_state
+            )
+
+            weights = (
+                mask
+                .to(
+                    hidden.device
+                )
+                .unsqueeze(-1)
+                .to(
+                    hidden.dtype
+                )
+            )
+
+            pooled = (
+                (
+                    hidden
+                    * weights
+                )
+                .sum(dim=1)
+                /
+                weights
+                .sum(dim=1)
+                .clamp_min(1)
+            )
+
+            logits = classifier(
+                pooled
+                .float()
+                .to(
+                    classifier_device
+                )
+            )
+
+            probabilities = (
+                torch.softmax(
+                    logits,
+                    dim=-1
+                )
+            )
+
+            predictions.extend(
+                logits
+                .argmax(dim=-1)
+                .cpu()
+                .numpy()
+                .tolist()
+            )
+
+            logits_all.append(
+                logits
+                .float()
+                .cpu()
+            )
+
+            probabilities_all.append(
+                probabilities
+                .float()
+                .cpu()
+            )
+
+    if controller is not None:
+
+        controller.current_valid_mask = None
+
+    logits_all = torch.cat(
+        logits_all,
+        dim=0
+    ).numpy()
+
+    probabilities_all = torch.cat(
+        probabilities_all,
+        dim=0
+    ).numpy()
+
+    predictions = np.asarray(
+        predictions,
+        dtype=int,
+    )
+
+    labels = np.asarray(
+        labels,
+        dtype=int,
+    )
+
+    metrics = classification_metrics(
+        labels,
+        predictions,
+        probabilities_all.shape[1],
+    )
+
+    # --------------------------------------------------------------
+    # Mean probability assigned to the CORRECT class
+    # --------------------------------------------------------------
+
+    true_probabilities = (
+        probabilities_all[
+            np.arange(
+                len(labels)
+            ),
+            labels,
+        ]
+    )
+
+    metrics[
+        "mean_true_class_probability"
+    ] = float(
+        np.mean(
+            true_probabilities
+        )
+    )
+
+    # --------------------------------------------------------------
+    # Per-class mean correct-label probability
+    # --------------------------------------------------------------
+
+    per_class_true_probability = []
+
+    for class_index in range(
+        probabilities_all.shape[1]
+    ):
+
+        class_mask = (
+            labels
+            == class_index
+        )
+
+        if class_mask.any():
+
+            value = float(
+                np.mean(
+                    probabilities_all[
+                        class_mask,
+                        class_index,
+                    ]
+                )
+            )
+
+        else:
+
+            value = 0.0
+
+        per_class_true_probability.append(
+            value
+        )
+
+    metrics[
+        "per_class_true_probability"
+    ] = (
+        per_class_true_probability
+    )
+
+    return metrics
+
+
+# ======================================================================
+# MAIN
+# ======================================================================
+
+
+def main():
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--model-id",
+        default="meta-llama/Llama-3.1-8B-Instruct",
+    )
+
+    parser.add_argument(
+        "--csv-path",
+        default=(
+            "data/"
+            "mlt_hinghlish_dataset_clean.csv"
+        ),
+    )
+
+    parser.add_argument(
+        "--probe-path",
+        default=(
+            "results/"
+            "llama31_8b_neuron_analysis/"
+            "04_probe/"
+            "probe.pt"
+        ),
+    )
+
+    parser.add_argument(
+        "--single-neuron-csv",
+        default=(
+            "results/"
+            "llama31_8b_neuron_analysis/"
+            "emotion_membership_analysis/"
+            "single_emotion_neurons.csv"
+        ),
+    )
+
+    parser.add_argument(
+        "--output-dir",
+        default=(
+            "results/"
+            "llama31_8b_neuron_analysis/"
+            "05_single_neuron_masking"
+        ),
+    )
+
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=4,
+    )
+
+    parser.add_argument(
+        "--max-length",
+        type=int,
+        default=256,
+    )
+
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=42,
+    )
+
+    args = parser.parse_args()
+
+    # ==============================================================
+    # Reproducibility
+    # ==============================================================
+
+    random.seed(
+        args.seed
+    )
+
+    np.random.seed(
+        args.seed
+    )
+
+    torch.manual_seed(
+        args.seed
+    )
+
+    # ==============================================================
+    # Load tokenizer/model
+    # ==============================================================
+
+    from transformers import (
+        AutoModelForCausalLM,
+        AutoTokenizer,
+    )
+
+    tokenizer = (
+        AutoTokenizer
+        .from_pretrained(
+            args.model_id
+        )
+    )
+
+    if (
+        tokenizer.pad_token_id
+        is None
+    ):
+
+        tokenizer.pad_token = (
+            tokenizer.eos_token
+        )
+
+    dtype = (
+        torch.bfloat16
+        if torch.cuda.is_available()
+        else torch.float32
+    )
+
+    model = (
+        AutoModelForCausalLM
+        .from_pretrained(
+            args.model_id,
+            device_map="auto",
+            torch_dtype=dtype,
+        )
+    )
+
+    model.eval()
+
+    for parameter in (
+        model.parameters()
+    ):
+
+        parameter.requires_grad_(
+            False
+        )
+
+    # ==============================================================
+    # Load dataset
+    # ==============================================================
+
+    df, dataset_labels = (
+        prepare_dataframe(
+            args.csv_path
+        )
+    )
+
+    y = (
+        df["label_id"]
+        .to_numpy()
+    )
+
+    train_idx, val_idx, test_idx = (
+        stratified_split(
+            y,
+            args.seed
+        )
+    )
+
+    print()
+    print(
+        f"Train: {len(train_idx):,}"
+    )
+
+    print(
+        f"Validation: {len(val_idx):,}"
+    )
+
+    print(
+        f"Test: {len(test_idx):,}"
+    )
+
+    # ==============================================================
+    # Load trained frozen probe
+    # ==============================================================
+
+    probe_data = torch.load(
+        args.probe_path,
+        map_location="cpu",
+    )
+
+    probe_labels = list(
+        probe_data["labels"]
+    )
+
+    if (
+        probe_labels
+        != dataset_labels
+    ):
+
+        raise RuntimeError(
+            "Probe labels do not match "
+            "dataset labels.\n"
+            f"Probe:   {probe_labels}\n"
+            f"Dataset: {dataset_labels}"
+        )
+
+    hidden_size = int(
+        probe_data[
+            "hidden_size"
+        ]
+    )
+
+    probe_device = torch.device(
+        "cuda:0"
+        if torch.cuda.is_available()
+        else "cpu"
+    )
+
+    classifier = torch.nn.Linear(
+        hidden_size,
+        len(probe_labels),
+    ).to(
+        probe_device
+    )
+
+    classifier.load_state_dict(
+        probe_data[
+            "state_dict"
+        ]
+    )
+
+    classifier.eval()
+
+    for parameter in (
+        classifier.parameters()
+    ):
+
+        parameter.requires_grad_(
+            False
+        )
+
+    # ==============================================================
+    # Test data only
+    # ==============================================================
+
+    test_texts = (
+        df.iloc[
+            test_idx
+        ]["text"]
+        .tolist()
+    )
+
+    test_labels = (
+        y[
+            test_idx
+        ]
+    )
+
+    # ==============================================================
+    # Load degree-1 neuron file
+    # ==============================================================
+
+    single_df = (
+        load_single_emotion_neurons(
+            args.single_neuron_csv
+        )
+    )
+
+    percentages = [
+        0.5,
+        1.0,
+        2.0,
+        5.0,
+        10.0,
+    ]
+
+    # ==============================================================
+    # BASELINE
+    # ==============================================================
+
+    print()
+    print("=" * 80)
+    print("BASELINE — NO MASKING")
+    print("=" * 80)
+
+    baseline = evaluate(
+        model=model,
+        tokenizer=tokenizer,
+        classifier=classifier,
+        texts=test_texts,
+        labels=test_labels,
+        batch_size=args.batch_size,
+        max_length=args.max_length,
+        controller=None,
+    )
+
+    print(
+        f"Accuracy : "
+        f"{baseline['accuracy']:.6f}"
+    )
+
+    print(
+        f"Macro-F1 : "
+        f"{baseline['macro_f1']:.6f}"
+    )
+
+    print(
+        "Mean true-class probability : "
+        f"{baseline['mean_true_class_probability']:.6f}"
+    )
+
+    # ==============================================================
+    # Output rows
+    # ==============================================================
+
+    summary_rows = []
+    per_emotion_rows = []
+
+    all_results = {
+        "labels":
+        probe_labels,
+
+        "test_size":
+        len(test_idx),
+
+        "baseline":
+        baseline,
+
+        "masking":
+        {},
+    }
+
+    # ==============================================================
+    # MASK EACH SELECTION PERCENTAGE
+    # ==============================================================
+
+    for percentage in percentages:
+
+        print()
+        print("=" * 80)
+
+        print(
+            f"MASKING TOP {percentage:g}% "
+            "DEGREE-1 NEURONS"
+        )
+
+        print("=" * 80)
+
+        subset = single_df[
+            np.isclose(
+                single_df[
+                    "percentage"
+                ],
+                percentage,
+            )
+        ].copy()
+
+        if subset.empty:
+
+            raise RuntimeError(
+                "No single-emotion neurons "
+                f"found for {percentage:g}%"
+            )
+
+        # ----------------------------------------------------------
+        # Group neuron IDs by layer
+        # ----------------------------------------------------------
+
+        neurons_by_layer = defaultdict(
+            list
+        )
+
+        for row in (
+            subset
+            .itertuples(
+                index=False
+            )
+        ):
+
+            neurons_by_layer[
+                int(row.layer)
+            ].append(
+                int(
+                    row.neuron_id
+                )
+            )
+
+        # Remove accidental duplicates
+        neurons_by_layer = {
+            layer:
+            sorted(
+                set(
+                    neuron_ids
+                )
+            )
+            for layer, neuron_ids
+            in neurons_by_layer.items()
+        }
+
+        total_masked = sum(
+            len(neurons)
+            for neurons
+            in neurons_by_layer.values()
+        )
+
+        print(
+            "Number of degree-1 neurons "
+            f"masked: {total_masked:,}"
+        )
+
+        print(
+            "Layers containing masked neurons: "
+            f"{len(neurons_by_layer)}"
+        )
+
+        print()
+
+        # ----------------------------------------------------------
+        # Sanity check expected counts from current analysis
+        # ----------------------------------------------------------
+
+        expected_counts = {
+            0.5: 443,
+            1.0: 771,
+            2.0: 1269,
+            5.0: 2269,
+            10.0: 3135,
+        }
+
+        expected = (
+            expected_counts[
+                percentage
+            ]
+        )
+
+        if (
+            total_masked
+            != expected
+        ):
+
+            print(
+                "WARNING: expected "
+                f"{expected:,} degree-1 "
+                "neurons but found "
+                f"{total_masked:,}."
+            )
+
+        # ----------------------------------------------------------
+        # Install intervention
+        # ----------------------------------------------------------
+
+        controller = (
+            NeuronMaskController()
+        )
+
+        handles = (
+            install_mask_hooks(
+                model,
+                neurons_by_layer,
+                controller,
+            )
+        )
+
+        try:
+
+            masked_metrics = (
+                evaluate(
+                    model=model,
+                    tokenizer=tokenizer,
+                    classifier=classifier,
+                    texts=test_texts,
+                    labels=test_labels,
+                    batch_size=args.batch_size,
+                    max_length=args.max_length,
+                    controller=controller,
+                )
+            )
+
+        finally:
+
+            remove_hooks(
+                handles
+            )
+
+        # ----------------------------------------------------------
+        # Overall changes
+        # ----------------------------------------------------------
+
+        delta_accuracy = (
+            masked_metrics[
+                "accuracy"
+            ]
+            - baseline[
+                "accuracy"
+            ]
+        )
+
+        delta_macro_f1 = (
+            masked_metrics[
+                "macro_f1"
+            ]
+            - baseline[
+                "macro_f1"
+            ]
+        )
+
+        delta_true_prob = (
+            masked_metrics[
+                "mean_true_class_probability"
+            ]
+            - baseline[
+                "mean_true_class_probability"
+            ]
+        )
+
+        print(
+            f"Baseline accuracy : "
+            f"{baseline['accuracy']:.6f}"
+        )
+
+        print(
+            f"Masked accuracy   : "
+            f"{masked_metrics['accuracy']:.6f}"
+        )
+
+        print(
+            f"Δ accuracy        : "
+            f"{delta_accuracy:+.6f}"
+        )
+
+        print()
+
+        print(
+            f"Baseline macro-F1 : "
+            f"{baseline['macro_f1']:.6f}"
+        )
+
+        print(
+            f"Masked macro-F1   : "
+            f"{masked_metrics['macro_f1']:.6f}"
+        )
+
+        print(
+            f"Δ macro-F1        : "
+            f"{delta_macro_f1:+.6f}"
+        )
+
+        print()
+
+        print(
+            "Δ true-class probability : "
+            f"{delta_true_prob:+.6f}"
+        )
+
+        # ----------------------------------------------------------
+        # Summary CSV
+        # ----------------------------------------------------------
+
+        summary_rows.append(
+            {
+                "percentage":
+                percentage,
+
+                "masked_degree":
+                1,
+
+                "num_masked_neurons":
+                total_masked,
+
+                "baseline_accuracy":
+                baseline[
+                    "accuracy"
+                ],
+
+                "masked_accuracy":
+                masked_metrics[
+                    "accuracy"
+                ],
+
+                "delta_accuracy":
+                delta_accuracy,
+
+                "baseline_macro_f1":
+                baseline[
+                    "macro_f1"
+                ],
+
+                "masked_macro_f1":
+                masked_metrics[
+                    "macro_f1"
+                ],
+
+                "delta_macro_f1":
+                delta_macro_f1,
+
+                "baseline_true_probability":
+                baseline[
+                    "mean_true_class_probability"
+                ],
+
+                "masked_true_probability":
+                masked_metrics[
+                    "mean_true_class_probability"
+                ],
+
+                "delta_true_probability":
+                delta_true_prob,
+            }
+        )
+
+        # ----------------------------------------------------------
+        # Per-emotion results
+        # ----------------------------------------------------------
+
+        print()
+        print(
+            "PER-EMOTION F1 CHANGE"
+        )
+
+        print("-" * 80)
+
+        for (
+            emotion_index,
+            emotion
+        ) in enumerate(
+            probe_labels
+        ):
+
+            baseline_f1 = (
+                baseline[
+                    "f1"
+                ][emotion_index]
+            )
+
+            masked_f1 = (
+                masked_metrics[
+                    "f1"
+                ][emotion_index]
+            )
+
+            delta_f1 = (
+                masked_f1
+                - baseline_f1
+            )
+
+            baseline_recall = (
+                baseline[
+                    "recall"
+                ][emotion_index]
+            )
+
+            masked_recall = (
+                masked_metrics[
+                    "recall"
+                ][emotion_index]
+            )
+
+            delta_recall = (
+                masked_recall
+                - baseline_recall
+            )
+
+            baseline_precision = (
+                baseline[
+                    "precision"
+                ][emotion_index]
+            )
+
+            masked_precision = (
+                masked_metrics[
+                    "precision"
+                ][emotion_index]
+            )
+
+            delta_precision = (
+                masked_precision
+                - baseline_precision
+            )
+
+            baseline_prob = (
+                baseline[
+                    "per_class_true_probability"
+                ][emotion_index]
+            )
+
+            masked_prob = (
+                masked_metrics[
+                    "per_class_true_probability"
+                ][emotion_index]
+            )
+
+            delta_prob = (
+                masked_prob
+                - baseline_prob
+            )
+
+            print(
+                f"{emotion:<14} "
+                f"F1 "
+                f"{baseline_f1:.4f} -> "
+                f"{masked_f1:.4f} "
+                f"({delta_f1:+.4f})"
+            )
+
+            per_emotion_rows.append(
+                {
+                    "percentage":
+                    percentage,
+
+                    "masked_degree":
+                    1,
+
+                    "num_masked_neurons":
+                    total_masked,
+
+                    "emotion":
+                    emotion,
+
+                    "baseline_precision":
+                    baseline_precision,
+
+                    "masked_precision":
+                    masked_precision,
+
+                    "delta_precision":
+                    delta_precision,
+
+                    "baseline_recall":
+                    baseline_recall,
+
+                    "masked_recall":
+                    masked_recall,
+
+                    "delta_recall":
+                    delta_recall,
+
+                    "baseline_f1":
+                    baseline_f1,
+
+                    "masked_f1":
+                    masked_f1,
+
+                    "delta_f1":
+                    delta_f1,
+
+                    "baseline_true_probability":
+                    baseline_prob,
+
+                    "masked_true_probability":
+                    masked_prob,
+
+                    "delta_true_probability":
+                    delta_prob,
+                }
+            )
+
+        all_results[
+            "masking"
+        ][
+            f"{percentage:g}%"
+        ] = {
+            "num_masked_neurons":
+            total_masked,
+
+            "metrics":
+            masked_metrics,
+
+            "delta_accuracy":
+            delta_accuracy,
+
+            "delta_macro_f1":
+            delta_macro_f1,
+
+            "delta_true_probability":
+            delta_true_prob,
+        }
+
+    # ==============================================================
+    # SAVE RESULTS
+    # ==============================================================
+
+    output_dir = Path(
+        args.output_dir
+    )
+
+    output_dir.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    # Overall results
+    summary_path = (
+        output_dir
+        / "single_neuron_masking_summary.csv"
+    )
+
+    with summary_path.open(
+        "w",
+        newline="",
+        encoding="utf-8",
+    ) as stream:
+
+        writer = csv.DictWriter(
+            stream,
+            fieldnames=list(
+                summary_rows[0].keys()
+            ),
+        )
+
+        writer.writeheader()
+
+        writer.writerows(
+            summary_rows
+        )
+
+    # Per-emotion results
+    per_emotion_path = (
+        output_dir
+        / "single_neuron_masking_per_emotion.csv"
+    )
+
+    with per_emotion_path.open(
+        "w",
+        newline="",
+        encoding="utf-8",
+    ) as stream:
+
+        writer = csv.DictWriter(
+            stream,
+            fieldnames=list(
+                per_emotion_rows[0].keys()
+            ),
+        )
+
+        writer.writeheader()
+
+        writer.writerows(
+            per_emotion_rows
+        )
+
+    # Complete JSON
+    json_path = (
+        output_dir
+        / "single_neuron_masking_results.json"
+    )
+
+    json_path.write_text(
+        json.dumps(
+            all_results,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    print()
+    print("=" * 80)
+    print("FINISHED")
+    print("=" * 80)
+
+    print(
+        f"Summary CSV     : {summary_path}"
+    )
+
+    print(
+        f"Per-emotion CSV : {per_emotion_path}"
+    )
+
+    print(
+        f"Complete JSON   : {json_path}"
+    )
+
+
+if __name__ == "__main__":
+
+    main()

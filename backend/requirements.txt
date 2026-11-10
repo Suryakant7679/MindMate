@@ -1,0 +1,13 @@
+torch>=2.2,<3
+transformers>=4.57.2,<5
+accelerate>=0.33,<2
+bitsandbytes>=0.43.3,<1
+sentencepiece>=0.2,<1
+protobuf>=4.25,<7
+networkx>=3.0,<4
+langgraph>=1.0,<2
+langgraph-checkpoint-sqlite>=3.0,<4
+langchain[mcp]>=1.4,<2
+mcp-server-fetch>=2026.11.4
+mcp-server-git>=2026.11.4
+mcp-server-time>=2026.11.4

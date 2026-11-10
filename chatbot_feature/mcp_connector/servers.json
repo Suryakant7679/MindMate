@@ -1,0 +1,119 @@
+{
+  "servers": {
+    "brave_search": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
+      "env": {"BRAVE_API_KEY": "${BRAVE_API_KEY}"},
+      "required_env": ["BRAVE_API_KEY"],
+      "allowed_agents": ["research"],
+      "permissions": ["read"],
+      "timeout_seconds": 60
+    },
+    "filesystem": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "${MCP_FILESYSTEM_ROOT}"],
+      "required_env": ["MCP_FILESYSTEM_ROOT"],
+      "allowed_agents": ["coding", "document"],
+      "permissions": ["read", "write"],
+      "timeout_seconds": 30
+    },
+    "memory": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "env": {"MEMORY_FILE_PATH": "${MCP_MEMORY_FILE_PATH}"},
+      "required_env": ["MCP_MEMORY_FILE_PATH"],
+      "allowed_agents": ["memory"],
+      "permissions": ["read", "write"],
+      "timeout_seconds": 30
+    },
+    "playwright": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest", "--headless", "--isolated"],
+      "allowed_agents": ["browser"],
+      "permissions": ["read", "approval"],
+      "timeout_seconds": 90
+    },
+    "github": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "-e", "GITHUB_TOOLSETS", "ghcr.io/github/github-mcp-server", "--read-only"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}",
+        "GITHUB_TOOLSETS": "repos,issues,pull_requests"
+      },
+      "required_env": ["GITHUB_PERSONAL_ACCESS_TOKEN"],
+      "allowed_agents": ["coding"],
+      "permissions": ["read"],
+      "timeout_seconds": 90
+    },
+    "context7": {
+      "enabled": true,
+      "transport": "streamable_http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {"Authorization": "Bearer ${CONTEXT7_API_KEY}"},
+      "required_env": ["CONTEXT7_API_KEY"],
+      "allowed_agents": ["coding"],
+      "permissions": ["read"],
+      "timeout_seconds": 60
+    },
+    "firecrawl": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {"FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"},
+      "required_env": ["FIRECRAWL_API_KEY"],
+      "allowed_agents": ["research"],
+      "permissions": ["read"],
+      "timeout_seconds": 120
+    },
+    "sequential_thinking": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "env": {"DISABLE_THOUGHT_LOGGING": "true"},
+      "allowed_agents": ["planning"],
+      "permissions": ["read"],
+      "timeout_seconds": 60
+    },
+    "fetch": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "mcp-server-fetch",
+      "args": [],
+      "allowed_agents": ["research", "browser"],
+      "permissions": ["read"],
+      "timeout_seconds": 60
+    },
+    "git": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "mcp-server-git",
+      "args": ["--repository", "${MCP_GIT_REPOSITORY_ROOT}"],
+      "required_env": ["MCP_GIT_REPOSITORY_ROOT"],
+      "allowed_agents": ["coding"],
+      "permissions": ["read"],
+      "timeout_seconds": 30
+    },
+    "time": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "mcp-server-time",
+      "args": ["--local-timezone=${DEFAULT_TIMEZONE}"],
+      "required_env": ["DEFAULT_TIMEZONE"],
+      "allowed_agents": ["planning"],
+      "permissions": ["read"],
+      "timeout_seconds": 30
+    }
+  }
+}
