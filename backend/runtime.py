@@ -6,8 +6,8 @@ import json
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
-from .config import (CONTEXT_TOKENS, DEFAULT_STEERING_TARGET, STEERING_GAIN, SUPPORTIVE_TARGET,
-                     SYSTEM_PROMPT, ModelConfig)
+from .config import (CONTEXT_TOKENS, DEFAULT_STEERING_TARGET, STEERING_GAIN, STEERING_PANEL_FILE,
+                     SUPPORTIVE_TARGET, SYSTEM_PROMPT, ModelConfig)
 
 class HuggingFaceRuntime:
     enable_thinking: bool | None = None
@@ -97,7 +97,7 @@ class HuggingFaceRuntime:
         if "llama" not in self.model_id.lower():
             return {}
         path = (Path(__file__).resolve().parent.parent / "results" / "llama31_8b_generation_emotion"
-                / "steering_panels" / "panels.json")
+                / "steering_panels" / STEERING_PANEL_FILE)
         try:
             payload = json.loads(path.read_text(encoding="utf-8"))
             return {
@@ -319,22 +319,128 @@ class HuggingFaceRuntime:
             "steering_emotion": steering_emotion,
         }
 
+    def _encode_conversation(self, messages: list[dict[str, str]], system_prompt: str | None,
+                             max_new_tokens: int) -> dict[str, Any]:
+        """Chat-template the conversation, dropping the oldest complete turns until it fits the context."""
+        conversation = ([{"role": "system", "content": system_prompt}] if system_prompt else []) + list(messages)
+        first_turn = 1 if system_prompt else 0
+        while True:
+            formatted = self.tokenizer.apply_chat_template(
+                conversation, tokenize=False, add_generation_prompt=True,
+                **({"enable_thinking": self.enable_thinking} if self.enable_thinking is not None else {})
+            )
+            encoded = self.tokenizer(formatted, return_tensors="pt", add_special_tokens=False)
+            if encoded["input_ids"].shape[1] <= CONTEXT_TOKENS - max_new_tokens:
+                break
+            if len(conversation) <= first_turn + 1:
+                raise ValueError("Message exceeds the model context budget.")
+            del conversation[first_turn:first_turn + 2]
+        device = next(self.model.parameters()).device
+        return {key: value.to(device) for key, value in encoded.items() if key != "token_type_ids"}
+
+    def generate_candidates(
+        self,
+        messages: list[dict[str, str]],
+        max_new_tokens: int,
+        system_prompt: str | None,
+        steering_emotion: str,
+        alphas: list[float],
+        panel: dict[int, tuple[list[int], list[float]]] | None = None,
+    ) -> list[dict[str, Any]]:
+        """Greedy replies to one prompt at several steering strengths, decoded together.
+
+        Row i of the batch is steered with ``alphas[i]`` (0 = unsteered), so an
+        unsteered reply and its steered candidates cost about one generation
+        instead of one each.  The rows share the prompt, so no padding is
+        involved; a row that finishes early is ignored from then on.
+
+        Each result holds the reply and a hook trace in the format of
+        ``_emotion_steering``: the panel neurons' mean activation before the
+        shift over that row's own decode steps, and the shift applied.
+        """
+        torch = self.torch
+        panel = panel if panel is not None else self._emotion_panels.get(steering_emotion)
+        if not panel:
+            raise ValueError("No steering panel is available for the requested emotion.")
+        encoded = self._encode_conversation(messages, system_prompt, max_new_tokens)
+        rows = len(alphas)
+        input_ids = encoded["input_ids"].repeat(rows, 1)
+        attention = encoded["attention_mask"].repeat(rows, 1)
+        prompt_seen: dict[int, bool] = {}
+        recorded: dict[int, list[Any]] = {}
+        handles = []
+
+        def hook_for_layer(layer: int, neurons: list[int], shifts: list[float]):
+            cache: dict[str, Any] = {}
+
+            def hook(_module, inputs):
+                if not inputs:
+                    return inputs
+                if not prompt_seen.get(layer, False):
+                    prompt_seen[layer] = True
+                    return inputs
+                hidden = inputs[0]
+                if "indices" not in cache:
+                    if max(neurons) >= hidden.shape[-1]:
+                        raise RuntimeError("Configured emotion neuron is outside this checkpoint's MLP width.")
+                    cache["indices"] = torch.tensor(neurons, device=hidden.device, dtype=torch.long)
+                    base = torch.tensor(shifts, device=hidden.device, dtype=torch.float32) * STEERING_GAIN
+                    scale = torch.tensor([float(a) for a in alphas], device=hidden.device, dtype=torch.float32)
+                    cache["deltas"] = (scale[:, None, None] * base).to(hidden.dtype)      # [rows, 1, neurons]
+                recorded.setdefault(layer, []).append(hidden[:, -1, cache["indices"]].float())
+                modified = hidden.clone()
+                modified[..., cache["indices"]] += cache["deltas"]
+                return (modified, *inputs[1:])
+            return hook
+
+        settings: dict[str, Any] = {"max_new_tokens": max_new_tokens, "do_sample": False,
+                                    "pad_token_id": self.tokenizer.pad_token_id}
+        settings.update(self.generation_settings())
+        started = time.perf_counter()
+        try:
+            for layer, (neurons, shifts) in panel.items():
+                module = self.model.model.layers[layer].mlp.down_proj
+                handles.append(module.register_forward_pre_hook(hook_for_layer(layer, neurons, shifts)))
+            with self.lock, torch.inference_mode():
+                output = self.model.generate(input_ids=input_ids, attention_mask=attention, **settings)
+        finally:
+            for handle in handles:
+                handle.remove()
+        elapsed = time.perf_counter() - started
+        stop_ids = self.model.generation_config.eos_token_id
+        stop_ids = set(stop_ids if isinstance(stop_ids, (list, tuple)) else [stop_ids]) | {self.tokenizer.eos_token_id}
+        results = []
+        for row, alpha in enumerate(alphas):
+            new_tokens = output[row, input_ids.shape[1]:].tolist()
+            length = next((index + 1 for index, token in enumerate(new_tokens) if token in stop_ids), len(new_tokens))
+            steps = max(length - 1, 0)        # decode step s reads token s-1; the last token is not read
+            layers = []
+            for layer, (neurons, shifts) in sorted(panel.items()):
+                values = recorded.get(layer, [])[:steps]
+                means = (torch.stack([step[row] for step in values]).mean(0).cpu().tolist()
+                         if values else [0.0] * len(neurons))
+                layers.append({
+                    "layer": layer, "neurons": list(neurons), "decode_positions": len(values),
+                    "applied_shift": [round(float(alpha) * STEERING_GAIN * shift, 5) for shift in shifts],
+                    "mean_activation_before_shift": [round(float(value), 5) for value in means],
+                })
+            results.append({
+                "response": self.decode_response(new_tokens[:length]), "generated_tokens": length,
+                "steering_alpha": float(alpha), "latency_seconds": round(elapsed, 3),
+                "trace": {"emotion": steering_emotion, "alpha": float(alpha), "gain": STEERING_GAIN,
+                          "location": "input of model.layers[L].mlp.down_proj, decode steps only", "layers": layers},
+            })
+        if not results[0]["response"]:
+            raise RuntimeError("The model returned an empty response.")
+        return results
+
     def stream(self, messages, max_new_tokens, deterministic, temperature,
                system_prompt=SYSTEM_PROMPT, steering_alpha=0.0, steering_emotion=None, steering_trace=None):
         """Yield visible response text as the model generates it."""
         from transformers import TextIteratorStreamer
 
-        conversation = ([{"role": "system", "content": system_prompt}] if system_prompt else []) + list(messages)
-        first_turn = 1 if system_prompt else 0
-        formatted = self.tokenizer.apply_chat_template(
-            conversation, tokenize=False, add_generation_prompt=True,
-            **({"enable_thinking": self.enable_thinking} if self.enable_thinking is not None else {})
-        )
-        encoded = self.tokenizer(formatted, return_tensors="pt", add_special_tokens=False)
-        if encoded["input_ids"].shape[1] > CONTEXT_TOKENS - max_new_tokens:
-            raise ValueError("Message exceeds the model context budget.")
-        device = next(self.model.parameters()).device
-        encoded = {key: value.to(device) for key, value in encoded.items() if key != "token_type_ids"}
+        # Same context trimming as generate(): oldest complete turns are dropped when the prompt is too long.
+        encoded = self._encode_conversation(messages, system_prompt, max_new_tokens)
         settings = {"max_new_tokens": max_new_tokens, "do_sample": not deterministic,
                     "pad_token_id": self.tokenizer.pad_token_id}
         if not deterministic:

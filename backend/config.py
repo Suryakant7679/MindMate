@@ -30,6 +30,10 @@ LLAMA_CONFIG = ModelConfig(model_id="meta-llama/Llama-3.1-8B-Instruct")
 # activation shift.  Calibrated on the MindMate prompt: alpha 1 gives a clearly
 # more emotional but fluent reply, alpha 2 is strong and starts to cost fluency.
 STEERING_GAIN = 1.75
+# Panel file under results/llama31_8b_generation_emotion/steering_panels/.  "panels.json" is the
+# attribution-selected panel from build_steering_panels; a causally validated subset is only named
+# here after it beat that panel on held-out messages (see generation_analysis/README.md).
+STEERING_PANEL_FILE = "panels_causal.json"
 # Response emotion steered for each detected user emotion when the request does
 # not name one.  Negative user emotions are answered with warmth rather than
 # mirrored: steering sadness, fear or anger into replies to a distressed user

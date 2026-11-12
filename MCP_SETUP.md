@@ -7,9 +7,8 @@ Llama/Sarvam application; it does not replace the model runtime, UI, or direct
 
 ## Install and configure
 
-Python 3.10+, Node.js 24+, `npx`, and Docker are recommended. Context7
-uses Streamable HTTP; the other configured servers use stdio. Install the Python
-client and LangGraph dependencies:
+Python 3.10+, Node.js 24+, `npx`, and Docker are recommended. The configured
+servers use stdio. Install the Python client and LangGraph dependencies:
 
 ```sh
 python3 -m pip install -r backend/requirements.txt
@@ -35,13 +34,10 @@ in `servers.json`.
 
 | Server | Maintained launch/endpoint | Authentication | Transport | Agents |
 | --- | --- | --- | --- | --- |
-| Brave Search | `npx -y @brave/brave-search-mcp-server --transport stdio` | `BRAVE_API_KEY` | stdio | research |
 | Filesystem | `npx -y @modelcontextprotocol/server-filesystem <root>` | approved root | stdio | coding, document |
 | Memory | `npx -y @modelcontextprotocol/server-memory` | private `MEMORY_FILE_PATH` | stdio | memory |
 | Playwright | `npx -y @playwright/mcp@latest --headless --isolated` | none | stdio | browser |
 | GitHub | official `ghcr.io/github/github-mcp-server` image in read-only mode | PAT | stdio | coding |
-| Context7 | `https://mcp.context7.com/mcp` | bearer API key | Streamable HTTP | coding |
-| Firecrawl | `npx -y firecrawl-mcp` | `FIRECRAWL_API_KEY` | stdio | research |
 | Sequential Thinking | `npx -y @modelcontextprotocol/server-sequential-thinking` | none | stdio | planning |
 | Fetch | `mcp-server-fetch` (official PyPI package) | none | stdio | research, browser |
 | Git | `mcp-server-git --repository <root>` (official PyPI package) | approved root | stdio | coding |
@@ -52,12 +48,9 @@ The source definitions and permissions are in
 `enabled` field to `false`. Missing credentials produce
 `authentication_required` health without breaking unrelated chat or MCP servers.
 
-Official sources: [Brave](https://github.com/brave/brave-search-mcp-server),
-[MCP reference servers](https://github.com/modelcontextprotocol/servers),
+Official sources: [MCP reference servers](https://github.com/modelcontextprotocol/servers),
 [Playwright](https://github.com/microsoft/playwright-mcp),
-[GitHub](https://github.com/github/github-mcp-server),
-[Context7](https://github.com/upstash/context7), and
-[Firecrawl](https://github.com/firecrawl/firecrawl-mcp-server).
+[GitHub](https://github.com/github/github-mcp-server).
 
 ## Security model
 

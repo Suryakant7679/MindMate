@@ -1,5 +1,5 @@
 import type { ChatMessage, ChatResponse, ToolActivity } from "../types/chat";
-import type { EmotionPlan, SteeringEffect, SteeringSummary } from "../types/emotion";
+import type { EmotionPlan, SteeringDecision, SteeringEffect, SteeringEvidence, SteeringSummary } from "../types/emotion";
 export async function sendMessage(
   messages: ChatMessage[],
   signal?: AbortSignal,
@@ -65,9 +65,10 @@ export async function streamMessage(
   }
   return result;
 }
-/** Plan, measured intervention and before/after estimate for a finished turn. May take as long as a reply. */
+/** Plan, steering decision, measured intervention and emotion estimates for a finished turn. */
 export async function fetchEmotionTrace(turnId: string): Promise<{
-  plan: EmotionPlan; steering: SteeringSummary; effect: SteeringEffect;
+  plan: EmotionPlan; decision: SteeringDecision; steering: SteeringSummary; effect: SteeringEffect;
+  evidence?: SteeringEvidence | null;
 } | null> {
   const response = await fetch(`/api/emotion/trace/${encodeURIComponent(turnId)}`);
   if (!response.ok) return null;
@@ -75,7 +76,11 @@ export async function fetchEmotionTrace(turnId: string): Promise<{
 }
 export async function sendAgentMessage(
   messages: ChatMessage[], sessionId: string, userId: string, signal?: AbortSignal,
-): Promise<{ response: string; activities: ToolActivity[]; errors: string[]; emotionPlan?: EmotionPlan; steering?: SteeringSummary }> {
+): Promise<{
+  response: string; activities: ToolActivity[]; errors: string[]; emotionPlan?: EmotionPlan;
+  /** Agent replies go through the same steering path as direct chat, so the same analysis is returned. */
+  steering?: SteeringSummary & { decision?: SteeringDecision; effect?: SteeringEffect; evidence?: SteeringEvidence | null };
+}> {
   const response = await fetch("/api/agent/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

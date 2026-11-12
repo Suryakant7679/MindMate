@@ -22,7 +22,7 @@ class Tool:
 class Model:
     async def complete(self, prompt):
         if "Authorized tools:" in prompt:
-            return '{"calls":[{"tool":"brave_search_search","arguments":{"query":"LangGraph"}}]}'
+            return '{"calls":[{"tool":"fetch_search","arguments":{"query":"LangGraph"}}]}'
         return "Synthesized answer"
 
 
@@ -34,11 +34,11 @@ class GraphTests(unittest.TestCase):
 
     def test_graph_executes_authorized_tool_and_synthesizes(self):
         config = MCPServerConfig(
-            name="brave_search", enabled=True, transport="stdio", command="unused",
+            name="fetch", enabled=True, transport="stdio", command="unused",
             allowed_agents=frozenset({"research"}), permissions=frozenset({"read"}),
         )
-        manager = MCPManager({"brave_search": config}, adapter_factory=lambda _: None)
-        item = DiscoveredTool("brave_search", "search", Tool.description, Tool.args_schema, Tool())
+        manager = MCPManager({"fetch": config}, adapter_factory=lambda _: None)
+        item = DiscoveredTool("fetch", "search", Tool.description, Tool.args_schema, Tool())
         manager._tools[item.qualified_name] = item
         graph = build_agent_graph(Model(), manager)
 
@@ -49,7 +49,7 @@ class GraphTests(unittest.TestCase):
         }))
         self.assertEqual(state["final_response"], "Synthesized answer")
         self.assertEqual(state["tool_activity"][-1]["status"], "completed")
-        self.assertEqual(state["intermediate_results"][0]["server"], "brave_search")
+        self.assertEqual(state["intermediate_results"][0]["server"], "fetch")
         self.assertLessEqual(state["delegation_count"], 4)
 
 

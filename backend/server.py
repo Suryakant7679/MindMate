@@ -115,13 +115,9 @@ class RequestHandler(BaseHTTPRequestHandler):
             service = self._emotion_service()
             if service is not None and self.path in ("/api/chat", "/api/chat/stream"):
                 # The Emotion Reasoner Agent chooses strategy, response emotion and steering strength.
-                turn_id, plan, generation_options = service.begin_turn(
+                turn_id, plan = service.begin_turn(
                     messages, alpha_override=manual_alpha,
                     emotion_override=None if requested_emotion in ("auto", "mirror") else requested_emotion)
-                steering_details = {"emotion": plan["user_emotion"], "confidence": plan["confidence"],
-                                    "scores": plan["probe_scores"], "steering_emotion": plan["response_emotion"],
-                                    "steering_alpha": plan["steering_alpha"], "strategy": plan["strategy"],
-                                    "panel_neurons": self.server.runtime.panel_size(plan["response_emotion"])}
             elif manual_alpha:
                 if not isinstance(self.server.runtime, LlamaRuntime):
                     raise ValueError("Emotion steering is available only for the configured Llama model.")
@@ -163,6 +159,58 @@ class RequestHandler(BaseHTTPRequestHandler):
                 print(f"Agent generation error: {type(exc).__name__}: {exc}")
                 self.send_json(HTTPStatus.INTERNAL_SERVER_ERROR, {"error": "Agent generation failed. Check the server terminal for details."})
             return
+        if turn_id:
+            # Reasoner path.  Without planned steering the reply is streamed token by token.  With it,
+            # the unsteered reply and the steered candidate are decoded together and the steered one
+            # is sent only if it passes the safeguards, so the text follows the decision.
+            def emotion_payload(decision: dict[str, Any]) -> dict[str, Any]:
+                return {"emotion": plan["user_emotion"], "confidence": plan["confidence"],
+                        "scores": plan["probe_scores"], "detector": plan["detector"],
+                        "steering_emotion": plan["response_emotion"], "steering_alpha": decision["applied_alpha"]}
+            if not streaming:
+                try:
+                    analysis = service.respond(turn_id, max_new_tokens=1024)
+                except Exception as exc:
+                    print(f"Generation error: {exc!r}")
+                    self.send_json(HTTPStatus.INTERNAL_SERVER_ERROR,
+                                   {"error": "Generation failed. Check the server terminal for details."})
+                    return
+                self.send_json(HTTPStatus.OK, {
+                    "response": analysis["reply"], "model": self.server.runtime.model_id, "turn_id": turn_id,
+                    "latency_seconds": analysis["latency_seconds"], "emotion_plan": plan,
+                    "steering_decision": analysis["decision"],
+                    "emotion_detection": emotion_payload(analysis["decision"]),
+                })
+                return
+            started = False
+
+            def send_headers(decision: dict[str, Any]) -> None:
+                nonlocal started
+                self.send_response(HTTPStatus.OK)
+                self.send_header("Content-Type", "text/plain; charset=utf-8")
+                self.send_header("Cache-Control", "no-cache")
+                self.send_header("X-Accel-Buffering", "no")
+                self.send_header("X-Detected-Emotion", plan["user_emotion"])
+                self.send_header("X-Emotion-Confidence", str(plan["confidence"]))
+                if plan["response_emotion"]:
+                    self.send_header("X-Steering-Emotion", plan["response_emotion"])
+                self.send_header("X-Steering-Alpha", str(decision["applied_alpha"]))
+                self.send_header("X-Steering-Status", decision["status"])
+                self.send_header("X-Turn-Id", turn_id)
+                self.end_headers()
+                started = True
+
+            def send_text(piece: str) -> None:
+                self.wfile.write(piece.encode("utf-8"))
+                self.wfile.flush()
+            try:
+                service.respond(turn_id, max_new_tokens=1024, on_decision=send_headers, on_text=send_text)
+            except Exception as exc:
+                print(f"Streaming error: {exc!r}")
+                if not started:
+                    self.send_json(HTTPStatus.INTERNAL_SERVER_ERROR,
+                                   {"error": "Generation failed. Check the server terminal for details."})
+            return
         if streaming:
             try:
                 stream = self.server.runtime.stream(
@@ -180,16 +228,10 @@ class RequestHandler(BaseHTTPRequestHandler):
                         self.send_header("X-Steering-Emotion", steering_details["steering_emotion"])
                         self.send_header("X-Steering-Alpha", str(steering_details["steering_alpha"]))
                         self.send_header("X-Steering-Neuron-Count", str(steering_details["panel_neurons"]))
-                if turn_id:
-                    self.send_header("X-Turn-Id", turn_id)
                 self.end_headers()
-                parts = []
                 for chunk in stream:
-                    parts.append(chunk)
                     self.wfile.write(chunk.encode("utf-8"))
                     self.wfile.flush()
-                if turn_id:
-                    service.complete_turn(turn_id, "".join(parts).strip())
             except Exception as exc:
                 print(f"Streaming error: {exc!r}")
             return
@@ -211,11 +253,6 @@ class RequestHandler(BaseHTTPRequestHandler):
             return
         if steering_details:
             result["emotion_detection"] = steering_details
-        if turn_id:
-            service.complete_turn(turn_id, result["response"])
-            result["turn_id"] = turn_id
-            result["emotion_plan"] = plan
-            result.pop("steering_trace", None)
         self.send_json(HTTPStatus.OK, result)
 
 
@@ -264,8 +301,11 @@ def main() -> None:
             reasoner = None
             if server.emotion_service is not None:
                 reasoner = EmotionReasonerNode(server.emotion_service.agent, server.emotion_service.probe_scores)
-            server.agent_service = AgentChatService(LocalRuntimeModel(server.runtime), MCPManager(),
-                                                    emotion_reasoner=reasoner)
+            # The agent model shares the emotion service, so agent replies use the same steering
+            # selection and safeguards as direct chat.
+            server.agent_service = AgentChatService(
+                LocalRuntimeModel(server.runtime, emotion_service=server.emotion_service), MCPManager(),
+                emotion_reasoner=reasoner)
         print(f"MindMate API: http://{args.host}:{args.port}")
         server.serve_forever()
     except KeyboardInterrupt:

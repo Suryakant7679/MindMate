@@ -159,8 +159,10 @@ STRATEGIES = {
         "people or tell the user to calm down. Ask what felt most unfair or what they need now.", "love", 0.6),
     "grounding_reassurance": (
         "Grounding reassurance", "normalising and grounding",
-        "Normalise the worry in a slow, steady tone. Keep sentences short. Offer one small concrete grounding "
-        "step, such as a slow breath, and remind them they do not have to face it alone.", "love", 0.7),
+        "Acknowledge the worry first, in the user's own words, and say that feeling this way makes sense. Keep "
+        "a steady, unhurried tone and stay with what they are facing. Ask what feels most frightening or what "
+        "would help right now. Do not jump to breathing exercises, techniques or instructions.",
+        "love", 0.7),
     "strengths_affirmation": (
         "Strengths affirmation", "strengths-based reframing",
         "Separate the event from the user's worth. Acknowledge the disappointment, then name a real strength or "

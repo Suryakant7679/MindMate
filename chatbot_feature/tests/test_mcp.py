@@ -43,12 +43,12 @@ def config(**overrides):
 
 
 class MCPConfigTests(unittest.TestCase):
-    def test_all_eleven_servers_are_defined(self):
+    def test_all_eight_servers_are_defined(self):
         configs = load_server_configs()
-        self.assertEqual(len(configs), 11)
+        self.assertEqual(len(configs), 8)
         self.assertEqual(
             set(configs),
-            {"brave_search", "filesystem", "memory", "playwright", "github", "context7", "firecrawl", "sequential_thinking", "fetch", "git", "time"},
+            {"filesystem", "memory", "playwright", "github", "sequential_thinking", "fetch", "git", "time"},
         )
 
     def test_missing_credentials_are_reported_without_connecting(self):

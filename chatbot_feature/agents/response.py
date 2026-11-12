@@ -8,7 +8,6 @@ from typing import TYPE_CHECKING, Any
 from langchain_core.messages import AIMessage
 
 from ..emotion_reasoner import strategy_prompt
-from ..emotion_reasoner.intervention import summarize_intervention
 if TYPE_CHECKING:   # runtime import would be circular (graph.builder imports this package)
     from ..graph.state import AgentState
 
@@ -43,11 +42,15 @@ class ResponseAgent:
         if plan:
             prompt += "\n" + strategy_prompt(None, plan)
         update: dict[str, Any] = {}
-        # Emotional neuron steering applies to conversational replies only; answers built
-        # from tool results stay unsteered so their facts are not coloured.
-        if plan and not results and plan.get("steering_alpha") and hasattr(self.model, "complete_steered"):
-            answer, trace = await self.model.complete_steered(prompt, plan)
-            update["steering"] = {**summarize_intervention(trace), "run_id": run_id}
+        # Emotional neuron steering applies to conversational replies only; answers built from tool
+        # results stay unsteered so their facts are not coloured.  ``complete_planned`` runs the
+        # backend's shared steering path: the calibrated policy and the same run-time safeguards
+        # as direct chat.  A model without it replies unsteered.
+        if plan and not results and hasattr(self.model, "complete_planned"):
+            answer, analysis = await self.model.complete_planned(prompt, plan)
+            update["steering"] = {**analysis["steering"], "decision": analysis["decision"],
+                                  "effect": analysis["effect"], "evidence": analysis.get("evidence"),
+                                  "run_id": run_id}
         else:
             answer = await self.model.complete(prompt)
         return {"messages": [AIMessage(content=answer)], "final_response": answer, "current_agent": "response",

@@ -110,6 +110,20 @@ layers 8-18 form the panel, and each neuron stores its `dmu`. The backend adds
 decode step. `evaluate_chat_steering` runs the real backend path with the
 MindMate prompt and writes `chat_steering_eval/{replies,summary}.csv`.
 
+## Steering policy calibration (`steering_policy_experiment`, `calibrate_steering_policy`, `validate_steering_policy`)
+
+`steering_policy_experiment` answers 42 gold-labelled messages under four
+conditions (baseline, KG strategy prompt, steering, KG prompt + steering) at
+six strengths with greedy decoding, and scores every reply with independent
+models: target emotion by the GoEmotions XLM-R classifier; empathy, contextual
+relevance and fluency by Qwen2.5-7B-Instruct rubric judgements; semantic
+preservation by MiniLM similarity to the unsteered reply. It also records how
+often the Llama probe, the classifier and the KG-fused detector agree with the
+gold user emotion. `calibrate_steering_policy` selects, per context, the
+strength with the largest gain among those that did not lower judged quality
+and writes `steering_policy/policy.json`, which the Emotion Reasoner loads.
+`validate_steering_policy` runs the deployed service on 24 held-out messages.
+
 ## Causal validation of R∩G, R\G and G\R (`causal_validation`)
 
 ```sh
@@ -183,3 +197,20 @@ setup is insufficient.
 
 At the defaults (2,000 responses, 64 new tokens), activation arrays take about
 15 GB.
+
+## Causal panel validation, recalibration and held-out comparison (`causal_panel_experiment`, `recalibrate_policy`, `heldout_comparison`)
+
+```sh
+HF_HUB_OFFLINE=1 python3 -m generation_analysis.causal_panel_experiment        # dev split: attribution, likelihood, interventions
+HF_HUB_OFFLINE=1 python3 -m generation_analysis.recalibrate_policy --panels deployed cand:deployed_causal_half cand:grad_global_half
+HF_HUB_OFFLINE=1 python3 -m generation_analysis.heldout_comparison --stages v1 v2 score report   # test split, read once
+python3 -m generation_analysis.export_steering_evidence --variant grad_global_half               # Mood Tracker evidence
+```
+
+Splits (`causal_steering/splits/`, frozen): dev = EmpatheticDialogues train; calibration = validation + Hinglish even
+rows; test = test + Hinglish odd rows. Evaluators the run-time gate never uses: Qwen2.5-7B 1-5 ratings (emotion,
+empathy, relevance, fluency, pairwise preference) and `SamLowe/roberta-base-go_emotions`. Uncertainty: paired
+bootstrap CIs over messages, Wilcoxon tests, Holm correction on the primary contrasts. `deployed_v1_service.py` and
+`steering_policy/policy_v1_deployed.json` freeze the previous system. Active panel file: `backend/config.py`
+`STEERING_PANEL_FILE` (`panels_causal.json`; set it back to `panels.json` to revert the panels).
+Results: `results/llama31_8b_generation_emotion/causal_steering/{panel_causality,recalibration,heldout}`.

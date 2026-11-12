@@ -67,18 +67,21 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
         setActivities(result.activities);
         if (!response.trim()) throw new Error("The model returned an empty response. Please try again.");
         const plan = result.emotionPlan;
-        draft({ steeringAlpha: plan?.steering_alpha, steeringEmotion: plan?.response_emotion ?? undefined, strategy: plan?.strategy_title });
-        // Agent mode reports the plan and the measured intervention; it does not generate an unsteered reply.
-        if (plan) onEmotionTurn({ id: crypto.randomUUID(), status: "ready", userText, plan, steering: result.steering });
+        // Agent mode uses the same steering selection and safeguards as direct chat and reports the same analysis.
+        const applied = result.steering?.decision?.applied_alpha ?? 0;
+        draft({ steeringAlpha: applied, steeringEmotion: applied ? plan?.response_emotion ?? undefined : undefined, strategy: plan?.strategy_title });
+        if (plan) onEmotionTurn({
+          id: crypto.randomUUID(), status: "ready", userText, plan, steering: result.steering,
+          decision: result.steering?.decision, effect: result.steering?.effect, evidence: result.steering?.evidence,
+        });
       } else {
         const stream = await streamMessage(history, (chunk) => { response += chunk; draft(); }, controller.current.signal);
         if (!response.trim()) throw new Error("The model returned an empty response. Please try again.");
-        draft({ steeringAlpha: stream.steeringAlpha, steeringEmotion: stream.steeringEmotion });
+        draft({ steeringAlpha: stream.steeringAlpha, steeringEmotion: stream.steeringAlpha ? stream.steeringEmotion : undefined });
         const turnId = stream.turnId;
         if (turnId) {
           const preview = { emotion: stream.emotion, confidence: stream.confidence, steeringEmotion: stream.steeringEmotion, alpha: stream.steeringAlpha };
           onEmotionTurn({ id: turnId, status: "analysing", userText, preview });
-          // The analysis re-generates the reply without steering, so it arrives after the reply itself.
           void fetchEmotionTrace(turnId)
             .then((trace) => onEmotionTurn(trace
               ? { id: turnId, status: "ready", userText, preview, ...trace }

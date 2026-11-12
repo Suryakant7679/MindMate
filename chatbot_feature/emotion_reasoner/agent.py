@@ -21,13 +21,17 @@ from dataclasses import asdict, dataclass, field
 from typing import Any, Mapping, Sequence
 
 from .knowledge_graph import INTENSIFIERS, build_graph, is_hinglish, matched_cues
+from .policy import lookup
 
 # How strongly each neuron panel reacts per unit of alpha, from
 # generation_analysis.evaluate_chat_steering (love is the reference).
 PANEL_SENSITIVITY = {"love": 1.0, "admiration": 0.8, "joy": 1.35, "surprise": 1.2}
 MAX_ALPHA = 1.2            # beyond this replies lose fluency
 MAX_ALPHA_HINGLISH = 0.7   # Hinglish replies degrade earlier
-PROBE_WEIGHT, GRAPH_WEIGHT = 0.45, 0.55   # cue-backed graph evidence outranks the probe alone
+# Detector vs graph evidence.  With the GoEmotions classifier as detector this split scored best
+# (83% on the experiment's gold-labelled messages; the classifier alone 76%, the Llama probe 38%).
+DETECTOR_WEIGHT = 0.6
+WEAK_DETECTOR_WEIGHT = 0.45   # for the Llama probe fallback: cue-backed graph evidence outranks it
 
 
 @dataclass
@@ -51,6 +55,8 @@ class EmotionPlan:
     reasoning_paths: list[dict[str, Any]]
     history: list[dict[str, Any]] = field(default_factory=list)
     safety_flag: bool = False
+    detector: str = ""
+    calibration: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -61,8 +67,12 @@ class EmotionReasonerAgent:
 
     name = "emotion_reasoner"
 
-    def __init__(self, available_panels: Sequence[str] | None = None) -> None:
+    def __init__(self, available_panels: Sequence[str] | None = None,
+                 policy: Mapping[str, Any] | None = None, detector_weight: float = DETECTOR_WEIGHT) -> None:
         self.graph = build_graph()
+        # Calibrated strengths (see policy.py).  Without one the heuristic fallback is used.
+        self.policy = policy
+        self.detector_weight = detector_weight
         # Response emotions that actually have a neuron panel; None means "all in the graph".
         self.available_panels = set(available_panels) if available_panels is not None else None
 
@@ -91,7 +101,8 @@ class EmotionReasonerAgent:
         if not total:
             fused = {label: float(probe.get(label, 0.0)) for label in labels}
         else:
-            fused = {label: PROBE_WEIGHT * float(probe.get(label, 0.0)) + GRAPH_WEIGHT * evidence[label] / total
+            fused = {label: self.detector_weight * float(probe.get(label, 0.0))
+                     + (1 - self.detector_weight) * evidence[label] / total
                      for label in labels}
         norm = sum(fused.values()) or 1.0
         return {label: round(value / norm, 4) for label, value in fused.items()}
@@ -139,11 +150,24 @@ class EmotionReasonerAgent:
         return best, needs, support
 
     def _strength(self, strategy: Mapping[str, Any], response: str | None, intensity: float, valence: float,
-                  history: Sequence[Mapping[str, Any]], text: str) -> tuple[float, list[dict[str, Any]]]:
-        """Steering alpha plus the factors that produced it."""
+                  history: Sequence[Mapping[str, Any]], text: str
+                  ) -> tuple[float, list[dict[str, Any]], dict[str, Any] | None]:
+        """Steering alpha, the factors that produced it and the calibration evidence."""
         if response is None:
             return 0.0, [{"factor": "safety", "effect": "steering disabled",
-                          "reason": "no activation steering while the user may be at risk"}]
+                          "reason": "no activation steering while the user may be at risk"}], None
+        found = lookup(self.policy, strategy["label"], response, is_hinglish(text)) if self.policy else None
+        if found is not None:
+            key, cell = found
+            alpha = float(cell["alpha"])
+            language = "Hinglish" if key.endswith("hinglish") else "English"
+            context = (f"{strategy['title']} in {language}" if key.startswith("strategy:")
+                       else f"{response} panel in {language}")
+            factors = [{"factor": "calibration", "effect": f"alpha {alpha:.2f}" if alpha else "no steering",
+                        "reason": f"{context}: {cell['reason']}"}]
+            evidence = {"context": key, "selected_alpha": alpha, "reason": cell["reason"], "sweep": cell["sweep"],
+                        "rule": self.policy.get("rule"), "ceiling": self.policy.get("ceiling")}
+            return alpha, factors, evidence
         base = float(strategy["base_strength"])
         factors = [{"factor": "strategy", "effect": f"base {base:.2f}",
                     "reason": f"{strategy['title']} calls for this much emotional expression"}]
@@ -172,7 +196,7 @@ class EmotionReasonerAgent:
                             "reason": "Hinglish replies lose fluency sooner under steering"
                             if limit == MAX_ALPHA_HINGLISH else "stronger steering costs fluency"})
             alpha = limit
-        return round(max(alpha, 0.0), 2), factors
+        return round(max(alpha, 0.0), 2), factors, None
 
     def plan(self, text: str, probe_scores: Mapping[str, float],
              history: Sequence[Mapping[str, Any]] = ()) -> EmotionPlan:
@@ -190,7 +214,8 @@ class EmotionReasonerAgent:
                          if edge["relation"] == "expresses"), None)
         if response is not None and self.available_panels is not None and response not in self.available_panels:
             response = None
-        alpha, factors = self._strength(strategy, response, state["intensity"], state["valence"], history, text)
+        alpha, factors, calibration = self._strength(strategy, response, state["intensity"], state["valence"],
+                                                     history, text)
         if response is None and strategy_key != "crisis_support":
             factors = [{"factor": "panel", "effect": "steering disabled",
                         "reason": "no neuron panel is available for the planned response emotion"}]
@@ -213,7 +238,7 @@ class EmotionReasonerAgent:
             response_emotion=response, steering_alpha=alpha if response else 0.0, strength_factors=factors,
             reasoning_paths=paths,
             history=[{"emotion": turn.get("emotion"), "valence": turn.get("valence")} for turn in history],
-            safety_flag=strategy_key == "crisis_support",
+            safety_flag=strategy_key == "crisis_support", calibration=calibration,
         )
 
 

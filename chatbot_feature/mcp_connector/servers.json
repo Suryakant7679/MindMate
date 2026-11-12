@@ -1,16 +1,5 @@
 {
   "servers": {
-    "brave_search": {
-      "enabled": true,
-      "transport": "stdio",
-      "command": "npx",
-      "args": ["-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
-      "env": {"BRAVE_API_KEY": "${BRAVE_API_KEY}"},
-      "required_env": ["BRAVE_API_KEY"],
-      "allowed_agents": ["research"],
-      "permissions": ["read"],
-      "timeout_seconds": 60
-    },
     "filesystem": {
       "enabled": true,
       "transport": "stdio",
@@ -54,27 +43,6 @@
       "allowed_agents": ["coding"],
       "permissions": ["read"],
       "timeout_seconds": 90
-    },
-    "context7": {
-      "enabled": true,
-      "transport": "streamable_http",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {"Authorization": "Bearer ${CONTEXT7_API_KEY}"},
-      "required_env": ["CONTEXT7_API_KEY"],
-      "allowed_agents": ["coding"],
-      "permissions": ["read"],
-      "timeout_seconds": 60
-    },
-    "firecrawl": {
-      "enabled": true,
-      "transport": "stdio",
-      "command": "npx",
-      "args": ["-y", "firecrawl-mcp"],
-      "env": {"FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"},
-      "required_env": ["FIRECRAWL_API_KEY"],
-      "allowed_agents": ["research"],
-      "permissions": ["read"],
-      "timeout_seconds": 120
     },
     "sequential_thinking": {
       "enabled": true,

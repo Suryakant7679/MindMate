@@ -7,7 +7,7 @@ from langchain_core.messages import HumanMessage
 
 from chatbot_feature.agents import EmotionReasonerNode
 from chatbot_feature.emotion_reasoner import EmotionReasonerAgent, build_graph, strategy_prompt
-from chatbot_feature.emotion_reasoner.agent import MAX_ALPHA, MAX_ALPHA_HINGLISH
+from chatbot_feature.emotion_reasoner.agent import MAX_ALPHA, MAX_ALPHA_HINGLISH, WEAK_DETECTOR_WEIGHT
 from chatbot_feature.emotion_reasoner.intervention import summarize_intervention
 from chatbot_feature.graph import build_agent_graph
 from chatbot_feature.mcp_connector.manager import MCPManager
@@ -49,7 +49,8 @@ class ReasonerTests(unittest.TestCase):
     def test_cues_match_whole_phrases_and_everyday_questions_stay_light(self):
         grief = self.agent.plan("My dog passed away yesterday.", probe("sadness"))
         self.assertNotIn("achievement", [cause["cause"] for cause in grief.causes])
-        question = self.agent.plan("What should I cook for dinner tonight?", probe("anger", 0.98))
+        weak = EmotionReasonerAgent(detector_weight=WEAK_DETECTOR_WEIGHT)   # the Llama probe misreads this one
+        question = weak.plan("What should I cook for dinner tonight?", probe("anger", 0.98))
         self.assertEqual(question.user_emotion, "neutral")
         self.assertEqual(question.strategy, "gentle_exploration")
         self.assertLess(question.steering_alpha, grief.steering_alpha)
@@ -71,6 +72,23 @@ class ReasonerTests(unittest.TestCase):
         hinglish = self.agent.plan("yaar aaj bahut akela feel ho raha hai, bahut bahut dukh hai", probe("sadness", 0.95), sad)
         self.assertLessEqual(hinglish.steering_alpha, MAX_ALPHA_HINGLISH)
         self.assertLessEqual(later.steering_alpha, MAX_ALPHA)
+
+    def test_calibrated_policy_overrides_heuristics(self):
+        sweep = [{"alpha": 0.75, "n": 8, "target_gain": 0.37, "safe": True}]
+        policy = {"rule": {}, "ceiling": {"threshold": 0.3}, "cells": {
+            "love|english": {"alpha": 1.0, "reason": "safe gain", "sweep": sweep},
+            "love|hinglish": {"alpha": 0.0, "reason": "not steered: quality fell", "sweep": sweep},
+            "strategy:compassionate_comfort|english": {"alpha": 0.25, "reason": "safe gain", "sweep": sweep}}}
+        agent = EmotionReasonerAgent(policy=policy)
+        comfort = agent.plan("My dog passed away yesterday.", probe("sadness"))
+        self.assertEqual(comfort.steering_alpha, 0.25)          # strategy cell wins over the panel cell
+        self.assertEqual(comfort.calibration["context"], "strategy:compassionate_comfort|english")
+        angry = agent.plan("My manager took credit for my work in front of everyone.", probe("anger"))
+        self.assertEqual((angry.strategy, angry.steering_alpha), ("reflective_validation", 1.0))
+        hinglish = agent.plan("yaar aaj bahut akela feel ho raha hai", probe("sadness"))
+        self.assertEqual(hinglish.steering_alpha, 0.0)
+        self.assertEqual(hinglish.response_emotion, "love")
+        self.assertIn("not steered", hinglish.strength_factors[0]["reason"])
 
     def test_missing_panel_disables_steering(self):
         agent = EmotionReasonerAgent(available_panels=["joy"])
@@ -97,17 +115,23 @@ class ReasonerTests(unittest.TestCase):
 
 
 class Model:
+    """Agent model wired to a (fake) emotion service: replies come from the shared steering path."""
+
     def __init__(self):
-        self.steered = []
+        self.planned = []
 
     async def complete(self, prompt):
         return "plain"
 
-    async def complete_steered(self, prompt, plan):
-        self.steered.append((prompt, plan))
-        return "steered", {"emotion": plan["response_emotion"], "alpha": plan["steering_alpha"], "layers": [
+    async def complete_planned(self, prompt, plan):
+        self.planned.append((prompt, plan))
+        steer = bool(plan["steering_alpha"])
+        trace = {"emotion": plan["response_emotion"], "alpha": plan["steering_alpha"], "layers": [
             {"layer": 8, "neurons": [1], "decode_positions": 2, "applied_shift": [0.3],
              "mean_activation_before_shift": [0.1]}]}
+        return ("steered" if steer else "plain"), {
+            "steering": summarize_intervention(trace if steer else {}),
+            "decision": {"status": "applied" if steer else "not_planned"}, "effect": {"sent": "steered"}}
 
 
 class GraphIntegrationTests(unittest.TestCase):
@@ -125,13 +149,15 @@ class GraphIntegrationTests(unittest.TestCase):
         self.assertEqual(state["emotion_plan"]["response_emotion"], "love")
         self.assertEqual(state["emotion_history"][0]["emotion"], "sadness")
         self.assertTrue(state["steering"]["applied"])
-        self.assertIn("Response strategy", model.steered[0][0])
+        self.assertEqual(state["steering"]["decision"]["status"], "applied")
+        self.assertIn("Response strategy", model.planned[0][0])
 
     def test_crisis_reply_is_not_steered(self):
         model = Model()
         state = self.run_graph("I want to end my life", model)
         self.assertEqual(state["final_response"], "plain")
-        self.assertEqual(model.steered, [])
+        self.assertEqual(model.planned[0][1]["steering_alpha"], 0.0)     # the shared path is told not to steer
+        self.assertFalse(state["steering"]["applied"])
         self.assertTrue(state["emotion_plan"]["safety_flag"])
 
 
