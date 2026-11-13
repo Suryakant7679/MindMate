@@ -69,8 +69,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--model-id", default=MODEL_ID)
     parser.add_argument("--output-dir", default=str(RESULTS_DIR))
-    parser.add_argument("--layers", type=int, nargs=2, default=[8, 18], metavar=("FIRST", "LAST"),
-                        help="Inclusive band of transformer layers to steer (default: 8 18).")
+    parser.add_argument("--layers", type=int, nargs=2, metavar=("FIRST", "LAST"),
+                        help="Inclusive band of transformer layers to steer. Default: 25%% to 56%% of the depth, "
+                             "which is 8 18 for a 32-layer model.")
     parser.add_argument("--top-percent", type=float, default=1.0, help="Neurons kept per layer (default: 1%%).")
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--recompute", action="store_true", help="Ignore the cached residual means.")
@@ -88,7 +89,7 @@ def main() -> None:
 
     model, tokenizer = load_model(args.model_id)
     layers = model_layers(model)
-    first, last = args.layers
+    first, last = args.layers or (round(0.25 * len(layers)), round(0.5625 * len(layers)))
     if not 0 <= first <= last < len(layers):
         parser.error(f"--layers must lie within 0..{len(layers) - 1}.")
     residual_path = panel_dir / "residual_condition_means.npy"

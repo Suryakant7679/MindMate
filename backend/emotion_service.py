@@ -132,7 +132,10 @@ class EmotionSteeringService:
                  scorer: ReplyEmotionScorer | None = None, evidence: dict[str, Any] | None = None) -> None:
         self.runtime = runtime
         self.scorer = scorer or ReplyEmotionScorer(runtime)
-        self.policy = agent.policy if agent is not None else load_policy()
+        # Policy and evidence live in the loaded model's own result folder.
+        results = (Path(__file__).resolve().parent.parent / "results"
+                   / f"{getattr(runtime, 'results_tag', None) or 'llama31_8b'}_generation_emotion")
+        self.policy = agent.policy if agent is not None else load_policy(results / "steering_policy" / "policy.json")
         if self.policy is None:
             print("No calibrated steering policy found; using heuristic strengths. "
                   "Run generation_analysis.recalibrate_policy.")
@@ -145,7 +148,7 @@ class EmotionSteeringService:
         legacy_ceiling = ((self.policy or {}).get("ceiling") or {}).get("threshold")
         if legacy_ceiling is not None and "gate" not in (self.policy or {}):
             self.gate["ceiling"] = legacy_ceiling
-        self.evidence = load_evidence() if evidence is None else evidence
+        self.evidence = load_evidence(results / "causal_steering" / "evidence.json") if evidence is None else evidence
         self._turns: OrderedDict[str, dict[str, Any]] = OrderedDict()
         self._lock = threading.Lock()
 

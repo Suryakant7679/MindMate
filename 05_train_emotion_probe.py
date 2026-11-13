@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Train a frozen-representation linear emotion probe for Sarvam-1."""
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 import argparse, json, random
 from pathlib import Path
 import numpy as np
@@ -55,7 +57,7 @@ def classification_metrics(y_true,y_pred,num_classes):
     accuracy=float(np.trace(cm)/max(1,cm.sum())); return {"accuracy":accuracy,"macro_f1":float(np.mean(f1)),"micro_f1":accuracy,"precision":precision,"recall":recall,"f1":f1,"confusion_matrix":cm.tolist()}
 
 def main():
-    p=argparse.ArgumentParser(); p.add_argument('--model-id',default='meta-llama/Llama-3.1-8B-Instruct'); p.add_argument('--csv-path',default='data/mlt_hinghlish_dataset_clean.csv'); p.add_argument('--output-dir',default='results/llama31_8b_neuron_analysis/04_probe'); p.add_argument('--batch-size',type=int,default=4); p.add_argument('--max-length',type=int,default=256); p.add_argument('--epochs',type=int,default=20); p.add_argument('--seed',type=int,default=42); args=p.parse_args()
+    p=argparse.ArgumentParser(); p.add_argument('--model-id',default=EXPERIMENT_MODEL_ID); p.add_argument('--csv-path',default='data/mlt_hinghlish_dataset_clean.csv'); p.add_argument('--output-dir',default='results/llama31_8b_neuron_analysis/04_probe'.replace("llama31_8b", EXPERIMENT_TAG)); p.add_argument('--batch-size',type=int,default=4); p.add_argument('--max-length',type=int,default=256); p.add_argument('--epochs',type=int,default=20); p.add_argument('--seed',type=int,default=42); args=p.parse_args()
     random.seed(args.seed); np.random.seed(args.seed); torch.manual_seed(args.seed)
     from transformers import AutoModelForCausalLM,AutoTokenizer
     tokenizer=AutoTokenizer.from_pretrained(args.model_id)

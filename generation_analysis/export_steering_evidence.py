@@ -18,8 +18,9 @@ from pathlib import Path
 
 import pandas as pd
 
-from backend.config import STEERING_PANEL_FILE
-from .common import RESULTS_DIR, write_json
+from .common import EXPERIMENT_SPEC, RESULTS_DIR, write_json
+
+STEERING_PANEL_FILE = EXPERIMENT_SPEC.config.panel_file
 from .steering_lab import LAB_DIR, TARGETS
 
 CAUSAL = LAB_DIR / "panel_causality"

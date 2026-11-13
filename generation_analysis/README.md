@@ -214,3 +214,59 @@ bootstrap CIs over messages, Wilcoxon tests, Holm correction on the primary cont
 `steering_policy/policy_v1_deployed.json` freeze the previous system. Active panel file: `backend/config.py`
 `STEERING_PANEL_FILE` (`panels_causal.json`; set it back to `panels.json` to revert the panels).
 Results: `results/llama31_8b_generation_emotion/causal_steering/{panel_causality,recalibration,heldout}`.
+
+## Two-judge consensus study (Llama 3.1-8B and EmoLLaMA-chat-7B)
+
+Experimental; nothing here changes what the chatbot does.
+
+```bash
+python3 -m generation_analysis.freeze_v2                 # once: freeze deployed panels, policy, results
+python3 -m generation_analysis.freeze_v2 --verify        # deployed files still identical to the freeze?
+for m in llama emollama; do
+  MINDMATE_MODEL=$m python3 -m generation_analysis.diagnose_calibration   # why contexts were rejected
+  MINDMATE_MODEL=$m python3 -m generation_analysis.consensus_policy       # experimental policy (calibration only)
+done
+python3 -m generation_analysis.holdout2 --stages build   # new held-out messages, shared by both models
+for m in llama emollama; do
+  MINDMATE_MODEL=$m python3 -m generation_analysis.holdout2 --stages generate score report
+done
+python3 -m generation_analysis.holdout2 --stages compare
+```
+
+- `results/frozen_v2/<tag>/` holds the frozen v2 configuration and a SHA-256 manifest. Every later
+  stage verifies it first.
+- The consensus policy keeps the deployed selection rule but requires both judges (Qwen2.5-7B,
+  Gemma 3-27B) to pass it separately, with the independent GoEmotions classifier rising. It is
+  written to `causal_steering/consensus/policy_consensus.json` and is not installed.
+- `results/steering_holdout2/items.csv` contains messages that are in no earlier split (checked by
+  conversation id and text). Policies are hashed when generation starts (`policy_lock.json`); a
+  changed policy is refused.
+- Each model is steered only with its own panels. Results per model are in
+  `causal_steering/holdout2/` (`system_means.csv`, `contrasts.csv`, `safety.csv`,
+  `judge_agreement.csv`, `decision_counts.csv`); the cross-model table is
+  `results/steering_holdout2/model_comparison.csv`.
+
+## Version-3 generation-quality study (Llama 3.1-8B, EmoLLaMA-chat-7B, Sarvam-30B)
+
+Experiments only: the deployed prompt, frozen v2 policies, agents, safety path and Mood Tracker are unchanged.
+
+```bash
+python3 download_half_precision.py sarvamai/sarvam-30b          # one-off: 128 GB float32 -> 60 GB bf16 on disk
+python3 -m generation_analysis.v3_common                         # extra Hinglish dev/calibration messages, holdout3
+for m in llama emollama sarvam; do                               # prompt ablation on calibration messages
+  MINDMATE_MODEL=$m python3 -m generation_analysis.v3_prompts --stages generate score report  # sarvam: add --think off
+done
+for m in llama emollama; do                                      # steering methods: screen (dev), calibrate, select
+  MINDMATE_MODEL=$m python3 -m generation_analysis.v3_methods --stages screen screen_score screen_report --prompt kg_v2
+  MINDMATE_MODEL=$m python3 -m generation_analysis.v3_methods --stages calibrate calibrate_score select --prompt kg_v2
+done
+# write results/steering_v3/decisions.json from the calibration tables, then (read once):
+MINDMATE_MODEL=<model> python3 -m generation_analysis.holdout3 --stages generate score report
+python3 -m generation_analysis.holdout3 --stages compare
+```
+
+- `chatbot_feature/emotion_reasoner/tone.py`: version-3 prompt (per-strategy tone, style and Hinglish rules, degenerate-reply
+  check). `steering_methods.py`: additive, bounded, band-selective and contrastive-residual interventions.
+- `holdout3` messages and the decisions file are hashed when generation starts (`lock.json`); a change is refused.
+- Sarvam's reasoning is skipped by pre-filling an empty reasoning block (`generate_reply(..., think=False)`), because the
+  checkpoint ignores its own no-thinking flag and otherwise spends about 1,300 tokens (~50 s) per reply.

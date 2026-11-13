@@ -26,6 +26,8 @@ Text column:
 Label column:
     label
 """
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 from pathlib import Path
 import json
@@ -53,7 +55,7 @@ DATA_FILE = (
 OUTPUT_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_emotions_full"
+    / "llama31_8b_emotions_full".replace("llama31_8b", EXPERIMENT_TAG)
 )
 
 
@@ -61,7 +63,7 @@ OUTPUT_DIR = (
 # MODEL / DATA CONFIG
 # ============================================================
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = EXPERIMENT_MODEL_ID
 
 TEXT_COLUMN = "hinglish_genz_text"
 LABEL_COLUMN = "label"
@@ -74,8 +76,8 @@ BATCH_SIZE = 4
 
 EPS = 1e-12
 
-EXPECTED_NUM_LAYERS = 32
-EXPECTED_MLP_WIDTH = 14336
+EXPECTED_NUM_LAYERS = EXPERIMENT_NUM_LAYERS
+EXPECTED_MLP_WIDTH = EXPERIMENT_MLP_WIDTH
 
 EMOTIONS = [
     "admiration",

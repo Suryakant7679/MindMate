@@ -54,6 +54,8 @@ results/sarvam1_layerwise_top5pct/12_selected_random/
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import json
@@ -128,7 +130,7 @@ BASE_DIR = Path(__file__).resolve().parent
 SELECTIVITY_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_emotions_full"
+    / "llama31_8b_emotions_full".replace("llama31_8b", EXPERIMENT_TAG)
     / "selectivity.npy"
 )
 
@@ -141,7 +143,7 @@ DATA_FILE = (
 PROBE_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_neuron_analysis"
+    / "llama31_8b_neuron_analysis".replace("llama31_8b", EXPERIMENT_TAG)
     / "04_probe"
     / "probe.pt"
 )
@@ -151,7 +153,7 @@ PROBE_FILE = (
 BASELINE_REFERENCE_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "10_all_unique_masking"
     / "all_unique_masking_results.json"
 )
@@ -159,7 +161,7 @@ BASELINE_REFERENCE_FILE = (
 OUTPUT_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top5pct"
+    / "llama31_8b_layerwise_top5pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "12_selected_random"
 )
 
@@ -173,10 +175,10 @@ OUTPUT_DIR.mkdir(
 # CONFIG
 # ============================================================
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = EXPERIMENT_MODEL_ID
 
-NUM_LAYERS = 32
-MLP_WIDTH = 14336
+NUM_LAYERS = EXPERIMENT_NUM_LAYERS
+MLP_WIDTH = EXPERIMENT_MLP_WIDTH
 
 TOP_PERCENT = 5.0
 
@@ -187,7 +189,7 @@ TOP_K = int(
     / 100.0
 )
 
-if TOP_K != 716:
+if TOP_K != int(EXPERIMENT_MLP_WIDTH * 5.0 / 100.0):
 
     raise RuntimeError(
         f"Expected top_k=716 for Llama-3.1-8B (14,336 MLP neurons), got {TOP_K}"

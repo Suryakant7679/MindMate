@@ -35,14 +35,19 @@ export async function streamMessage(
   messages: ChatMessage[],
   onChunk: (chunk: string) => void,
   signal?: AbortSignal,
+  model?: string,
 ): Promise<StreamResult> {
   const response = await fetch("/api/chat/stream", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       messages: messages.slice(-41).map(({ role, content }) => ({ role, content })),
+      ...(model ? { model } : {}),
     }), signal,
   });
-  if (!response.ok || !response.body) throw new Error("Could not reach the chat model. Please try again.");
+  if (!response.ok || !response.body) {
+    const data = await response.json().catch(() => null);
+    throw new Error(data?.error || "Could not reach the chat model. Please try again.");
+  }
   const header = (name: string) => response.headers.get(name) || undefined;
   const number = (name: string) => {
     const value = response.headers.get(name);
@@ -75,7 +80,7 @@ export async function fetchEmotionTrace(turnId: string): Promise<{
   return response.json();
 }
 export async function sendAgentMessage(
-  messages: ChatMessage[], sessionId: string, userId: string, signal?: AbortSignal,
+  messages: ChatMessage[], sessionId: string, userId: string, signal?: AbortSignal, model?: string,
 ): Promise<{
   response: string; activities: ToolActivity[]; errors: string[]; emotionPlan?: EmotionPlan;
   /** Agent replies go through the same steering path as direct chat, so the same analysis is returned. */
@@ -88,6 +93,7 @@ export async function sendAgentMessage(
       messages: messages.slice(-41).map(({ role, content }) => ({ role, content })),
       session_id: sessionId,
       user_id: userId,
+      ...(model ? { model } : {}),
     }),
     signal,
   });
@@ -107,4 +113,26 @@ export async function getModelStatus(signal?: AbortSignal): Promise<{ ready: boo
   if (!response.ok) return { ready: false, model: null, mcpEnabled: false };
   const data = await response.json();
   return { ready: data.ready === true, model: typeof data.model === "string" ? data.model : null, mcpEnabled: data.mcp_enabled === true };
+}
+
+/** A chat model the server can serve. Only one is loaded on the GPU at a time. */
+export interface ChatModel {
+  key: string;
+  label: string;
+  model_id: string;
+  purpose: string;
+  /** Weights are on the server's disk. */
+  downloaded: boolean;
+  loaded: boolean;
+  loading: boolean;
+  /** Can be selected now (loaded, or on disk, or the server may download it). */
+  available: boolean;
+  /** Emotion-neuron steering is active for this model. */
+  steering: boolean;
+}
+export async function getModels(signal?: AbortSignal): Promise<{ models: ChatModel[]; active: string | null }> {
+  const response = await fetch("/api/models", { signal });
+  if (!response.ok) return { models: [], active: null };
+  const data = await response.json();
+  return { models: Array.isArray(data?.models) ? data.models : [], active: typeof data?.active === "string" ? data.active : null };
 }

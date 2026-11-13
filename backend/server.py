@@ -15,9 +15,9 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import unquote, urlsplit
 
-from .config import DEFAULT_MODEL, LLAMA_CONFIG
-from .sarvam_config import SARVAM_CONFIG
+from .config import DEFAULT_MODEL, MODEL_REGISTRY
 from .llama import LlamaRuntime
+from .models import ModelManager, ModelUnavailable
 from .sarvam import SarvamRuntime
 from .runtime import HuggingFaceRuntime
 from .validation import validate_chat_request, validate_steering_alpha, validate_steering_emotion
@@ -27,6 +27,8 @@ class AppServer(ThreadingHTTPServer):
     runtime: HuggingFaceRuntime | None
     agent_service: Any | None = None
     emotion_service: Any | None = None
+    # Loads and swaps chat models on request (None with --no-model).
+    models: Any | None = None
 
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -44,8 +46,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def _emotion_service(self) -> Any | None:
-        """The Emotion Reasoner pipeline, present only for the configured Llama runtime."""
-        if not isinstance(self.server.runtime, LlamaRuntime):
+        """The Emotion Reasoner pipeline of the loaded model, if it has one."""
+        # Built per loaded model, and only for a model whose own steering analysis exists.
+        if not isinstance(self.server.runtime, HuggingFaceRuntime):
             return None
         return getattr(self.server, "emotion_service", None)
 
@@ -57,10 +60,16 @@ class RequestHandler(BaseHTTPRequestHandler):
                 {
                     "ready": self.server.runtime is not None,
                     "model": self.server.runtime.model_id if self.server.runtime else None,
+                    "model_key": self.server.models.active if isinstance(self.server.models, ModelManager) else None,
                     "mcp_enabled": self.server.agent_service is not None,
                     "mcp_servers": {name: item.status for name, item in health.items()},
                 },
             )
+            return
+        if self.path == "/api/models":
+            manager = self.server.models if isinstance(self.server.models, ModelManager) else None
+            self.send_json(HTTPStatus.OK, {"models": manager.catalog() if manager else [],
+                                           "active": manager.active if manager else None})
             return
         path = unquote(urlsplit(self.path).path)
         if path.startswith("/api/emotion/trace/"):
@@ -108,6 +117,12 @@ class RequestHandler(BaseHTTPRequestHandler):
         try:
             payload = json.loads(self.rfile.read(length))
             messages = validate_chat_request(payload)
+            requested_model = payload.get("model")
+            if requested_model is not None and isinstance(self.server.models, ModelManager):
+                # The chat composer's model selector: load the selected model first (never downloads).
+                if not isinstance(requested_model, str):
+                    raise ValueError("model must be the key of a listed model.")
+                self.server.models.activate(requested_model)
             manual_alpha = validate_steering_alpha(payload) if "steering_alpha" in payload else None
             requested_emotion = validate_steering_emotion(payload)
             generation_options: dict[str, Any] = {}
@@ -119,8 +134,9 @@ class RequestHandler(BaseHTTPRequestHandler):
                     messages, alpha_override=manual_alpha,
                     emotion_override=None if requested_emotion in ("auto", "mirror") else requested_emotion)
             elif manual_alpha:
-                if not isinstance(self.server.runtime, LlamaRuntime):
-                    raise ValueError("Emotion steering is available only for the configured Llama model.")
+                if not getattr(self.server.runtime, "_emotion_panels", None):
+                    raise ValueError("Emotion steering is not available for the selected model: "
+                                     "its neuron analysis has not been run.")
                 detected = self.server.runtime.detect_emotion(messages[-1]["content"])
                 target = self.server.runtime.steering_target(detected["emotion"], requested_emotion)
                 generation_options = {"steering_alpha": manual_alpha, "steering_emotion": target}
@@ -256,9 +272,31 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_json(HTTPStatus.OK, result)
 
 
+def attach_runtime(server: AppServer, key: str, runtime: Any) -> None:
+    """Point the server at a newly loaded model (or at none while models are being swapped)."""
+    server.runtime = runtime
+    server.emotion_service = None
+    if runtime is not None and (isinstance(runtime, LlamaRuntime) or getattr(runtime, "_emotion_panels", None)):
+        # Emotion Reasoner + neuron steering.  Other models chat without it until their own
+        # neuron analysis (panels, policy) has been produced by the experiment pipeline.
+        from .emotion_service import EmotionSteeringService
+
+        server.emotion_service = EmotionSteeringService(runtime)
+    if server.agent_service is not None and runtime is not None:
+        from chatbot_feature.agents import EmotionReasonerNode, LocalRuntimeModel
+
+        service = server.emotion_service
+        # The agent model shares the emotion service, so agent replies use the same steering
+        # selection and safeguards as direct chat.
+        server.agent_service.model = LocalRuntimeModel(runtime, emotion_service=service)
+        server.agent_service.emotion_reasoner = (
+            EmotionReasonerNode(service.agent, service.probe_scores) if service is not None else None)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model", choices=("llama", "sarvam"), default=DEFAULT_MODEL, help="Model preset (default: llama)")
+    parser.add_argument("--model", choices=tuple(MODEL_REGISTRY), default=DEFAULT_MODEL,
+                        help="Model loaded at start (default: llama). Others can be selected in the chat.")
     parser.add_argument("--model-id", help="Override the selected preset with a Hugging Face ID or local checkpoint")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument(
@@ -269,12 +307,14 @@ def main() -> None:
     )
     parser.add_argument(
         "--load-in-4bit", action=argparse.BooleanOptionalAction, default=None,
-        help="Override preset quantization (Sarvam: 4-bit, Llama: full precision)",
+        help="Override preset quantization (Sarvam: 4-bit, others: full precision)",
     )
+    parser.add_argument("--allow-download", action="store_true",
+                        help="Let the server download a selected model that is not on disk. Without it, "
+                             "only models already in the local Hugging Face cache can be used.")
     parser.add_argument("--no-model", action="store_true", help="Run the API without loading a model for connectivity checks")
     args = parser.parse_args()
 
-    config = SARVAM_CONFIG if args.model == "sarvam" else LLAMA_CONFIG
     try:
         server = AppServer((args.host, args.port), RequestHandler)
     except OSError as exc:
@@ -285,27 +325,21 @@ def main() -> None:
             ) from exc
         raise
     try:
-        runtime_class = SarvamRuntime if args.model == "sarvam" else LlamaRuntime
-        server.runtime = None if args.no_model else runtime_class(
-            args.model_id or config.model_id, args.load_in_4bit
-        )
-        if isinstance(server.runtime, LlamaRuntime):
-            from .emotion_service import EmotionSteeringService
+        server.runtime = None
+        if not args.no_model:
+            if os.getenv("MCP_ENABLED", "false").lower() in {"1", "true", "yes"}:
+                from chatbot_feature.graph import AgentChatService
+                from chatbot_feature.mcp_connector import MCPManager
 
-            server.emotion_service = EmotionSteeringService(server.runtime)
-        if server.runtime is not None and os.getenv("MCP_ENABLED", "false").lower() in {"1", "true", "yes"}:
-            from chatbot_feature.agents import EmotionReasonerNode, LocalRuntimeModel
-            from chatbot_feature.graph import AgentChatService
-            from chatbot_feature.mcp_connector import MCPManager
-
-            reasoner = None
-            if server.emotion_service is not None:
-                reasoner = EmotionReasonerNode(server.emotion_service.agent, server.emotion_service.probe_scores)
-            # The agent model shares the emotion service, so agent replies use the same steering
-            # selection and safeguards as direct chat.
-            server.agent_service = AgentChatService(
-                LocalRuntimeModel(server.runtime, emotion_service=server.emotion_service), MCPManager(),
-                emotion_reasoner=reasoner)
+                server.agent_service = AgentChatService(None, MCPManager())      # model attached below
+            server.models = ModelManager(allow_download=args.allow_download,
+                                         on_change=lambda key, runtime: attach_runtime(server, key, runtime))
+            options = {name: value for name, value in (("model_id", args.model_id), ("load_in_4bit", args.load_in_4bit))
+                       if value is not None}
+            try:
+                server.models.activate(args.model, **options)
+            except ModelUnavailable as exc:
+                raise SystemExit(str(exc)) from exc
         print(f"MindMate API: http://{args.host}:{args.port}")
         server.serve_forever()
     except KeyboardInterrupt:

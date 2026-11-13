@@ -140,6 +140,8 @@ results/sarvam1_steering/19_top_joy_actuator_tests/
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import json
@@ -246,7 +248,7 @@ args = parser.parse_args()
 # CONFIG
 # ============================================================
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = EXPERIMENT_MODEL_ID
 
 EPS = 1e-12
 
@@ -263,7 +265,7 @@ BASE_DIR = Path(
 RANKING_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_steering"
+    / "llama31_8b_steering".replace("llama31_8b", EXPERIMENT_TAG)
     / "18_all_top1pct_joy_actuators"
 )
 
@@ -283,7 +285,7 @@ LAYER_DIRECTION_DIR = (
 OUTPUT_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_steering"
+    / "llama31_8b_steering".replace("llama31_8b", EXPERIMENT_TAG)
     / "19_top_joy_actuator_tests"
 )
 

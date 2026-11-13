@@ -26,12 +26,17 @@ from typing import Any, Iterable, Sequence
 import numpy as np
 import torch
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
-RESULTS_DIR = Path("results/llama31_8b_generation_emotion")
-RECOGNITION_DIR = Path("results/llama31_8b_emotions_full")
+# The analysed model comes from MINDMATE_MODEL (see experiment_model.py); unset, it is Llama 3.1-8B
+# and every path below is the original one.
+from experiment_model import EXPERIMENT_KEY, EXPERIMENT_MODEL_ID, EXPERIMENT_SPEC, EXPERIMENT_TAG  # noqa: E402
+
+MODEL_KEY = EXPERIMENT_KEY
+MODEL_ID = EXPERIMENT_MODEL_ID
+RESULTS_DIR = Path(f"results/{EXPERIMENT_TAG}_generation_emotion")
+RECOGNITION_DIR = Path(f"results/{EXPERIMENT_TAG}_emotions_full")
 RECOGNITION_SELECTIVITY = RECOGNITION_DIR / "selectivity.npy"
 RECOGNITION_METADATA = RECOGNITION_DIR / "metadata.json"
-PROBE_PATH = Path("results/llama31_8b_neuron_analysis/04_probe/probe.pt")
+PROBE_PATH = Path(f"results/{EXPERIMENT_TAG}_neuron_analysis/04_probe/probe.pt")
 DEFAULT_CSV = "data/mlt_hinghlish_dataset_clean.csv"
 NEUTRAL = "neutral"
 # Raw alpha=1 scale of the original single-joy-neuron experiment (backend/runtime.py).
@@ -107,12 +112,25 @@ def assert_original_checkpoint(model_id: str, *, allow_mismatch: bool = False) -
 def load_model(model_id: str, *, allow_mismatch: bool = False) -> tuple[Any, Any]:
     from transformers import AutoModelForCausalLM, AutoTokenizer
     assert_original_checkpoint(model_id, allow_mismatch=allow_mismatch)
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    config = EXPERIMENT_SPEC.config
+    extra: dict[str, Any] = {}
+    if model_id == config.model_id:
+        # Same loading settings as the chat backend uses for this model.
+        if config.trust_remote_code:
+            extra["trust_remote_code"] = True
+        if config.load_in_4bit:
+            from transformers import BitsAndBytesConfig
+            extra["quantization_config"] = BitsAndBytesConfig(
+                load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True,
+                bnb_4bit_compute_dtype=torch.bfloat16)
+    tokenizer = AutoTokenizer.from_pretrained(model_id, **({"trust_remote_code": True} if extra.get("trust_remote_code") else {}))
+    if config.chat_template and not getattr(tokenizer, "chat_template", None):
+        tokenizer.chat_template = config.chat_template
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
     dtype = torch.bfloat16 if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else torch.float32
     model = AutoModelForCausalLM.from_pretrained(model_id, device_map="auto", dtype=dtype,
-                                                 low_cpu_mem_usage=True)
+                                                 low_cpu_mem_usage=True, **extra)
     if hasattr(model, "peft_config"):
         raise SystemExit("A PEFT adapter was attached to the model; use the original checkpoint.")
     model.eval()

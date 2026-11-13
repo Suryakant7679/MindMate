@@ -199,7 +199,8 @@ class Planner:
         self.scorer = ReplyEmotionScorer(holder)
         if not self.scorer.uses_classifier:
             raise SystemExit("The gate classifier could not be loaded; plans would not match deployment.")
-        panels = json.loads((RESULTS_DIR / "steering_panels" / "panels.json").read_text())["panels"]
+        from .common import EXPERIMENT_SPEC
+        panels = json.loads((RESULTS_DIR / "steering_panels" / EXPERIMENT_SPEC.config.panel_file).read_text())["panels"]
         self.agent = EmotionReasonerAgent(available_panels=list(panels), policy=policy)
         self.history_turns = HISTORY_TURNS
         self.detector = f"{self.scorer.model_id} fused with knowledge-graph cues"
@@ -231,8 +232,9 @@ class Planner:
 # -------------------------------------------------------------------- generation
 
 def load_runtime(model_id: str = MODEL_ID):
-    from backend.llama import LlamaRuntime
-    runtime = LlamaRuntime(model_id)
+    from backend.models import create_runtime
+    from .common import MODEL_KEY
+    runtime = create_runtime(MODEL_KEY, model_id=model_id)      # the backend's own loader; never downloads
     if not runtime._emotion_panels:
         raise SystemExit("No steering panels. Run: python3 -m generation_analysis.build_steering_panels")
     runtime.tokenizer.padding_side = "left"
@@ -399,14 +401,23 @@ class Judge:
     PAIR_SYSTEM = ("You are a strict, careful evaluator of chatbot replies in a supportive-conversation app. "
                    "Answer with a single letter, A or B.")
 
-    def __init__(self, model_id: str = JUDGE_ID) -> None:
+    def __init__(self, model_id: str = JUDGE_ID, load_in_4bit: bool = False) -> None:
         from transformers import AutoModelForCausalLM, AutoTokenizer
+        self.model_id = model_id
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.tokenizer.padding_side = "left"
-        self.model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.bfloat16,
-                                                          device_map="cuda").eval()
-        self.digits = [self.tokenizer.encode(str(d), add_special_tokens=False)[0] for d in range(1, 6)]
-        self.letters = [self.tokenizer.encode(letter, add_special_tokens=False)[0] for letter in ("A", "B")]
+        kwargs: dict[str, Any] = {"torch_dtype": torch.bfloat16, "device_map": "cuda"}
+        if load_in_4bit:
+            from transformers import BitsAndBytesConfig
+            kwargs["quantization_config"] = BitsAndBytesConfig(
+                load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16,
+                bnb_4bit_use_double_quant=True)
+        self.model = AutoModelForCausalLM.from_pretrained(model_id, **kwargs).eval()
+        self.digits = [self.tokenizer.encode(str(d), add_special_tokens=False)[-1] for d in range(1, 6)]
+        self.letters = [self.tokenizer.encode(letter, add_special_tokens=False)[-1] for letter in ("A", "B")]
+        # Share of next-token probability that falls on the allowed answers; near 1 when the judge
+        # really answers with a digit / letter.  Reported so a judge that ignores the format is noticed.
+        self.answer_mass: list[float] = []
 
     @staticmethod
     def context(user: str, history: Sequence[dict[str, str]] = ()) -> str:
@@ -422,7 +433,9 @@ class Judge:
             for start in range(0, len(order), batch_size):
                 chunk = order[start:start + batch_size]
                 encoded = self.tokenizer([prompts[i] for i in chunk], return_tensors="pt", padding=True).to("cuda")
-                out[chunk] = self.model(**encoded).logits[:, -1, tokens].float().cpu()
+                logits = self.model(**encoded).logits[:, -1].float()
+                self.answer_mass += torch.softmax(logits, -1)[:, tokens].sum(-1).cpu().tolist()
+                out[chunk] = logits[:, tokens].cpu()
         return out
 
     def rate(self, contexts: Sequence[str], replies: Sequence[str], rubrics: Sequence[str],

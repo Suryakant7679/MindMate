@@ -15,6 +15,8 @@ Outputs:
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import json
 from pathlib import Path
@@ -51,7 +53,7 @@ DATA_FILE = (
 PROBE_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_neuron_analysis"
+    / "llama31_8b_neuron_analysis".replace("llama31_8b", EXPERIMENT_TAG)
     / "04_probe"
     / "probe.pt"
 )
@@ -59,7 +61,7 @@ PROBE_FILE = (
 SINGLE_EMOTION_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "single_emotion_analysis"
     / "single_emotion_neurons.csv"
 )
@@ -67,7 +69,7 @@ SINGLE_EMOTION_FILE = (
 OUTPUT_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "10_all_unique_masking"
 )
 
@@ -81,7 +83,7 @@ OUTPUT_DIR.mkdir(
 # CONFIG
 # ============================================================
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = EXPERIMENT_MODEL_ID
 
 TEXT_COLUMN = "hinglish_genz_text"
 LABEL_COLUMN = "label"
@@ -302,7 +304,7 @@ neurons_by_layer = {}
 total_masked = 0
 
 
-for layer_idx in range(32):
+for layer_idx in range(EXPERIMENT_NUM_LAYERS):
 
     neuron_ids = (
         single_df.loc[
@@ -456,7 +458,7 @@ for parameter in model.parameters():
 layers = model.model.layers
 
 
-if len(layers) != 32:
+if len(layers) != EXPERIMENT_NUM_LAYERS:
 
     raise ValueError(
         f"Expected 32 layers, "

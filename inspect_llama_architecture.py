@@ -7,6 +7,8 @@ small model configuration, not the 8B parameter weights.  Use
 parameters; that option needs enough RAM/VRAM for the checkpoint.
 """
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import json
@@ -14,8 +16,8 @@ from pathlib import Path
 from typing import Any
 
 
-DEFAULT_MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
-DEFAULT_OUTPUT = "results/llama31_8b_architecture/architecture.json"
+DEFAULT_MODEL_ID = EXPERIMENT_MODEL_ID
+DEFAULT_OUTPUT = "results/llama31_8b_architecture/architecture.json".replace("llama31_8b", EXPERIMENT_TAG)
 
 
 def serializable(value: Any) -> Any:

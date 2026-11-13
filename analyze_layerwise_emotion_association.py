@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Create layer-wise single/shared-emotion reports from selected neuron IDs."""
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 import argparse
 import csv
 import json
@@ -63,9 +65,9 @@ def write_png(percentages: list[float], matrices: list[np.ndarray], path: Path) 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--input-file', default='results/llama31_8b_neuron_analysis/top_selectivity_neurons.json')
-    parser.add_argument('--output-csv', default='results/llama31_8b_neuron_analysis/layerwise_emotion_association_report.csv')
-    parser.add_argument('--output-png', default='results/llama31_8b_neuron_analysis/layerwise_emotion_association_report.png')
+    parser.add_argument('--input-file', default='results/llama31_8b_neuron_analysis/top_selectivity_neurons.json'.replace("llama31_8b", EXPERIMENT_TAG))
+    parser.add_argument('--output-csv', default='results/llama31_8b_neuron_analysis/layerwise_emotion_association_report.csv'.replace("llama31_8b", EXPERIMENT_TAG))
+    parser.add_argument('--output-png', default='results/llama31_8b_neuron_analysis/layerwise_emotion_association_report.png'.replace("llama31_8b", EXPERIMENT_TAG))
     args = parser.parse_args()
     data = json.loads(Path(args.input_file).read_text(encoding='utf-8'))
     required = {'percentages', 'num_layers', 'neurons_per_layer', 'labels', 'selected_neurons'}

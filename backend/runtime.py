@@ -6,8 +6,8 @@ import json
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
-from .config import (CONTEXT_TOKENS, DEFAULT_STEERING_TARGET, STEERING_GAIN, STEERING_PANEL_FILE,
-                     SUPPORTIVE_TARGET, SYSTEM_PROMPT, ModelConfig)
+from .config import (CONTEXT_TOKENS, DEFAULT_STEERING_TARGET, STEERING_GAIN, SUPPORTIVE_TARGET, SYSTEM_PROMPT,
+                     ModelConfig)
 
 class HuggingFaceRuntime:
     enable_thinking: bool | None = None
@@ -18,7 +18,9 @@ class HuggingFaceRuntime:
     def decode_response(self, new_tokens) -> str:
         return self.tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
 
-    def __init__(self, model_id: str, load_in_4bit: bool | None = None, *, config: ModelConfig | None = None) -> None:
+    def __init__(self, model_id: str, load_in_4bit: bool | None = None, *, config: ModelConfig | None = None,
+                 local_files_only: bool = False) -> None:
+        """``local_files_only`` refuses to download: the checkpoint must already be in the local cache."""
         try:
             import torch
             from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -33,6 +35,9 @@ class HuggingFaceRuntime:
         self.enable_thinking = config.enable_thinking
         self.torch = torch
         self.model_id = model_id
+        # Result folders (panels, probe) belong to one checkpoint; a different model id gets none.
+        self.results_tag = config.results_tag if model_id == config.model_id else None
+        self.panel_file = config.panel_file
         self.lock = threading.Lock()
         token = os.environ.get("HF_TOKEN")
 
@@ -52,6 +57,8 @@ class HuggingFaceRuntime:
             "torch_dtype": dtype,
             "low_cpu_mem_usage": True,
         }
+        if local_files_only:
+            model_kwargs["local_files_only"] = True
         if load_in_4bit:
             try:
                 from transformers import BitsAndBytesConfig
@@ -68,7 +75,10 @@ class HuggingFaceRuntime:
             print("Quantization: 4-bit NF4 with double quantization.")
 
         try:
-            self.tokenizer = AutoTokenizer.from_pretrained(model_id, token=token)
+            self.tokenizer = AutoTokenizer.from_pretrained(
+                model_id, token=token, **({"local_files_only": True} if local_files_only else {}))
+            if config.chat_template and not getattr(self.tokenizer, "chat_template", None):
+                self.tokenizer.chat_template = config.chat_template
             self.model = AutoModelForCausalLM.from_pretrained(model_id, **model_kwargs)
         except OSError as exc:
             message = str(exc).lower()
@@ -81,6 +91,10 @@ class HuggingFaceRuntime:
         if self.tokenizer.pad_token_id is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
         self.model.eval()
+        # Prompt-trimming budget: the app default, never more than the checkpoint's own window
+        # (EmoLLaMA and Llama-2 have 2,048 / 4,096 positions).
+        window = getattr(getattr(self.model, "config", None), "max_position_embeddings", None)
+        self.context_tokens = min(CONTEXT_TOKENS, window) if isinstance(window, int) and window > 0 else CONTEXT_TOKENS
         self._emotion_panels = self._load_emotion_panels()
         self._emotion_probe = None
         self._probe_load_attempted = False
@@ -94,12 +108,16 @@ class HuggingFaceRuntime:
         a shift is the neuron's mean decode-step activation under that emotion
         minus its mean under the neutral style.
         """
-        if "llama" not in self.model_id.lower():
+        if not self.results_tag:
             return {}
-        path = (Path(__file__).resolve().parent.parent / "results" / "llama31_8b_generation_emotion"
-                / "steering_panels" / STEERING_PANEL_FILE)
+        path = (Path(__file__).resolve().parent.parent / "results" / f"{self.results_tag}_generation_emotion"
+                / "steering_panels" / self.panel_file)
+        if not path.exists():
+            return {}       # the generation analysis has not been run for this model: plain chat
         try:
             payload = json.loads(path.read_text(encoding="utf-8"))
+            if payload.get("model_id") != self.model_id:
+                raise ValueError(f"panels were built for {payload.get('model_id')!r}, not {self.model_id!r}")
             return {
                 emotion: {int(layer): ([int(n) for n in item["neurons"]], [float(d) for d in item["deltas"]])
                           for layer, item in by_layer.items()}
@@ -114,7 +132,7 @@ class HuggingFaceRuntime:
         if self._probe_load_attempted:
             return self._emotion_probe
         self._probe_load_attempted = True
-        path = (Path(__file__).resolve().parent.parent / "results" / "llama31_8b_neuron_analysis"
+        path = (Path(__file__).resolve().parent.parent / "results" / f"{self.results_tag}_neuron_analysis"
                 / "04_probe" / "probe.pt")
         try:
             checkpoint = self.torch.load(path, map_location="cpu", weights_only=True)
@@ -279,7 +297,7 @@ class HuggingFaceRuntime:
                 **({"enable_thinking": self.enable_thinking} if self.enable_thinking is not None else {})
             )
             encoded = self.tokenizer(formatted, return_tensors="pt", add_special_tokens=False)
-            if encoded["input_ids"].shape[1] <= CONTEXT_TOKENS - max_new_tokens:
+            if encoded["input_ids"].shape[1] <= self._context_budget(max_new_tokens):
                 break
             if len(conversation) <= first_turn + 1:
                 raise ValueError("Message exceeds the model context budget.")
@@ -319,6 +337,11 @@ class HuggingFaceRuntime:
             "steering_emotion": steering_emotion,
         }
 
+    def _context_budget(self, max_new_tokens: int) -> int:
+        """Prompt tokens allowed for a reply of up to ``max_new_tokens`` (at least a quarter of the window)."""
+        window = getattr(self, "context_tokens", CONTEXT_TOKENS)
+        return max(window - max_new_tokens, window // 4)
+
     def _encode_conversation(self, messages: list[dict[str, str]], system_prompt: str | None,
                              max_new_tokens: int) -> dict[str, Any]:
         """Chat-template the conversation, dropping the oldest complete turns until it fits the context."""
@@ -330,7 +353,7 @@ class HuggingFaceRuntime:
                 **({"enable_thinking": self.enable_thinking} if self.enable_thinking is not None else {})
             )
             encoded = self.tokenizer(formatted, return_tensors="pt", add_special_tokens=False)
-            if encoded["input_ids"].shape[1] <= CONTEXT_TOKENS - max_new_tokens:
+            if encoded["input_ids"].shape[1] <= self._context_budget(max_new_tokens):
                 break
             if len(conversation) <= first_turn + 1:
                 raise ValueError("Message exceeds the model context budget.")

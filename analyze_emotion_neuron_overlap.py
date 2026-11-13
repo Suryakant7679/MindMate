@@ -24,6 +24,8 @@ Outputs:
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import csv
@@ -833,7 +835,7 @@ def main() -> None:
         default=(
             "results/"
             "llama31_8b_neuron_analysis/"
-            "top_selectivity_neurons.json"
+            "top_selectivity_neurons.json".replace("llama31_8b", EXPERIMENT_TAG)
         )
     )
 
@@ -842,7 +844,7 @@ def main() -> None:
         default=(
             "results/"
             "llama31_8b_neuron_analysis/"
-            "emotion_membership_analysis"
+            "emotion_membership_analysis".replace("llama31_8b", EXPERIMENT_TAG)
         )
     )
 

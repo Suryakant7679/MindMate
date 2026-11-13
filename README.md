@@ -8,6 +8,22 @@ A responsive React + TypeScript frontend with Tailwind CSS, Lucide icons, and Re
 Sarvam-1 research path; MindMate currently exposes both Llama and Sarvam model
 presets, as described below.*
 
+## Interface
+
+### Chatbot UI
+
+The chat workspace supports streamed replies, model selection, connection
+status, and a visible summary when emotion-neuron steering is applied.
+
+![MindMate chatbot UI](docs/chatbot-ui.png)
+
+### Emotion Tracker UI
+
+The Mood Tracker explains the Emotion Reasoner's interpretation, response
+strategy, steering decision, and measured or estimated effect for each turn.
+
+![MindMate emotion tracker UI](docs/emotion-tracker-ui.png)
+
 ## Dataset
 
 The project includes [GoEmotions hard labels](data/goemotions_hardlabels.csv): 57,732 text examples with one `text` column and 28 binary label columns. The labels cover 27 emotions plus `neutral`.
@@ -90,6 +106,7 @@ The Sarvam preset is in `backend/sarvam_config.py` and loads
 Its custom architecture requires `trust_remote_code=True`, enabled by this preset.
 Install the updated requirements first (Transformers 4.57.2 or newer, below 5).
 Sarvam loads through `backend/sarvam.py`, independently of the Llama entry point.
+Sarvam's weights were removed from the local cache to free disk space; it shows as "not downloaded" in the chat's model selector until they are downloaded again (`hf download sarvamai/sarvam-30b`, about 120 GB).
 Shared loading mechanics are in `backend/runtime.py`. Sarvam receives conversation
 history without a MindMate/persona system prompt. Sarvam uses its native thinking
 template; the backend removes reasoning tokens and returns only the final answer.

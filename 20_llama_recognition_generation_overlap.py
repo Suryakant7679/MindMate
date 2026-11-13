@@ -8,6 +8,8 @@ during decoding and compares the target-emotion probability of generated text
 against an equal-size, layer-matched random-neuron control.
 """
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_SPEC, EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import csv
@@ -24,10 +26,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 os.environ.setdefault("PYTORCH_ALLOC_CONF", "expandable_segments:True")
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = EXPERIMENT_MODEL_ID
 DEFAULT_CSV = "data/mlt_hinghlish_dataset_clean.csv"
-DEFAULT_PROBE = "results/llama31_8b_neuron_analysis/04_probe/probe.pt"
-DEFAULT_OUTPUT = "results/llama31_8b_recognition_generation_overlap"
+DEFAULT_PROBE = "results/llama31_8b_neuron_analysis/04_probe/probe.pt".replace("llama31_8b", EXPERIMENT_TAG)
+DEFAULT_OUTPUT = "results/llama31_8b_recognition_generation_overlap".replace("llama31_8b", EXPERIMENT_TAG)
 
 
 def valid_mask(input_ids: torch.Tensor, attention_mask: torch.Tensor, tokenizer: Any) -> torch.Tensor:
@@ -208,6 +210,8 @@ def main() -> None:
         raise ValueError("Target and baseline groups each need at least two non-empty examples.")
 
     tokenizer = AutoTokenizer.from_pretrained(args.model_id)
+    if EXPERIMENT_SPEC.config.chat_template and not getattr(tokenizer, "chat_template", None):
+        tokenizer.chat_template = EXPERIMENT_SPEC.config.chat_template   # e.g. EmoLLaMA ships without one
     if tokenizer.pad_token_id is None: tokenizer.pad_token = tokenizer.eos_token
     dtype = torch.bfloat16 if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else torch.float32
     model = AutoModelForCausalLM.from_pretrained(args.model_id, device_map="auto", dtype=dtype, low_cpu_mem_usage=True)

@@ -96,6 +96,8 @@ IMPORTANT:
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import json
@@ -187,7 +189,7 @@ args = parser.parse_args()
 # CONFIGURATION
 # ============================================================
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = EXPERIMENT_MODEL_ID
 
 TEXT_COLUMN = "hinglish_genz_text"
 
@@ -219,7 +221,7 @@ DATA_FILE = (
 TOP1_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "all_layers_top1pct.csv"
 )
 
@@ -227,7 +229,7 @@ TOP1_FILE = (
 OUTPUT_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_steering"
+    / "llama31_8b_steering".replace("llama31_8b", EXPERIMENT_TAG)
     / "18_all_top1pct_joy_actuators"
 )
 

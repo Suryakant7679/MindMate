@@ -49,6 +49,8 @@ All reported cosines and angles are calculated from the original
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import json
@@ -122,7 +124,7 @@ args = parser.parse_args()
 
 BASE_DIR = Path(__file__).resolve().parent
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = EXPERIMENT_MODEL_ID
 
 EPS = 1e-12
 
@@ -130,7 +132,7 @@ EPS = 1e-12
 BEST_NEURON_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_steering"
+    / "llama31_8b_steering".replace("llama31_8b", EXPERIMENT_TAG)
     / "13_single_joy_neuron_selection"
     / "best_joy_neuron.json"
 )
@@ -139,7 +141,7 @@ BEST_NEURON_FILE = (
 JOY_DIRECTION_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_steering"
+    / "llama31_8b_steering".replace("llama31_8b", EXPERIMENT_TAG)
     / "15_direction_and_logit_analysis"
     / "joy_minus_sad_hidden_direction.npy"
 )
@@ -148,7 +150,7 @@ JOY_DIRECTION_FILE = (
 OUTPUT_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_steering"
+    / "llama31_8b_steering".replace("llama31_8b", EXPERIMENT_TAG)
     / "16_steering_direction_visualization"
 )
 

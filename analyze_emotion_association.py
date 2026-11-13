@@ -17,6 +17,8 @@ Association degree:
     ...
     10 -> selected for all ten emotions
 """
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import csv
@@ -455,7 +457,7 @@ def main() -> None:
         "--input-file",
         default=(
             "results/llama31_8b_neuron_analysis/"
-            "top_selectivity_neurons.json"
+            "top_selectivity_neurons.json".replace("llama31_8b", EXPERIMENT_TAG)
         ),
     )
 
@@ -463,7 +465,7 @@ def main() -> None:
         "--output-csv",
         default=(
             "results/llama31_8b_neuron_analysis/"
-            "emotion_association_degree_report.csv"
+            "emotion_association_degree_report.csv".replace("llama31_8b", EXPERIMENT_TAG)
         ),
     )
 
@@ -471,7 +473,7 @@ def main() -> None:
         "--output-png",
         default=(
             "results/llama31_8b_neuron_analysis/"
-            "emotion_association_degree_report.png"
+            "emotion_association_degree_report.png".replace("llama31_8b", EXPERIMENT_TAG)
         ),
     )
 

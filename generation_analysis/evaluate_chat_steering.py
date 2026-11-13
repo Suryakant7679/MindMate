@@ -26,9 +26,10 @@ from scipy.stats import wilcoxon
 
 from backend.config import SYSTEM_PROMPT
 from backend.llama import LlamaRuntime
+from backend.models import create_runtime
 
 from .causal_validation import GOEMOTIONS, SCORER, goemotion_scores
-from .common import MODEL_ID, RESULTS_DIR, write_json
+from .common import MODEL_KEY, MODEL_ID, RESULTS_DIR, write_json
 
 MESSAGES = [
     "I failed my exam again and I feel like such a disappointment to my parents.",
@@ -102,7 +103,7 @@ def main() -> None:
     output = Path(args.output_dir)
     output.mkdir(parents=True, exist_ok=True)
     messages = pd.read_csv(args.messages_csv).text.tolist() if args.messages_csv else MESSAGES
-    runtime = LlamaRuntime(args.model_id)
+    runtime = create_runtime(MODEL_KEY, model_id=args.model_id)
     if not runtime._emotion_panels:
         raise SystemExit("No steering panels. Run: python3 -m generation_analysis.build_steering_panels")
     width = runtime.model.model.layers[0].mlp.down_proj.in_features

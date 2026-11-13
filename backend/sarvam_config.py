@@ -1,9 +1,4 @@
 """Hugging Face Sarvam 30B settings for direct conversational responses."""
-from .config import ModelConfig
+from .config import MODEL_REGISTRY
 
-SARVAM_CONFIG = ModelConfig(
-    model_id="sarvamai/sarvam-30b",
-    load_in_4bit=True,
-    trust_remote_code=True,
-    enable_thinking=True,
-)
+SARVAM_CONFIG = MODEL_REGISTRY["sarvam"].config

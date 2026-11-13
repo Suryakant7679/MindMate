@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 from pathlib import Path
 
@@ -14,14 +16,14 @@ BASE_DIR = Path(__file__).resolve().parent
 INPUT_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "all_layers_top1pct.csv"
 )
 
 OUTPUT_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "single_emotion_analysis"
 )
 

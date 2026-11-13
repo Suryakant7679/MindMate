@@ -1,11 +1,19 @@
 import { Paperclip, ArrowUp } from "lucide-react";
 import { useState } from "react";
+import type { ChatModel } from "../../api/chat";
 export function ChatInput({
   onSend,
   busy,
+  models = [],
+  selectedModel,
+  onSelectModel,
 }: {
   onSend: (text: string) => void;
   busy: boolean;
+  /** Models offered in the selector; hidden when the server lists none. */
+  models?: ChatModel[];
+  selectedModel?: string;
+  onSelectModel?: (key: string) => void;
 }) {
   const [text, setText] = useState("");
   function submit() {
@@ -47,6 +55,22 @@ export function ChatInput({
             }
           }}
         />
+        {models.length > 0 && (
+          <select
+            className="model-select"
+            aria-label="Model used to answer"
+            title={models.find((item) => item.key === selectedModel)?.purpose}
+            value={selectedModel ?? ""}
+            disabled={busy}
+            onChange={(event) => onSelectModel?.(event.target.value)}
+          >
+            {models.map((item) => (
+              <option key={item.key} value={item.key} disabled={!item.available}>
+                {item.label}{item.loaded ? " · loaded" : item.available ? "" : " · not downloaded"}
+              </option>
+            ))}
+          </select>
+        )}
         <button
           className="send-button"
           aria-label="Send message"

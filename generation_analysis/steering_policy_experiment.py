@@ -123,8 +123,9 @@ def release() -> None:
 # ------------------------------------------------------------------- generation
 
 def generate(args, output: Path) -> None:
-    from backend.llama import LlamaRuntime
-    runtime = LlamaRuntime(args.model_id)
+    from backend.models import create_runtime
+    from .common import MODEL_KEY
+    runtime = create_runtime(MODEL_KEY, model_id=args.model_id)
     agent = EmotionReasonerAgent(available_panels=list(runtime._emotion_panels))
     path = output / "generations.jsonl"
     done = {(row["message_id"], row["condition"], row["alpha"]) for row in read_jsonl(path)} if path.exists() else set()

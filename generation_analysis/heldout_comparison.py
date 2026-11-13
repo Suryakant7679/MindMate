@@ -29,7 +29,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from .common import MODEL_ID, RESULTS_DIR, read_jsonl, write_json
+from .common import MODEL_ID, MODEL_KEY, RESULTS_DIR, read_jsonl, write_json
 from .steering_lab import (LAB_DIR, QUALITY, SYSTEM_PROMPT, Judge, holm, load_split, messages_of, paired_summary,
                            release, score_table)
 
@@ -39,12 +39,15 @@ METRICS = ("judge_emotion", "indep_target", *QUALITY)
 
 
 def run_system(name: str, args) -> None:
-    from backend.llama import LlamaRuntime
+    from backend.models import create_runtime
+    if name == "v1" and MODEL_KEY != "llama":
+        raise SystemExit("The frozen previous system (v1) exists only for Llama 3.1-8B. For other models run "
+                         "--stages v2 score report: baseline, strategy prompt and the current system are compared.")
     OUT.mkdir(parents=True, exist_ok=True)
     path = OUT / f"{name}.jsonl"
     done = {row["item_id"] for row in read_jsonl(path)} if path.exists() else set()
     items = load_split("test")
-    runtime = LlamaRuntime(args.model_id)
+    runtime = create_runtime(MODEL_KEY, model_id=args.model_id)
     if name == "v1":
         from chatbot_feature.emotion_reasoner import EmotionReasonerAgent
         from chatbot_feature.emotion_reasoner.agent import DETECTOR_WEIGHT
@@ -62,7 +65,7 @@ def run_system(name: str, args) -> None:
                 continue
             messages = messages_of(row)
             record = {"item_id": row.item_id}
-            if name == "v1":       # the plain baseline is generated once, alongside the first system
+            if name == "v1" or MODEL_KEY != "llama":   # the plain baseline is generated once, with the first system run
                 started = time.perf_counter()
                 record["baseline_reply"] = runtime.generate(
                     messages, max_new_tokens=args.max_new_tokens, deterministic=True, temperature=0.7,
@@ -90,8 +93,13 @@ def run_system(name: str, args) -> None:
 
 def score(args) -> None:
     items = load_split("test").set_index("item_id")
-    v1 = pd.DataFrame(read_jsonl(OUT / "v1.jsonl")).set_index("item_id")
     v2 = pd.DataFrame(read_jsonl(OUT / "v2.jsonl")).set_index("item_id")
+    if (OUT / "v1.jsonl").exists():
+        v1 = pd.DataFrame(read_jsonl(OUT / "v1.jsonl")).set_index("item_id")
+    else:
+        # No previous system for this model: its row repeats the unsteered strategy-prompt reply, so
+        # "v1" contrasts are exactly zero and only baseline / kg_prompt / v2 carry information.
+        v1 = v2.assign(reply=v2.unsteered_reply, status="none", applied_alpha=0.0, latency=np.nan)
     if set(v1.index) != set(items.index) or set(v2.index) != set(items.index):
         raise SystemExit("v1/v2 runs are incomplete.")
     rows = []

@@ -6,6 +6,8 @@ S[l,u,e] = P[l,u,e] * (1 - H[l,u]) and writes only the selected neuron IDs.
 It does not save activation counts, probabilities, entropy, or full scores.
 """
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import json
@@ -152,11 +154,11 @@ def write_selection_output(output_file: str, model_id: str, labels: list[str], n
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-id", default="meta-llama/Llama-3.1-8B-Instruct")
+    parser.add_argument("--model-id", default=EXPERIMENT_MODEL_ID)
     parser.add_argument("--csv-path", default="data/mlt_hinghlish_dataset_clean.csv")
     parser.add_argument("--text-column", default="hinglish_genz_text")
     parser.add_argument("--label-column", default="label")
-    parser.add_argument("--output-file", default="results/llama31_8b_neuron_analysis/top_selectivity_neurons.json")
+    parser.add_argument("--output-file", default="results/llama31_8b_neuron_analysis/top_selectivity_neurons.json".replace("llama31_8b", EXPERIMENT_TAG))
     parser.add_argument("--percentages", type=float, nargs="+", default=DEFAULT_PERCENTAGES)
     # Llama's intermediate activations are 14,336-wide.  Four examples keep
     # the 32 hooked MLP tensors comfortably below the 48 GiB GPU budget.

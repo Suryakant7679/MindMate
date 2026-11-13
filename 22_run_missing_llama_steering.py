@@ -7,6 +7,8 @@ The script writes a before/after audit to ``results/llama31_8b_steering``.
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import json
@@ -18,7 +20,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-RESULTS = ROOT / "results" / "llama31_8b_steering"
+RESULTS = ROOT / "results" / "llama31_8b_steering".replace("llama31_8b", EXPERIMENT_TAG)
 
 
 @dataclass(frozen=True)

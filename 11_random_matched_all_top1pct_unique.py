@@ -28,6 +28,8 @@ Outputs:
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import json
@@ -59,7 +61,7 @@ DATA_FILE = (
 PROBE_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_neuron_analysis"
+    / "llama31_8b_neuron_analysis".replace("llama31_8b", EXPERIMENT_TAG)
     / "04_probe"
     / "probe.pt"
 )
@@ -68,7 +70,7 @@ PROBE_FILE = (
 SINGLE_EMOTION_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "single_emotion_analysis"
     / "single_emotion_neurons.csv"
 )
@@ -78,7 +80,7 @@ SINGLE_EMOTION_FILE = (
 ALL_TOP1_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "all_layers_top1pct.csv"
 )
 
@@ -86,7 +88,7 @@ ALL_TOP1_FILE = (
 SELECTED_RESULT_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "10_all_unique_masking"
     / "all_unique_masking_results.json"
 )
@@ -94,7 +96,7 @@ SELECTED_RESULT_FILE = (
 OUTPUT_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
     / "11_random_matched_control"
 )
 
@@ -103,7 +105,7 @@ OUTPUT_DIR = (
 # CONFIG
 # ============================================================
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = EXPERIMENT_MODEL_ID
 
 TEXT_COLUMN = "hinglish_genz_text"
 LABEL_COLUMN = "label"
@@ -114,8 +116,8 @@ BATCH_SIZE = 4
 TEST_SIZE = 0.15
 SPLIT_SEED = 42
 
-NUM_LAYERS = 32
-MLP_WIDTH = 14336
+NUM_LAYERS = EXPERIMENT_NUM_LAYERS
+MLP_WIDTH = EXPERIMENT_MLP_WIDTH
 
 EMOTIONS = [
     "admiration",

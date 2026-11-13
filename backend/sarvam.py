@@ -4,8 +4,33 @@ from .sarvam_config import SARVAM_CONFIG
 
 
 class SarvamRuntime(HuggingFaceRuntime):
-    def __init__(self, model_id=SARVAM_CONFIG.model_id, load_in_4bit=None):
-        super().__init__(model_id, load_in_4bit, config=SARVAM_CONFIG)
+    def __init__(self, model_id=SARVAM_CONFIG.model_id, load_in_4bit=None, *, local_files_only=False):
+        super().__init__(model_id, load_in_4bit, config=SARVAM_CONFIG, local_files_only=local_files_only)
+        self._accept_output_dtype()
+
+    def _accept_output_dtype(self):
+        """Let 4-bit layers take the ``output_dtype`` argument of Sarvam's own down-projection.
+
+        The checkpoint's MoE code calls ``down_proj(x, output_dtype=float32)`` on its Linear subclass.
+        Quantisation replaces that layer by a bitsandbytes ``Linear4bit``, which does not know the
+        argument; the result is cast instead.
+        """
+        import functools
+        import inspect
+        try:
+            modules = iter(self.model.modules())
+        except TypeError:
+            return
+        for module in modules:
+            if type(module).__name__ != "Linear4bit" or "output_dtype" in inspect.signature(module.forward).parameters:
+                continue
+            original = module.forward
+
+            @functools.wraps(original)
+            def forward(hidden, output_dtype=None, _original=original):
+                output = _original(hidden)
+                return output if output_dtype is None else output.to(output_dtype)
+            module.forward = forward
 
     def generation_settings(self):
         # The checkpoint config and tokenizer define different end markers.

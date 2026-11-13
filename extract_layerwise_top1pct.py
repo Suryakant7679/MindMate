@@ -28,6 +28,8 @@ results/llama31_8b_layerwise_top1pct/
     all_layers_top1pct.csv
     all_layers_top1pct.json
 """
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import json
 from pathlib import Path
@@ -45,14 +47,14 @@ BASE_DIR = Path(__file__).resolve().parent
 SELECTIVITY_FILE = (
     BASE_DIR
     / "results"
-    / "llama31_8b_emotions_full"
+    / "llama31_8b_emotions_full".replace("llama31_8b", EXPERIMENT_TAG)
     / "selectivity.npy"
 )
 
 OUTPUT_DIR = (
     BASE_DIR
     / "results"
-    / "llama31_8b_layerwise_top1pct"
+    / "llama31_8b_layerwise_top1pct".replace("llama31_8b", EXPERIMENT_TAG)
 )
 
 
@@ -60,12 +62,12 @@ OUTPUT_DIR = (
 # CONFIGURATION
 # ============================================================
 
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = EXPERIMENT_MODEL_ID
 
 TOP_PERCENT = 1.0
 
-EXPECTED_NUM_LAYERS = 32
-EXPECTED_NEURONS_PER_LAYER = 14336
+EXPECTED_NUM_LAYERS = EXPERIMENT_NUM_LAYERS
+EXPECTED_NEURONS_PER_LAYER = EXPERIMENT_MLP_WIDTH
 
 EMOTIONS = [
     "admiration",
@@ -163,7 +165,7 @@ print()
 print(f"Selection percentage : {TOP_PERCENT}%")
 print(f"Top-k per emotion     : {top_k}")
 
-if top_k != 143:
+if top_k != int(EXPERIMENT_MLP_WIDTH * 1.0 / 100.0):
     raise ValueError(
         f"Expected top_k = 143 for 14336 neurons, "
         f"but calculated {top_k}."

@@ -10,6 +10,8 @@ ten layer-count-matched masks.  Their seeds are stored in the seed-level table.
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import json
@@ -19,7 +21,7 @@ import pandas as pd
 
 
 DEFAULT_INPUT = Path(
-    "results/llama31_8b_neuron_analysis/07_random_matched_control"
+    "results/llama31_8b_neuron_analysis/07_random_matched_control".replace("llama31_8b", EXPERIMENT_TAG)
 )
 
 

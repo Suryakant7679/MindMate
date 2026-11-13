@@ -43,6 +43,8 @@ Outputs:
 """
 
 from __future__ import annotations
+from experiment_model import (EXPERIMENT_MLP_WIDTH, EXPERIMENT_MODEL_ID, EXPERIMENT_NUM_LAYERS,  # noqa: E402,F401
+                              EXPERIMENT_TAG)
 
 import argparse
 import csv
@@ -904,7 +906,7 @@ def main():
 
     parser.add_argument(
         "--model-id",
-        default="meta-llama/Llama-3.1-8B-Instruct",
+        default=EXPERIMENT_MODEL_ID,
     )
 
     parser.add_argument(
@@ -921,7 +923,7 @@ def main():
             "results/"
             "llama31_8b_neuron_analysis/"
             "04_probe/"
-            "probe.pt"
+            "probe.pt".replace("llama31_8b", EXPERIMENT_TAG)
         ),
     )
 
@@ -931,7 +933,7 @@ def main():
             "results/"
             "llama31_8b_neuron_analysis/"
             "emotion_membership_analysis/"
-            "shared_emotion_neurons.csv"
+            "shared_emotion_neurons.csv".replace("llama31_8b", EXPERIMENT_TAG)
         ),
     )
 
@@ -940,7 +942,7 @@ def main():
         default=(
             "results/"
             "llama31_8b_neuron_analysis/"
-            "06_shared_neuron_masking"
+            "06_shared_neuron_masking".replace("llama31_8b", EXPERIMENT_TAG)
         ),
     )
 

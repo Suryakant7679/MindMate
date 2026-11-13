@@ -49,9 +49,10 @@ HELD_OUT = [
 
 
 def main() -> None:
-    from backend.llama import LlamaRuntime
+    from backend.models import create_runtime
+    from .common import MODEL_KEY
     output = Path(RESULTS_DIR / "steering_policy")
-    runtime = LlamaRuntime(MODEL_ID)
+    runtime = create_runtime(MODEL_KEY, model_id=MODEL_ID)
     service = EmotionSteeringService(runtime)
     rows = []
     for index, text in enumerate(HELD_OUT):

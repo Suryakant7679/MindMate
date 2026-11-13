@@ -8,6 +8,14 @@ class ModelConfig:
     load_in_4bit: bool = False
     trust_remote_code: bool = False
     enable_thinking: bool | None = None
+    # Used only when the checkpoint's tokenizer ships without a chat template.
+    chat_template: str | None = None
+    # Prefix of this model's result folders: results/<tag>_emotions_full, <tag>_neuron_analysis,
+    # <tag>_generation_emotion.  Steering panels, probe, policy and evidence are read from there and
+    # are only used when they were produced with this exact checkpoint.
+    results_tag: str | None = None
+    # Panel file inside results/<tag>_generation_emotion/steering_panels/.
+    panel_file: str = "panels.json"
 
 
 DEFAULT_MODEL = "llama"
@@ -23,17 +31,18 @@ SYSTEM_PROMPT = (
     "encourage immediate help from local emergency services and a trusted person nearby."
 )
 
-LLAMA_CONFIG = ModelConfig(model_id="meta-llama/Llama-3.1-8B-Instruct")
+LLAMA_CONFIG = ModelConfig(model_id="meta-llama/Llama-3.1-8B-Instruct", results_tag="llama31_8b",
+                           panel_file="panels_causal.json")
 
 # Emotion-neuron steering (Llama only).  A request's steering_alpha is multiplied
 # by STEERING_GAIN before it scales each panel neuron's emotion-minus-neutral
 # activation shift.  Calibrated on the MindMate prompt: alpha 1 gives a clearly
 # more emotional but fluent reply, alpha 2 is strong and starts to cost fluency.
 STEERING_GAIN = 1.75
-# Panel file under results/llama31_8b_generation_emotion/steering_panels/.  "panels.json" is the
-# attribution-selected panel from build_steering_panels; a causally validated subset is only named
-# here after it beat that panel on held-out messages (see generation_analysis/README.md).
-STEERING_PANEL_FILE = "panels_causal.json"
+# Panel file of the main model (see ModelConfig.panel_file).  "panels.json" is the attribution-selected
+# panel from build_steering_panels; a causally validated subset is only named after it beat that
+# panel on held-out messages (see generation_analysis/README.md).
+STEERING_PANEL_FILE = LLAMA_CONFIG.panel_file
 # Response emotion steered for each detected user emotion when the request does
 # not name one.  Negative user emotions are answered with warmth rather than
 # mirrored: steering sadness, fear or anger into replies to a distressed user
@@ -51,3 +60,49 @@ SUPPORTIVE_TARGET = {
     "disgust": "love",
     "disapproval": "love",
 }
+
+
+# ----------------------------------------------------------------------------- model registry
+# Every chat model the app can serve.  The chat composer lists these; the backend loads the selected
+# one on demand (one model on the GPU at a time) and never downloads weights unless started with
+# --allow-download.  The experiment pipeline is configured per model through the same entries
+# (MINDMATE_MODEL=<key>, see run_model_pipeline.sh).
+
+# EmoLLaMA ships no chat template.  Its model card uses "Human: ... Assistant:" turns, so chat uses
+# that format; a system prompt is placed before the first turn.
+EMOLLAMA_CHAT_TEMPLATE = (
+    "{{ bos_token }}"
+    "{% for message in messages %}"
+    "{% if message['role'] == 'system' %}{{ message['content'] }}\n\n"
+    "{% elif message['role'] == 'user' %}Human: \n{{ message['content'] }}\n\n"
+    "{% else %}Assistant:\n{{ message['content'] }}{{ eos_token }}\n\n{% endif %}"
+    "{% endfor %}"
+    "{% if add_generation_prompt %}Assistant:\n{% endif %}"
+)
+
+
+@dataclass(frozen=True)
+class ModelSpec:
+    key: str
+    label: str
+    purpose: str
+    config: ModelConfig
+    runtime: str = "generic"          # "llama" (main system), "sarvam", or "generic"
+    persona: bool = True              # False: no MindMate system prompt (Sarvam's existing behaviour)
+    max_new_tokens: int = 1024
+    gpu_gib: float = 0.0              # approximate GPU memory when loaded
+
+
+MODEL_REGISTRY: dict[str, ModelSpec] = {spec.key: spec for spec in (
+    ModelSpec("llama", "Llama 3.1-8B", "Main experimental system (emotion reasoner + neuron steering)",
+              LLAMA_CONFIG, runtime="llama", gpu_gib=16),
+    ModelSpec("llama2", "Llama-2-13B-chat", "General-purpose Llama baseline",
+              ModelConfig(model_id="meta-llama/Llama-2-13b-chat-hf", results_tag="llama2_13b_chat"), gpu_gib=26),
+    ModelSpec("emollama", "EmoLLaMA-chat-7B", "Emotion-specialized baseline",
+              ModelConfig(model_id="lzw1008/Emollama-chat-7b", chat_template=EMOLLAMA_CHAT_TEMPLATE,
+                          results_tag="emollama_chat_7b"), gpu_gib=14),
+    ModelSpec("sarvam", "Sarvam-30B", "Multilingual and Hinglish conversational baseline",
+              ModelConfig(model_id="sarvamai/sarvam-30b", load_in_4bit=True, trust_remote_code=True,
+                          enable_thinking=True, results_tag="sarvam_30b"),
+              runtime="sarvam", persona=False, max_new_tokens=4096, gpu_gib=20),
+)}

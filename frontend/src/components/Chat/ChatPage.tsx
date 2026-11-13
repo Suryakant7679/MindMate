@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Leaf, RotateCcw } from "lucide-react";
 import type { ChatMessage, ToolActivity } from "../../types/chat";
 import type { EmotionTurn } from "../../types/emotion";
-import { streamMessage, sendAgentMessage, getModelStatus, fetchEmotionTrace } from "../../api/chat";
+import { streamMessage, sendAgentMessage, getModelStatus, getModels, fetchEmotionTrace } from "../../api/chat";
+import type { ChatModel } from "../../api/chat";
 import { MessageBubble } from "./MessageBubble";
 import { ChatInput } from "./ChatInput";
 const timestamp = () =>
@@ -10,6 +11,8 @@ const timestamp = () =>
 function modelLabel(model: string | null): string {
   if (!model) return "local model";
   if (model.toLowerCase().includes("sarvam")) return "Sarvam 30B";
+  if (model.toLowerCase().includes("emollama")) return "EmoLLaMA";
+  if (model.toLowerCase().includes("llama-2")) return "Llama-2";
   if (model.toLowerCase().includes("llama")) return "Llama";
   return model;
 }
@@ -19,6 +22,9 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
   const [error, setError] = useState("");
   const [ready, setReady] = useState<boolean | null>(null);
   const [model, setModel] = useState<string | null>(null);
+  const [models, setModels] = useState<ChatModel[]>([]);
+  // The model the next message is answered with; the server loads it when that message is sent.
+  const [selectedModel, setSelectedModel] = useState<string | undefined>(() => localStorage.getItem("mindmate-model") ?? undefined);
   const [mcpEnabled, setMcpEnabled] = useState(false);
   const [agentMode, setAgentMode] = useState(false);
   const [activities, setActivities] = useState<ToolActivity[]>([]);
@@ -30,6 +36,13 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
     const check = () =>
       getModelStatus(statusController.signal)
         .then((status) => { setReady(status.ready); setModel(status.model); setMcpEnabled(status.mcpEnabled); })
+        .then(() => getModels(statusController.signal))
+        .then((list) => {
+          setModels(list.models);
+          // Keep the user's choice while it is usable; otherwise follow the model the server has loaded.
+          setSelectedModel((current) =>
+            current && list.models.some((item) => item.key === current && item.available) ? current : list.active ?? undefined);
+        })
         .catch(() => {
           if (!statusController.signal.aborted) setReady(false);
         });
@@ -62,7 +75,7 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
       if (mcpEnabled && agentMode) {
         const sessionId = getBrowserId("mindmate-agent-session");
         const userId = getBrowserId("mindmate-agent-user");
-        const result = await sendAgentMessage(history, sessionId, userId, controller.current?.signal);
+        const result = await sendAgentMessage(history, sessionId, userId, controller.current?.signal, selectedModel);
         response = result.response;
         setActivities(result.activities);
         if (!response.trim()) throw new Error("The model returned an empty response. Please try again.");
@@ -75,7 +88,7 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
           decision: result.steering?.decision, effect: result.steering?.effect, evidence: result.steering?.evidence,
         });
       } else {
-        const stream = await streamMessage(history, (chunk) => { response += chunk; draft(); }, controller.current.signal);
+        const stream = await streamMessage(history, (chunk) => { response += chunk; draft(); }, controller.current.signal, selectedModel);
         if (!response.trim()) throw new Error("The model returned an empty response. Please try again.");
         draft({ steeringAlpha: stream.steeringAlpha, steeringEmotion: stream.steeringAlpha ? stream.steeringEmotion : undefined });
         const turnId = stream.turnId;
@@ -90,6 +103,7 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
         }
       }
       setReady(true);
+      void getModels().then((list) => { setModels(list.models); if (list.active) setModel(list.models.find((item) => item.key === list.active)?.model_id ?? null); }).catch(() => undefined);
     } catch (cause) {
       setError(
         cause instanceof Error && cause.name === "AbortError"
@@ -117,6 +131,13 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
     setMessages(history);
     void generate(history);
   }
+  const chosen = models.find((item) => item.key === selectedModel);
+  // Set while a message is waiting for a model that is not on the GPU yet.
+  const switching = chosen && !chosen.loaded ? chosen : null;
+  function selectModel(key: string) {
+    setSelectedModel(key);
+    localStorage.setItem("mindmate-model", key);
+  }
   return (
     <section
       className="chat-page"
@@ -143,7 +164,8 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
             ))}
             {busy && (
               <div className="thinking" role="status">
-                <Leaf size={17} /> MindMate is thinking…
+                <Leaf size={17} />{" "}
+                {switching ? `Loading ${switching.label}… this can take a minute` : "MindMate is thinking…"}
               </div>
             )}
           </div>
@@ -175,7 +197,9 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
         {ready === null
           ? "Connecting to local model…"
           : ready
-            ? `Connected to ${modelLabel(model)}`
+            ? switching
+              ? `${modelLabel(model)} is loaded · ${switching.label} will load with your next message`
+              : `Connected to ${chosen?.label ?? modelLabel(model)}${chosen ? (chosen.steering ? " · emotion steering on" : " · no emotion steering") : ""}`
             : "Local model is unavailable. Start the model server to chat."}
         {mcpEnabled && (
           <button
@@ -189,7 +213,7 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
           </button>
         )}
       </div>
-      <ChatInput onSend={send} busy={busy || !!error} />
+      <ChatInput onSend={send} busy={busy || !!error} models={models} selectedModel={selectedModel} onSelectModel={selectModel} />
     </section>
   );
 }
