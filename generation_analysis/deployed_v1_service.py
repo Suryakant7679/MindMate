@@ -1,4 +1,4 @@
-"""FROZEN COPY of backend/emotion_service.py as deployed on 2026-11-11 (before the causal
+ """FROZEN COPY of backend/emotion_service.py as deployed on 2026-11-11 (before the causal
 steering work).  Kept only so that ``heldout_comparison`` can reproduce the "before"
 system exactly; do not edit and do not import from application code.  Pair it with
 ``steering_policy/policy_v1_deployed.json`` and ``steering_panels/panels.json``.

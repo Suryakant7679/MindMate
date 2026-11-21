@@ -12,6 +12,60 @@ from .config import (CONTEXT_TOKENS, DEFAULT_STEERING_TARGET, STEERING_GAIN, SUP
 class HuggingFaceRuntime:
     enable_thinking: bool | None = None
 
+    # Where a steering panel's neurons live.  Llama-style checkpoints: the MLP intermediate of each layer.
+    steering_location = "input of model.layers[L].mlp.down_proj, decode steps only"
+
+    def steering_module(self, layer: int):
+        """Module whose input holds the steerable neurons of ``layer`` (hooked with a forward pre-hook)."""
+        return self.model.model.layers[layer].mlp.down_proj
+
+    def prompt_suffix(self) -> str:
+        """Text appended after the chat template's generation prompt (none by default)."""
+        return ""
+
+    # Knowledge-graph strategy -> name of the panel a model uses for it, for models whose panels are not
+    # named after the response emotion (filled from the panel file where the model defines it).
+    strategy_panels: dict[str, str] = {}
+
+    def write_contribution(self, layer: int, neurons: list[int], shifts: list[float]) -> tuple[list[float], float] | None:
+        """How a panel's shift writes into the residual stream at one layer.
+
+        Returns the L2 norm of each panel neuron's write vector (its column of the site's ``down_proj``)
+        and the norm of the residual update produced by the whole unit-strength shift
+        (``|| W @ shift ||``, before alpha and gain).  The matrix is read by sending basis vectors
+        through the module, so it also works for quantised layers.  ``None`` if it cannot be computed;
+        telemetry must never break a reply.
+        """
+        try:
+            torch = self.torch
+            module = self.steering_module(layer)
+            cache = self.__dict__.setdefault("_write_norm_cache", {})
+            width = module.in_features
+            weight = getattr(module, "weight", None)
+            dtype = getattr(module, "compute_dtype", None)
+            if dtype is None:
+                dtype = weight.dtype if weight is not None and weight.dtype.is_floating_point else torch.bfloat16
+            device = next(module.parameters()).device
+            with self.lock, torch.inference_mode():
+                zero = module(torch.zeros(1, width, device=device, dtype=dtype)).float()
+                if layer not in cache:
+                    norms = []
+                    for start in range(0, width, 1024):
+                        size = min(1024, width - start)
+                        basis = torch.zeros(size, width, device=device, dtype=dtype)
+                        basis[torch.arange(size), start + torch.arange(size)] = 1
+                        norms.append((module(basis).float() - zero).norm(dim=-1).cpu())
+                    cache[layer] = torch.cat(norms)
+                row = torch.zeros(1, width, device=device, dtype=torch.float32)
+                row[0, torch.tensor(neurons, device=device)] = torch.tensor(shifts, device=device, dtype=torch.float32)
+                update = float((module(row.to(dtype)).float() - zero).norm())
+            return [round(float(cache[layer][neuron]), 5) for neuron in neurons], update
+        except Exception as exc:        # noqa: BLE001 - measurement only
+            if not self.__dict__.get("_write_norm_warned"):
+                print(f"Write-vector contributions unavailable ({type(exc).__name__}: {exc}).")
+                self._write_norm_warned = True
+            return None
+
     def generation_settings(self) -> dict[str, Any]:
         return {}
 
@@ -250,7 +304,7 @@ class HuggingFaceRuntime:
 
         try:
             for layer, (neurons, shifts) in self._emotion_panels[emotion].items():
-                module = self.model.model.layers[layer].mlp.down_proj
+                module = self.steering_module(layer)
                 handles.append(module.register_forward_pre_hook(hook_for_layer(layer, neurons, shifts)))
         except (AttributeError, IndexError, KeyError, TypeError) as exc:
             for handle in handles:
@@ -273,7 +327,7 @@ class HuggingFaceRuntime:
                         "mean_activation_before_shift": [round(float(value), 5) for value in means],
                     })
                 trace.update({"emotion": emotion, "alpha": float(alpha), "gain": STEERING_GAIN,
-                              "location": "input of model.layers[L].mlp.down_proj, decode steps only",
+                              "location": self.steering_location,
                               "layers": layers})
 
     def generate(
@@ -295,7 +349,7 @@ class HuggingFaceRuntime:
             formatted = self.tokenizer.apply_chat_template(
                 conversation, tokenize=False, add_generation_prompt=True,
                 **({"enable_thinking": self.enable_thinking} if self.enable_thinking is not None else {})
-            )
+            ) + self.prompt_suffix()
             encoded = self.tokenizer(formatted, return_tensors="pt", add_special_tokens=False)
             if encoded["input_ids"].shape[1] <= self._context_budget(max_new_tokens):
                 break
@@ -351,7 +405,7 @@ class HuggingFaceRuntime:
             formatted = self.tokenizer.apply_chat_template(
                 conversation, tokenize=False, add_generation_prompt=True,
                 **({"enable_thinking": self.enable_thinking} if self.enable_thinking is not None else {})
-            )
+            ) + self.prompt_suffix()
             encoded = self.tokenizer(formatted, return_tensors="pt", add_special_tokens=False)
             if encoded["input_ids"].shape[1] <= self._context_budget(max_new_tokens):
                 break
@@ -422,7 +476,7 @@ class HuggingFaceRuntime:
         started = time.perf_counter()
         try:
             for layer, (neurons, shifts) in panel.items():
-                module = self.model.model.layers[layer].mlp.down_proj
+                module = self.steering_module(layer)
                 handles.append(module.register_forward_pre_hook(hook_for_layer(layer, neurons, shifts)))
             with self.lock, torch.inference_mode():
                 output = self.model.generate(input_ids=input_ids, attention_mask=attention, **settings)
@@ -433,6 +487,9 @@ class HuggingFaceRuntime:
         stop_ids = self.model.generation_config.eos_token_id
         stop_ids = set(stop_ids if isinstance(stop_ids, (list, tuple)) else [stop_ids]) | {self.tokenizer.eos_token_id}
         results = []
+        # Write-vector norms of the panel neurons (how hard each shift pushes on the residual stream).
+        writes = ({layer: self.write_contribution(layer, neurons, shifts) for layer, (neurons, shifts) in panel.items()}
+                  if any(alphas) and hasattr(self, "lock") else {})
         for row, alpha in enumerate(alphas):
             new_tokens = output[row, input_ids.shape[1]:].tolist()
             length = next((index + 1 for index, token in enumerate(new_tokens) if token in stop_ids), len(new_tokens))
@@ -446,12 +503,15 @@ class HuggingFaceRuntime:
                     "layer": layer, "neurons": list(neurons), "decode_positions": len(values),
                     "applied_shift": [round(float(alpha) * STEERING_GAIN * shift, 5) for shift in shifts],
                     "mean_activation_before_shift": [round(float(value), 5) for value in means],
+                    **({"write_norm": writes[layer][0],
+                        "residual_update_norm": round(abs(float(alpha)) * STEERING_GAIN * writes[layer][1], 5)}
+                       if alpha and writes.get(layer) else {}),
                 })
             results.append({
                 "response": self.decode_response(new_tokens[:length]), "generated_tokens": length,
                 "steering_alpha": float(alpha), "latency_seconds": round(elapsed, 3),
                 "trace": {"emotion": steering_emotion, "alpha": float(alpha), "gain": STEERING_GAIN,
-                          "location": "input of model.layers[L].mlp.down_proj, decode steps only", "layers": layers},
+                          "location": self.steering_location, "layers": layers},
             })
         if not results[0]["response"]:
             raise RuntimeError("The model returned an empty response.")

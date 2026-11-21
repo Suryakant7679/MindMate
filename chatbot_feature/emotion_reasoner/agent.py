@@ -32,6 +32,7 @@ MAX_ALPHA_HINGLISH = 0.7   # Hinglish replies degrade earlier
 # (83% on the experiment's gold-labelled messages; the classifier alone 76%, the Llama probe 38%).
 DETECTOR_WEIGHT = 0.6
 WEAK_DETECTOR_WEIGHT = 0.45   # for the Llama probe fallback: cue-backed graph evidence outranks it
+CONTRADICTION_CONFIDENCE = 0.6   # detector share above which an opposite-valence cue is ignored
 
 
 @dataclass
@@ -57,6 +58,9 @@ class EmotionPlan:
     safety_flag: bool = False
     detector: str = ""
     calibration: dict[str, Any] | None = None
+    # Neuron panel to steer with.  Defaults to the response emotion; a calibrated policy may name
+    # another of the model's panels for a context (e.g. a tone panel, or tone + language).
+    steering_panel: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -68,8 +72,12 @@ class EmotionReasonerAgent:
     name = "emotion_reasoner"
 
     def __init__(self, available_panels: Sequence[str] | None = None,
-                 policy: Mapping[str, Any] | None = None, detector_weight: float = DETECTOR_WEIGHT) -> None:
+                 policy: Mapping[str, Any] | None = None, detector_weight: float = DETECTOR_WEIGHT,
+                 cue_consistency: bool = True) -> None:
         self.graph = build_graph()
+        # False reproduces the planner before the contradiction filter (``_consistent``) was added; splits
+        # planned with that planner (results/steering_holdout2/items.csv, 13 Nov 2026) need it to match.
+        self.cue_consistency = cue_consistency
         # Calibrated strengths (see policy.py).  Without one the heuristic fallback is used.
         self.policy = policy
         self.detector_weight = detector_weight
@@ -88,6 +96,30 @@ class EmotionReasonerAgent:
                 found.append({"cause": data["label"], "description": data["description"], "cues": cues,
                               "weight": min(1.0, 0.6 + 0.2 * len(cues))})
         return sorted(found, key=lambda item: -item["weight"])
+
+    def _consistent(self, causes: list[dict[str, Any]], probe: Mapping[str, float]) -> list[dict[str, Any]]:
+        """Drop a cue-based cause whose emotions all have the opposite valence of a confident detector reading.
+
+        A cue word says what the message is about, not how the user feels about it: "everyone forgot my
+        birthday" contains a celebration cue but is sad.  When the detector puts at least
+        ``CONTRADICTION_CONFIDENCE`` of its mass on one emotion and every emotion the cause evokes has the
+        opposite sign, the cause is ignored.  The crisis cause is never dropped.
+        """
+        total = sum(float(value) for value in probe.values()) or 1.0
+        top = max(probe, key=probe.get, default=None)
+        if top is None or float(probe[top]) / total < CONTRADICTION_CONFIDENCE or f"emotion:{top}" not in self.graph:
+            return causes
+        sign = self.graph.nodes[f"emotion:{top}"]["valence"]
+        if abs(sign) < 0.3:
+            return causes
+        kept = []
+        for cause in causes:
+            evoked = [self.graph.nodes[node]["valence"] for _, node, edge in self.graph.out_edges(f"cause:{cause['cause']}", data=True)
+                      if edge["relation"] == "evokes"]
+            opposite = evoked and all(abs(value) >= 0.3 and (value > 0) != (sign > 0) for value in evoked)
+            if cause["cause"] == "crisis" or not opposite:
+                kept.append(cause)
+        return kept
 
     def _fuse(self, probe: Mapping[str, float], causes: list[dict[str, Any]]) -> dict[str, float]:
         labels = [data["label"] for _, data in self.graph.nodes(data=True) if data["kind"] == "emotion"]
@@ -110,6 +142,8 @@ class EmotionReasonerAgent:
     def understand(self, text: str, probe_scores: Mapping[str, float]) -> dict[str, Any]:
         """Emotion, causes and intensity of one user message."""
         causes = self._causes(text)
+        if self.cue_consistency:
+            causes = self._consistent(causes, probe_scores)
         fused = self._fuse(probe_scores, causes)
         emotion = max(fused, key=fused.get)
         node = self.graph.nodes[f"emotion:{emotion}"]
@@ -166,7 +200,8 @@ class EmotionReasonerAgent:
             factors = [{"factor": "calibration", "effect": f"alpha {alpha:.2f}" if alpha else "no steering",
                         "reason": f"{context}: {cell['reason']}"}]
             evidence = {"context": key, "selected_alpha": alpha, "reason": cell["reason"], "sweep": cell["sweep"],
-                        "rule": self.policy.get("rule"), "ceiling": self.policy.get("ceiling")}
+                        "rule": self.policy.get("rule"), "ceiling": self.policy.get("ceiling"),
+                        "panel": cell.get("panel")}
             return alpha, factors, evidence
         base = float(strategy["base_strength"])
         factors = [{"factor": "strategy", "effect": f"base {base:.2f}",
@@ -212,10 +247,19 @@ class EmotionReasonerAgent:
         response = next((self.graph.nodes[node]["label"] for _, node, edge in
                          self.graph.out_edges(f"strategy:{strategy_key}", data=True)
                          if edge["relation"] == "expresses"), None)
-        if response is not None and self.available_panels is not None and response not in self.available_panels:
+        # A policy written for this model may name the panel of a context itself (``panel`` in the cell);
+        # then the response emotion needs no panel of its own name.
+        named = self._policy_names_panels()
+        if (response is not None and not named and self.available_panels is not None
+                and response not in self.available_panels):
             response = None
         alpha, factors, calibration = self._strength(strategy, response, state["intensity"], state["valence"],
                                                      history, text)
+        panel = (calibration or {}).get("panel") if named else response
+        if alpha and (panel is None or (self.available_panels is not None and panel not in self.available_panels)):
+            alpha, panel = 0.0, None
+            factors = [{"factor": "panel", "effect": "steering disabled",
+                        "reason": "the calibrated panel for this context is not loaded"}]
         if response is None and strategy_key != "crisis_support":
             factors = [{"factor": "panel", "effect": "steering disabled",
                         "reason": "no neuron panel is available for the planned response emotion"}]
@@ -239,7 +283,14 @@ class EmotionReasonerAgent:
             reasoning_paths=paths,
             history=[{"emotion": turn.get("emotion"), "valence": turn.get("valence")} for turn in history],
             safety_flag=strategy_key == "crisis_support", calibration=calibration,
+            steering_panel=panel if (response and alpha) else None,
         )
+
+    def _policy_names_panels(self) -> bool:
+        """The policy belongs to a model whose panels are not named after the response emotion (it names
+        the panel of each context itself, or declares ``names_panels`` when it steers nothing)."""
+        return bool(self.policy) and (bool(self.policy.get("names_panels")) or any(
+            isinstance(cell, Mapping) and cell.get("panel") for cell in self.policy.get("cells", {}).values()))
 
 
 def strategy_prompt(base_prompt: str | None, plan: EmotionPlan | Mapping[str, Any]) -> str:

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Leaf, RotateCcw } from "lucide-react";
 import type { ChatMessage, ToolActivity } from "../../types/chat";
 import type { EmotionTurn } from "../../types/emotion";
-import { streamMessage, sendAgentMessage, getModelStatus, getModels, fetchEmotionTrace } from "../../api/chat";
+import { streamMessage, sendAgentMessage, getModelStatus, getModels, fetchEmotionTrace, clearSafetyContext } from "../../api/chat";
 import type { ChatModel } from "../../api/chat";
 import { MessageBubble } from "./MessageBubble";
 import { ChatInput } from "./ChatInput";
@@ -19,6 +19,7 @@ function modelLabel(model: string | null): string {
 export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotionTurn: (turn: EmotionTurn) => void }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [busy, setBusy] = useState(false);
+  const [supportCountry, setSupportCountry] = useState("");
   const [error, setError] = useState("");
   const [ready, setReady] = useState<boolean | null>(null);
   const [model, setModel] = useState<string | null>(null);
@@ -29,6 +30,8 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
   const [agentMode, setAgentMode] = useState(false);
   const [activities, setActivities] = useState<ToolActivity[]>([]);
   const end = useRef<HTMLDivElement>(null);
+  // One id per conversation on this page, so the server can keep its turns together for the Mood Tracker.
+  const conversationId = useRef(crypto.randomUUID());
   const pending = useRef(false);
   const controller = useRef<AbortController | null>(null);
   useEffect(() => {
@@ -75,7 +78,7 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
       if (mcpEnabled && agentMode) {
         const sessionId = getBrowserId("mindmate-agent-session");
         const userId = getBrowserId("mindmate-agent-user");
-        const result = await sendAgentMessage(history, sessionId, userId, controller.current?.signal, selectedModel);
+        const result = await sendAgentMessage(history, sessionId, userId, controller.current?.signal, selectedModel, conversationId.current, supportCountry || undefined);
         response = result.response;
         setActivities(result.activities);
         if (!response.trim()) throw new Error("The model returned an empty response. Please try again.");
@@ -84,11 +87,13 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
         const applied = result.steering?.decision?.applied_alpha ?? 0;
         draft({ steeringAlpha: applied, steeringEmotion: applied ? plan?.response_emotion ?? undefined : undefined, strategy: plan?.strategy_title });
         if (plan) onEmotionTurn({
-          id: crypto.randomUUID(), status: "ready", userText, plan, steering: result.steering,
+          id: result.turnId ?? crypto.randomUUID(), status: "ready", userText, plan, steering: result.steering,
           decision: result.steering?.decision, effect: result.steering?.effect, evidence: result.steering?.evidence,
+          comparison: result.comparison ?? result.steering?.comparison, trajectory: result.trajectory, summary: result.summary,
+          conversationId: result.conversationId, turnIndex: result.turnIndex, turnId: result.turnId,
         });
       } else {
-        const stream = await streamMessage(history, (chunk) => { response += chunk; draft(); }, controller.current.signal, selectedModel);
+        const stream = await streamMessage(history, (chunk) => { response += chunk; draft(); }, controller.current.signal, selectedModel, conversationId.current, supportCountry || undefined);
         if (!response.trim()) throw new Error("The model returned an empty response. Please try again.");
         draft({ steeringAlpha: stream.steeringAlpha, steeringEmotion: stream.steeringAlpha ? stream.steeringEmotion : undefined });
         const turnId = stream.turnId;
@@ -97,7 +102,8 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
           onEmotionTurn({ id: turnId, status: "analysing", userText, preview });
           void fetchEmotionTrace(turnId)
             .then((trace) => onEmotionTurn(trace
-              ? { id: turnId, status: "ready", userText, preview, ...trace }
+              ? { id: turnId, status: "ready", userText, preview, ...trace, conversationId: trace.conversation_id,
+                  turnIndex: trace.turn_index, turnId }
               : { id: turnId, status: "unavailable", userText, preview }))
             .catch(() => onEmotionTurn({ id: turnId, status: "unavailable", userText, preview }));
         }
@@ -212,6 +218,23 @@ export function ChatPage({ active, onEmotionTurn }: { active: boolean; onEmotion
             Agents &amp; tools {agentMode ? "on" : "off"}
           </button>
         )}
+      </div>
+      <div className="safety-privacy">
+        <p>MindMate is a research assistant, not an emergency service. Safety context is kept temporarily in server memory
+          and expires after inactivity (30 minutes by default). Replies are checked before delivery. No one is contacted automatically.</p>
+        <label>Support location (optional): {" "}
+          <select value={supportCountry} onChange={(event) => setSupportCountry(event.target.value)} disabled={busy}>
+            <option value="">Not specified / elsewhere</option><option value="IN">India</option>
+          </select>
+        </label>{" "}
+        <button type="button" disabled={busy} onClick={() => {
+          void clearSafetyContext(conversationId.current, getBrowserId("mindmate-agent-session")).then(() => {
+            setMessages([]); setError(""); setActivities([]);
+            conversationId.current = crypto.randomUUID();
+            localStorage.setItem("mindmate-agent-session", crypto.randomUUID());
+          }).catch((cause) => setError(String(cause)));
+        }}>Clear safety context and start a new chat</button>
+        <p>This clears temporary safety context and this chat view. Existing research records are managed separately by the operator.</p>
       </div>
       <ChatInput onSend={send} busy={busy || !!error} models={models} selectedModel={selectedModel} onSelectModel={selectModel} />
     </section>

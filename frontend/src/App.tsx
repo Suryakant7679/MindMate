@@ -30,7 +30,7 @@ export default function App() {
             <p>
               {active === "chat"
                 ? "Talk freely. I’m here to understand and support you."
-                : "See what the Emotion Reasoner understood, how it chose to respond, and what the neuron steering changed."}
+                : "How detected emotions evolve, what steering changed in each reply, which neurons were shifted, and what the experiments support."}
             </p>
           </div>
           <ThemeToggle dark={dark} toggle={toggle} />
@@ -47,7 +47,7 @@ export default function App() {
               </div>
             }
           >
-            <MoodTrackerPage turns={turns} />
+            <MoodTrackerPage turns={turns} onTurn={upsertTurn} />
           </Suspense>
         )}
       </main>

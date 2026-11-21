@@ -114,10 +114,14 @@ class ReasonerTests(unittest.TestCase):
         self.assertFalse(summarize_intervention({}, None)["applied"])
 
 
-class Model:
+from chatbot_feature.tests.safety_fakes import SafetyModel
+
+
+class Model(SafetyModel):
     """Agent model wired to a (fake) emotion service: replies come from the shared steering path."""
 
     def __init__(self):
+        super().__init__()
         self.planned = []
 
     async def complete(self, prompt):
@@ -155,11 +159,41 @@ class GraphIntegrationTests(unittest.TestCase):
     def test_crisis_reply_is_not_steered(self):
         model = Model()
         state = self.run_graph("I want to end my life", model)
-        self.assertEqual(state["final_response"], "plain")
-        self.assertEqual(model.planned[0][1]["steering_alpha"], 0.0)     # the shared path is told not to steer
-        self.assertFalse(state["steering"]["applied"])
-        self.assertTrue(state["emotion_plan"]["safety_flag"])
+        self.assertIn("safe right now", state["final_response"])
+        self.assertEqual(model.planned, [])
+        self.assertEqual(state["steering"]["applied_alpha"], 0.0)
+        self.assertEqual(state["emotion_plan"], {})
 
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ContradictedCueTests(unittest.TestCase):
+    """A topic cue must not override a confident detector reading of the opposite valence."""
+
+    def scores(self, emotion, share):
+        from chatbot_feature.emotion_reasoner.knowledge_graph import EMOTIONS
+        rest = (1 - share) / (len(EMOTIONS) - 1)
+        return {label: (share if label == emotion else rest) for label in EMOTIONS}
+
+    def test_sad_message_about_a_birthday_is_not_planned_as_a_celebration(self):
+        from chatbot_feature.emotion_reasoner import EmotionReasonerAgent
+        agent = EmotionReasonerAgent()
+        plan = agent.plan("Everyone forgot about my birthday today and honestly it really hurts.", self.scores("sadness", 0.76))
+        self.assertEqual(plan.user_emotion, "sadness")
+        self.assertNotEqual(plan.strategy, "celebratory_sharing")
+        self.assertNotIn("celebration", [cause["cause"] for cause in plan.causes])
+
+    def test_cue_is_kept_when_the_detector_agrees_or_is_unsure(self):
+        from chatbot_feature.emotion_reasoner import EmotionReasonerAgent
+        agent = EmotionReasonerAgent()
+        happy = agent.plan("It is my birthday today and we are having a party!", self.scores("joy", 0.8))
+        self.assertIn("celebration", [cause["cause"] for cause in happy.causes])
+        unsure = agent.plan("my birthday is tomorrow", self.scores("sadness", 0.3))
+        self.assertIn("celebration", [cause["cause"] for cause in unsure.causes])
+
+    def test_crisis_cue_is_never_dropped(self):
+        from chatbot_feature.emotion_reasoner import EmotionReasonerAgent
+        plan = EmotionReasonerAgent().plan("I want to end my life", self.scores("joy", 0.9))
+        self.assertTrue(plan.safety_flag)

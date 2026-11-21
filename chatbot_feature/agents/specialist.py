@@ -31,9 +31,17 @@ class SpecialistAgent:
         self.manager = manager
 
     async def __call__(self, state: AgentState) -> dict[str, Any]:
+        if not state.get("safety", {}).get("policy", {}).get("tools_allowed", True):
+            return {"pending_agents": [], "current_agent": "safety"}
         pending = list(state.get("pending_agents", []))
         if pending and pending[0] == self.name:
             pending.pop(0)
+        try:
+            if not self.manager.tools_for_agent(self.name):
+                await self.manager.connect()
+        except Exception:
+            return {"pending_agents": pending, "current_agent": self.name,
+                    "errors": [{"run_id": state.get("run_id", ""), "message": "Optional tools unavailable"}]}
         tools = self.manager.tools_for_agent(self.name)
         activity: list[dict[str, Any]] = []
         run_id = state.get("run_id", "")

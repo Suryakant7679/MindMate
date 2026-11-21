@@ -5,8 +5,6 @@ from __future__ import annotations
 import json
 from typing import TYPE_CHECKING, Any
 
-from langchain_core.messages import AIMessage
-
 from ..emotion_reasoner import strategy_prompt
 if TYPE_CHECKING:   # runtime import would be circular (graph.builder imports this package)
     from ..graph.state import AgentState
@@ -17,6 +15,8 @@ class ResponseAgent:
         self.model = model
 
     async def __call__(self, state: AgentState) -> dict[str, Any]:
+        if not state.get("safety", {}).get("policy", {}).get("steering_allowed", True):
+            return {"draft_response": ""}
         run_id = state.get("run_id", "")
         results = [item for item in state.get("intermediate_results", []) if item.get("run_id") == run_id]
         errors = [item["message"] for item in state.get("errors", []) if item.get("run_id") == run_id]
@@ -50,8 +50,9 @@ class ResponseAgent:
             answer, analysis = await self.model.complete_planned(prompt, plan)
             update["steering"] = {**analysis["steering"], "decision": analysis["decision"],
                                   "effect": analysis["effect"], "evidence": analysis.get("evidence"),
+                                  "comparison": analysis.get("comparison"), "turn_id": analysis.get("turn_id"),
                                   "run_id": run_id}
         else:
             answer = await self.model.complete(prompt)
-        return {"messages": [AIMessage(content=answer)], "final_response": answer, "current_agent": "response",
+        return {"draft_response": answer, "current_agent": "response",
                 **update}

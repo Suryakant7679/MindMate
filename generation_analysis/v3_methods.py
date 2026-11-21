@@ -22,7 +22,7 @@ import numpy as np
 import pandas as pd
 
 from .common import MODEL_ID, MODEL_KEY, read_jsonl, write_json
-from .freeze_v2 import frozen_policy
+from .freeze_v2 import frozen_policy, frozen_dir
 from .steering_lab import emotion_rubric, release
 from .steering_methods import Interventions, layer_norms, spec_name
 from .v3_common import (JUDGES, RATED, Judge, automatic_scores, judge_preferences, judge_ratings, load_items,
@@ -277,7 +277,7 @@ def select(args) -> None:
     sweep.to_csv(OUT / "calibration_sweep.csv", index=False)
 
     cells, table = {}, []
-    v2 = frozen_policy(MODEL_KEY) if MODEL_KEY in ("llama", "emollama") else {"cells": {}}
+    v2 = frozen_policy(MODEL_KEY) if (frozen_dir(MODEL_KEY) / "manifest.json").exists() else {"cells": {}}
     for context, block in sweep.groupby("context"):
         admissible = block[block.admissible]
         entry = {"alpha": 0.0, "method": None, "spec": None}

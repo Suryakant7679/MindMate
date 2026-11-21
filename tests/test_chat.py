@@ -94,9 +94,19 @@ class ChatContractTests(unittest.TestCase):
                         bnb_4bit_compute_dtype=torch.float32, bnb_4bit_use_double_quant=True,
                     )
 
-    def test_sarvam_uses_native_thinking_template(self):
+    def test_sarvam_chat_runs_with_reasoning_off(self):
+        # The checkpoint ignores its own no-thinking flag; the runtime pre-fills an empty reasoning block instead,
+        # which is the configuration all Sarvam calibration and held-out results were produced with.
+        self.assertIs(SARVAM_CONFIG.enable_thinking, False)
+        runtime = SarvamRuntime.__new__(SarvamRuntime)
+        runtime.set_reasoning(False)
+        self.assertEqual(runtime.prompt_suffix(), "<think>\n</think>\n")
+        runtime.set_reasoning(True)
+        self.assertEqual(runtime.prompt_suffix(), "")
+
+    def test_sarvam_passes_thinking_flag_to_template(self):
         runtime = LlamaRuntime.__new__(LlamaRuntime)
-        runtime.enable_thinking = SARVAM_CONFIG.enable_thinking
+        runtime.enable_thinking = True
         runtime.torch = MagicMock()
         runtime.lock = threading.Lock()
         runtime.tokenizer = Mock()
@@ -159,6 +169,7 @@ class ChatContractTests(unittest.TestCase):
 
     def test_sarvam_decodes_only_final_answer(self):
         runtime = SarvamRuntime.__new__(SarvamRuntime)
+        runtime.reasoning = True
         runtime.tokenizer = Mock()
         runtime.tokenizer.convert_tokens_to_ids.side_effect = {"<think>": 23, "</think>": 24}.get
         runtime.tokenizer.decode.return_value = "Hello!"
@@ -171,6 +182,19 @@ class ChatContractTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "generation limit"):
             runtime.decode_response(tokens)
         runtime.tokenizer.decode.assert_not_called()
+
+    def test_sarvam_stray_boundary_is_degenerate_text_when_reasoning_off(self):
+        # Reasoning off: no think block can follow the pre-filled empty one, so a stray boundary token (seen under
+        # strong steering) is dropped and the text is left to the quality gates instead of aborting the turn.
+        runtime = SarvamRuntime.__new__(SarvamRuntime)
+        runtime.reasoning = False
+        runtime.tokenizer = Mock()
+        runtime.tokenizer.convert_tokens_to_ids.side_effect = {"<think>": 23, "</think>": 24}.get
+        runtime.tokenizer.decode.return_value = "odd"
+        tokens = Mock()
+        tokens.tolist.return_value = [100, 24, 101]
+        self.assertEqual(runtime.decode_response(tokens), "odd")
+        runtime.tokenizer.decode.assert_called_once_with([100, 101], skip_special_tokens=True)
 
     def test_context_trims_complete_turns(self):
         runtime = LlamaRuntime.__new__(LlamaRuntime)

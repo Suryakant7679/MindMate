@@ -196,3 +196,7 @@ python3 -m unittest discover -s tests -v
 cd frontend
 npm run build
 ```
+
+### Safety & Risk Assessment Agent (Agent 1)
+
+Chat now passes through contextual risk assessment, deterministic safety routing, and outgoing validation before delivery. Safety-sensitive replies bypass tools and neuron steering; streams are buffered until checked. New safety state is ephemeral and session-isolated. See [implementation, commands, measured offline evaluation, and limitations](docs/SAFETY_AGENT.md). This research implementation is not clinically validated.

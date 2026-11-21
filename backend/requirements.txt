@@ -11,3 +11,5 @@ langchain[mcp]>=1.4,<2
 mcp-server-fetch>=2026.11.4
 mcp-server-git>=2026.11.4
 mcp-server-time>=2026.11.4
+
+pydantic>=2.7,<3

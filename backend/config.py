@@ -103,6 +103,9 @@ MODEL_REGISTRY: dict[str, ModelSpec] = {spec.key: spec for spec in (
                           results_tag="emollama_chat_7b"), gpu_gib=14),
     ModelSpec("sarvam", "Sarvam-30B", "Multilingual and Hinglish conversational baseline",
               ModelConfig(model_id="sarvamai/sarvam-30b", load_in_4bit=True, trust_remote_code=True,
-                          enable_thinking=True, results_tag="sarvam_30b"),
-              runtime="sarvam", persona=False, max_new_tokens=4096, gpu_gib=20),
+                          enable_thinking=False, results_tag="sarvam_30b"),
+              # Reasoning off: the empty reasoning block is pre-filled (the checkpoint ignores its own flag), so a
+              # reply takes ~1 s instead of ~50 s and the Emotion Reasoner's measurements cover the answer tokens.
+              # This is the configuration every Sarvam calibration and held-out result was produced with.
+              runtime="sarvam", persona=False, max_new_tokens=1024, gpu_gib=20),
 )}

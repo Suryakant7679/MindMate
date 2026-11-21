@@ -11,6 +11,9 @@ from unittest.mock import Mock, patch
 from backend.config import MODEL_REGISTRY
 from backend.models import ModelManager, ModelUnavailable, is_downloaded
 from backend.server import RequestHandler, attach_runtime
+from chatbot_feature.safety.schemas import Validation
+from chatbot_feature.safety.session import SessionStore
+from chatbot_feature.tests.safety_fakes import assessment as safety_assessment
 
 
 class FakeRuntime:
@@ -20,7 +23,14 @@ class FakeRuntime:
         self.model = object()
         self._emotion_panels = panels or {}
 
-    def generate(self, messages, **_):
+    def generate(self, messages, **options):
+        # Agent 1 asks the loaded model for its safety assessment / reply validation first (scripted here).
+        prompt = messages[-1]["content"] if messages else ""
+        if prompt.startswith("MINDMATE_SAFETY_ASSESSMENT"):
+            return {"response": safety_assessment().model_dump_json(), "model": self.model_id}
+        if prompt.startswith("MINDMATE_SAFETY_VALIDATION"):
+            return {"response": Validation(approved=True, severity="none", violations=[], action="approve").model_dump_json(),
+                    "model": self.model_id}
         return {"response": f"reply from {self.key}", "model": self.model_id}
 
 
@@ -95,6 +105,9 @@ class ManagerTests(unittest.TestCase):
 class ServerTests(unittest.TestCase):
     def server(self):
         server = Mock(agent_service=None, emotion_service=None, runtime=None)
+        # Real stores, as AppServer creates them (a Mock store would hand the safety agent a Mock policy).
+        server.safety_sessions, server.resource_owners = SessionStore(), SessionStore()
+        server.session_secret = b"0" * 32
         server.models, self.made, patcher = manager(on_change=lambda key, runtime: attach_runtime(server, key, runtime))
         self.addCleanup(patcher.stop)
         return server

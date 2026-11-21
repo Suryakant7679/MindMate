@@ -1,10 +1,13 @@
+from chatbot_feature.safety import SafetyAgent
+from chatbot_feature.safety.session import SessionStore
+from chatbot_feature.tests.safety_fakes import SafetyModel
 """Steering decision, safeguards and streaming of the shared emotion service,
 and their consistency between direct chat and LangGraph/MCP agent mode."""
 import asyncio
 import io
 import json
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from langchain_core.messages import HumanMessage
 
@@ -80,10 +83,10 @@ class Scorer:
         return scores
 
 
-def service(love_plain, love_steered, *, policy=POLICY, runtime_class=Runtime, **runtime_kwargs):
+def service(love_plain, love_steered, *, policy=POLICY, runtime_class=Runtime, options=None, **runtime_kwargs):
     runtime = runtime_class(**runtime_kwargs)
     return EmotionSteeringService(runtime, EmotionReasonerAgent(["love"], policy=policy),
-                                  Scorer(love_plain, love_steered), evidence={}), runtime
+                                  Scorer(love_plain, love_steered), evidence={}, **(options or {})), runtime
 
 
 def run(svc, text=SAD, **overrides):
@@ -144,11 +147,29 @@ class DecisionTests(unittest.TestCase):
         self.assertEqual(runtime.calls, [0.0, 0.0])              # never a steered candidate
         self.assertIsNone(analysis["effect"]["steered_reply"])
 
-    def test_api_override_forces_steering(self):
-        svc, _ = service(0.45, 0.10)
+    def test_api_override_forces_steering_only_when_the_server_enables_it(self):
+        svc, _ = service(0.45, 0.10, options={"allow_overrides": True})
         _, analysis = run(svc, alpha_override=1.5)
         self.assertEqual(analysis["decision"]["status"], "applied")
         self.assertEqual(analysis["decision"]["applied_alpha"], 1.5)
+        svc, _ = service(0.45, 0.10)                                  # default: overrides are ignored
+        plan, analysis = run(svc, alpha_override=1.5)
+        self.assertEqual(plan["steering_alpha"], 0.75)
+        self.assertEqual(analysis["decision"]["status"], "skipped")
+        self.assertEqual(plan["strength_factors"][-1]["effect"], "ignored")
+
+    def test_forced_steering_still_passes_the_reply_safeguards_and_never_runs_on_a_crisis_turn(self):
+        svc, _ = service(0.05, 0.90, options={"allow_overrides": True},
+                         steered_text="steered so so so so so so so so so so much")
+        _, analysis = run(svc, alpha_override=1.5)
+        self.assertEqual(analysis["decision"]["status"], "rejected")
+        self.assertEqual(analysis["reply"], PLAIN)
+        svc, runtime = service(0.05, 0.90, options={"allow_overrides": True})
+        plan, analysis = run(svc, CRISIS, alpha_override=1.5, emotion_override="love")
+        self.assertTrue(plan["safety_flag"])
+        self.assertEqual(analysis["decision"]["status"], "not_planned")
+        self.assertEqual(analysis["decision"]["disabled_by"], "safety")
+        self.assertIsNone(analysis["effect"]["steered_reply"])
 
     def test_runtime_without_batched_candidates_gives_the_same_decisions(self):
         for scores, expected in (((0.05, 0.40), "applied"), ((0.05, 0.07), "rejected"), ((0.45, 0.90), "skipped")):
@@ -202,9 +223,13 @@ class StreamingTests(unittest.TestCase):
         handler.headers = {"Content-Length": str(len(body))}
         handler.rfile, handler.wfile = io.BytesIO(body), io.BytesIO()
         handler.server = Mock(agent_service=None)
+        handler.server.session_secret = b"test-secret"
+        handler.server.safety_sessions = SessionStore()
+        handler.server.resource_owners = SessionStore()
         handler._emotion_service = lambda: svc
         handler.send_response, handler.send_header, handler.end_headers = Mock(), Mock(), Mock()
-        handler.do_POST()
+        with patch("backend.server.SafetyRuntimeModel", return_value=SafetyModel()):
+            handler.do_POST()
         headers = {call.args[0]: call.args[1] for call in handler.send_header.call_args_list}
         return headers, handler.wfile.getvalue().decode()
 
@@ -215,8 +240,9 @@ class StreamingTests(unittest.TestCase):
         self.assertEqual(body, STEERED)
         self.assertIsNotNone(svc.analysis(headers["X-Turn-Id"]))
         headers, body = self.http(svc, CRISIS)
-        self.assertEqual((headers["X-Steering-Status"], headers["X-Steering-Alpha"]), ("not_planned", "0.0"))
-        self.assertEqual(body, PLAIN)
+        self.assertEqual(headers["X-Steering-Alpha"], "0")
+        self.assertEqual(headers["X-Safety-Route"], "safety")
+        self.assertIn("safe right now", body)
 
 
 class AgentModeConsistencyTests(unittest.TestCase):
@@ -225,7 +251,7 @@ class AgentModeConsistencyTests(unittest.TestCase):
     def agent_state(self, svc, text):
         node = EmotionReasonerNode(svc.agent, svc.probe_scores)
         graph = build_agent_graph(LocalRuntimeModel(svc.runtime, emotion_service=svc),
-                                  MCPManager({}, adapter_factory=lambda _: None), emotion_reasoner=node)
+                                  MCPManager({}, adapter_factory=lambda _: None), emotion_reasoner=node, safety_agent=SafetyAgent(SafetyModel()))
         return asyncio.run(graph.ainvoke({"messages": [HumanMessage(content=text)], "task": text, "user_id": "u",
                                           "run_id": "r1"}))
 
@@ -240,6 +266,11 @@ class AgentModeConsistencyTests(unittest.TestCase):
                 agent_service, runtime = service(*scores, policy=policy)
                 state = self.agent_state(agent_service, text)
                 self.assertEqual(direct["decision"]["status"], expected)
+                if text == CRISIS:
+                    self.assertEqual(state["safety"]["policy"]["route"], "safety")
+                    self.assertEqual(state["emotion_plan"], {})
+                    self.assertEqual(runtime.calls, [])
+                    continue
                 for key in ("strategy", "response_emotion", "steering_alpha", "safety_flag"):
                     self.assertEqual(state["emotion_plan"][key], plan[key])
                 self.assertEqual(state["steering"]["decision"], direct["decision"])
@@ -254,12 +285,12 @@ class AgentModeConsistencyTests(unittest.TestCase):
         model = LocalRuntimeModel(runtime)
         self.assertFalse(hasattr(model, "complete_planned"))
         node = EmotionReasonerNode(EmotionReasonerAgent(["love"], policy=POLICY), lambda text: Scorer(0, 0).score(text))
-        graph = build_agent_graph(model, MCPManager({}, adapter_factory=lambda _: None), emotion_reasoner=node)
+        graph = build_agent_graph(model, MCPManager({}, adapter_factory=lambda _: None), emotion_reasoner=node, safety_agent=SafetyAgent(SafetyModel()))
         state = asyncio.run(graph.ainvoke({"messages": [HumanMessage(content=SAD)], "task": SAD, "user_id": "u",
                                            "run_id": "r1"}))
         self.assertEqual(state["final_response"], PLAIN)
         self.assertEqual(runtime.calls, [0.0])
-        self.assertNotIn("steering", state)
+        self.assertEqual(state["steering"], {})
 
 
 if __name__ == "__main__":

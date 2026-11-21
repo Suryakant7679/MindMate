@@ -270,3 +270,72 @@ python3 -m generation_analysis.holdout3 --stages compare
 - `holdout3` messages and the decisions file are hashed when generation starts (`lock.json`); a change is refused.
 - Sarvam's reasoning is skipped by pre-filling an empty reasoning block (`generate_reply(..., think=False)`), because the
   checkpoint ignores its own no-thinking flag and otherwise spends about 1,300 tokens (~50 s) per reply.
+
+## Sarvam-30B Hinglish emotion-neuron steering (`sarvam_lab.py`, `sarvam_experiments.py`)
+
+Sarvam's own panels (never transferred from Llama): layer 0 dense MLP (8,192 neurons) and the shared expert of
+layers 1-18 (1,024 each) are the always-active sites; the 128 routed experts are too sparse to steer. Panels are
+discovered from 170 matched prompts (120 Hinglish): paired |t| >= 3, then top attribution per site (1,328 neurons
+per tone). A residual-stream direction after layer 10 is the second intervention. Reasoning is off in every run.
+
+```bash
+MINDMATE_MODEL=llama python3 -m generation_analysis.sarvam_lab data          # message sets (dev / calibration / held-out)
+python3 -m generation_analysis.sarvam_lab discover panels                     # activations, panels.json, residual directions
+A="--alphas 1 2 3 4 --language-alphas 0.5 0.75 1.0 1.25 --combo-language 0.75"
+python3 -m generation_analysis.sarvam_experiments causal causal_score causal_report $A      # dev, judge 1
+python3 -m generation_analysis.sarvam_experiments causal2 $A                                # residual directions (dev)
+python3 -m generation_analysis.sarvam_experiments causal3 causal3_score causal3_report $A   # dev, both judges: sham,
+#   wrong-panel, third random draw, top-k / random subsets, concentrated top-10, random and reversed directions, ablations
+python3 -m generation_analysis.sarvam_experiments calibrate calibrate_score compare select $A   # both judges, policy
+python3 -m generation_analysis.sarvam_experiments heldout heldout_score heldout_report $A       # untouched, via the real service
+python3 -m generation_analysis.sarvam_experiments heldout_language heldout_language_score heldout_language_report $A
+python3 -m generation_analysis.sarvam_experiments smoke evidence                             # real-model trace check, evidence
+python3 -m generation_analysis.sarvam_experiments install                                    # refuses unsupported steering
+python3 tests/e2e_sarvam_chat.py                                                             # HTTP end-to-end chat test
+```
+
+- Results: `results/sarvam_30b_generation_emotion/steering/` (`causal*/`, `calibrate/`, `heldout/`, `heldout_language/`,
+  `evidence.json`, `policy_candidate.json`); panels in `steering_panels/panels.json`.
+- `install` copies the policy only when every steering cell is backed by the held-out test (tone gain CI > 0 for both
+  judges, no quality CI below -0.15); a policy that steers nothing is installed as an explicit "steering disabled"
+  state so the chat service never falls back to heuristic strengths on unvalidated panels.
+- Held-out files are locked by hash (`lock.json`); the policy is never changed from held-out outcomes.
+
+## Emotion & neuron steering analytics (Mood Tracker dashboard)
+
+The Mood Tracker has six sections: Overview, Emotion Timeline, Response Comparison, Neuron Explorer, Causal
+Ablations and Model Evaluation. Every number is labelled Measured, Classifier-estimated, LLM-judged, User-reported
+or Not available. Opening the dashboard runs no model: it reads per-turn records and saved experiment files.
+
+```bash
+python3 -m generation_analysis.neuron_validation --model <llama|emollama|sarvam> all   # causal battery (GPU, both judges)
+python3 -m generation_analysis.neuron_validation --model <model> analyse               # re-write report.json and cards.json (CPU)
+python3 -m generation_analysis.neuron_validation summary                               # cross-model table
+python3 -m generation_analysis.trajectory_validation                                   # emotion detector vs labelled messages
+python3 -m backend.server --model llama --research-compare                             # chat; turns are recorded in results/telemetry/
+python3 -m generation_analysis.turn_evaluation --model llama                           # judge recorded steered/unsteered replies
+node tests/browser/dashboard_check.js http://127.0.0.1:8080                            # browser check against the backend records
+```
+
+- API (read-only, saved data): `/api/emotion/trace/<turn>`, `/api/emotion/conversation/<id>`, `/api/emotion/neurons/<turn>`,
+  `/api/emotion/panel/<name>`, `/api/emotion/research`, `/api/emotion/models`; `POST /api/emotion/feedback` (voluntary 1-5
+  ratings) and `POST /api/emotion/settings` (research comparison on or off).
+- Research comparison generates a steered candidate on turns the policy does not steer, in the same decoding batch; it is
+  never sent and never generated on a safety turn. API strength overrides need `--allow-overrides` and still pass the
+  reply safeguards.
+- The battery establishes panel-level effects only (panel, layer bands, ranked subsets, each against matched random
+  neurons, sham hooks and the reversed shift). No single neuron is tested, and the dashboard says so.
+- `MINDMATE_VALIDATION_HINGLISH=1` adds the 24 Hinglish development messages to the Llama-family battery
+  (then re-run `generate score --force analyse`).
+
+### Single-neuron interventions (`single_neuron.py`)
+
+Needs the model's battery. Stage 1 screens the 20 top-ranked neurons of each panel and 20 matched control neurons with
+teacher-forced log-likelihoods (one neuron alone at 1x, 8x, 32x the reference strength; the panel without the neuron).
+Stage 2 generates and judges replies for the 5 best-screened neurons and 5 controls. A neuron is "supported" only when
+the screen passes (CI above zero, Holm, above the controls' 95th percentile) and the judged emotion rises beyond controls.
+
+```bash
+python3 -m generation_analysis.single_neuron --model <llama|emollama|sarvam> all     # screen, generate, score, analyse
+```
+Results: `neuron_validation/single/report.json`; shown in the Neuron Explorer (panel explorer and evidence ladder).

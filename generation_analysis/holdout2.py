@@ -68,8 +68,25 @@ def earlier_splits() -> pd.DataFrame:
     return pd.concat(frames, ignore_index=True)
 
 
-def load_items() -> pd.DataFrame:
+def own_split_overlap(key: str, frame: pd.DataFrame) -> pd.Series:
+    """Rows that also appear in one of this model's own splits.
+
+    The shared messages were checked against the models frozen when the split was built (13 Nov 2026).
+    A model added later (Llama-2-13B) drew its own splits afterwards and may contain some of them; for
+    that model those messages are not held out and are dropped.
+    """
+    paths = sorted((frozen_dir(key) / "causal_steering" / "splits").glob("*.csv"))
+    if not paths:
+        return pd.Series(False, index=frame.index)
+    own = pd.concat([pd.read_csv(path) for path in paths], ignore_index=True)
+    return frame.conv_id.isin(set(own.conv_id)) | frame.text.str.lower().isin(set(own.text.str.lower()))
+
+
+def load_items(key: str | None = None) -> pd.DataFrame:
+    """The shared messages; with ``key``, without those in that model's own earlier splits."""
     frame = pd.read_csv(SHARED / "items.csv")
+    if key is not None:
+        frame = frame[~own_split_overlap(key, frame)].reset_index(drop=True)
     frame["history"] = frame.history.map(json.loads)
     return frame
 
@@ -172,12 +189,16 @@ def generate(args) -> None:
     write_json(lock, hashes)
     path = OUT / "generations.jsonl"
     done = {row["item_id"] for row in read_jsonl(path)} if path.exists() else set()
-    items = load_items()
+    items = load_items(MODEL_KEY)
+    dropped = len(load_items()) - len(items)
+    if dropped:
+        print(f"{dropped} shared messages are in {MODEL_KEY}'s own earlier splits and are left out for this model.")
     runtime = create_runtime(MODEL_KEY, model_id=args.model_id)
     services, scorer = {}, None
     for name, policy in chosen.items():
+        # The shared split was planned before the cue-contradiction filter existed; plan as it was planned.
         agent = EmotionReasonerAgent(available_panels=list(runtime._emotion_panels), policy=policy,
-                                     detector_weight=DETECTOR_WEIGHT)
+                                     detector_weight=DETECTOR_WEIGHT, cue_consistency=False)
         services[name] = EmotionSteeringService(runtime, agent=agent, scorer=scorer, evidence={})
         scorer = services[name].scorer
     if not scorer.uses_classifier:
@@ -245,9 +266,11 @@ def generate(args) -> None:
 # ------------------------------------------------------------------------- score
 
 def long_table() -> pd.DataFrame:
-    items = load_items().set_index("item_id")
+    items = load_items(MODEL_KEY).set_index("item_id")
     rows = []
     for record in read_jsonl(OUT / "generations.jsonl"):
+        if record["item_id"] not in items.index:
+            continue
         item = items.loc[record["item_id"]]
         common = {"item_id": record["item_id"], "text": item.text, "history": item.history, "target": item.target,
                   "strategy": item.strategy, "language": item.language, "turns": item.turns}
@@ -438,6 +461,7 @@ def report(args) -> None:
 
     write_json(OUT / "metadata.json", {
         "model": MODEL_ID, "messages": int(len(index)), "split": "holdout2 (results/steering_holdout2/items.csv)",
+        "left_out_in_own_splits": int(own_split_overlap(MODEL_KEY, pd.read_csv(SHARED / "items.csv")).sum()),
         "systems": list(SYSTEMS), "judges": {name: value[0] for name, value in JUDGES.items()},
         "independent_classifier": INDEPENDENT_SCORER, "gate_classifier": SCORER, "max_new_tokens": args.max_new_tokens,
         "decoding": "greedy; unsteered and steered candidates of a message decoded together",

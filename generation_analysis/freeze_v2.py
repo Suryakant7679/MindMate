@@ -24,7 +24,7 @@ from backend.config import MODEL_REGISTRY
 
 ROOT = Path("results")
 FROZEN = ROOT / "frozen_v2"
-MODELS = ("llama", "emollama")
+MODELS = ("llama", "emollama", "llama2")        # llama2 is frozen after its own pipeline has installed a policy
 RESULT_TABLES = ("causal_steering/heldout", "causal_steering/recalibration", "causal_steering/splits")
 SKIP = ("generations.jsonl",)          # large raw generations stay where they are (hashed, not copied)
 
@@ -48,6 +48,11 @@ def live_files(key: str) -> dict[str, Path]:
 
 def frozen_dir(key: str) -> Path:
     return FROZEN / MODEL_REGISTRY[key].config.results_tag
+
+
+def frozen_models() -> list[str]:
+    """Models that have a freeze (a model is frozen after its own pipeline installed a policy)."""
+    return [key for key in MODELS if (frozen_dir(key) / "manifest.json").exists()]
 
 
 def freeze(key: str) -> None:
@@ -95,9 +100,12 @@ def frozen_policy(key: str) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--verify", action="store_true")
-    parser.add_argument("--models", nargs="+", default=list(MODELS), choices=MODELS)
+    parser.add_argument("--models", nargs="+", choices=MODELS,
+                        help="Default: verify every frozen model; freeze every model that is not frozen yet.")
     args = parser.parse_args()
-    for key in args.models:
+    frozen = [key for key in MODELS if (frozen_dir(key) / "manifest.json").exists()]
+    pending = [key for key in MODELS if key not in frozen and all(path.exists() for path in live_files(key).values())]
+    for key in args.models or (frozen if args.verify else pending):
         if args.verify:
             manifest = verify(key)
             print(f"{key}: deployed panels, policy and evidence match the freeze of {manifest['frozen_at']}")

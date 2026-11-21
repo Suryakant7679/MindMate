@@ -33,7 +33,9 @@ class EmotionReasonerNode:
             return {"current_agent": self.agent.name,
                     "errors": [{"run_id": run_id, "message": f"emotion_reasoner: {type(exc).__name__}"}]}
         return {
-            "emotion_plan": {**plan, "run_id": run_id},
+            # ``user_text``: the reply is generated from a synthesised prompt, so the run-time comparison
+            # needs the user's own words (language, Hinglish checks).
+            "emotion_plan": {**plan, "run_id": run_id, "user_text": state["task"]},
             "emotion_history": [{"emotion": plan["user_emotion"], "valence": plan["valence"], "run_id": run_id}],
             "current_agent": self.agent.name,
         }

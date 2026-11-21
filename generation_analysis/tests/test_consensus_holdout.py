@@ -41,12 +41,12 @@ class ConsensusRuleTests(unittest.TestCase):
 @unittest.skipUnless((freeze_v2.FROZEN / "llama31_8b" / "manifest.json").exists(), "v2 has not been frozen")
 class FreezeTests(unittest.TestCase):
     def test_deployed_configuration_matches_the_freeze(self):
-        for key in freeze_v2.MODELS:
+        for key in freeze_v2.frozen_models():
             manifest = freeze_v2.verify(key)                # raises SystemExit on any difference
             self.assertEqual(set(manifest["deployed"]), {"panels", "policy", "evidence"})
 
     def test_consensus_policy_is_not_installed_and_never_adds_steering(self):
-        for key in freeze_v2.MODELS:
+        for key in freeze_v2.frozen_models():
             tag = freeze_v2.MODEL_REGISTRY[key].config.results_tag
             path = Path("results") / f"{tag}_generation_emotion" / "causal_steering" / "consensus" / "policy_consensus.json"
             if not path.exists():
@@ -62,10 +62,20 @@ class FreezeTests(unittest.TestCase):
 @unittest.skipUnless((SHARED / "items.csv").exists(), "holdout2 has not been built")
 class LeakageTests(unittest.TestCase):
     def test_new_messages_are_in_no_earlier_split(self):
+        from generation_analysis.holdout2 import load_items
         items = pd.read_csv(SHARED / "items.csv")
-        earlier = pd.concat([pd.read_csv(path) for path in freeze_v2.FROZEN.glob("*/causal_steering/splits/*.csv")])
+        # Models frozen when the split was built: none of the shared messages is in their splits.
+        built_with = [key for key in ("llama", "emollama") if key in freeze_v2.frozen_models()]
+        earlier = pd.concat([pd.read_csv(path) for key in built_with
+                             for path in (freeze_v2.frozen_dir(key) / "causal_steering" / "splits").glob("*.csv")])
         self.assertFalse(set(items.conv_id) & set(earlier.conv_id))
         self.assertFalse(set(items.text.str.lower()) & set(earlier.text.str.lower()))
+        # Every model (including ones added later) evaluates only messages outside its own splits.
+        for key in freeze_v2.frozen_models():
+            own = pd.concat([pd.read_csv(path) for path in (freeze_v2.frozen_dir(key) / "causal_steering" / "splits").glob("*.csv")])
+            evaluated = load_items(key)
+            self.assertFalse(set(evaluated.conv_id) & set(own.conv_id), key)
+            self.assertFalse(set(evaluated.text.str.lower()) & set(own.text.str.lower()), key)
         self.assertFalse(items.text.str.lower().duplicated().any())
         self.assertFalse((items.strategy == "crisis_support").any())
 
