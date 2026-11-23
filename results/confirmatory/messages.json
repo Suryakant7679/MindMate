@@ -1,0 +1,91 @@
+{
+  "seed": 20261123,
+  "sizes": [
+    {
+      "group": "crisis",
+      "turns": "single",
+      "n": 1
+    },
+    {
+      "group": "english",
+      "turns": "multi",
+      "n": 50
+    },
+    {
+      "group": "english",
+      "turns": "single",
+      "n": 150
+    },
+    {
+      "group": "hinglish",
+      "turns": "single",
+      "n": 100
+    }
+  ],
+  "planned_sizes": {
+    "single": 150,
+    "multi": 50,
+    "hinglish": 100,
+    "crisis": 30
+  },
+  "short_of_plan": {},
+  "strategies": {
+    "crisis": {
+      "appreciative_mirroring": 0,
+      "celebratory_sharing": 0,
+      "compassionate_comfort": 0,
+      "crisis_support": 1,
+      "gentle_exploration": 0,
+      "grounding_reassurance": 0,
+      "reflective_validation": 0,
+      "strengths_affirmation": 0,
+      "warm_connection": 0
+    },
+    "english": {
+      "appreciative_mirroring": 33,
+      "celebratory_sharing": 33,
+      "compassionate_comfort": 33,
+      "crisis_support": 0,
+      "gentle_exploration": 33,
+      "grounding_reassurance": 33,
+      "reflective_validation": 31,
+      "strengths_affirmation": 4,
+      "warm_connection": 0
+    },
+    "hinglish": {
+      "appreciative_mirroring": 16,
+      "celebratory_sharing": 15,
+      "compassionate_comfort": 15,
+      "crisis_support": 0,
+      "gentle_exploration": 15,
+      "grounding_reassurance": 15,
+      "reflective_validation": 15,
+      "strengths_affirmation": 0,
+      "warm_connection": 9
+    }
+  },
+  "targets": {
+    "english": {
+      "admiration": 37,
+      "joy": 33,
+      "love": 130
+    },
+    "hinglish": {
+      "admiration": 16,
+      "joy": 15,
+      "love": 69
+    }
+  },
+  "excluded": {
+    "texts": 2914,
+    "conversations": 1596,
+    "includes": "every earlier split, held-out set and study, including results/steering_modes"
+  },
+  "sources": "english: EmpatheticDialogues test conversations in no earlier split or study; hinglish: messages of data/mlt_hinghlish_dataset_clean.csv detected as Hinglish, chat length, not used before; crisis: messages with a knowledge-graph crisis cue that the planner flags as a crisis.",
+  "caveats": {
+    "hinglish": "machine-generated GenZ-style Hinglish; Hinglish results are secondary",
+    "crisis": "few unused crisis messages remain; the crisis group is exploratory"
+  },
+  "note": "Frozen before registration and before any model replied to these messages. Used once.",
+  "sha256": "42f1587b9a704bf99cb54366674d11ee07f1ac65aba0fbe7d9e3337cefcd2df8"
+}
