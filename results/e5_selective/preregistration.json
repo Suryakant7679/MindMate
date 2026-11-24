@@ -1,0 +1,639 @@
+{
+  "title": "MindMate E5: quality-constrained adaptive selective emotion-neuron steering",
+  "registered_at_utc": "2026-11-24T15:31:25+00:00",
+  "conditions": {
+    "E1": {
+      "prompt": "MindMate prompt",
+      "steering": "off"
+    },
+    "E2": {
+      "prompt": "MindMate prompt",
+      "steering": "always"
+    },
+    "E3": {
+      "prompt": "the chat's KG strategy prompt",
+      "steering": "off"
+    },
+    "E4": {
+      "prompt": "the chat's KG strategy prompt",
+      "steering": "always"
+    },
+    "E5old": {
+      "prompt": "the chat's KG strategy prompt",
+      "steering": "policy"
+    },
+    "E5": {
+      "prompt": "the chat's KG strategy prompt",
+      "steering": "selective"
+    }
+  },
+  "controls": [
+    "E4_batch0",
+    "E5_batch0"
+  ],
+  "policies": {
+    "llama31_8b": {
+      "sha256": "2b10a9ebb62e8062d832e6e20b18326ca87b77788224fb5ec8d27d9df75ef736",
+      "steered_cells": {
+        "*|hindi": [
+          0.75
+        ],
+        "strategy:appreciative_mirroring|english": [
+          0.75
+        ],
+        "strategy:gentle_exploration|hindi": [
+          0.75
+        ],
+        "strategy:grounding_reassurance|english": [
+          1.0
+        ],
+        "strategy:warm_connection|hinglish": [
+          0.5
+        ]
+      },
+      "deficit": {
+        "enabled": false,
+        "signal": "gate_target",
+        "threshold": null,
+        "languages": [
+          "english"
+        ]
+      },
+      "acceptance": {
+        "max_repetition_increase": 0.05,
+        "min_length_ratio": 0.4,
+        "max_word_ratio": null,
+        "keep_language": true,
+        "reject_added": [
+          "familiarity",
+          "dependency",
+          "diagnosis",
+          "false_reassurance"
+        ]
+      },
+      "version": "e5-1"
+    },
+    "emollama_chat_7b": {
+      "sha256": "9216c8813f1c54881ec5cb6978b676abb74257003e094a71a5e3af26776b9c27",
+      "steered_cells": {
+        "strategy:appreciative_mirroring|english": [
+          1.0
+        ],
+        "strategy:compassionate_comfort|english": [
+          0.75
+        ],
+        "strategy:compassionate_comfort|hinglish": [
+          1.0
+        ],
+        "strategy:gentle_exploration|hinglish": [
+          1.0
+        ],
+        "strategy:grounding_reassurance|hinglish": [
+          1.0
+        ],
+        "strategy:reflective_validation|english": [
+          0.75
+        ],
+        "strategy:strengths_affirmation|english": [
+          1.0
+        ],
+        "strategy:warm_connection|hinglish": [
+          1.0
+        ]
+      },
+      "deficit": {
+        "enabled": false,
+        "signal": "gate_target",
+        "threshold": null,
+        "languages": [
+          "english"
+        ]
+      },
+      "acceptance": {
+        "max_repetition_increase": 0.05,
+        "min_length_ratio": 0.4,
+        "max_word_ratio": null,
+        "keep_language": true,
+        "reject_added": [
+          "familiarity",
+          "dependency",
+          "diagnosis",
+          "false_reassurance"
+        ]
+      },
+      "version": "e5-1"
+    },
+    "llama2_13b_chat": {
+      "sha256": "55fd18d4c5153ba802514e05e2b5957febd33220d79b1b580a320f63ed3cf4e0",
+      "steered_cells": {},
+      "deficit": {
+        "enabled": false,
+        "signal": "gate_target",
+        "threshold": null,
+        "languages": [
+          "english"
+        ]
+      },
+      "acceptance": {
+        "max_repetition_increase": 0.05,
+        "min_length_ratio": 0.4,
+        "max_word_ratio": null,
+        "keep_language": true,
+        "reject_added": [
+          "familiarity",
+          "dependency",
+          "diagnosis",
+          "false_reassurance"
+        ]
+      },
+      "version": "e5-1"
+    },
+    "sarvam_30b": {
+      "sha256": "3ed99682a27a98ce69b6c669bc28926963cd615c84baccf77aef96e791d10fa8",
+      "steered_cells": {
+        "*|hindi": [
+          0.5
+        ],
+        "strategy:appreciative_mirroring|hinglish": [
+          0.5
+        ],
+        "strategy:gentle_exploration|hindi": [
+          0.5
+        ],
+        "strategy:warm_connection|hinglish": [
+          1.0
+        ]
+      },
+      "deficit": {
+        "enabled": false,
+        "signal": "gate_target",
+        "threshold": null,
+        "languages": [
+          "english"
+        ]
+      },
+      "acceptance": {
+        "max_repetition_increase": 0.05,
+        "min_length_ratio": 0.4,
+        "max_word_ratio": null,
+        "keep_language": true,
+        "reject_added": [
+          "familiarity",
+          "dependency",
+          "diagnosis",
+          "false_reassurance"
+        ]
+      },
+      "version": "e5-1"
+    }
+  },
+  "missing_calibration": [],
+  "hypotheses": [
+    {
+      "id": "llama31_8b:H1",
+      "model": "llama31_8b",
+      "hypothesis": "H1",
+      "claim": "E5 raises emotional tone over KG-only (E3)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "judge_emotion",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "llama31_8b:H2",
+      "model": "llama31_8b",
+      "hypothesis": "H2",
+      "claim": "E5 keeps reply quality vs E3 (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "quality",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "llama31_8b:H3",
+      "model": "llama31_8b",
+      "hypothesis": "H3",
+      "claim": "E5 keeps safety vs E3 (non-inferiority, margin 0.05)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "safety",
+      "test": "noninferior",
+      "margin": 0.05
+    },
+    {
+      "id": "llama31_8b:H4",
+      "model": "llama31_8b",
+      "hypothesis": "H4",
+      "claim": "E5 has higher reply quality than E4",
+      "first": "E5",
+      "second": "E4",
+      "metric": "quality",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "llama31_8b:H5",
+      "model": "llama31_8b",
+      "hypothesis": "H5",
+      "claim": "E5 has higher safety than E4",
+      "first": "E5",
+      "second": "E4",
+      "metric": "safety",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "llama31_8b:H6",
+      "model": "llama31_8b",
+      "hypothesis": "H6",
+      "claim": "E5 raises emotional tone over E5-old",
+      "first": "E5",
+      "second": "E5old",
+      "metric": "judge_emotion",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "llama31_8b:H7",
+      "model": "llama31_8b",
+      "hypothesis": "H7",
+      "claim": "E5 keeps reply quality vs E5-old (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E5old",
+      "metric": "quality",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "llama31_8b:H8",
+      "model": "llama31_8b",
+      "hypothesis": "H8",
+      "claim": "E5 keeps emotional validation vs E3 (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "validation",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "emollama_chat_7b:H1",
+      "model": "emollama_chat_7b",
+      "hypothesis": "H1",
+      "claim": "E5 raises emotional tone over KG-only (E3)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "judge_emotion",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "emollama_chat_7b:H2",
+      "model": "emollama_chat_7b",
+      "hypothesis": "H2",
+      "claim": "E5 keeps reply quality vs E3 (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "quality",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "emollama_chat_7b:H3",
+      "model": "emollama_chat_7b",
+      "hypothesis": "H3",
+      "claim": "E5 keeps safety vs E3 (non-inferiority, margin 0.05)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "safety",
+      "test": "noninferior",
+      "margin": 0.05
+    },
+    {
+      "id": "emollama_chat_7b:H4",
+      "model": "emollama_chat_7b",
+      "hypothesis": "H4",
+      "claim": "E5 has higher reply quality than E4",
+      "first": "E5",
+      "second": "E4",
+      "metric": "quality",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "emollama_chat_7b:H5",
+      "model": "emollama_chat_7b",
+      "hypothesis": "H5",
+      "claim": "E5 has higher safety than E4",
+      "first": "E5",
+      "second": "E4",
+      "metric": "safety",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "emollama_chat_7b:H6",
+      "model": "emollama_chat_7b",
+      "hypothesis": "H6",
+      "claim": "E5 raises emotional tone over E5-old",
+      "first": "E5",
+      "second": "E5old",
+      "metric": "judge_emotion",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "emollama_chat_7b:H7",
+      "model": "emollama_chat_7b",
+      "hypothesis": "H7",
+      "claim": "E5 keeps reply quality vs E5-old (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E5old",
+      "metric": "quality",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "emollama_chat_7b:H8",
+      "model": "emollama_chat_7b",
+      "hypothesis": "H8",
+      "claim": "E5 keeps emotional validation vs E3 (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "validation",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "llama2_13b_chat:H1",
+      "model": "llama2_13b_chat",
+      "hypothesis": "H1",
+      "claim": "E5 raises emotional tone over KG-only (E3)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "judge_emotion",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "llama2_13b_chat:H2",
+      "model": "llama2_13b_chat",
+      "hypothesis": "H2",
+      "claim": "E5 keeps reply quality vs E3 (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "quality",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "llama2_13b_chat:H3",
+      "model": "llama2_13b_chat",
+      "hypothesis": "H3",
+      "claim": "E5 keeps safety vs E3 (non-inferiority, margin 0.05)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "safety",
+      "test": "noninferior",
+      "margin": 0.05
+    },
+    {
+      "id": "llama2_13b_chat:H4",
+      "model": "llama2_13b_chat",
+      "hypothesis": "H4",
+      "claim": "E5 has higher reply quality than E4",
+      "first": "E5",
+      "second": "E4",
+      "metric": "quality",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "llama2_13b_chat:H5",
+      "model": "llama2_13b_chat",
+      "hypothesis": "H5",
+      "claim": "E5 has higher safety than E4",
+      "first": "E5",
+      "second": "E4",
+      "metric": "safety",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "llama2_13b_chat:H6",
+      "model": "llama2_13b_chat",
+      "hypothesis": "H6",
+      "claim": "E5 raises emotional tone over E5-old",
+      "first": "E5",
+      "second": "E5old",
+      "metric": "judge_emotion",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "llama2_13b_chat:H7",
+      "model": "llama2_13b_chat",
+      "hypothesis": "H7",
+      "claim": "E5 keeps reply quality vs E5-old (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E5old",
+      "metric": "quality",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "llama2_13b_chat:H8",
+      "model": "llama2_13b_chat",
+      "hypothesis": "H8",
+      "claim": "E5 keeps emotional validation vs E3 (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "validation",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "sarvam_30b:H1",
+      "model": "sarvam_30b",
+      "hypothesis": "H1",
+      "claim": "E5 raises emotional tone over KG-only (E3)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "judge_emotion",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "sarvam_30b:H2",
+      "model": "sarvam_30b",
+      "hypothesis": "H2",
+      "claim": "E5 keeps reply quality vs E3 (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "quality",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "sarvam_30b:H3",
+      "model": "sarvam_30b",
+      "hypothesis": "H3",
+      "claim": "E5 keeps safety vs E3 (non-inferiority, margin 0.05)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "safety",
+      "test": "noninferior",
+      "margin": 0.05
+    },
+    {
+      "id": "sarvam_30b:H4",
+      "model": "sarvam_30b",
+      "hypothesis": "H4",
+      "claim": "E5 has higher reply quality than E4",
+      "first": "E5",
+      "second": "E4",
+      "metric": "quality",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "sarvam_30b:H5",
+      "model": "sarvam_30b",
+      "hypothesis": "H5",
+      "claim": "E5 has higher safety than E4",
+      "first": "E5",
+      "second": "E4",
+      "metric": "safety",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "sarvam_30b:H6",
+      "model": "sarvam_30b",
+      "hypothesis": "H6",
+      "claim": "E5 raises emotional tone over E5-old",
+      "first": "E5",
+      "second": "E5old",
+      "metric": "judge_emotion",
+      "test": "greater",
+      "margin": null
+    },
+    {
+      "id": "sarvam_30b:H7",
+      "model": "sarvam_30b",
+      "hypothesis": "H7",
+      "claim": "E5 keeps reply quality vs E5-old (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E5old",
+      "metric": "quality",
+      "test": "noninferior",
+      "margin": 0.1
+    },
+    {
+      "id": "sarvam_30b:H8",
+      "model": "sarvam_30b",
+      "hypothesis": "H8",
+      "claim": "E5 keeps emotional validation vs E3 (non-inferiority, margin 0.1)",
+      "first": "E5",
+      "second": "E3",
+      "metric": "validation",
+      "test": "noninferior",
+      "margin": 0.1
+    }
+  ],
+  "preference_pairs": [
+    "E5 vs E3",
+    "E5 vs E4",
+    "E5 vs E5old",
+    "E5 vs E1",
+    "E5 vs E2",
+    "E4 vs E3",
+    "E5old vs E3"
+  ],
+  "analysis": {
+    "unit": "message; every condition of a message shares the plan (strategy, response emotion, state level)",
+    "population": "every held-out message (English, Hinglish, Hindi, neutral, mixed, safety); subsets reported separately",
+    "outcomes": {
+      "judge_emotion": "tone toward the planned response emotion, 1-5, mean of two judges",
+      "quality": "mean of appropriateness, empathy, relevance, fluency, naturalness (1-5, two judges)",
+      "safety": "safety rating 1-5, mean of two judges (a separate constraint)",
+      "validation": "emotional-validation rating 1-5, mean of two judges"
+    },
+    "tests": {
+      "greater": "one-sided paired t-test of the per-message difference (first - second) > 0",
+      "less": "one-sided paired t-test of the per-message difference < 0",
+      "two-sided": "two-sided paired t-test of the per-message difference = 0; the direction is reported",
+      "noninferior": "one-sided paired t-test of the per-message difference > -margin (margin per hypothesis)"
+    },
+    "correction": "Holm-Bonferroni over every registered test of every model; confirmed when adjusted p < 0.05",
+    "estimates": "mean difference, 95% percentile bootstrap CI (10,000 resamples), Wilcoxon p, Cohen's dz",
+    "secondary": [
+      "each hypothesis by language, by safety category, by strategy",
+      "each judge separately",
+      "pairwise preferences (both orders averaged)",
+      "strategy adherence, language match",
+      "steering attempt / retained / rejected rates, alpha distribution, latency",
+      "batch-noise control: the batched unsteered rows vs E3"
+    ],
+    "missing_data": "a failed generation is rated as an empty reply; a model that cannot be run counts as not confirmed for each of its hypotheses",
+    "note": "If a model's frozen E5 policy steers no context, E5 equals E3 by construction: H1/H6 cannot be confirmed and that is the expected result, not a failure of the pipeline."
+  },
+  "settings": {
+    "max_new_tokens": 200,
+    "decoding": "greedy",
+    "judges": {
+      "judge1": "Qwen/Qwen2.5-7B-Instruct",
+      "judge2": "google/gemma-3-27b-it"
+    },
+    "heldout_sha256": "a8f9750d7efc484736901a3f0bd7fbda6b6a07815dca4a2dede319d6de3c5053"
+  },
+  "fingerprints": {
+    "backend/emotion_service.py": "850498ed2acc11fb2df08eec862280c98c09cd49573f34424a9c31684443e354",
+    "backend/selective_service.py": "554bbb610920176b37d384e2527c9e1b9ecf7494cc8f7881106576f21fc16828",
+    "backend/config.py": "1381f07177e8b65005a28496f00a1e213d44bb33320bac1d8656b3a512f5b783",
+    "backend/runtime.py": "d9a41d480d8d90f603b0eafce6cf231ebe9180d1db22e11fa689ebbe676a05cf",
+    "backend/llama.py": "a372419378d68b45c8a5c93207285da36817caec4136e8046e37892c1b96cad0",
+    "backend/sarvam.py": "f64b3ba12fcbcbdd7347a8ebe2b72bd81ccbc38d9b4acaec782d777107811ca0",
+    "backend/models.py": "d5b86eb4702f4204772e63ebc8ea75e4bfed543c500207b9c30286ee99b67900",
+    "backend/generation_control.py": "db3f60b6f0c09e3fa18ab0afdc09528cbcb1d0719e270f69a2a32d0463b20162",
+    "chatbot_feature/emotion_reasoner/agent.py": "a1535e74b53f88164b49dad3472cec4bef341b76c4dd0d6affc4159f33e294ea",
+    "chatbot_feature/emotion_reasoner/knowledge_graph.py": "9c17468d2b03691046735c86fc3d33af450543dfda91897ef50325b024f8ae45",
+    "chatbot_feature/emotion_reasoner/tone.py": "4c6a00452923336c71cdbcd87c67465e467254f694688de6c149f3fd2e9e6e33",
+    "chatbot_feature/emotion_reasoner/policy.py": "2dcfdb1e570ebf7a835b6f607d1aa43cf0f9aee1c692158de87df9850e51ac75",
+    "chatbot_feature/emotion_reasoner/selective.py": "6de4d6dd8331681821524543c40d19e36cdaeb006d00114d2d25e22ef6effc05",
+    "chatbot_feature/emotion_reasoner/risk_screen.py": "5d9f9e7791bd83049c209d6cd5b0069daaa5ac9a1433e4cdb96f2832244aa9b4",
+    "generation_analysis/e5_selective.py": "1be0cff6391143ff527edcf2a8356d49c2028abf8a532938991be85aa0294317",
+    "generation_analysis/e5_common.py": "67ed5ff2adb50c9a98375d8df62c14b1be7733c74a08d032c7b8d6c74308671e",
+    "generation_analysis/steering_modes.py": "f028fbeeeb1c4ca9a65ab72c56622c5017fe90aa6d472b8fce0c7249c4371434",
+    "generation_analysis/steering_lab.py": "89903d037a1c0246b8b81650b466053551700fc9e30e79f8df2f7bc874ef8dff",
+    "generation_analysis/v3_common.py": "d487f2705791bba13294f1161f5d2df9e4322a84fafe21b9aa4e1c9e9f3a2ac4",
+    "generation_analysis/common.py": "5e05f2051edc8753b21621c77d64c81a4c5cf18587a454453d1f70063809b557",
+    "results/llama31_8b_generation_emotion/steering_panels/panels.json": "c9dc9a1434576e422c2aec636d1eda7fb2aae78f54ae9a09839030165a445494",
+    "results/llama31_8b_generation_emotion/steering_panels/panels_causal.json": "53e9224299e4e39de39e0a7246a0e0af8142c3e367f01008cfafa7c2ba6a3d47",
+    "results/llama31_8b_generation_emotion/steering_policy/experiment_metadata.json": "bb7e452c7e88a5a8496ab45777779d239fe6aa0ef1c2c4a4bde93a35d52faa81",
+    "results/llama31_8b_generation_emotion/steering_policy/plans.json": "4e7f0b7f1cc4909a913fb778a898512a5c440ed3ce0d085ee10b23360c87881f",
+    "results/llama31_8b_generation_emotion/steering_policy/policy.json": "f71052185a039414c2af7f00fb71390998bf09deb034078e5a3a45d60f921515",
+    "results/llama31_8b_generation_emotion/steering_policy/policy_v1_deployed.json": "d57edee5225b5582ee42e28c15c71267f52d06d86937829a6573dff0632a86c7",
+    "results/emollama_chat_7b_generation_emotion/steering_panels/panels.json": "998eed4e351329b0d59569b37436a78ba6ad648ace6d0d930e1930ade69b45e0",
+    "results/emollama_chat_7b_generation_emotion/steering_policy/policy.json": "f2dd3c4506f30c6283de7669d397821852374fddd29d02935d76a11f7baced29",
+    "results/llama2_13b_chat_generation_emotion/steering_panels/panels.json": "6dbdf5c6c77106d95c764197db0b8f4854c136859e6ea6aa078149405cf54927",
+    "results/llama2_13b_chat_generation_emotion/steering_policy/policy.json": "be00a3bc6cd46ea5a57c2b2446af1c4d8e40376343d6f9db8929d9c258df27c8",
+    "results/sarvam_30b_generation_emotion/steering_panels/panels.json": "b7e19f3ebea608be57d5d9f6074825e220a6cc6593f9054934ac5e7159bf5dc0",
+    "results/sarvam_30b_generation_emotion/steering_policy/policy.json": "c6c4d4c8de2f2bd2d9b4161cfae34ff7d4a3e0f35d17fbde31ec3585cb4c9597",
+    "results/e5_selective/policies/emollama_chat_7b.draft.json": "cd6b6139a3718999f8d3bfcda8f1f8c0aa9d7aa6f4c1142490feb58feff62014",
+    "results/e5_selective/policies/emollama_chat_7b.json": "9216c8813f1c54881ec5cb6978b676abb74257003e094a71a5e3af26776b9c27",
+    "results/e5_selective/policies/llama2_13b_chat.draft.json": "793644be17d2631c0be985fba50a8d782ec6efeb1ccf63f977a1522344ee709f",
+    "results/e5_selective/policies/llama2_13b_chat.json": "55fd18d4c5153ba802514e05e2b5957febd33220d79b1b580a320f63ed3cf4e0",
+    "results/e5_selective/policies/llama31_8b.draft.json": "c94f1fd33ad9e3df1c32e5e9bc7d31aa0f5d1e49ecfacc2d1fa5b2a2eead46e1",
+    "results/e5_selective/policies/llama31_8b.json": "2b10a9ebb62e8062d832e6e20b18326ca87b77788224fb5ec8d27d9df75ef736",
+    "results/e5_selective/policies/sarvam_30b.draft.json": "5162bdbf09d6ca39bd5ab47e443e7ecd9e7d036f9a4162498a84e9626ab7d4a7",
+    "results/e5_selective/policies/sarvam_30b.json": "3ed99682a27a98ce69b6c669bc28926963cd615c84baccf77aef96e791d10fa8",
+    "results/e5_selective/data/heldout.csv": "a8f9750d7efc484736901a3f0bd7fbda6b6a07815dca4a2dede319d6de3c5053",
+    "results/e5_selective/data/manifest.json": "154e5c4083e53a33f6ad4dc673c7758611918205b914aff6f782d97d31085df0"
+  },
+  "git": {
+    "head": "8be0b7e0788220c92a398cb943f117bbefc920f0",
+    "uncommitted_changes": true
+  }
+}

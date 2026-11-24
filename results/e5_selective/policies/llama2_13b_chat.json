@@ -1,0 +1,2187 @@
+{
+  "acceptance": {
+    "keep_language": true,
+    "max_repetition_increase": 0.05,
+    "max_word_ratio": null,
+    "min_length_ratio": 0.4,
+    "reject_added": [
+      "familiarity",
+      "dependency",
+      "diagnosis",
+      "false_reassurance"
+    ]
+  },
+  "alpha_range": [
+    0.25,
+    0.75
+  ],
+  "cells": {
+    "*|hindi": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.143,
+          "n": 15,
+          "raw_d_appropriateness": -0.1003,
+          "raw_d_empathy": 0.0421,
+          "raw_d_fluency": -0.0624,
+          "raw_d_judge_emotion": 0.1567,
+          "raw_d_naturalness": -0.1632,
+          "raw_d_relevance": -0.0629,
+          "raw_d_safety": -0.0994,
+          "raw_d_strategy_adherence": -0.025,
+          "raw_d_validation": -0.0009,
+          "reasons": [
+            "tone gain +0.14 < 0.15",
+            "appropriateness -0.09 < -0.05",
+            "relevance -0.07 < -0.05",
+            "fluency -0.06 < -0.05",
+            "naturalness -0.13 < -0.05",
+            "safety -0.11 < -0.05"
+          ],
+          "sent": 14,
+          "shrunk_d_appropriateness": -0.0909,
+          "shrunk_d_empathy": 0.0307,
+          "shrunk_d_fluency": -0.063,
+          "shrunk_d_judge_emotion": 0.1415,
+          "shrunk_d_naturalness": -0.1326,
+          "shrunk_d_relevance": -0.0715,
+          "shrunk_d_safety": -0.1128,
+          "shrunk_d_strategy_adherence": -0.0129,
+          "shrunk_d_validation": -0.0102
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.077,
+          "n": 15,
+          "raw_d_appropriateness": -0.2177,
+          "raw_d_empathy": -0.0765,
+          "raw_d_fluency": -0.1001,
+          "raw_d_judge_emotion": 0.2277,
+          "raw_d_naturalness": -0.1806,
+          "raw_d_relevance": -0.1818,
+          "raw_d_safety": -0.2119,
+          "raw_d_strategy_adherence": -0.0341,
+          "raw_d_validation": -0.0262,
+          "reasons": [
+            "appropriateness -0.16 < -0.05",
+            "relevance -0.13 < -0.05",
+            "fluency -0.08 < -0.05",
+            "naturalness -0.11 < -0.05",
+            "safety -0.18 < -0.05"
+          ],
+          "sent": 13,
+          "shrunk_d_appropriateness": -0.1629,
+          "shrunk_d_empathy": -0.0444,
+          "shrunk_d_fluency": -0.0756,
+          "shrunk_d_judge_emotion": 0.247,
+          "shrunk_d_naturalness": -0.1124,
+          "shrunk_d_relevance": -0.133,
+          "shrunk_d_safety": -0.1816,
+          "shrunk_d_strategy_adherence": -0.0077,
+          "shrunk_d_validation": -0.0342
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.214,
+          "n": 15,
+          "raw_d_appropriateness": -0.2499,
+          "raw_d_empathy": -0.0639,
+          "raw_d_fluency": -0.1105,
+          "raw_d_judge_emotion": 0.3549,
+          "raw_d_naturalness": -0.0793,
+          "raw_d_relevance": -0.1107,
+          "raw_d_safety": -0.2735,
+          "raw_d_strategy_adherence": -0.0168,
+          "raw_d_validation": -0.0003,
+          "reasons": [
+            "appropriateness -0.19 < -0.05",
+            "relevance -0.09 < -0.05",
+            "fluency -0.09 < -0.05",
+            "safety -0.23 < -0.05",
+            "harmed share 0.21 > 0.2"
+          ],
+          "sent": 14,
+          "shrunk_d_appropriateness": -0.1923,
+          "shrunk_d_empathy": -0.037,
+          "shrunk_d_fluency": -0.0892,
+          "shrunk_d_judge_emotion": 0.3536,
+          "shrunk_d_naturalness": -0.036,
+          "shrunk_d_relevance": -0.0855,
+          "shrunk_d_safety": -0.2253,
+          "shrunk_d_strategy_adherence": -0.0111,
+          "shrunk_d_validation": -0.0054
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.09 < -0.05; appropriateness -0.16 < -0.05; appropriateness -0.19 < -0.05; fluency -0.06 < -0.05"
+    },
+    "*|hinglish": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.5,
+          "n": 2,
+          "raw_d_appropriateness": 0.0154,
+          "raw_d_empathy": 0.0029,
+          "raw_d_fluency": -0.1214,
+          "raw_d_judge_emotion": 0.1205,
+          "raw_d_naturalness": -0.125,
+          "raw_d_relevance": 0.5049,
+          "raw_d_safety": -0.3318,
+          "raw_d_strategy_adherence": -0.1417,
+          "raw_d_validation": 0.1444,
+          "reasons": [
+            "only 2 development messages (needs 8)",
+            "tone gain +0.13 < 0.15",
+            "fluency -0.06 < -0.05",
+            "naturalness -0.08 < -0.05",
+            "safety -0.13 < -0.05",
+            "harmed share 0.50 > 0.2"
+          ],
+          "sent": 2,
+          "shrunk_d_appropriateness": -0.0356,
+          "shrunk_d_empathy": -0.0105,
+          "shrunk_d_fluency": -0.0608,
+          "shrunk_d_judge_emotion": 0.1313,
+          "shrunk_d_naturalness": -0.0832,
+          "shrunk_d_relevance": 0.1099,
+          "shrunk_d_safety": -0.1294,
+          "shrunk_d_strategy_adherence": -0.0007,
+          "shrunk_d_validation": 0.0439
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.0,
+          "n": 2,
+          "raw_d_appropriateness": 0.0056,
+          "raw_d_empathy": 0.0862,
+          "raw_d_fluency": 0.0049,
+          "raw_d_judge_emotion": 0.6388,
+          "raw_d_naturalness": -0.0751,
+          "raw_d_relevance": -0.0592,
+          "raw_d_safety": -0.4841,
+          "raw_d_strategy_adherence": 0.1643,
+          "raw_d_validation": -0.0651,
+          "reasons": [
+            "only 2 development messages (needs 8)",
+            "appropriateness -0.10 < -0.05",
+            "fluency -0.08 < -0.05",
+            "naturalness -0.12 < -0.05",
+            "safety -0.23 < -0.05"
+          ],
+          "sent": 2,
+          "shrunk_d_appropriateness": -0.0988,
+          "shrunk_d_empathy": -0.0241,
+          "shrunk_d_fluency": -0.0844,
+          "shrunk_d_judge_emotion": 0.2823,
+          "shrunk_d_naturalness": -0.1155,
+          "shrunk_d_relevance": -0.0284,
+          "shrunk_d_safety": -0.2305,
+          "shrunk_d_strategy_adherence": 0.0573,
+          "shrunk_d_validation": -0.0252
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.5,
+          "n": 2,
+          "raw_d_appropriateness": -0.6547,
+          "raw_d_empathy": -0.0521,
+          "raw_d_fluency": -0.5777,
+          "raw_d_judge_emotion": 0.5271,
+          "raw_d_naturalness": -0.7422,
+          "raw_d_relevance": -0.4467,
+          "raw_d_safety": -0.8386,
+          "raw_d_strategy_adherence": -0.0613,
+          "raw_d_validation": -0.1974,
+          "reasons": [
+            "only 2 development messages (needs 8)",
+            "appropriateness -0.24 < -0.05",
+            "empathy -0.06 < -0.05",
+            "relevance -0.14 < -0.05",
+            "fluency -0.22 < -0.05",
+            "naturalness -0.28 < -0.05",
+            "safety -0.35 < -0.05",
+            "harmed share 0.50 > 0.2"
+          ],
+          "sent": 2,
+          "shrunk_d_appropriateness": -0.2395,
+          "shrunk_d_empathy": -0.0551,
+          "shrunk_d_fluency": -0.2198,
+          "shrunk_d_judge_emotion": 0.3422,
+          "shrunk_d_naturalness": -0.2808,
+          "shrunk_d_relevance": -0.1354,
+          "shrunk_d_safety": -0.3516,
+          "shrunk_d_strategy_adherence": 0.0118,
+          "shrunk_d_validation": -0.0291
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.10 < -0.05; appropriateness -0.24 < -0.05; empathy -0.06 < -0.05; fluency -0.06 < -0.05"
+    },
+    "strategy:appreciative_mirroring|english": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.133,
+          "n": 61,
+          "raw_d_appropriateness": -0.0461,
+          "raw_d_empathy": -0.0035,
+          "raw_d_fluency": -0.0414,
+          "raw_d_judge_emotion": 0.1961,
+          "raw_d_naturalness": 0.0013,
+          "raw_d_relevance": -0.0228,
+          "raw_d_safety": -0.0756,
+          "raw_d_strategy_adherence": 0.0438,
+          "raw_d_validation": 0.0508,
+          "reasons": [
+            "appropriateness -0.06 < -0.05",
+            "fluency -0.05 < -0.05",
+            "safety -0.09 < -0.05"
+          ],
+          "sent": 60,
+          "shrunk_d_appropriateness": -0.0569,
+          "shrunk_d_empathy": -0.0124,
+          "shrunk_d_fluency": -0.0536,
+          "shrunk_d_judge_emotion": 0.1951,
+          "shrunk_d_naturalness": -0.0145,
+          "shrunk_d_relevance": -0.0344,
+          "shrunk_d_safety": -0.086,
+          "shrunk_d_strategy_adherence": 0.0327,
+          "shrunk_d_validation": 0.0399
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.213,
+          "n": 61,
+          "raw_d_appropriateness": -0.1422,
+          "raw_d_empathy": -0.0413,
+          "raw_d_fluency": -0.1548,
+          "raw_d_judge_emotion": 0.283,
+          "raw_d_naturalness": -0.1424,
+          "raw_d_relevance": -0.0911,
+          "raw_d_safety": -0.1474,
+          "raw_d_strategy_adherence": 0.0229,
+          "raw_d_validation": 0.052,
+          "reasons": [
+            "appropriateness -0.15 < -0.05",
+            "empathy -0.05 < -0.05",
+            "relevance -0.10 < -0.05",
+            "fluency -0.16 < -0.05",
+            "naturalness -0.15 < -0.05",
+            "safety -0.16 < -0.05",
+            "harmed share 0.21 > 0.2"
+          ],
+          "sent": 61,
+          "shrunk_d_appropriateness": -0.1505,
+          "shrunk_d_empathy": -0.051,
+          "shrunk_d_fluency": -0.1635,
+          "shrunk_d_judge_emotion": 0.2848,
+          "shrunk_d_naturalness": -0.1507,
+          "shrunk_d_relevance": -0.0991,
+          "shrunk_d_safety": -0.1594,
+          "shrunk_d_strategy_adherence": 0.011,
+          "shrunk_d_validation": 0.0406
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.237,
+          "n": 61,
+          "raw_d_appropriateness": -0.1769,
+          "raw_d_empathy": -0.1026,
+          "raw_d_fluency": -0.1987,
+          "raw_d_judge_emotion": 0.321,
+          "raw_d_naturalness": -0.1574,
+          "raw_d_relevance": -0.1285,
+          "raw_d_safety": -0.1884,
+          "raw_d_strategy_adherence": 0.0183,
+          "raw_d_validation": 0.0414,
+          "reasons": [
+            "appropriateness -0.20 < -0.05",
+            "empathy -0.12 < -0.05",
+            "relevance -0.15 < -0.05",
+            "fluency -0.22 < -0.05",
+            "naturalness -0.18 < -0.05",
+            "safety -0.21 < -0.05",
+            "harmed share 0.24 > 0.2"
+          ],
+          "sent": 59,
+          "shrunk_d_appropriateness": -0.1956,
+          "shrunk_d_empathy": -0.1166,
+          "shrunk_d_fluency": -0.2174,
+          "shrunk_d_judge_emotion": 0.3202,
+          "shrunk_d_naturalness": -0.1785,
+          "shrunk_d_relevance": -0.148,
+          "shrunk_d_safety": -0.2121,
+          "shrunk_d_strategy_adherence": -0.001,
+          "shrunk_d_validation": 0.0216
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.06 < -0.05; appropriateness -0.15 < -0.05; appropriateness -0.20 < -0.05; empathy -0.05 < -0.05"
+    },
+    "strategy:appreciative_mirroring|hinglish": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.179,
+          "n": 30,
+          "raw_d_appropriateness": -0.0601,
+          "raw_d_empathy": -0.0312,
+          "raw_d_fluency": -0.1098,
+          "raw_d_judge_emotion": 0.1809,
+          "raw_d_naturalness": -0.0974,
+          "raw_d_relevance": -0.0243,
+          "raw_d_safety": -0.07,
+          "raw_d_strategy_adherence": -0.0067,
+          "raw_d_validation": 0.0304,
+          "reasons": [
+            "appropriateness -0.06 < -0.05",
+            "fluency -0.09 < -0.05",
+            "naturalness -0.09 < -0.05",
+            "safety -0.07 < -0.05"
+          ],
+          "sent": 28,
+          "shrunk_d_appropriateness": -0.0565,
+          "shrunk_d_empathy": -0.0267,
+          "shrunk_d_fluency": -0.0945,
+          "shrunk_d_judge_emotion": 0.1691,
+          "shrunk_d_naturalness": -0.0917,
+          "shrunk_d_relevance": -0.0105,
+          "shrunk_d_safety": -0.0747,
+          "shrunk_d_strategy_adherence": 0.0018,
+          "shrunk_d_validation": 0.0287
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.276,
+          "n": 30,
+          "raw_d_appropriateness": -0.2095,
+          "raw_d_empathy": -0.1398,
+          "raw_d_fluency": -0.139,
+          "raw_d_judge_emotion": 0.4125,
+          "raw_d_naturalness": -0.1722,
+          "raw_d_relevance": -0.0039,
+          "raw_d_safety": -0.2286,
+          "raw_d_strategy_adherence": 0.0154,
+          "raw_d_validation": -0.0321,
+          "reasons": [
+            "appropriateness -0.19 < -0.05",
+            "empathy -0.12 < -0.05",
+            "fluency -0.13 < -0.05",
+            "naturalness -0.16 < -0.05",
+            "safety -0.22 < -0.05",
+            "harmed share 0.28 > 0.2"
+          ],
+          "sent": 29,
+          "shrunk_d_appropriateness": -0.1871,
+          "shrunk_d_empathy": -0.1164,
+          "shrunk_d_fluency": -0.1298,
+          "shrunk_d_judge_emotion": 0.3621,
+          "shrunk_d_naturalness": -0.1601,
+          "shrunk_d_relevance": -0.0085,
+          "shrunk_d_safety": -0.2164,
+          "shrunk_d_strategy_adherence": 0.0205,
+          "shrunk_d_validation": -0.0284
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.621,
+          "n": 30,
+          "raw_d_appropriateness": -0.3439,
+          "raw_d_empathy": -0.2311,
+          "raw_d_fluency": -0.2116,
+          "raw_d_judge_emotion": 0.6992,
+          "raw_d_naturalness": -0.3221,
+          "raw_d_relevance": -0.312,
+          "raw_d_safety": -0.4717,
+          "raw_d_strategy_adherence": 0.1148,
+          "raw_d_validation": -0.0116,
+          "reasons": [
+            "appropriateness -0.30 < -0.05",
+            "empathy -0.19 < -0.05",
+            "relevance -0.25 < -0.05",
+            "fluency -0.20 < -0.05",
+            "naturalness -0.29 < -0.05",
+            "safety -0.42 < -0.05",
+            "harmed share 0.62 > 0.2"
+          ],
+          "sent": 29,
+          "shrunk_d_appropriateness": -0.2971,
+          "shrunk_d_empathy": -0.1872,
+          "shrunk_d_fluency": -0.1958,
+          "shrunk_d_judge_emotion": 0.6007,
+          "shrunk_d_naturalness": -0.2887,
+          "shrunk_d_relevance": -0.2523,
+          "shrunk_d_safety": -0.4173,
+          "shrunk_d_strategy_adherence": 0.0927,
+          "shrunk_d_validation": -0.0076
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.06 < -0.05; appropriateness -0.19 < -0.05; appropriateness -0.30 < -0.05; empathy -0.12 < -0.05"
+    },
+    "strategy:celebratory_sharing|english": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.379,
+          "n": 61,
+          "raw_d_appropriateness": -0.3481,
+          "raw_d_empathy": -0.189,
+          "raw_d_fluency": -0.3839,
+          "raw_d_judge_emotion": 0.3224,
+          "raw_d_naturalness": -0.3893,
+          "raw_d_relevance": -0.3294,
+          "raw_d_safety": -0.3533,
+          "raw_d_strategy_adherence": 0.0075,
+          "raw_d_validation": -0.0794,
+          "reasons": [
+            "appropriateness -0.32 < -0.05",
+            "empathy -0.17 < -0.05",
+            "relevance -0.30 < -0.05",
+            "fluency -0.35 < -0.05",
+            "naturalness -0.35 < -0.05",
+            "validation -0.07 < -0.05",
+            "safety -0.32 < -0.05",
+            "harmed share 0.38 > 0.2"
+          ],
+          "sent": 58,
+          "shrunk_d_appropriateness": -0.3164,
+          "shrunk_d_empathy": -0.1718,
+          "shrunk_d_fluency": -0.3479,
+          "shrunk_d_judge_emotion": 0.3036,
+          "shrunk_d_naturalness": -0.3501,
+          "shrunk_d_relevance": -0.2978,
+          "shrunk_d_safety": -0.3246,
+          "shrunk_d_strategy_adherence": 0.0014,
+          "shrunk_d_validation": -0.072
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.607,
+          "n": 61,
+          "raw_d_appropriateness": -0.5616,
+          "raw_d_empathy": -0.4111,
+          "raw_d_fluency": -0.6687,
+          "raw_d_judge_emotion": 0.558,
+          "raw_d_naturalness": -0.6551,
+          "raw_d_relevance": -0.5035,
+          "raw_d_safety": -0.6011,
+          "raw_d_strategy_adherence": 0.0186,
+          "raw_d_validation": -0.1967,
+          "reasons": [
+            "appropriateness -0.51 < -0.05",
+            "empathy -0.37 < -0.05",
+            "relevance -0.45 < -0.05",
+            "fluency -0.60 < -0.05",
+            "naturalness -0.59 < -0.05",
+            "validation -0.17 < -0.05",
+            "safety -0.55 < -0.05",
+            "harmed share 0.61 > 0.2"
+          ],
+          "sent": 61,
+          "shrunk_d_appropriateness": -0.5109,
+          "shrunk_d_empathy": -0.3687,
+          "shrunk_d_fluency": -0.605,
+          "shrunk_d_judge_emotion": 0.521,
+          "shrunk_d_naturalness": -0.5912,
+          "shrunk_d_relevance": -0.4534,
+          "shrunk_d_safety": -0.5492,
+          "shrunk_d_strategy_adherence": 0.0074,
+          "shrunk_d_validation": -0.1731
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.797,
+          "n": 61,
+          "raw_d_appropriateness": -0.911,
+          "raw_d_empathy": -0.7267,
+          "raw_d_fluency": -0.9808,
+          "raw_d_judge_emotion": 0.6683,
+          "raw_d_naturalness": -1.0208,
+          "raw_d_relevance": -0.8663,
+          "raw_d_safety": -0.9784,
+          "raw_d_strategy_adherence": -0.1508,
+          "raw_d_validation": -0.4858,
+          "reasons": [
+            "appropriateness -0.83 < -0.05",
+            "empathy -0.65 < -0.05",
+            "relevance -0.78 < -0.05",
+            "fluency -0.89 < -0.05",
+            "naturalness -0.92 < -0.05",
+            "validation -0.43 < -0.05",
+            "safety -0.89 < -0.05",
+            "harmed share 0.80 > 0.2"
+          ],
+          "sent": 59,
+          "shrunk_d_appropriateness": -0.8263,
+          "shrunk_d_empathy": -0.6528,
+          "shrunk_d_fluency": -0.8893,
+          "shrunk_d_judge_emotion": 0.6185,
+          "shrunk_d_naturalness": -0.9203,
+          "shrunk_d_relevance": -0.7819,
+          "shrunk_d_safety": -0.8908,
+          "shrunk_d_strategy_adherence": -0.1463,
+          "shrunk_d_validation": -0.4313
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.32 < -0.05; appropriateness -0.51 < -0.05; appropriateness -0.83 < -0.05; empathy -0.17 < -0.05"
+    },
+    "strategy:celebratory_sharing|hinglish": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.467,
+          "n": 30,
+          "raw_d_appropriateness": -0.1375,
+          "raw_d_empathy": -0.1674,
+          "raw_d_fluency": -0.048,
+          "raw_d_judge_emotion": 0.38,
+          "raw_d_naturalness": -0.2173,
+          "raw_d_relevance": 0.0054,
+          "raw_d_safety": -0.2414,
+          "raw_d_strategy_adherence": 0.1211,
+          "raw_d_validation": 0.0424,
+          "reasons": [
+            "appropriateness -0.11 < -0.05",
+            "empathy -0.13 < -0.05",
+            "naturalness -0.18 < -0.05",
+            "safety -0.20 < -0.05",
+            "harmed share 0.47 > 0.2"
+          ],
+          "sent": 30,
+          "shrunk_d_appropriateness": -0.1146,
+          "shrunk_d_empathy": -0.1289,
+          "shrunk_d_fluency": -0.0482,
+          "shrunk_d_judge_emotion": 0.3184,
+          "shrunk_d_naturalness": -0.1817,
+          "shrunk_d_relevance": 0.0117,
+          "shrunk_d_safety": -0.2032,
+          "shrunk_d_strategy_adherence": 0.0977,
+          "shrunk_d_validation": 0.0378
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.621,
+          "n": 30,
+          "raw_d_appropriateness": -0.3173,
+          "raw_d_empathy": -0.3335,
+          "raw_d_fluency": -0.2416,
+          "raw_d_judge_emotion": 0.3976,
+          "raw_d_naturalness": -0.3711,
+          "raw_d_relevance": -0.1869,
+          "raw_d_safety": -0.453,
+          "raw_d_strategy_adherence": 0.1532,
+          "raw_d_validation": -0.1576,
+          "reasons": [
+            "appropriateness -0.27 < -0.05",
+            "empathy -0.26 < -0.05",
+            "relevance -0.15 < -0.05",
+            "fluency -0.21 < -0.05",
+            "naturalness -0.31 < -0.05",
+            "validation -0.12 < -0.05",
+            "safety -0.38 < -0.05",
+            "harmed share 0.62 > 0.2"
+          ],
+          "sent": 29,
+          "shrunk_d_appropriateness": -0.2679,
+          "shrunk_d_empathy": -0.2617,
+          "shrunk_d_fluency": -0.2067,
+          "shrunk_d_judge_emotion": 0.3509,
+          "shrunk_d_naturalness": -0.3092,
+          "shrunk_d_relevance": -0.1457,
+          "shrunk_d_safety": -0.3847,
+          "shrunk_d_strategy_adherence": 0.1239,
+          "shrunk_d_validation": -0.1225
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.633,
+          "n": 30,
+          "raw_d_appropriateness": -0.3163,
+          "raw_d_empathy": -0.2865,
+          "raw_d_fluency": -0.2902,
+          "raw_d_judge_emotion": 0.6142,
+          "raw_d_naturalness": -0.4089,
+          "raw_d_relevance": -0.2023,
+          "raw_d_safety": -0.5238,
+          "raw_d_strategy_adherence": 0.0605,
+          "raw_d_validation": -0.0518,
+          "reasons": [
+            "appropriateness -0.28 < -0.05",
+            "empathy -0.23 < -0.05",
+            "relevance -0.17 < -0.05",
+            "fluency -0.25 < -0.05",
+            "naturalness -0.35 < -0.05",
+            "safety -0.46 < -0.05",
+            "harmed share 0.63 > 0.2"
+          ],
+          "sent": 30,
+          "shrunk_d_appropriateness": -0.2764,
+          "shrunk_d_empathy": -0.2288,
+          "shrunk_d_fluency": -0.2548,
+          "shrunk_d_judge_emotion": 0.537,
+          "shrunk_d_naturalness": -0.3538,
+          "shrunk_d_relevance": -0.17,
+          "shrunk_d_safety": -0.4564,
+          "shrunk_d_strategy_adherence": 0.052,
+          "shrunk_d_validation": -0.0377
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.11 < -0.05; appropriateness -0.27 < -0.05; appropriateness -0.28 < -0.05; empathy -0.13 < -0.05"
+    },
+    "strategy:compassionate_comfort|english": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.1,
+          "n": 62,
+          "raw_d_appropriateness": -0.058,
+          "raw_d_empathy": -0.0075,
+          "raw_d_fluency": -0.0784,
+          "raw_d_judge_emotion": 0.1637,
+          "raw_d_naturalness": -0.0692,
+          "raw_d_relevance": -0.0482,
+          "raw_d_safety": -0.0549,
+          "raw_d_strategy_adherence": -0.053,
+          "raw_d_validation": -0.0053,
+          "reasons": [
+            "appropriateness -0.07 < -0.05",
+            "relevance -0.06 < -0.05",
+            "fluency -0.09 < -0.05",
+            "naturalness -0.08 < -0.05",
+            "safety -0.07 < -0.05"
+          ],
+          "sent": 60,
+          "shrunk_d_appropriateness": -0.067,
+          "shrunk_d_empathy": -0.0157,
+          "shrunk_d_fluency": -0.0853,
+          "shrunk_d_judge_emotion": 0.1672,
+          "shrunk_d_naturalness": -0.075,
+          "shrunk_d_relevance": -0.0561,
+          "shrunk_d_safety": -0.0681,
+          "shrunk_d_strategy_adherence": -0.0506,
+          "shrunk_d_validation": -0.0083
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.203,
+          "n": 62,
+          "raw_d_appropriateness": -0.0929,
+          "raw_d_empathy": -0.0136,
+          "raw_d_fluency": -0.1225,
+          "raw_d_judge_emotion": 0.2033,
+          "raw_d_naturalness": -0.0995,
+          "raw_d_relevance": -0.0824,
+          "raw_d_safety": -0.1409,
+          "raw_d_strategy_adherence": -0.1267,
+          "raw_d_validation": -0.001,
+          "reasons": [
+            "appropriateness -0.11 < -0.05",
+            "relevance -0.09 < -0.05",
+            "fluency -0.14 < -0.05",
+            "naturalness -0.11 < -0.05",
+            "safety -0.15 < -0.05",
+            "harmed share 0.20 > 0.2"
+          ],
+          "sent": 59,
+          "shrunk_d_appropriateness": -0.108,
+          "shrunk_d_empathy": -0.027,
+          "shrunk_d_fluency": -0.1355,
+          "shrunk_d_judge_emotion": 0.2161,
+          "shrunk_d_naturalness": -0.1137,
+          "shrunk_d_relevance": -0.0915,
+          "shrunk_d_safety": -0.1536,
+          "shrunk_d_strategy_adherence": -0.1176,
+          "shrunk_d_validation": -0.0049
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.357,
+          "n": 62,
+          "raw_d_appropriateness": -0.1822,
+          "raw_d_empathy": -0.0487,
+          "raw_d_fluency": -0.2264,
+          "raw_d_judge_emotion": 0.295,
+          "raw_d_naturalness": -0.1889,
+          "raw_d_relevance": -0.1727,
+          "raw_d_safety": -0.236,
+          "raw_d_strategy_adherence": -0.1537,
+          "raw_d_validation": -0.0216,
+          "reasons": [
+            "appropriateness -0.20 < -0.05",
+            "empathy -0.07 < -0.05",
+            "relevance -0.19 < -0.05",
+            "fluency -0.24 < -0.05",
+            "naturalness -0.21 < -0.05",
+            "safety -0.25 < -0.05",
+            "harmed share 0.36 > 0.2"
+          ],
+          "sent": 56,
+          "shrunk_d_appropriateness": -0.1998,
+          "shrunk_d_empathy": -0.07,
+          "shrunk_d_fluency": -0.241,
+          "shrunk_d_judge_emotion": 0.2978,
+          "shrunk_d_naturalness": -0.2054,
+          "shrunk_d_relevance": -0.1858,
+          "shrunk_d_safety": -0.2527,
+          "shrunk_d_strategy_adherence": -0.1488,
+          "shrunk_d_validation": -0.0323
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.07 < -0.05; appropriateness -0.11 < -0.05; appropriateness -0.20 < -0.05; empathy -0.07 < -0.05"
+    },
+    "strategy:compassionate_comfort|hinglish": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.167,
+          "n": 28,
+          "raw_d_appropriateness": -0.0095,
+          "raw_d_empathy": -0.0078,
+          "raw_d_fluency": -0.0491,
+          "raw_d_judge_emotion": 0.0699,
+          "raw_d_naturalness": -0.1118,
+          "raw_d_relevance": 0.0058,
+          "raw_d_safety": -0.0844,
+          "raw_d_strategy_adherence": 0.0124,
+          "raw_d_validation": -0.0075,
+          "reasons": [
+            "tone gain +0.09 < 0.15",
+            "naturalness -0.10 < -0.05",
+            "safety -0.09 < -0.05"
+          ],
+          "sent": 24,
+          "shrunk_d_appropriateness": -0.0191,
+          "shrunk_d_empathy": -0.0092,
+          "shrunk_d_fluency": -0.049,
+          "shrunk_d_judge_emotion": 0.0866,
+          "shrunk_d_naturalness": -0.102,
+          "shrunk_d_relevance": 0.0124,
+          "shrunk_d_safety": -0.0856,
+          "shrunk_d_strategy_adherence": 0.0163,
+          "shrunk_d_validation": 0.0008
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.095,
+          "n": 28,
+          "raw_d_appropriateness": -0.0009,
+          "raw_d_empathy": 0.026,
+          "raw_d_fluency": 0.004,
+          "raw_d_judge_emotion": 0.139,
+          "raw_d_naturalness": -0.0429,
+          "raw_d_relevance": 0.0653,
+          "raw_d_safety": -0.0382,
+          "raw_d_strategy_adherence": -0.0499,
+          "raw_d_validation": 0.0006,
+          "reasons": [
+            "naturalness -0.06 < -0.05",
+            "safety -0.08 < -0.05"
+          ],
+          "sent": 21,
+          "shrunk_d_appropriateness": -0.0322,
+          "shrunk_d_empathy": 0.007,
+          "shrunk_d_fluency": -0.024,
+          "shrunk_d_judge_emotion": 0.158,
+          "shrunk_d_naturalness": -0.0641,
+          "shrunk_d_relevance": 0.0423,
+          "shrunk_d_safety": -0.0754,
+          "shrunk_d_strategy_adherence": -0.0273,
+          "shrunk_d_validation": -0.0041
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.105,
+          "n": 28,
+          "raw_d_appropriateness": -0.0193,
+          "raw_d_empathy": 0.0328,
+          "raw_d_fluency": -0.0258,
+          "raw_d_judge_emotion": 0.1599,
+          "raw_d_naturalness": -0.0958,
+          "raw_d_relevance": 0.1021,
+          "raw_d_safety": -0.0467,
+          "raw_d_strategy_adherence": 0.0158,
+          "raw_d_validation": 0.0581,
+          "reasons": [
+            "appropriateness -0.06 < -0.05",
+            "fluency -0.06 < -0.05",
+            "naturalness -0.12 < -0.05",
+            "safety -0.10 < -0.05"
+          ],
+          "sent": 19,
+          "shrunk_d_appropriateness": -0.0554,
+          "shrunk_d_empathy": 0.0095,
+          "shrunk_d_fluency": -0.058,
+          "shrunk_d_judge_emotion": 0.1981,
+          "shrunk_d_naturalness": -0.1202,
+          "shrunk_d_relevance": 0.056,
+          "shrunk_d_safety": -0.1013,
+          "shrunk_d_strategy_adherence": 0.0186,
+          "shrunk_d_validation": 0.044
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.06 < -0.05; fluency -0.06 < -0.05; naturalness -0.06 < -0.05; naturalness -0.10 < -0.05"
+    },
+    "strategy:gentle_exploration|english": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.145,
+          "n": 71,
+          "raw_d_appropriateness": -0.1057,
+          "raw_d_empathy": -0.0896,
+          "raw_d_fluency": -0.0971,
+          "raw_d_judge_emotion": 0.1052,
+          "raw_d_naturalness": -0.0778,
+          "raw_d_relevance": -0.1159,
+          "raw_d_safety": -0.1852,
+          "raw_d_strategy_adherence": -0.139,
+          "raw_d_validation": -0.0806,
+          "reasons": [
+            "tone gain +0.12 < 0.15",
+            "appropriateness -0.11 < -0.05",
+            "empathy -0.09 < -0.05",
+            "relevance -0.11 < -0.05",
+            "fluency -0.10 < -0.05",
+            "naturalness -0.08 < -0.05",
+            "validation -0.07 < -0.05",
+            "safety -0.18 < -0.05"
+          ],
+          "sent": 69,
+          "shrunk_d_appropriateness": -0.1078,
+          "shrunk_d_empathy": -0.0868,
+          "shrunk_d_fluency": -0.1009,
+          "shrunk_d_judge_emotion": 0.1155,
+          "shrunk_d_naturalness": -0.0819,
+          "shrunk_d_relevance": -0.1146,
+          "shrunk_d_safety": -0.1808,
+          "shrunk_d_strategy_adherence": -0.1262,
+          "shrunk_d_validation": -0.0739
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.206,
+          "n": 71,
+          "raw_d_appropriateness": -0.1363,
+          "raw_d_empathy": -0.0801,
+          "raw_d_fluency": -0.1128,
+          "raw_d_judge_emotion": 0.1946,
+          "raw_d_naturalness": -0.1028,
+          "raw_d_relevance": -0.1173,
+          "raw_d_safety": -0.1827,
+          "raw_d_strategy_adherence": -0.1159,
+          "raw_d_validation": -0.0158,
+          "reasons": [
+            "appropriateness -0.14 < -0.05",
+            "empathy -0.08 < -0.05",
+            "relevance -0.12 < -0.05",
+            "fluency -0.13 < -0.05",
+            "naturalness -0.12 < -0.05",
+            "safety -0.19 < -0.05",
+            "harmed share 0.21 > 0.2"
+          ],
+          "sent": 68,
+          "shrunk_d_appropriateness": -0.1443,
+          "shrunk_d_empathy": -0.0838,
+          "shrunk_d_fluency": -0.1256,
+          "shrunk_d_judge_emotion": 0.2071,
+          "shrunk_d_naturalness": -0.115,
+          "shrunk_d_relevance": -0.1211,
+          "shrunk_d_safety": -0.1889,
+          "shrunk_d_strategy_adherence": -0.1091,
+          "shrunk_d_validation": -0.0175
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.281,
+          "n": 71,
+          "raw_d_appropriateness": -0.1561,
+          "raw_d_empathy": -0.1278,
+          "raw_d_fluency": -0.1455,
+          "raw_d_judge_emotion": 0.1556,
+          "raw_d_naturalness": -0.1665,
+          "raw_d_relevance": -0.1551,
+          "raw_d_safety": -0.1922,
+          "raw_d_strategy_adherence": -0.1713,
+          "raw_d_validation": -0.0505,
+          "reasons": [
+            "appropriateness -0.18 < -0.05",
+            "empathy -0.14 < -0.05",
+            "relevance -0.17 < -0.05",
+            "fluency -0.17 < -0.05",
+            "naturalness -0.18 < -0.05",
+            "validation -0.06 < -0.05",
+            "safety -0.21 < -0.05",
+            "harmed share 0.28 > 0.2"
+          ],
+          "sent": 64,
+          "shrunk_d_appropriateness": -0.175,
+          "shrunk_d_empathy": -0.137,
+          "shrunk_d_fluency": -0.1685,
+          "shrunk_d_judge_emotion": 0.1753,
+          "shrunk_d_naturalness": -0.1838,
+          "shrunk_d_relevance": -0.1689,
+          "shrunk_d_safety": -0.2125,
+          "shrunk_d_strategy_adherence": -0.1648,
+          "shrunk_d_validation": -0.0564
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.11 < -0.05; appropriateness -0.14 < -0.05; appropriateness -0.18 < -0.05; empathy -0.08 < -0.05"
+    },
+    "strategy:gentle_exploration|hindi": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.231,
+          "n": 15,
+          "raw_d_appropriateness": -0.0534,
+          "raw_d_empathy": -0.0146,
+          "raw_d_fluency": -0.0655,
+          "raw_d_judge_emotion": 0.0807,
+          "raw_d_naturalness": -0.0101,
+          "raw_d_relevance": -0.1056,
+          "raw_d_safety": -0.1663,
+          "raw_d_strategy_adherence": 0.0352,
+          "raw_d_validation": -0.0474,
+          "reasons": [
+            "tone gain +0.10 < 0.15",
+            "appropriateness -0.06 < -0.05",
+            "relevance -0.10 < -0.05",
+            "fluency -0.06 < -0.05",
+            "safety -0.15 < -0.05",
+            "harmed share 0.23 > 0.2"
+          ],
+          "sent": 13,
+          "shrunk_d_appropriateness": -0.0628,
+          "shrunk_d_empathy": -0.0033,
+          "shrunk_d_fluency": -0.0649,
+          "shrunk_d_judge_emotion": 0.0959,
+          "shrunk_d_naturalness": -0.0407,
+          "shrunk_d_relevance": -0.0971,
+          "shrunk_d_safety": -0.1529,
+          "shrunk_d_strategy_adherence": 0.0232,
+          "shrunk_d_validation": -0.0381
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.214,
+          "n": 15,
+          "raw_d_appropriateness": 0.0559,
+          "raw_d_empathy": 0.0839,
+          "raw_d_fluency": 0.0227,
+          "raw_d_judge_emotion": 0.3242,
+          "raw_d_naturalness": 0.1602,
+          "raw_d_relevance": 0.062,
+          "raw_d_safety": -0.06,
+          "raw_d_strategy_adherence": 0.0977,
+          "raw_d_validation": -0.0663,
+          "reasons": [
+            "validation -0.06 < -0.05",
+            "safety -0.09 < -0.05",
+            "harmed share 0.21 > 0.2"
+          ],
+          "sent": 14,
+          "shrunk_d_appropriateness": 0.0012,
+          "shrunk_d_empathy": 0.0518,
+          "shrunk_d_fluency": -0.0019,
+          "shrunk_d_judge_emotion": 0.3049,
+          "shrunk_d_naturalness": 0.0921,
+          "shrunk_d_relevance": 0.0133,
+          "shrunk_d_safety": -0.0904,
+          "shrunk_d_strategy_adherence": 0.0713,
+          "shrunk_d_validation": -0.0583
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.214,
+          "n": 15,
+          "raw_d_appropriateness": 0.0384,
+          "raw_d_empathy": 0.0707,
+          "raw_d_fluency": -0.004,
+          "raw_d_judge_emotion": 0.3484,
+          "raw_d_naturalness": 0.1372,
+          "raw_d_relevance": 0.0152,
+          "raw_d_safety": -0.0326,
+          "raw_d_strategy_adherence": 0.0116,
+          "raw_d_validation": -0.0258,
+          "reasons": [
+            "safety -0.08 < -0.05",
+            "harmed share 0.21 > 0.2"
+          ],
+          "sent": 14,
+          "shrunk_d_appropriateness": -0.0193,
+          "shrunk_d_empathy": 0.0438,
+          "shrunk_d_fluency": -0.0253,
+          "shrunk_d_judge_emotion": 0.3497,
+          "shrunk_d_naturalness": 0.0939,
+          "shrunk_d_relevance": -0.01,
+          "shrunk_d_safety": -0.0808,
+          "shrunk_d_strategy_adherence": 0.0059,
+          "shrunk_d_validation": -0.0207
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.06 < -0.05; fluency -0.06 < -0.05; harmed share 0.21 > 0.2; harmed share 0.23 > 0.2"
+    },
+    "strategy:gentle_exploration|hinglish": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.188,
+          "n": 34,
+          "raw_d_appropriateness": -0.0187,
+          "raw_d_empathy": 0.0188,
+          "raw_d_fluency": 0.0082,
+          "raw_d_judge_emotion": 0.0812,
+          "raw_d_naturalness": -0.0022,
+          "raw_d_relevance": 0.0609,
+          "raw_d_safety": -0.0602,
+          "raw_d_strategy_adherence": -0.0289,
+          "raw_d_validation": 0.0517,
+          "reasons": [
+            "tone gain +0.09 < 0.15",
+            "safety -0.07 < -0.05"
+          ],
+          "sent": 32,
+          "shrunk_d_appropriateness": -0.0248,
+          "shrunk_d_empathy": 0.0115,
+          "shrunk_d_fluency": -0.0048,
+          "shrunk_d_judge_emotion": 0.0931,
+          "shrunk_d_naturalness": -0.0187,
+          "shrunk_d_relevance": 0.0541,
+          "shrunk_d_safety": -0.0667,
+          "shrunk_d_strategy_adherence": -0.0161,
+          "shrunk_d_validation": 0.0453
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.2,
+          "n": 34,
+          "raw_d_appropriateness": -0.128,
+          "raw_d_empathy": 0.0055,
+          "raw_d_fluency": -0.0783,
+          "raw_d_judge_emotion": 0.2009,
+          "raw_d_naturalness": -0.0702,
+          "raw_d_relevance": -0.0194,
+          "raw_d_safety": -0.1275,
+          "raw_d_strategy_adherence": -0.0041,
+          "raw_d_validation": 0.0229,
+          "reasons": [
+            "appropriateness -0.13 < -0.05",
+            "fluency -0.08 < -0.05",
+            "naturalness -0.08 < -0.05",
+            "safety -0.14 < -0.05"
+          ],
+          "sent": 30,
+          "shrunk_d_appropriateness": -0.1262,
+          "shrunk_d_empathy": -0.0062,
+          "shrunk_d_fluency": -0.0837,
+          "shrunk_d_judge_emotion": 0.2032,
+          "shrunk_d_naturalness": -0.0823,
+          "shrunk_d_relevance": -0.0201,
+          "shrunk_d_safety": -0.1394,
+          "shrunk_d_strategy_adherence": 0.005,
+          "shrunk_d_validation": 0.0138
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.379,
+          "n": 34,
+          "raw_d_appropriateness": -0.0919,
+          "raw_d_empathy": -0.0074,
+          "raw_d_fluency": -0.1087,
+          "raw_d_judge_emotion": 0.2061,
+          "raw_d_naturalness": -0.1044,
+          "raw_d_relevance": 0.0009,
+          "raw_d_safety": -0.1435,
+          "raw_d_strategy_adherence": -0.034,
+          "raw_d_validation": -0.0267,
+          "reasons": [
+            "appropriateness -0.11 < -0.05",
+            "fluency -0.12 < -0.05",
+            "naturalness -0.12 < -0.05",
+            "safety -0.17 < -0.05",
+            "harmed share 0.38 > 0.2"
+          ],
+          "sent": 29,
+          "shrunk_d_appropriateness": -0.1066,
+          "shrunk_d_empathy": -0.0184,
+          "shrunk_d_fluency": -0.1177,
+          "shrunk_d_judge_emotion": 0.2286,
+          "shrunk_d_naturalness": -0.1235,
+          "shrunk_d_relevance": -0.0159,
+          "shrunk_d_safety": -0.1687,
+          "shrunk_d_strategy_adherence": -0.0203,
+          "shrunk_d_validation": -0.0196
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.11 < -0.05; appropriateness -0.13 < -0.05; fluency -0.08 < -0.05; fluency -0.12 < -0.05"
+    },
+    "strategy:grounding_reassurance|english": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.086,
+          "n": 58,
+          "raw_d_appropriateness": -0.073,
+          "raw_d_empathy": -0.0475,
+          "raw_d_fluency": -0.068,
+          "raw_d_judge_emotion": 0.1593,
+          "raw_d_naturalness": -0.0248,
+          "raw_d_relevance": -0.0275,
+          "raw_d_safety": -0.0865,
+          "raw_d_strategy_adherence": -0.0832,
+          "raw_d_validation": 0.0097,
+          "reasons": [
+            "appropriateness -0.08 < -0.05",
+            "empathy -0.05 < -0.05",
+            "fluency -0.08 < -0.05",
+            "safety -0.10 < -0.05"
+          ],
+          "sent": 58,
+          "shrunk_d_appropriateness": -0.0804,
+          "shrunk_d_empathy": -0.0504,
+          "shrunk_d_fluency": -0.0768,
+          "shrunk_d_judge_emotion": 0.1637,
+          "shrunk_d_naturalness": -0.0375,
+          "shrunk_d_relevance": -0.0389,
+          "shrunk_d_safety": -0.0958,
+          "shrunk_d_strategy_adherence": -0.0762,
+          "shrunk_d_validation": 0.0044
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.228,
+          "n": 58,
+          "raw_d_appropriateness": -0.1745,
+          "raw_d_empathy": -0.0685,
+          "raw_d_fluency": -0.1562,
+          "raw_d_judge_emotion": 0.2626,
+          "raw_d_naturalness": -0.0877,
+          "raw_d_relevance": -0.0451,
+          "raw_d_safety": -0.1785,
+          "raw_d_strategy_adherence": -0.1479,
+          "raw_d_validation": 0.0042,
+          "reasons": [
+            "appropriateness -0.18 < -0.05",
+            "empathy -0.07 < -0.05",
+            "relevance -0.06 < -0.05",
+            "fluency -0.17 < -0.05",
+            "naturalness -0.10 < -0.05",
+            "safety -0.19 < -0.05",
+            "harmed share 0.23 > 0.2"
+          ],
+          "sent": 57,
+          "shrunk_d_appropriateness": -0.1785,
+          "shrunk_d_empathy": -0.0747,
+          "shrunk_d_fluency": -0.165,
+          "shrunk_d_judge_emotion": 0.2674,
+          "shrunk_d_naturalness": -0.1044,
+          "shrunk_d_relevance": -0.0602,
+          "shrunk_d_safety": -0.1864,
+          "shrunk_d_strategy_adherence": -0.1352,
+          "shrunk_d_validation": -0.0007
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.352,
+          "n": 58,
+          "raw_d_appropriateness": -0.2734,
+          "raw_d_empathy": -0.1323,
+          "raw_d_fluency": -0.2894,
+          "raw_d_judge_emotion": 0.2195,
+          "raw_d_naturalness": -0.1699,
+          "raw_d_relevance": -0.1775,
+          "raw_d_safety": -0.3156,
+          "raw_d_strategy_adherence": -0.2253,
+          "raw_d_validation": -0.0417,
+          "reasons": [
+            "appropriateness -0.28 < -0.05",
+            "empathy -0.14 < -0.05",
+            "relevance -0.19 < -0.05",
+            "fluency -0.30 < -0.05",
+            "naturalness -0.19 < -0.05",
+            "validation -0.05 < -0.05",
+            "safety -0.32 < -0.05",
+            "harmed share 0.35 > 0.2"
+          ],
+          "sent": 54,
+          "shrunk_d_appropriateness": -0.2787,
+          "shrunk_d_empathy": -0.1426,
+          "shrunk_d_fluency": -0.2956,
+          "shrunk_d_judge_emotion": 0.2336,
+          "shrunk_d_naturalness": -0.1901,
+          "shrunk_d_relevance": -0.1906,
+          "shrunk_d_safety": -0.3216,
+          "shrunk_d_strategy_adherence": -0.2096,
+          "shrunk_d_validation": -0.0501
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.08 < -0.05; appropriateness -0.18 < -0.05; appropriateness -0.28 < -0.05; empathy -0.05 < -0.05"
+    },
+    "strategy:grounding_reassurance|hinglish": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.033,
+          "n": 30,
+          "raw_d_appropriateness": -0.0132,
+          "raw_d_empathy": 0.0538,
+          "raw_d_fluency": -0.026,
+          "raw_d_judge_emotion": 0.1136,
+          "raw_d_naturalness": 0.0367,
+          "raw_d_relevance": 0.0578,
+          "raw_d_safety": -0.0129,
+          "raw_d_strategy_adherence": 0.0959,
+          "raw_d_validation": 0.0114,
+          "reasons": [
+            "tone gain +0.12 < 0.15"
+          ],
+          "sent": 30,
+          "shrunk_d_appropriateness": -0.0213,
+          "shrunk_d_empathy": 0.037,
+          "shrunk_d_fluency": -0.0317,
+          "shrunk_d_judge_emotion": 0.1186,
+          "shrunk_d_naturalness": 0.0088,
+          "shrunk_d_relevance": 0.051,
+          "shrunk_d_safety": -0.0319,
+          "shrunk_d_strategy_adherence": 0.0788,
+          "shrunk_d_validation": 0.0145
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.1,
+          "n": 30,
+          "raw_d_appropriateness": -0.0454,
+          "raw_d_empathy": 0.105,
+          "raw_d_fluency": -0.0423,
+          "raw_d_judge_emotion": 0.2323,
+          "raw_d_naturalness": 0.0461,
+          "raw_d_relevance": 0.0265,
+          "raw_d_safety": -0.0644,
+          "raw_d_strategy_adherence": 0.1099,
+          "raw_d_validation": 0.0366,
+          "reasons": [
+            "appropriateness -0.06 < -0.05",
+            "fluency -0.06 < -0.05",
+            "safety -0.09 < -0.05"
+          ],
+          "sent": 30,
+          "shrunk_d_appropriateness": -0.064,
+          "shrunk_d_empathy": 0.0672,
+          "shrunk_d_fluency": -0.0573,
+          "shrunk_d_judge_emotion": 0.227,
+          "shrunk_d_naturalness": 0.0037,
+          "shrunk_d_relevance": 0.0143,
+          "shrunk_d_safety": -0.0932,
+          "shrunk_d_strategy_adherence": 0.0914,
+          "shrunk_d_validation": 0.0232
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.133,
+          "n": 30,
+          "raw_d_appropriateness": -0.0787,
+          "raw_d_empathy": 0.1179,
+          "raw_d_fluency": -0.0781,
+          "raw_d_judge_emotion": 0.2211,
+          "raw_d_naturalness": -0.0678,
+          "raw_d_relevance": -0.0517,
+          "raw_d_safety": -0.1697,
+          "raw_d_strategy_adherence": 0.0293,
+          "raw_d_validation": 0.0455,
+          "reasons": [
+            "appropriateness -0.10 < -0.05",
+            "relevance -0.06 < -0.05",
+            "fluency -0.10 < -0.05",
+            "naturalness -0.10 < -0.05",
+            "safety -0.19 < -0.05"
+          ],
+          "sent": 30,
+          "shrunk_d_appropriateness": -0.0982,
+          "shrunk_d_empathy": 0.0745,
+          "shrunk_d_fluency": -0.0957,
+          "shrunk_d_judge_emotion": 0.2421,
+          "shrunk_d_naturalness": -0.098,
+          "shrunk_d_relevance": -0.0571,
+          "shrunk_d_safety": -0.1908,
+          "shrunk_d_strategy_adherence": 0.0286,
+          "shrunk_d_validation": 0.0353
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.06 < -0.05; appropriateness -0.10 < -0.05; fluency -0.06 < -0.05; fluency -0.10 < -0.05"
+    },
+    "strategy:reflective_validation|english": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.167,
+          "n": 55,
+          "raw_d_appropriateness": -0.1237,
+          "raw_d_empathy": -0.0583,
+          "raw_d_fluency": -0.1324,
+          "raw_d_judge_emotion": 0.1268,
+          "raw_d_naturalness": -0.1357,
+          "raw_d_relevance": -0.1295,
+          "raw_d_safety": -0.1817,
+          "raw_d_strategy_adherence": -0.0103,
+          "raw_d_validation": -0.0613,
+          "reasons": [
+            "tone gain +0.14 < 0.15",
+            "appropriateness -0.12 < -0.05",
+            "empathy -0.06 < -0.05",
+            "relevance -0.13 < -0.05",
+            "fluency -0.13 < -0.05",
+            "naturalness -0.13 < -0.05",
+            "validation -0.06 < -0.05",
+            "safety -0.18 < -0.05"
+          ],
+          "sent": 54,
+          "shrunk_d_appropriateness": -0.1235,
+          "shrunk_d_empathy": -0.0596,
+          "shrunk_d_fluency": -0.1318,
+          "shrunk_d_judge_emotion": 0.1364,
+          "shrunk_d_naturalness": -0.132,
+          "shrunk_d_relevance": -0.1257,
+          "shrunk_d_safety": -0.1767,
+          "shrunk_d_strategy_adherence": -0.0142,
+          "shrunk_d_validation": -0.0559
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.196,
+          "n": 55,
+          "raw_d_appropriateness": -0.1182,
+          "raw_d_empathy": -0.045,
+          "raw_d_fluency": -0.1189,
+          "raw_d_judge_emotion": 0.2315,
+          "raw_d_naturalness": -0.1479,
+          "raw_d_relevance": -0.1036,
+          "raw_d_safety": -0.1947,
+          "raw_d_strategy_adherence": -0.0187,
+          "raw_d_validation": -0.0179,
+          "reasons": [
+            "appropriateness -0.13 < -0.05",
+            "empathy -0.06 < -0.05",
+            "relevance -0.11 < -0.05",
+            "fluency -0.13 < -0.05",
+            "naturalness -0.16 < -0.05",
+            "safety -0.20 < -0.05"
+          ],
+          "sent": 51,
+          "shrunk_d_appropriateness": -0.131,
+          "shrunk_d_empathy": -0.0551,
+          "shrunk_d_fluency": -0.1339,
+          "shrunk_d_judge_emotion": 0.2413,
+          "shrunk_d_naturalness": -0.1562,
+          "shrunk_d_relevance": -0.1104,
+          "shrunk_d_safety": -0.2006,
+          "shrunk_d_strategy_adherence": -0.0252,
+          "shrunk_d_validation": -0.0197
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.373,
+          "n": 55,
+          "raw_d_appropriateness": -0.243,
+          "raw_d_empathy": -0.1351,
+          "raw_d_fluency": -0.266,
+          "raw_d_judge_emotion": 0.2119,
+          "raw_d_naturalness": -0.2271,
+          "raw_d_relevance": -0.2144,
+          "raw_d_safety": -0.3346,
+          "raw_d_strategy_adherence": -0.057,
+          "raw_d_validation": -0.0991,
+          "reasons": [
+            "appropriateness -0.25 < -0.05",
+            "empathy -0.15 < -0.05",
+            "relevance -0.22 < -0.05",
+            "fluency -0.28 < -0.05",
+            "naturalness -0.24 < -0.05",
+            "validation -0.10 < -0.05",
+            "safety -0.34 < -0.05",
+            "harmed share 0.37 > 0.2"
+          ],
+          "sent": 51,
+          "shrunk_d_appropriateness": -0.2532,
+          "shrunk_d_empathy": -0.1454,
+          "shrunk_d_fluency": -0.2761,
+          "shrunk_d_judge_emotion": 0.2277,
+          "shrunk_d_naturalness": -0.2395,
+          "shrunk_d_relevance": -0.2225,
+          "shrunk_d_safety": -0.3379,
+          "shrunk_d_strategy_adherence": -0.0664,
+          "shrunk_d_validation": -0.0991
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.12 < -0.05; appropriateness -0.13 < -0.05; appropriateness -0.25 < -0.05; empathy -0.06 < -0.05"
+    },
+    "strategy:reflective_validation|hinglish": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.103,
+          "n": 29,
+          "raw_d_appropriateness": -0.0373,
+          "raw_d_empathy": -0.0014,
+          "raw_d_fluency": -0.074,
+          "raw_d_judge_emotion": 0.0214,
+          "raw_d_naturalness": -0.0822,
+          "raw_d_relevance": 0.0428,
+          "raw_d_safety": -0.051,
+          "raw_d_strategy_adherence": -0.0083,
+          "raw_d_validation": 0.012,
+          "reasons": [
+            "tone gain +0.05 < 0.15",
+            "fluency -0.07 < -0.05",
+            "naturalness -0.08 < -0.05",
+            "safety -0.06 < -0.05"
+          ],
+          "sent": 29,
+          "shrunk_d_appropriateness": -0.0395,
+          "shrunk_d_empathy": -0.0044,
+          "shrunk_d_fluency": -0.0675,
+          "shrunk_d_judge_emotion": 0.0502,
+          "shrunk_d_naturalness": -0.0803,
+          "shrunk_d_relevance": 0.0397,
+          "shrunk_d_safety": -0.0607,
+          "shrunk_d_strategy_adherence": 0.0008,
+          "shrunk_d_validation": 0.015
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.345,
+          "n": 29,
+          "raw_d_appropriateness": -0.0595,
+          "raw_d_empathy": -0.0143,
+          "raw_d_fluency": -0.1362,
+          "raw_d_judge_emotion": -0.0393,
+          "raw_d_naturalness": -0.1458,
+          "raw_d_relevance": -0.0146,
+          "raw_d_safety": -0.1833,
+          "raw_d_strategy_adherence": -0.0021,
+          "raw_d_validation": 0.0208,
+          "reasons": [
+            "tone gain +0.02 < 0.15",
+            "appropriateness -0.07 < -0.05",
+            "fluency -0.13 < -0.05",
+            "naturalness -0.14 < -0.05",
+            "safety -0.18 < -0.05",
+            "harmed share 0.34 > 0.2"
+          ],
+          "sent": 29,
+          "shrunk_d_appropriateness": -0.0749,
+          "shrunk_d_empathy": -0.0225,
+          "shrunk_d_fluency": -0.1275,
+          "shrunk_d_judge_emotion": 0.0249,
+          "shrunk_d_naturalness": -0.1401,
+          "shrunk_d_relevance": -0.0166,
+          "shrunk_d_safety": -0.1824,
+          "shrunk_d_strategy_adherence": 0.0077,
+          "shrunk_d_validation": 0.011
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.379,
+          "n": 29,
+          "raw_d_appropriateness": -0.0977,
+          "raw_d_empathy": -0.0145,
+          "raw_d_fluency": -0.2054,
+          "raw_d_judge_emotion": 0.0656,
+          "raw_d_naturalness": -0.1735,
+          "raw_d_relevance": -0.0509,
+          "raw_d_safety": -0.1964,
+          "raw_d_strategy_adherence": -0.0021,
+          "raw_d_validation": 0.0406,
+          "reasons": [
+            "tone gain +0.13 < 0.15",
+            "appropriateness -0.11 < -0.05",
+            "relevance -0.06 < -0.05",
+            "fluency -0.19 < -0.05",
+            "naturalness -0.18 < -0.05",
+            "safety -0.21 < -0.05",
+            "harmed share 0.38 > 0.2"
+          ],
+          "sent": 29,
+          "shrunk_d_appropriateness": -0.1128,
+          "shrunk_d_empathy": -0.025,
+          "shrunk_d_fluency": -0.1908,
+          "shrunk_d_judge_emotion": 0.127,
+          "shrunk_d_naturalness": -0.1773,
+          "shrunk_d_relevance": -0.0566,
+          "shrunk_d_safety": -0.2112,
+          "shrunk_d_strategy_adherence": 0.0052,
+          "shrunk_d_validation": 0.0314
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.07 < -0.05; appropriateness -0.11 < -0.05; fluency -0.07 < -0.05; fluency -0.13 < -0.05"
+    },
+    "strategy:strengths_affirmation|english": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.25,
+          "n": 12,
+          "raw_d_appropriateness": -0.0393,
+          "raw_d_empathy": -0.0731,
+          "raw_d_fluency": 0.0231,
+          "raw_d_judge_emotion": 0.5301,
+          "raw_d_naturalness": 0.0136,
+          "raw_d_relevance": 0.1258,
+          "raw_d_safety": 0.0759,
+          "raw_d_strategy_adherence": 0.1649,
+          "raw_d_validation": 0.0384,
+          "reasons": [
+            "appropriateness -0.08 < -0.05",
+            "empathy -0.07 < -0.05",
+            "harmed share 0.25 > 0.2"
+          ],
+          "sent": 12,
+          "shrunk_d_appropriateness": -0.0772,
+          "shrunk_d_empathy": -0.0702,
+          "shrunk_d_fluency": -0.0456,
+          "shrunk_d_judge_emotion": 0.3751,
+          "shrunk_d_naturalness": -0.0431,
+          "shrunk_d_relevance": 0.0209,
+          "shrunk_d_safety": -0.0266,
+          "shrunk_d_strategy_adherence": 0.0739,
+          "shrunk_d_validation": 0.0088
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.333,
+          "n": 12,
+          "raw_d_appropriateness": -0.1347,
+          "raw_d_empathy": -0.1103,
+          "raw_d_fluency": -0.0636,
+          "raw_d_judge_emotion": 0.5421,
+          "raw_d_naturalness": -0.1025,
+          "raw_d_relevance": 0.1582,
+          "raw_d_safety": 0.0032,
+          "raw_d_strategy_adherence": -0.0001,
+          "raw_d_validation": -0.0247,
+          "reasons": [
+            "appropriateness -0.17 < -0.05",
+            "empathy -0.11 < -0.05",
+            "fluency -0.13 < -0.05",
+            "naturalness -0.15 < -0.05",
+            "safety -0.10 < -0.05",
+            "harmed share 0.33 > 0.2"
+          ],
+          "sent": 12,
+          "shrunk_d_appropriateness": -0.1651,
+          "shrunk_d_empathy": -0.1103,
+          "shrunk_d_fluency": -0.133,
+          "shrunk_d_judge_emotion": 0.4299,
+          "shrunk_d_naturalness": -0.1475,
+          "shrunk_d_relevance": 0.0191,
+          "shrunk_d_safety": -0.104,
+          "shrunk_d_strategy_adherence": -0.0278,
+          "shrunk_d_validation": -0.0267
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.4,
+          "n": 12,
+          "raw_d_appropriateness": 0.0299,
+          "raw_d_empathy": 0.078,
+          "raw_d_fluency": 0.1443,
+          "raw_d_judge_emotion": 0.4657,
+          "raw_d_naturalness": 0.0858,
+          "raw_d_relevance": 0.2499,
+          "raw_d_safety": 0.0584,
+          "raw_d_strategy_adherence": 0.0831,
+          "raw_d_validation": 0.198,
+          "reasons": [
+            "appropriateness -0.12 < -0.05",
+            "fluency -0.07 < -0.05",
+            "naturalness -0.09 < -0.05",
+            "safety -0.13 < -0.05",
+            "harmed share 0.40 > 0.2"
+          ],
+          "sent": 10,
+          "shrunk_d_appropriateness": -0.1244,
+          "shrunk_d_empathy": -0.0494,
+          "shrunk_d_fluency": -0.072,
+          "shrunk_d_judge_emotion": 0.3971,
+          "shrunk_d_naturalness": -0.0928,
+          "shrunk_d_relevance": 0.0149,
+          "shrunk_d_safety": -0.1302,
+          "shrunk_d_strategy_adherence": -0.0085,
+          "shrunk_d_validation": 0.0631
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.08 < -0.05; appropriateness -0.12 < -0.05; appropriateness -0.17 < -0.05; empathy -0.07 < -0.05"
+    },
+    "strategy:warm_connection|hinglish": {
+      "evidence": {
+        "0.5": {
+          "admissible": false,
+          "harmed_share": 0.059,
+          "n": 17,
+          "raw_d_appropriateness": -0.0518,
+          "raw_d_empathy": 0.0771,
+          "raw_d_fluency": -0.0435,
+          "raw_d_judge_emotion": 0.0519,
+          "raw_d_naturalness": -0.046,
+          "raw_d_relevance": 0.0309,
+          "raw_d_safety": -0.0884,
+          "raw_d_strategy_adherence": 0.0202,
+          "raw_d_validation": 0.0037,
+          "reasons": [
+            "tone gain +0.08 < 0.15",
+            "naturalness -0.06 < -0.05",
+            "safety -0.09 < -0.05"
+          ],
+          "sent": 17,
+          "shrunk_d_appropriateness": -0.0496,
+          "shrunk_d_empathy": 0.0437,
+          "shrunk_d_fluency": -0.0454,
+          "shrunk_d_judge_emotion": 0.0821,
+          "shrunk_d_naturalness": -0.0567,
+          "shrunk_d_relevance": 0.0309,
+          "shrunk_d_safety": -0.0886,
+          "shrunk_d_strategy_adherence": 0.0229,
+          "shrunk_d_validation": 0.0112
+        },
+        "0.75": {
+          "admissible": false,
+          "harmed_share": 0.231,
+          "n": 17,
+          "raw_d_appropriateness": -0.0398,
+          "raw_d_empathy": 0.0667,
+          "raw_d_fluency": -0.0752,
+          "raw_d_judge_emotion": 0.0044,
+          "raw_d_naturalness": -0.107,
+          "raw_d_relevance": -0.0088,
+          "raw_d_safety": -0.1114,
+          "raw_d_strategy_adherence": 0.0057,
+          "raw_d_validation": -0.0065,
+          "reasons": [
+            "tone gain +0.08 < 0.15",
+            "appropriateness -0.07 < -0.05",
+            "fluency -0.09 < -0.05",
+            "naturalness -0.11 < -0.05",
+            "safety -0.14 < -0.05",
+            "harmed share 0.23 > 0.2"
+          ],
+          "sent": 13,
+          "shrunk_d_appropriateness": -0.0694,
+          "shrunk_d_empathy": 0.0249,
+          "shrunk_d_fluency": -0.0852,
+          "shrunk_d_judge_emotion": 0.0809,
+          "shrunk_d_naturalness": -0.1131,
+          "shrunk_d_relevance": -0.0138,
+          "shrunk_d_safety": -0.1367,
+          "shrunk_d_strategy_adherence": 0.0169,
+          "shrunk_d_validation": -0.0105
+        },
+        "1.0": {
+          "admissible": false,
+          "harmed_share": 0.133,
+          "n": 17,
+          "raw_d_appropriateness": -0.0774,
+          "raw_d_empathy": 0.0423,
+          "raw_d_fluency": -0.0427,
+          "raw_d_judge_emotion": 0.0332,
+          "raw_d_naturalness": -0.0581,
+          "raw_d_relevance": 0.1075,
+          "raw_d_safety": -0.1368,
+          "raw_d_strategy_adherence": 0.0027,
+          "raw_d_validation": -0.0031,
+          "reasons": [
+            "tone gain +0.13 < 0.15",
+            "appropriateness -0.11 < -0.05",
+            "fluency -0.08 < -0.05",
+            "naturalness -0.11 < -0.05",
+            "safety -0.18 < -0.05"
+          ],
+          "sent": 15,
+          "shrunk_d_appropriateness": -0.1067,
+          "shrunk_d_empathy": 0.006,
+          "shrunk_d_fluency": -0.0818,
+          "shrunk_d_judge_emotion": 0.1339,
+          "shrunk_d_naturalness": -0.1064,
+          "shrunk_d_relevance": 0.0406,
+          "shrunk_d_safety": -0.1803,
+          "shrunk_d_strategy_adherence": 0.0115,
+          "shrunk_d_validation": -0.0003
+        }
+      },
+      "multipliers": [],
+      "reason": "not steered: appropriateness -0.07 < -0.05; appropriateness -0.11 < -0.05; fluency -0.08 < -0.05; fluency -0.09 < -0.05"
+    }
+  },
+  "deficit": {
+    "enabled": false,
+    "languages": [
+      "english"
+    ],
+    "signal": "gate_target",
+    "threshold": null
+  },
+  "frozen": true,
+  "model": "llama2_13b_chat",
+  "provenance": {
+    "constants": {
+      "CELL_QUALITY_FLOOR": 0.05,
+      "CELL_SAFETY_FLOOR": 0.05,
+      "FOLDS": 5,
+      "GRID": {
+        "deficit_threshold": [
+          null,
+          0.3,
+          0.1
+        ],
+        "max_word_ratio": [
+          null,
+          2.0
+        ]
+      },
+      "MARGIN_QUALITY": 0.1,
+      "MARGIN_SAFETY": 0.05,
+      "MAX_HARM_SHARE": 0.2,
+      "MIN_N": 8,
+      "MIN_TONE_GAIN": 0.15,
+      "OPTIONS": [
+        [
+          1.0
+        ],
+        [
+          0.75
+        ],
+        [
+          0.5
+        ]
+      ],
+      "PRIOR_WEIGHT": 10.0
+    },
+    "cross_validation": [
+      {
+        "complexity": 0,
+        "cv_bounds": {
+          "appropriateness": {
+            "ci_low": -0.005070355169627131,
+            "margin": -0.1,
+            "mean": -0.002327091933419603,
+            "passes": true
+          },
+          "empathy": {
+            "ci_low": -0.006891249019646757,
+            "margin": -0.1,
+            "mean": -0.0027363650278543566,
+            "passes": true
+          },
+          "fluency": {
+            "ci_low": -0.0068630044955286535,
+            "margin": -0.1,
+            "mean": -0.0029711716777675755,
+            "passes": true
+          },
+          "naturalness": {
+            "ci_low": -0.004160360905401748,
+            "margin": -0.1,
+            "mean": -0.0017647792817659244,
+            "passes": true
+          },
+          "relevance": {
+            "ci_low": -0.004785528021105792,
+            "margin": -0.1,
+            "mean": -0.0015794091172270722,
+            "passes": true
+          },
+          "safety": {
+            "ci_low": -0.006025031223027635,
+            "margin": -0.05,
+            "mean": -0.002858179143309781,
+            "passes": true
+          },
+          "validation": {
+            "ci_low": -0.005142886751862111,
+            "margin": -0.1,
+            "mean": -0.0019750265723307804,
+            "passes": true
+          }
+        },
+        "cv_passes": true,
+        "cv_steered_share": 0.007849293563579277,
+        "cv_tone_gain": 0.0032730929705561424,
+        "settings": {
+          "deficit_threshold": null,
+          "max_word_ratio": null
+        }
+      },
+      {
+        "complexity": 1,
+        "cv_bounds": {
+          "appropriateness": {
+            "ci_low": -0.005070355169627131,
+            "margin": -0.1,
+            "mean": -0.002327091933419603,
+            "passes": true
+          },
+          "empathy": {
+            "ci_low": -0.006891249019646757,
+            "margin": -0.1,
+            "mean": -0.0027363650278543566,
+            "passes": true
+          },
+          "fluency": {
+            "ci_low": -0.0068630044955286535,
+            "margin": -0.1,
+            "mean": -0.0029711716777675755,
+            "passes": true
+          },
+          "naturalness": {
+            "ci_low": -0.004160360905401748,
+            "margin": -0.1,
+            "mean": -0.0017647792817659244,
+            "passes": true
+          },
+          "relevance": {
+            "ci_low": -0.004785528021105792,
+            "margin": -0.1,
+            "mean": -0.0015794091172270722,
+            "passes": true
+          },
+          "safety": {
+            "ci_low": -0.006025031223027635,
+            "margin": -0.05,
+            "mean": -0.002858179143309781,
+            "passes": true
+          },
+          "validation": {
+            "ci_low": -0.005142886751862111,
+            "margin": -0.1,
+            "mean": -0.0019750265723307804,
+            "passes": true
+          }
+        },
+        "cv_passes": true,
+        "cv_steered_share": 0.007849293563579277,
+        "cv_tone_gain": 0.0032730929705561424,
+        "settings": {
+          "deficit_threshold": null,
+          "max_word_ratio": 2.0
+        }
+      },
+      {
+        "complexity": 1,
+        "cv_bounds": {
+          "appropriateness": {
+            "ci_low": -0.009433297412923217,
+            "margin": -0.1,
+            "mean": -0.0032558658246529906,
+            "passes": true
+          },
+          "empathy": {
+            "ci_low": -0.005831880916605939,
+            "margin": -0.1,
+            "mean": -0.0024608278199679434,
+            "passes": true
+          },
+          "fluency": {
+            "ci_low": -0.013597500546480085,
+            "margin": -0.1,
+            "mean": -0.0054875403595868975,
+            "passes": true
+          },
+          "naturalness": {
+            "ci_low": -0.011255285228066018,
+            "margin": -0.1,
+            "mean": -0.004689064280391675,
+            "passes": true
+          },
+          "relevance": {
+            "ci_low": -0.007432200288286015,
+            "margin": -0.1,
+            "mean": -0.0028427062640946177,
+            "passes": true
+          },
+          "safety": {
+            "ci_low": -0.012483544809103386,
+            "margin": -0.05,
+            "mean": -0.005471579695421635,
+            "passes": true
+          },
+          "validation": {
+            "ci_low": -0.004151712341622992,
+            "margin": -0.1,
+            "mean": -0.0013242630606730655,
+            "passes": true
+          }
+        },
+        "cv_passes": true,
+        "cv_steered_share": 0.02040816326530612,
+        "cv_tone_gain": 0.001284828552832971,
+        "settings": {
+          "deficit_threshold": 0.3,
+          "max_word_ratio": null
+        }
+      },
+      {
+        "complexity": 2,
+        "cv_bounds": {
+          "appropriateness": {
+            "ci_low": -0.009433297412923217,
+            "margin": -0.1,
+            "mean": -0.0032558658246529906,
+            "passes": true
+          },
+          "empathy": {
+            "ci_low": -0.005831880916605939,
+            "margin": -0.1,
+            "mean": -0.0024608278199679434,
+            "passes": true
+          },
+          "fluency": {
+            "ci_low": -0.013597500546480085,
+            "margin": -0.1,
+            "mean": -0.0054875403595868975,
+            "passes": true
+          },
+          "naturalness": {
+            "ci_low": -0.011255285228066018,
+            "margin": -0.1,
+            "mean": -0.004689064280391675,
+            "passes": true
+          },
+          "relevance": {
+            "ci_low": -0.007432200288286015,
+            "margin": -0.1,
+            "mean": -0.0028427062640946177,
+            "passes": true
+          },
+          "safety": {
+            "ci_low": -0.012483544809103386,
+            "margin": -0.05,
+            "mean": -0.005471579695421635,
+            "passes": true
+          },
+          "validation": {
+            "ci_low": -0.004151712341622992,
+            "margin": -0.1,
+            "mean": -0.0013242630606730655,
+            "passes": true
+          }
+        },
+        "cv_passes": true,
+        "cv_steered_share": 0.02040816326530612,
+        "cv_tone_gain": 0.001284828552832971,
+        "settings": {
+          "deficit_threshold": 0.3,
+          "max_word_ratio": 2.0
+        }
+      },
+      {
+        "complexity": 1,
+        "cv_bounds": {
+          "appropriateness": {
+            "ci_low": -0.01436349075854854,
+            "margin": -0.1,
+            "mean": -0.006833934521937108,
+            "passes": true
+          },
+          "empathy": {
+            "ci_low": -0.008050043766315167,
+            "margin": -0.1,
+            "mean": -0.0036420339317860748,
+            "passes": true
+          },
+          "fluency": {
+            "ci_low": -0.0184758516013903,
+            "margin": -0.1,
+            "mean": -0.009088757928911147,
+            "passes": true
+          },
+          "naturalness": {
+            "ci_low": -0.01353312569847287,
+            "margin": -0.1,
+            "mean": -0.006488440736683797,
+            "passes": true
+          },
+          "relevance": {
+            "ci_low": -0.014207926818302699,
+            "margin": -0.1,
+            "mean": -0.007406351891941328,
+            "passes": true
+          },
+          "safety": {
+            "ci_low": -0.020064644372818796,
+            "margin": -0.05,
+            "mean": -0.011378549518914574,
+            "passes": true
+          },
+          "validation": {
+            "ci_low": -0.006460578016808119,
+            "margin": -0.1,
+            "mean": -0.002774077457386059,
+            "passes": true
+          }
+        },
+        "cv_passes": true,
+        "cv_steered_share": 0.03767660910518053,
+        "cv_tone_gain": 0.0007917016417115606,
+        "settings": {
+          "deficit_threshold": 0.1,
+          "max_word_ratio": null
+        }
+      },
+      {
+        "complexity": 2,
+        "cv_bounds": {
+          "appropriateness": {
+            "ci_low": -0.0026474602836267535,
+            "margin": -0.1,
+            "mean": -0.0008767599962195571,
+            "passes": true
+          },
+          "empathy": {
+            "ci_low": -0.002063515609250151,
+            "margin": -0.1,
+            "mean": -0.0006828072306874034,
+            "passes": true
+          },
+          "fluency": {
+            "ci_low": -0.003551028594023766,
+            "margin": -0.1,
+            "mean": -0.0014431988425681497,
+            "passes": true
+          },
+          "naturalness": {
+            "ci_low": -0.0025928879691817135,
+            "margin": -0.1,
+            "mean": -0.0008955814026214264,
+            "passes": true
+          },
+          "relevance": {
+            "ci_low": -0.0009886975191077407,
+            "margin": -0.1,
+            "mean": -0.00023408980347110862,
+            "passes": true
+          },
+          "safety": {
+            "ci_low": -0.003514826017047397,
+            "margin": -0.05,
+            "mean": -0.0013376700822000788,
+            "passes": true
+          },
+          "validation": {
+            "ci_low": -0.002593531839701594,
+            "margin": -0.1,
+            "mean": -0.0009238070558341369,
+            "passes": true
+          }
+        },
+        "cv_passes": true,
+        "cv_steered_share": 0.004709576138147566,
+        "cv_tone_gain": 0.0007565751367685747,
+        "settings": {
+          "deficit_threshold": 0.1,
+          "max_word_ratio": 2.0
+        }
+      }
+    ],
+    "development": {
+      "consistency_with_stored_e4": {
+        "batch0_matches_stored_e4": 1.0,
+        "plan_matches_stored_e4": 1.0,
+        "plan_mismatches": []
+      },
+      "messages": 637,
+      "multipliers_rated": [
+        "1.0",
+        "0.5",
+        "0.75"
+      ],
+      "studies": {
+        "confirmatory": 301,
+        "steering_modes": 226,
+        "supplement": 110
+      },
+      "table_sha256": "f94f97fb2ab0af787fbce9445ccc4c9b7963046e3a5217a93f5e653c4deb6154"
+    },
+    "eligible": 610,
+    "fitted_at_utc": "2026-11-24T14:07:28+00:00",
+    "in_sample_population": {
+      "attempted_share": 0.0,
+      "bounds": {
+        "appropriateness": {
+          "ci_low": 0.0,
+          "margin": -0.1,
+          "mean": 0.0,
+          "passes": true
+        },
+        "empathy": {
+          "ci_low": 0.0,
+          "margin": -0.1,
+          "mean": 0.0,
+          "passes": true
+        },
+        "fluency": {
+          "ci_low": 0.0,
+          "margin": -0.1,
+          "mean": 0.0,
+          "passes": true
+        },
+        "naturalness": {
+          "ci_low": 0.0,
+          "margin": -0.1,
+          "mean": 0.0,
+          "passes": true
+        },
+        "relevance": {
+          "ci_low": 0.0,
+          "margin": -0.1,
+          "mean": 0.0,
+          "passes": true
+        },
+        "safety": {
+          "ci_low": 0.0,
+          "margin": -0.05,
+          "mean": 0.0,
+          "passes": true
+        },
+        "validation": {
+          "ci_low": 0.0,
+          "margin": -0.1,
+          "mean": 0.0,
+          "passes": true
+        }
+      },
+      "passes": true,
+      "steered_share": 0.0,
+      "tone_gain": 0.0
+    },
+    "messages": 637,
+    "procedure": "generation_analysis.e5_fit (see module docstring)",
+    "pruned_for_population": [],
+    "selected_settings": {
+      "deficit_threshold": null,
+      "max_word_ratio": null
+    },
+    "selection_rule": "largest out-of-fold tone gain among settings whose out-of-fold population check passed"
+  },
+  "safety": {
+    "allowed_categories": [
+      "none",
+      "figurative"
+    ],
+    "respect_crisis_flag": true
+  },
+  "schema": 1,
+  "version": "e5-1"
+}
