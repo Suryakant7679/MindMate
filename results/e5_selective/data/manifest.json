@@ -1,0 +1,258 @@
+{
+  "seed": 20261124,
+  "heldout": {
+    "n": 373,
+    "by_group_category": [
+      {
+        "group": "english",
+        "category": "anger_frustration",
+        "n": 16
+      },
+      {
+        "group": "english",
+        "category": "fear_anxiety",
+        "n": 24
+      },
+      {
+        "group": "english",
+        "category": "mixed",
+        "n": 30
+      },
+      {
+        "group": "english",
+        "category": "multi_turn",
+        "n": 40
+      },
+      {
+        "group": "english",
+        "category": "neutral",
+        "n": 16
+      },
+      {
+        "group": "english",
+        "category": "positive",
+        "n": 28
+      },
+      {
+        "group": "english",
+        "category": "sadness",
+        "n": 28
+      },
+      {
+        "group": "english",
+        "category": "self_criticism",
+        "n": 24
+      },
+      {
+        "group": "hindi",
+        "category": "hindi_authored",
+        "n": 36
+      },
+      {
+        "group": "hindi",
+        "category": "neutral",
+        "n": 4
+      },
+      {
+        "group": "hinglish",
+        "category": "hinglish_authored",
+        "n": 36
+      },
+      {
+        "group": "hinglish",
+        "category": "hinglish_dataset",
+        "n": 40
+      },
+      {
+        "group": "hinglish",
+        "category": "neutral",
+        "n": 4
+      },
+      {
+        "group": "safety",
+        "category": "safety_explicit",
+        "n": 15
+      },
+      {
+        "group": "safety",
+        "category": "safety_indirect",
+        "n": 18
+      },
+      {
+        "group": "safety",
+        "category": "safety_mention",
+        "n": 8
+      },
+      {
+        "group": "safety",
+        "category": "safety_other",
+        "n": 6
+      }
+    ],
+    "by_language": {
+      "english": 244,
+      "hinglish": 83,
+      "hindi": 46
+    },
+    "by_strategy": {
+      "gentle_exploration": 110,
+      "compassionate_comfort": 56,
+      "celebratory_sharing": 54,
+      "grounding_reassurance": 43,
+      "reflective_validation": 38,
+      "appreciative_mirroring": 34,
+      "strengths_affirmation": 21,
+      "crisis_support": 12,
+      "warm_connection": 5
+    },
+    "by_target": {
+      "love": 252,
+      "admiration": 55,
+      "joy": 54,
+      "none": 12
+    },
+    "by_user_emotion": {
+      "neutral": 149,
+      "sadness": 62,
+      "joy": 49,
+      "fear": 37,
+      "admiration": 26,
+      "love": 15,
+      "anger": 14,
+      "disapproval": 10,
+      "disgust": 6,
+      "surprise": 5
+    },
+    "by_risk_category": {
+      "none": 347,
+      "disclosure": 10,
+      "indirect": 7,
+      "mention": 5,
+      "abuse_or_danger": 2,
+      "figurative": 2
+    },
+    "crisis_flagged": 12,
+    "intensity_quartiles": [
+      0.614,
+      0.682,
+      0.738
+    ],
+    "discovery_overlap": {
+      "none": 333,
+      "recognition_corpus": 40
+    }
+  },
+  "dev_supplement": {
+    "n": 110,
+    "by_group_category": [
+      {
+        "group": "english",
+        "category": "mixed",
+        "n": 24
+      },
+      {
+        "group": "english",
+        "category": "neutral",
+        "n": 8
+      },
+      {
+        "group": "english",
+        "category": "self_criticism",
+        "n": 24
+      },
+      {
+        "group": "hindi",
+        "category": "hindi_authored",
+        "n": 28
+      },
+      {
+        "group": "hindi",
+        "category": "neutral",
+        "n": 2
+      },
+      {
+        "group": "hinglish",
+        "category": "hinglish_authored",
+        "n": 12
+      },
+      {
+        "group": "hinglish",
+        "category": "neutral",
+        "n": 2
+      },
+      {
+        "group": "safety",
+        "category": "safety_indirect",
+        "n": 10
+      }
+    ],
+    "by_language": {
+      "english": 68,
+      "hindi": 32,
+      "hinglish": 10
+    },
+    "by_strategy": {
+      "gentle_exploration": 44,
+      "compassionate_comfort": 17,
+      "reflective_validation": 12,
+      "grounding_reassurance": 11,
+      "celebratory_sharing": 11,
+      "appreciative_mirroring": 9,
+      "strengths_affirmation": 6
+    },
+    "by_target": {
+      "love": 84,
+      "admiration": 15,
+      "joy": 11
+    },
+    "by_user_emotion": {
+      "neutral": 46,
+      "sadness": 25,
+      "joy": 11,
+      "fear": 11,
+      "admiration": 7,
+      "disapproval": 5,
+      "love": 2,
+      "anger": 2,
+      "disgust": 1
+    },
+    "by_risk_category": {
+      "none": 101,
+      "indirect": 9
+    },
+    "crisis_flagged": 0,
+    "intensity_quartiles": [
+      0.613,
+      0.686,
+      0.758
+    ],
+    "discovery_overlap": {
+      "none": 110
+    }
+  },
+  "leakage": {
+    "earlier_texts": 3215,
+    "earlier_conversations": 1897,
+    "discovery_prompts": 232,
+    "thresholds": {
+      "char_ngram_cosine": 0.85,
+      "semantic_cosine": 0.9
+    },
+    "excluded_candidates": 290,
+    "max_char_cosine_heldout": 0.8123683729547168,
+    "max_semantic_cosine_heldout_latin": 0.8958660364151001,
+    "heldout_vs_supplement_max_char": 0.6068987388412022
+  },
+  "sources": "english     EmpatheticDialogues: held-out from the *test* split (then validation), supplement from *train*; ED\n              situation labels give the category (positive, sadness, fear, anger, self-criticism)\n  mixed       GoEmotions messages labelled with both a positive and a negative emotion (odd rows held-out, even\n              rows supplement)\n  hinglish    held-out: data/mlt_hinghlish_dataset_clean.csv (flagged: the whole corpus was used for\n              *recognition*-neuron selectivity, not for the steering panels) + authored messages\n  hindi, neutral, safety_indirect, safety_explicit, safety_mention\n              data/e5_authored_messages.csv (written for E5 before any E5 reply existed; split column decides)\n  safety_explicit (dataset)  unused messages with a knowledge-graph crisis cue",
+  "caveats": {
+    "authored": "Hindi, part of the Hinglish, neutral and safety messages were written for E5 by an AI assistant (not native speakers or clinicians); review before freezing if possible",
+    "hinglish_dataset": "machine-generated GenZ Hinglish from the corpus whose every row was used for recognition-neuron selectivity (not for the steering panels)",
+    "crisis": "dataset crisis-cue messages are few; authored explicit / indirect / mention messages complete the group"
+  },
+  "note": "Frozen before any E5 policy was fitted on development data and before any model replied to these messages.",
+  "sha256": {
+    "heldout": "a8f9750d7efc484736901a3f0bd7fbda6b6a07815dca4a2dede319d6de3c5053",
+    "dev_supplement": "8045b717931666a292c9d4c9f0af22774b7203e71b9485e40cd4af802d2b123a",
+    "authored_source": "93626c329185da181f0af65d2b6c9f982135b72e547a2ad7baa94ed4c424cfe4"
+  }
+}

@@ -1,0 +1,291 @@
+pool,text,exact,char_cosine,semantic_cosine,leak
+heldout_ed,My wife is coming home after being out of the country for 2 months. I can't wait!,False,0.6040819189366844,0.9259827136993408,True
+heldout_ed,"My wife went out of the country for a couple months at the beginning of the summer, dropping her off at the airport was really tough.",False,0.5977739591795223,0.9036258459091187,True
+heldout_ed,I feel so nervous about my upcoming job interview,False,0.6081400966528975,0.9051063060760498,True
+heldout_ed,"We went on vacation a few weeks ago and went to the beach, It was so relaxing and great. I really enjoyed the time with my family.",False,0.4354606097746685,0.9014301300048828,True
+heldout_ed,"I'm about to start a new job, and I'm really nervous about it.",False,0.6118742532528606,0.9121884107589722,True
+supplement_ed,"I went on a job interview friday, and I think it went well.",False,0.640345596835195,0.9231103658676147,True
+supplement_ed,I knew I was going to get the promotion I was up for.,False,0.8347931614482231,0.9671915769577026,True
+heldout_mixed,"I was in Korea in July and August, it's hot as humid hell. Spring and autumn are better.",False,0.976530160513782,0.9701195359230042,True
+heldout_mixed,I dont know.. i did message him many times but he didnt reply me.. i am worried about him. I asked his mother about him,False,0.9597069855665459,0.9465445876121521,True
+heldout_mixed,That's not true! Some of them are probably into watersports.,False,0.9976863442619668,0.9746251106262207,True
+heldout_mixed,I know 😢 it’s one of my life’s goals to see a moose in real life despite how terrified I will be lol!!,False,0.9264943105944619,0.7833088040351868,True
+heldout_mixed,That’s horrible. You definitely didn’t deserve it. I’m glad to hear you’re doing OK now.,False,0.9360484281557494,0.8000044822692871,True
+heldout_mixed,How insulting . . . to Beavis and Butthead,False,0.8571526734393726,0.6008883714675903,True
+heldout_mixed,I’d love some actual lore relating to OW as a whole not just slapping names on single characters once every 6 months,False,0.9391718354674422,0.8662977814674377,True
+heldout_mixed,"Well the three games is all we have to go off of, and he was bad.",False,0.8510020376195826,0.6210864186286926,True
+heldout_mixed,She has naturally chubby cheeks that are set on high cheekbones. I've seen it before and it's not abnormal.,False,0.9773796911644553,0.8566364645957947,True
+heldout_mixed,I feel for you (at a title 1 middle school in lausd) I had a tough day today and reading this made me feel a little better ✊🏼,False,0.943046877379141,0.8807095289230347,True
+heldout_mixed,That's the worst feeling haha,False,0.981777376898445,0.8448457717895508,True
+heldout_mixed,"And it seems, just genuinely nice, hilarious, and passionate about her work. I hope she gets more of an edit from now on!",False,0.8841458475824883,0.5721063613891602,True
+heldout_mixed,I wish the theme was still larger than life but their outfit prompt was fetish/bdsm wear and that they all posed next to giant sex toys,False,0.9472428564439586,0.8187481760978699,True
+heldout_mixed,"I personally find it very funny how they talk about vaccines not helping against cancer, while there isn't even a vaccine against cancer",False,0.8747069604212497,0.7499265670776367,True
+heldout_mixed,"You will watch porn again, don't try to fool me",False,0.9832983071612938,0.806614875793457,True
+heldout_mixed,Thanks. I’m not sure your response is a proper attempt at answering the question.,False,0.9650553533443561,0.48494476079940796,True
+heldout_mixed,"It’s horrible for me, way worse than your situation. Be Glad that you aren’t me",False,0.9913198944453742,0.9183484315872192,True
+heldout_mixed,Lol that's so far from the truth.,False,0.9453406796051161,0.6777603030204773,True
+heldout_mixed,"Same. The low cloud is neat, but to me the emptiness of that area of downtown is what's striking.",False,0.8905199782702782,0.860264778137207,True
+heldout_mixed,"Investments like that are a paper trail. Ordering takeout food and riding Go-Karts with cash, are not.",False,0.962622699599503,0.8922492265701294,True
+heldout_mixed,Oooo she has a crush on you that’s embarrassing!,False,0.9867421829732383,0.8999819755554199,True
+heldout_mixed,...*rip everyone who didnt go to college and instead paid your way through a degree which is hopefully a net return*,False,0.9540532762792144,0.8292486667633057,True
+heldout_mixed,"Wow, kinda lame that if this true, most of us probably don't know about it.",False,0.8962108223128982,0.43016475439071655,True
+heldout_mixed,I find sativa makes me paranoid/anxious as hell. Indica calms me down more. Smoking too much of any strain makes me anxious by time though,False,0.9564774590106212,0.9446892738342285,True
+heldout_mixed,Dude I did think about doing a fake obnoxious cough to get their attention but then that would make me actually cough lmao,False,0.8759551051713992,0.7066620588302612,True
+heldout_mixed,Lol just reading that url makes it obvious you linked to some partisan hackjob.,False,0.9606469588377886,0.8057705163955688,True
+heldout_mixed,Actually i barely remember any threads about him getting to rank 1 in recent years. Most of them were about his insane winrates against gold-plat players.,False,0.9828108142782015,0.8859723806381226,True
+heldout_mixed,I was able to just get in. I can swipe but can't see my matches or messages,False,0.9014733060212835,0.7634432911872864,True
+supplement_mixed,I think they are tied together. It is very difficult to maintain desire if you cannot accept things about that person.,False,0.9052502887121845,0.7798751592636108,True
+supplement_mixed,Exactly. Some ammo is already cheaper than that.,False,0.9361574040578009,0.7638185620307922,True
+supplement_mixed,"LOL I think I'm the opposite, once I rehearse in my head, I mess up completely; I'm way better at improvising.",False,0.9634824734279335,0.8857733011245728,True
+supplement_mixed,"I love and stan Manila , I always will. BUT the fan base worshipping the ground she walks on is getting so irritating ngl",False,0.8551614382168549,0.7625538110733032,True
+supplement_mixed,But if I had a right to it as a member of society then I have committed no wrong.,False,0.8916299583070536,0.6608484983444214,True
+supplement_mixed,"There is such a thing as too big, but this ain’t it, chief. Any bigger I would probably agree.",False,0.9405114650505979,0.5544310212135315,True
+supplement_mixed,They love to prey on women that have just given birth. It’s so disgusting!,False,0.8521165036063437,0.609015166759491,True
+supplement_mixed,"Utah roads are definitely some of the best out there. Anywhere else I have lived has had either similar or worse, or waaaay waaaay worse",False,0.9673807828113992,0.9402695894241333,True
+supplement_mixed,Omg! An attentive parent actually teaching their children to safely handle guns! The horror!,False,0.9386181215217733,0.9006199240684509,True
+supplement_mixed,"I am so terribly sorry you lost your dad to this horrendous disease. Judging by this photo, he had a terrific smile.",False,0.9077378141781819,0.6880273818969727,True
+supplement_mixed,That's sad. You can be acquaintances with women. Not like you are driving them to the nail salon or something .,False,0.9473137668548137,0.9208391904830933,True
+supplement_mixed,"Oh, you play on Skelth too. Actually, my laptop almost died during that one))) But somehow I managed through that haha",False,0.9585387800548371,0.9485729932785034,True
+supplement_mixed,It would certainly improve some services (like transit) but would piss off enough people of both cities that I can't imagine anyone proposing it.,False,0.9326662387520164,0.8008219599723816,True
+supplement_mixed,"If you're talking about drinking, unless there's tea or coffee in it, gross.",False,0.9382283591227804,0.8337867856025696,True
+supplement_mixed,"Not any harder than in chicken wings, imho.",False,0.9770458891321346,0.9470915198326111,True
+supplement_mixed,The whole post reeks of troll.,False,0.9409841159255473,0.807233452796936,True
+supplement_mixed,Mugging is just how we show love around here. Respect our culture.,False,0.8609322981010814,0.6217855215072632,True
+supplement_mixed,Good. Nevsun shouldn't be flaking culpability in this matter. They are directly funding the organizations responsible for it.,False,0.9156855876064202,0.7920008897781372,True
+supplement_mixed,"Be more supportive, think about the long road not the moment.",False,0.9170505691008,0.6910723447799683,True
+supplement_mixed,Yous offered the guy a contract and he rejected you. Probably couldn’t afford him lol,False,0.948530325408471,0.8884946703910828,True
+supplement_mixed,ngl his total thievery of the lwymmd lyrics was highkey annoying to me but the song is actually pretty damn good lol,False,0.9638444501729313,0.846776008605957,True
+supplement_mixed,HAHAHAAHHHAHAHAHAHAHAAAAAa no,False,0.9790796397843544,0.48167312145233154,True
+supplement_mixed,He has the maturity of a 2 year old and you are right...ugly in his soul.,False,0.991404544086709,0.9175528287887573,True
+supplement_mixed,I love how this boxy things is made to scare (common every show use that joke) but the queens is not scare at all.,False,0.9023218608123204,0.7743514776229858,True
+supplement_mixed,"> your character is so yuck Thank you, for confirming my suspicions of who/what you are.",False,0.9850310789743476,0.8792620301246643,True
+supplement_mixed,This is either beautiful..or just about the stupidest thing I've read in weeks. Here's hoping for fantastic satire!,False,0.9314433166322283,0.6670774817466736,True
+supplement_mixed,I wouldn't count out Scotland in the quarters. They're playing well and have given the US headaches in the past.,False,0.9676160384769283,0.8832335472106934,True
+supplement_mixed,Seems like you care way too much,False,0.9774988564509759,0.8127562403678894,True
+supplement_mixed,That was brutal as hell. Loved it,False,0.8818937393176802,0.5873731970787048,True
+supplement_mixed,Don't let a few hard months get in the way of a possible beautiful future.,False,0.9796644661210068,0.892935037612915,True
+supplement_mixed,"Fuck people that don't like pbr, only cheap bear I'll drink next to natty boh",False,0.9169438115162912,0.8671426177024841,True
+supplement_mixed,lol eat your own farts Trumpkin,False,0.8597207719901813,0.7504496574401855,True
+supplement_mixed,"okay for real, i saw this when the game ended. i died. i fucking died laughing. -sent from my HeavenPhone (TM)",False,0.8894888191011285,0.7717962861061096,True
+supplement_mixed,She's been fired and shamed out of existence. Good riddance.,False,0.9273773288530992,0.8074797987937927,True
+supplement_mixed,YES! Especially when I’m high 😭 spent like over $500 in December alone,False,0.8983433771360091,0.7612819671630859,True
+supplement_mixed,I believe this is called Darwinism - the suicide by Tide pods anyways. The murder part with the blindfolds is just tragic.,True,0.9999999999999994,1.0,True
+supplement_mixed,Well don’t complain here about another media outlet lol,False,0.8866423097850141,0.7175165414810181,True
+supplement_mixed,"Sorry, I just got to give you an extra upvote for 'twat waffle'. It really sums it up marvellously.",False,0.8963985988017137,0.7398933172225952,True
+supplement_mixed,"Oof, somebody doesn’t like anyone to make jokes or enjoy anything. It least we’re not complete pricks, douche.",False,0.989363511660338,0.9017526507377625,True
+supplement_mixed,"keep telling yourself that, women dont care. keep hypnotizing yourself with pornsickness, that will bring all the women to the yard /s",False,0.9982011513388301,0.9634923934936523,True
+supplement_mixed,"My point is that IQ basically works. As with literally everything, there are flaws, but it's not junk science.",False,0.9710590016903247,0.8996577858924866,True
+supplement_mixed,No I think he just meant that losing half of your shit should at least move the needle a little lol,False,0.9706101442920466,0.922435462474823,True
+supplement_mixed,Wow. You basically found my dream woman and gave her up.,False,0.9962994021771097,0.9697486758232117,True
+heldout_hinglish,Badhiya lag raha hai ab 😏,False,0.749819641460146,0.9367823600769043,True
+heldout_hinglish,Gharr mein rahke shaanti se 🥰,False,0.9800411384532763,0.9999998807907104,True
+heldout_hinglish,Excitement pure blood mein hai 💅,False,0.937662370770726,0.963046669960022,True
+heldout_hinglish,Badhiya lag raha hai ab 🤌,False,0.7498480883522661,0.9367823600769043,True
+heldout_hinglish,Gharr mein rahke shaanti se 💯 wholesome meme,False,0.9928873533403534,1.0,True
+heldout_hinglish,Gharr mein rahke shaanti se 😂 no cap,False,0.937565670134136,0.8597196340560913,True
+heldout_hinglish,Nervousness aa rahi hai 💀 lmao dank meme,False,0.7376549323027591,0.916167676448822,True
+heldout_hinglish,Sab samjha jaa raha hai 💯,False,0.9826032809143246,1.0,True
+heldout_hinglish,which is kya he did full mazaak ho gaya! 😡 bro 🤌,False,0.5930939298489099,0.9018523693084717,True
+heldout_hinglish,Khush ho gaya bilkul 🤡 ngl,False,0.9783392674098892,1.0,True
+heldout_hinglish,Excitement pure blood mein hai 😏,False,0.9372943130758881,0.963046669960022,True
+heldout_hinglish,Kya karenge ab hamlog 💗 💗,False,0.944591231641003,0.9999998807907104,True
+heldout_hinglish,Bhayanak saza par gaya 👀 dar,False,0.9879277782687323,1.0,True
+heldout_hinglish,Sobra nahi chal sakta mujhe 💀,False,0.8991685590175722,0.890304446220398,True
+heldout_hinglish,Tere bina sab bekaar pyaar 🤌 election ke baad,False,0.9883664516886778,0.9999998211860657,True
+heldout_hinglish,Tum mere liye sab kuch ho 😭 dank meme,False,0.9852909692147395,0.9999998807907104,True
+heldout_hinglish,Kisi se kuch umeed nahi 😤 udaasi its giving,False,0.8913211943648559,0.9226502180099487,True
+heldout_hinglish,Khushi ke din khatam ho gaye 💯,False,0.9837073911981351,1.0,True
+heldout_hinglish,Isse acha khatam kar na 💅 suna hai,False,0.850665076932605,0.8330142498016357,True
+heldout_hinglish,Bahut dar lag raha hai 😍 bussin congress vs bjp,False,0.8200345931886696,0.9389877319335938,True
+heldout_hinglish,You're zabardast yaar 😢 😢,False,0.9491070112855904,1.0,True
+heldout_hinglish,Bhayanak saza par gaya 😢 dar,False,0.9864570875601181,1.0,True
+heldout_hinglish,Badhiya lag raha hai ab 🤝,False,0.749985143149083,0.9367823600769043,True
+heldout_hinglish,Bhayanak saza par gaya ✨ dar reality hai,False,0.8592258021922996,0.9072021245956421,True
+heldout_hinglish,Dil toot gaya phir se 🥺 🥺,False,0.9356797177412011,1.0000001192092896,True
+heldout_hinglish,Let's celebrate yaar 😡 periodt reality hai,False,0.8921366127772564,0.8273197412490845,True
+heldout_hinglish,Sobra nahi chal sakta mujhe 👀 wholesome meme,False,0.9914317069678951,1.0,True
+heldout_hinglish,Tum mere liye sab kuch ho 🤝,False,0.9804300420459976,1.0,True
+heldout_hinglish,Khush ho gaya bilkul 😢 istg neta log ne,False,0.8708518816428852,0.9424581527709961,True
+heldout_hinglish,Sab samjha jaa raha hai 😭 reality hai,False,0.8405647481325598,0.9270026683807373,True
+heldout_hinglish,Sobra nahi chal sakta mujhe ✨,False,0.9122641080542542,0.890304446220398,True
+heldout_hinglish,Akela pad gaya main 👀 udaasi sach kahu,False,0.9874569690371932,1.0,True
+heldout_hinglish,Bilkul galat ho yeh 🥰 🥰 slay,False,0.7683446343890722,0.9085333347320557,True
+heldout_hinglish,Khushi ke din khatam ho gaye 🔥 sachhai jani,False,0.727883596608436,0.9133358001708984,True
+heldout_hinglish,Khush ho gaya bilkul 🔥 fr fr,False,0.9643678514975079,0.9999998211860657,True
+heldout_hinglish,Tension ho gaya 💀 💀 dank meme,False,0.9513855614289171,1.000000238418579,True
+heldout_hinglish,Pyaar bina sab bura yaar ✨,False,0.8601012389475171,0.8982728719711304,True
+heldout_hinglish,Gharr mein rahke shaanti se ✨,False,0.9877944818658224,0.9999998807907104,True
+heldout_hinglish,You're zabardast yaar 🤝 🤝,False,0.9538478533830931,1.0,True
+heldout_hinglish,Saala pagal ho gaya ✨ fr fr,False,0.8666248675019864,0.8372006416320801,True
+heldout_hinglish,Khushi ke din khatam ho gaye 😡 oof,False,0.9525481202601226,0.923552393913269,True
+heldout_hinglish,Gharr mein rahke shaanti se 🔥 bussin,False,0.9088550422016136,0.8998904228210449,True
+heldout_hinglish,You're zabardast yaar 😡 😡,False,0.9514299605394015,1.0,True
+heldout_hinglish,Kisi se kuch umeed nahi 💯 udaasi,False,0.9871852266879464,0.9999999403953552,True
+heldout_hinglish,Kya isse zyada bura ho sakta hai 💗,False,0.9811912483154485,1.0000001192092896,True
+heldout_hinglish,Awesome ho tum yaar 💅 bussin,False,0.981984706015786,0.9999998807907104,True
+heldout_hinglish,You're zabardast yaar 😂 😂,False,0.9579657564761543,1.0,True
+heldout_hinglish,Khush ho gaya bilkul 😍 dude,False,0.8171522509342158,0.9116747379302979,True
+heldout_hinglish,Gharr mein rahke shaanti se 😭,False,0.9875356027101393,0.9999998807907104,True
+heldout_hinglish,Pyaar bina sab bura istg 😡,False,0.9773717919360315,1.000000238418579,True
+heldout_hinglish,Dil tuut gaya lekin tum ho na 😏,False,0.9821411304660402,1.0000001192092896,True
+heldout_hinglish,Itni khushi kabhi nahi dekhi 😭 😭,False,0.9557560472378798,1.0,True
+heldout_hinglish,Tum mere liye sab kuch ho 😭 the way,False,0.9264272014948495,0.9459638595581055,True
+heldout_hinglish,Khushi ke din khatam ho gaye 🔥,False,0.9829655631522053,1.0,True
+heldout_hinglish,Excitement pure blood mein hai 🥰,False,0.9306266630699526,0.963046669960022,True
+heldout_hinglish,Tera gussa samajhde ho na 👀 yaar,False,0.9013812320369872,0.8991998434066772,True
+heldout_hinglish,Bhayanak hai yeh sab 🥰 periodt,False,0.9759784907504996,1.0,True
+heldout_hinglish,Dil toot gaya phir se 👀 👀 sach kahu,False,0.752081671652891,0.9011508822441101,True
+heldout_hinglish,Dil tuut gaya lekin tum ho na 🔥 sach kahu,False,0.8194798663174007,0.9186729192733765,True
+heldout_hinglish,Kisi se kuch umeed nahi 😭 udaasi,False,0.9867136764498606,0.9999999403953552,True
+heldout_hinglish,Dil tuut gaya lekin tum ho na 🤝,False,0.9823762849202107,1.0000001192092896,True
+heldout_hinglish,Bahut dar lag raha hai 💅 periodt reality hai,False,0.8196660195257243,0.9431495070457458,True
+heldout_hinglish,Khush ho gaya bilkul 🤌 ngl,False,0.9783392674098892,1.0,True
+heldout_hinglish,Itni khushi kabhi nahi dekhi 😡 😡,False,0.954543454578761,1.0,True
+heldout_hinglish,Gharr mein rahke shaanti se 💯 sach kahu,False,0.9905931920489759,1.0,True
+heldout_hinglish,Excitement pure blood mein hai 🙄 no cap,False,0.8922958315293699,0.8806822299957275,True
+heldout_hinglish,Dil toot gaya phir se 💀 💀,False,0.9335574995276984,1.0000001192092896,True
+heldout_hinglish,Kisi se kuch umeed nahi 😂 udaasi dank meme,False,0.8603709360268754,0.9248998165130615,True
+heldout_hinglish,Idiot ho kya ✨ lmao ajj dekha,False,0.9856171385351051,0.9999998807907104,True
+heldout_hinglish,Let's celebrate yaar 🤡 periodt,False,0.9886556041875183,1.0,True
+heldout_hinglish,Ghuma dunga main tera 😍 reality hai,False,0.9873357228087536,1.0000001192092896,True
+heldout_hinglish,Nervousness aa rahi hai 😏 istg,False,0.8734117295493423,0.9632432460784912,True
+heldout_hinglish,Awesome ho tum yaar 😂 its giving,False,0.9844951949967674,1.0000001192092896,True
+heldout_hinglish,Akela pad gaya main 😢 udaasi its giving,False,0.8579979586082778,0.9394389390945435,True
+heldout_hinglish,Bhayanak hai yeh sab 😏 periodt,False,0.9849987521801911,1.0,True
+heldout_hinglish,Gharr mein rahke shaanti se 🤡 fr fr,False,0.9882470236783656,1.0,True
+heldout_hinglish,Forever yours pyaar 🙄 reality hai,False,0.9864627877248093,1.000000238418579,True
+heldout_hinglish,Let's celebrate yaar ✨ periodt,False,0.9887510623987589,1.0,True
+heldout_hinglish,Dil se pyaar kar bro 🥺 sach kahu,False,0.7137567387116661,0.9296847581863403,True
+heldout_hinglish,Excitement pure blood mein hai 🥺 breaking news,False,0.7798652494330973,0.9186224937438965,True
+heldout_hinglish,Nervousness aa rahi hai 😡 fr fr viral ho gaya,False,0.856373753681832,0.9000190496444702,True
+heldout_hinglish,Saala pagal ho gaya 😢 dude,False,0.8483939089159748,0.9654012322425842,True
+heldout_hinglish,Idiot ho kya 😍 fr fr sach kahu,False,0.874839499373902,0.8848026394844055,True
+heldout_hinglish,Dil tuut gaya lekin tum ho na 😡,False,0.9814149724676566,1.0000001192092896,True
+heldout_hinglish,Kya sambhega koi meri 💯 sarkaari kaam,False,0.9921516526650492,1.0,True
+heldout_hinglish,Akela pad gaya main 😭 udaasi,False,0.9837923928155556,1.0000001192092896,True
+heldout_hinglish,Nervousness aa rahi hai ✨ lmao,False,0.8780498512975236,0.9713637232780457,True
+heldout_hinglish,Isse acha khatam kar na ✨,False,0.9814656218356109,1.0,True
+heldout_hinglish,Mazak uda diya tune 🤝 gussa viral ho gaya,False,0.8794003447437237,0.8768324851989746,True
+heldout_hinglish,Sab samjha jaa raha hai 💗,False,0.9745684349372308,1.000000238418579,True
+heldout_hinglish,Dil toot gaya phir se 😏 😏,False,0.9355405233261185,1.0000001192092896,True
+heldout_hinglish,😏 holy heckin heck full mazaak ho gaya! 😮,False,0.41535377967233933,0.9113622903823853,True
+heldout_hinglish,Zabardast cheez hai yeh 😏 bussin news mein dekha,False,0.8553925962635552,0.9275258779525757,True
+heldout_hinglish,Pyaar bina sab bura yaar 💀,False,0.8592659190056358,0.8982728719711304,True
+heldout_hinglish,Badhiya lag raha hai ab 🥺,False,0.7498480883522661,0.9367823600769043,True
+heldout_hinglish,Sab samjha jaa raha hai 💅 its giving,False,0.8601240059725175,0.8771559000015259,True
+heldout_hinglish,Tera gussa samajhde ho na 😏 ngl viral ho gaya,False,0.8647048352612405,0.826489269733429,True
+heldout_hinglish,Dil toot gaya phir se 💅 💅,False,0.9375830648327574,1.0000001192092896,True
+heldout_hinglish,Itni khushi kabhi nahi dekhi 💀 💀,False,0.954866140852521,1.0,True
+heldout_hinglish,Pyaar bina sab bura ngl ✨,False,0.8273132542544799,0.9049559831619263,True
+heldout_hinglish,Nervousness aa rahi hai ✨ lmao oof,False,0.8391845629657994,0.9608360528945923,True
+heldout_hinglish,Awesome ho tum yaar 😏 periodt,False,0.9788901869145563,1.0000001192092896,True
+heldout_hinglish,> i hai never even dated a girl. lol 👎 yaar 🤌,False,0.8912379420159483,0.8653565645217896,True
+heldout_hinglish,Sab samjha jaa raha hai 😍 sarkaari kaam,False,0.7209055938833633,0.9160666465759277,True
+heldout_hinglish,Bhayanak saza par gaya 😏 dar,False,0.9877197410793475,1.0,True
+heldout_hinglish,kya a bewakoof stretch lmao. 😒,False,0.9681394685733262,0.9508525729179382,True
+heldout_hinglish,Akela pad gaya main 😤 udaasi sachhai jani,False,0.7224324212875989,0.9198576211929321,True
+heldout_hinglish,Sab samjha jaa raha hai 😭 sachhai jani,False,0.9909740791739015,1.0000001192092896,True
+heldout_hinglish,Sab samjha jaa raha hai 👀 the way,False,0.9392231286646491,0.9425087571144104,True
+heldout_hinglish,Bhayanak hai yeh sab 😂 periodt sachhai jani,False,0.7481529513312455,0.9293791055679321,True
+heldout_hinglish,Dar se thamte hi nahi 🥺 suna hai,False,0.980769092959948,0.9999999403953552,True
+heldout_hinglish,Nervousness aa rahi hai 💅 fr fr,False,0.9848738693615868,1.000000238418579,True
+heldout_hinglish,Excitement pure blood mein hai 🤌,False,0.9373194581024328,0.963046669960022,True
+heldout_hinglish,Kya sambhega koi meri 💯 reality hai,False,0.8517859011129036,0.8701298236846924,True
+heldout_hinglish,Badhiya lag raha hai ab 😍 not me,False,0.7395706225956515,0.9082490801811218,True
+heldout_hinglish,Mazak uda diya tune 🥰 gussa toh sunna padh gaya,False,0.7859183329144792,0.9159390330314636,True
+heldout_hinglish,Khush ho gaya bilkul 💯 bro,False,0.865858406296478,0.9178395867347717,True
+heldout_hinglish,Bhayanak hai yeh sab 💯 bussin,False,0.9842555767647482,1.0,True
+heldout_hinglish,Kisi se kuch umeed nahi 🥰 udaasi fr fr,False,0.9406737132601397,0.868765115737915,True
+heldout_hinglish,Khush ho gaya bilkul 😏 yaar toh sunna padh gaya,False,0.7351522440244261,0.9294517040252686,True
+heldout_hinglish,Mast plan kar diya ✨ viral ho gaya,False,0.9850252826297402,1.0000001192092896,True
+heldout_hinglish,Teri nafrat karunga main 💯,False,0.9880661870110394,0.9999998807907104,True
+heldout_hinglish,Akela pad gaya main 😡 udaasi sachhai jani,False,0.710438288589703,0.9198576211929321,True
+heldout_hinglish,Udaas ho gaya main 😤 periodt,False,0.9796347009435331,1.000000238418579,True
+heldout_hinglish,Bhayanak hai yeh sab 💀 periodt satya bataun,False,0.747341206362209,0.9158190488815308,True
+heldout_hinglish,Dil tuut gaya lekin tum ho na 🥺,False,0.9821815485307567,1.0000001192092896,True
+heldout_hinglish,Sab samjha jaa raha hai 🔥,False,0.981797178467773,1.0,True
+heldout_hinglish,Badhiya lag raha hai ab 😤,False,0.7495461751737236,0.9367823600769043,True
+heldout_hinglish,Saala pagal ho gaya 💗 bro,False,0.9693864794421763,0.9999999403953552,True
+heldout_hinglish,Kya karenge ab hamlog 👀 👀,False,0.9616260813280705,0.9999998807907104,True
+heldout_hinglish,Kisi se kuch umeed nahi 🤝 udaasi,False,0.9870027660421947,0.9999999403953552,True
+heldout_hinglish,Forever yours pyaar 😢 reality hai,False,0.9850696624417733,1.000000238418579,True
+heldout_hinglish,Bahut dar lag raha hai 🤝 periodt,False,0.9794777277561367,1.0000001192092896,True
+heldout_hinglish,Kisi se kuch umeed nahi 😤 udaasi,False,0.9865543408322917,0.9999999403953552,True
+heldout_hinglish,Chinta ho rahi hai 💯 periodt,False,0.8210679212530899,0.9197565913200378,True
+heldout_hinglish,Dil toot gaya phir se 🤡 🤡,False,0.9356797177412011,1.0000001192092896,True
+heldout_hinglish,Khushi ke din khatam ho gaye 😏,False,0.983271402742139,1.0,True
+heldout_hinglish,Bahut dar lag raha hai 💀 periodt,False,0.9785450950701807,1.0000001192092896,True
+heldout_hinglish,Kya karenge ab hamlog 👀 👀 politics mein,False,0.975104855667139,1.0,True
+heldout_hinglish,Sab samjha jaa raha hai 🥺,False,0.9821686569313373,1.000000238418579,True
+heldout_hinglish,Kya karenge ab hamlog 🤡 🤡,False,0.9611290574952049,0.9999998807907104,True
+heldout_hinglish,Khush ho gaya bilkul 💅 istg,False,0.9800576300609373,1.0,True
+heldout_hinglish,Nervousness aa rahi hai 💀 fr fr,False,0.9838496733457205,1.000000238418579,True
+heldout_hinglish,Isse acha khatam kar na 👀,False,0.9815441409348868,1.0,True
+heldout_hinglish,Khush ho gaya bilkul 🥰 bro neta log ne,False,0.9154984117223371,0.948092520236969,True
+heldout_hinglish,Bahut dar lag raha hai 😍 bussin,False,0.9732215379599013,1.0,True
+heldout_hinglish,Gharr mein rahke shaanti se 🔥 its giving,False,0.8930636938558965,0.9337401390075684,True
+heldout_hinglish,Sobra nahi chal sakta mujhe 😡,False,0.8990623112745628,0.890304446220398,True
+heldout_hinglish,Gharr mein rahke shaanti se 💗 fact check karo,False,0.7912917360062997,0.9027884006500244,True
+heldout_hinglish,Dil tuut gaya lekin tum ho na 💅 sach kahu,False,0.8200232055086437,0.9186729192733765,True
+heldout_hinglish,Tension ho gaya 🔥 🔥 bussin,False,0.7760435504953562,0.9021192789077759,True
+heldout_hinglish,Akela pad gaya main 😡 udaasi wholesome meme,False,0.7374883449123051,0.9233551025390625,True
+heldout_hinglish,Tum mere liye sab kuch ho 💀,False,0.9794364291421501,1.0,True
+heldout_hinglish,Bahut dar lag raha hai 💯 on god,False,0.9684875890715696,1.000000238418579,True
+heldout_hinglish,Bahut dar lag raha hai 💀 periodt sach kahu,False,0.8040154051707236,0.9638747572898865,True
+heldout_hinglish,Bahut dar lag raha hai 😡 bussin congress vs bjp,False,0.821601096675158,0.9389877319335938,True
+heldout_hinglish,i’m that skinny aur hai toh much trouble gaining weight 😬,False,0.9655336592764275,0.8920749425888062,True
+heldout_hinglish,Kya isse zyada bura ho sakta hai 💯 sachhai jani,False,0.760557571326819,0.9160205125808716,True
+heldout_hinglish,Tum mere liye sab kuch ho 🔥,False,0.9797228639402984,1.0,True
+heldout_hinglish,Gharr mein rahke shaanti se 🤝 sach kahu,False,0.9904548964129086,1.0,True
+heldout_hinglish,Isse acha khatam kar na 🥺 news mein dekha,False,0.9860389487822055,1.0,True
+heldout_hinglish,Khushi nahi rahi ab 😂 😂 sach kahu,False,0.9594333173919857,1.000000238418579,True
+heldout_hinglish,Nervousness aa rahi hai 💯 yaar,False,0.8961056580630078,0.9534683227539062,True
+heldout_hinglish,Tere bina sab bekaar pyaar 💯 viral ho gaya,False,0.8571912423743202,0.8255225419998169,True
+heldout_hinglish,Tum mere liye sab kuch ho 👀,False,0.9804759821533987,1.0,True
+heldout_hinglish,Isse acha khatam kar na 🤝,False,0.981505116308809,1.0,True
+heldout_hinglish,Isse acha khatam kar na 😏,False,0.9812607317008278,1.0,True
+heldout_hinglish,Itni khushi kabhi nahi dekhi 💯 💯,False,0.9571817565755358,1.0,True
+heldout_hinglish,Saala pagal ho gaya 🤌 yaar,False,0.8752108273689388,0.9147294759750366,True
+heldout_hinglish,Excitement pure blood mein hai 😡,False,0.9489159484489895,0.963046669960022,True
+heldout_hinglish,Pareshaan ho gaya main 🙄 dank meme,False,0.9872506215951007,1.0000001192092896,True
+heldout_hinglish,Bahut dar lag raha hai 😭 its giving congress vs bjp,False,0.9893331190078928,1.0,True
+heldout_hinglish,Badhiya lag raha hai ab 👀,False,0.7500115700315417,0.9367824792861938,True
+heldout_hinglish,Gussa aa gaya bilkul ✨ ✨ oof,False,0.9333642266760541,0.9487075209617615,True
+heldout_hinglish,Mujhe gutka de ngl 🤡 slay,False,0.8951024386857257,0.9219955801963806,True
+heldout_hinglish,Bahut dar lag raha hai 💀 on god slay,False,0.865009959311222,0.9579001069068909,True
+heldout_hinglish,Udaas ho gaya main 💗 no cap neta log ne,False,0.9765728929050778,1.0000001192092896,True
+heldout_hinglish,Isse acha khatam kar na 🙄,False,0.981425647278197,1.0000001192092896,True
+heldout_hinglish,Saala pagal ho gaya 💗 dude,False,0.8432139317014268,0.9654012322425842,True
+heldout_hinglish,Mazak uda diya tune 💗 gussa toh sunna padh gaya,False,0.7869899015926383,0.9159389138221741,True
+heldout_hinglish,Khush ho gaya bilkul 🥺 istg,False,0.9794117254535585,0.9999999403953552,True
+heldout_hinglish,Khushi ke din khatam ho gaye ✨ suna hai,False,0.8640680398670659,0.8699774742126465,True
+heldout_hinglish,Khush ho gaya bilkul 🥰 lmao wholesome meme,False,0.9822486429594948,0.9999999403953552,True
+heldout_hinglish,Sobra nahi chal sakta mujhe 🤝,False,0.8997479540144634,0.8903045654296875,True
+heldout_hinglish,Tera gussa samajhde ho na 😏 dude politics mein,False,0.9346766828014728,0.9667125940322876,True
+heldout_hinglish,Kisi se kuch umeed nahi 😤 udaasi viral ho gaya,False,0.8782892060142977,0.8434914350509644,True
+heldout_hinglish,Zabardast cheez hai yeh 😏 bussin,False,0.9860265159276059,1.0000001192092896,True
+heldout_hinglish,Sobra nahi chal sakta mujhe 💗,False,0.8940024220032783,0.8903045654296875,True
+heldout_hinglish,Khushi nahi rahi ab 💀 💀 slay,False,0.9372264169434036,1.0,True
+heldout_hinglish,Bhayanak saza par gaya 😂 dar reality hai,False,0.869503905407215,0.9072021245956421,True
+heldout_hinglish,Tension ho gaya 😭 😭 its giving,False,0.7533615095270875,0.935838520526886,True
+heldout_hinglish,Khushi ke din khatam ho gaye 💀 on god,False,0.9850050046544011,0.9999999403953552,True
+heldout_hinglish,😂 you deserve this 👍 yaar,True,0.9999999999999996,1.0,True
+heldout_hinglish,Kaata khauf ho gaya 🥺 bussin,False,0.8729097833231548,0.8747567534446716,True
+heldout_hinglish,My heart belongs to you ngl 👀 toh sunna padh gaya,False,0.9135690724989729,0.9316931366920471,True
+heldout_hinglish,Khushi ke din khatam ho gaye 😂,False,0.9849311353925407,1.0,True
+heldout_hinglish,Chinta ho rahi hai 🤡 periodt,False,0.8207025958842059,0.9197566509246826,True
+heldout_hinglish,Saala pagal ho gaya 🥰 ngl,False,0.8584616408099566,0.9327436089515686,True
+heldout_hinglish,Kya isse zyada bura ho sakta hai 💯,False,0.9877247247140004,1.0,True
+heldout_hinglish,Zabardast cheez hai yeh 😭 periodt,False,0.8286869610471385,0.9041787385940552,True
+heldout_hinglish,Saala pagal ho gaya 💯 fr fr,False,0.8668854689676736,0.837200403213501,True
+heldout_hinglish,Kya isse zyada bura ho sakta hai ✨ bussin,False,0.9026456698523438,0.8951928615570068,True
+heldout_hinglish,it's pretty convenient yeh dhandha kya hai 👍 yaar 🙄 pls,True,0.9999999999999997,0.9999999403953552,True
+heldout_hinglish,Tum mere liye sab kuch ho 🤡,False,0.9801918136696719,1.0,True
+heldout_hinglish,Khush ho gaya bilkul 🔥 bro,False,0.8497960793350116,0.917839527130127,True
+heldout_hinglish,Khush ho gaya bilkul 🤡 lmao,False,0.8074862418539276,0.9296469688415527,True
+heldout_hinglish,Kisi se kuch umeed nahi 👀 udaasi,False,0.987029756646174,1.0,True
+heldout_hinglish,Bahut dar lag raha hai 😭 periodt,False,0.9790160528227656,1.0000001192092896,True
+heldout_hinglish,Awesome ho tum yaar ✨ its giving,False,0.9829003475056487,1.000000238418579,True
+heldout_hinglish,Itni khushi kabhi nahi dekhi ✨ ✨,False,0.9565469702951376,1.0,True
+heldout_hinglish,Nervousness aa rahi hai 🥺 dude,False,0.882872926502744,0.9826754331588745,True
+heldout_hinglish,Isse acha khatam kar na 🤌,False,0.9813027357314075,1.0000001192092896,True
