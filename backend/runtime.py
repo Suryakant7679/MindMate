@@ -1,4 +1,5 @@
 """Shared Hugging Face Llama and Sarvam inference, with optional Llama emotion-neuron steering."""
+import contextvars
 import os
 import threading
 import time
@@ -8,6 +9,7 @@ from pathlib import Path
 from typing import Any
 from .config import (CONTEXT_TOKENS, DEFAULT_STEERING_TARGET, STEERING_GAIN, SUPPORTIVE_TARGET, SYSTEM_PROMPT,
                      ModelConfig)
+from .generation_control import control_settings
 
 class HuggingFaceRuntime:
     enable_thinking: bool | None = None
@@ -73,8 +75,13 @@ class HuggingFaceRuntime:
         return self.tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
 
     def __init__(self, model_id: str, load_in_4bit: bool | None = None, *, config: ModelConfig | None = None,
-                 local_files_only: bool = False) -> None:
-        """``local_files_only`` refuses to download: the checkpoint must already be in the local cache."""
+                 local_files_only: bool = False, placement: dict[str, Any] | None = None) -> None:
+        """``local_files_only`` refuses to download: the checkpoint must already be in the local cache.
+
+        ``placement`` (optional): ``device_map`` ("auto" by default, "cpu" or "cuda") and ``max_memory`` (accelerate's
+        per-device cap, e.g. ``{0: "20GiB", "cpu": "96GiB"}``; layers beyond the GPU cap are offloaded to the CPU).
+        """
+        placement = dict(placement or {})
         try:
             import torch
             from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -95,22 +102,26 @@ class HuggingFaceRuntime:
         self.lock = threading.Lock()
         token = os.environ.get("HF_TOKEN")
 
-        if torch.cuda.is_available():
+        on_cpu = placement.get("device_map") == "cpu"
+        if torch.cuda.is_available() and not on_cpu:
             gpu_name = torch.cuda.get_device_name(0)
             gpu_gib = torch.cuda.get_device_properties(0).total_memory / 1024**3
             dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
             print(f"Loading {model_id} on {gpu_name} ({gpu_gib:.1f} GiB)")
         else:
             dtype = torch.float32
-            print("Warning: CUDA is unavailable; generation will be slow.")
+            print("Warning: CUDA is unavailable; generation will be slow." if not on_cpu
+                  else f"Loading {model_id} on the CPU (placement device_map=cpu); generation will be slow.")
 
         model_kwargs: dict[str, Any] = {
             "token": token,
             "trust_remote_code": config.trust_remote_code,
-            "device_map": "auto",
+            "device_map": placement.get("device_map") or "auto",
             "torch_dtype": dtype,
             "low_cpu_mem_usage": True,
         }
+        if placement.get("max_memory"):
+            model_kwargs["max_memory"] = placement["max_memory"]
         if local_files_only:
             model_kwargs["local_files_only"] = True
         if load_in_4bit:
@@ -372,6 +383,7 @@ class HuggingFaceRuntime:
         if not deterministic:
             settings.update(temperature=temperature, top_p=0.9)
         settings.update(self.generation_settings())
+        settings.update(control_settings())         # cancellation / progress of the owning request (if any)
 
         started = time.perf_counter()
         with self.lock, torch.inference_mode(), self._emotion_steering(steering_alpha, steering_emotion, steering_trace):
@@ -473,16 +485,20 @@ class HuggingFaceRuntime:
         settings: dict[str, Any] = {"max_new_tokens": max_new_tokens, "do_sample": False,
                                     "pad_token_id": self.tokenizer.pad_token_id}
         settings.update(self.generation_settings())
+        settings.update(control_settings())
         started = time.perf_counter()
-        try:
-            for layer, (neurons, shifts) in panel.items():
-                module = self.steering_module(layer)
-                handles.append(module.register_forward_pre_hook(hook_for_layer(layer, neurons, shifts)))
-            with self.lock, torch.inference_mode():
-                output = self.model.generate(input_ids=input_ids, attention_mask=attention, **settings)
-        finally:
-            for handle in handles:
-                handle.remove()
+        # The hooks live on modules shared by every request, so they are registered and removed only while this
+        # request holds the runtime lock: a concurrent generation can never run with another request's steering.
+        with self.lock:
+            try:
+                for layer, (neurons, shifts) in panel.items():
+                    module = self.steering_module(layer)
+                    handles.append(module.register_forward_pre_hook(hook_for_layer(layer, neurons, shifts)))
+                with torch.inference_mode():
+                    output = self.model.generate(input_ids=input_ids, attention_mask=attention, **settings)
+            finally:
+                for handle in handles:
+                    handle.remove()
         elapsed = time.perf_counter() - started
         stop_ids = self.model.generation_config.eos_token_id
         stop_ids = set(stop_ids if isinstance(stop_ids, (list, tuple)) else [stop_ids]) | {self.tokenizer.eos_token_id}
@@ -529,6 +545,7 @@ class HuggingFaceRuntime:
         if not deterministic:
             settings.update(temperature=temperature, top_p=0.9)
         settings.update(self.generation_settings())
+        settings.update(control_settings())
         streamer = TextIteratorStreamer(self.tokenizer, skip_prompt=True, skip_special_tokens=True)
         settings["streamer"] = streamer
         errors = []
@@ -541,7 +558,8 @@ class HuggingFaceRuntime:
                 errors.append(exc)
                 streamer.end()
 
-        worker = threading.Thread(target=run, daemon=True)
+        # The worker runs in the caller's context, so the request's generation control (if any) applies.
+        worker = threading.Thread(target=contextvars.copy_context().run, args=(run,), daemon=True)
         worker.start()
         hidden = True
         pending = ""

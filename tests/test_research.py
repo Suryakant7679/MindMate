@@ -345,7 +345,7 @@ class EndpointTests(unittest.TestCase):
     def handler(self, svc, path, payload=None):
         import hashlib
         import hmac
-        from chatbot_feature.safety.session import SessionStore
+        from chatbot_feature.session import SessionStore
         handler = RequestHandler.__new__(RequestHandler)
         handler.path = path
         if not hasattr(self, "server"):

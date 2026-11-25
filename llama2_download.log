@@ -1,0 +1,19 @@
+nohup: ignoring input
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Downloading 'tokenizer_config.json' to '/data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/a0024735c8dd7afe47fe72792b2c4edaff63bd3b.incomplete'
+Downloading 'model-00001-of-00003.safetensors' to '/data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/091b64fcaeb36c6c1aaf8b5845881e2759bc69539a1a0203fa6b8fa79de89202.incomplete' (resume from 4130364231/9948693272)
+Downloading 'pytorch_model.bin.index.json' to '/data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/dd9a5597b14a925bbe5a278e71f5cffd1ad35096.incomplete'
+Downloading 'model-00002-of-00003.safetensors' to '/data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/c4f6f6623b6d2135f9bb62898f0d7a0a8effcb6b232a477201372301cbb8aae4.incomplete'
+Downloading 'model.safetensors.index.json' to '/data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/852a29d8c8601d0b30496a7c50e84234bbb88261.incomplete'
+Downloading 'tokenizer.json' to '/data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/a6e931b92caff4c79c5c56282f1e89569a0ae558.incomplete'
+Downloading 'special_tokens_map.json' to '/data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/451134b2ddc2e78555d1e857518c54b4bdc2e87d.incomplete'
+Downloading 'model-00003-of-00003.safetensors' to '/data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/afb6dda87233098f9583c78a15814c61215833e10a41eda19223a30b5450565e.incomplete'
+Download complete. Moving file to /data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/a0024735c8dd7afe47fe72792b2c4edaff63bd3b
+Download complete. Moving file to /data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/dd9a5597b14a925bbe5a278e71f5cffd1ad35096
+Download complete. Moving file to /data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/451134b2ddc2e78555d1e857518c54b4bdc2e87d
+Download complete. Moving file to /data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/852a29d8c8601d0b30496a7c50e84234bbb88261
+Download complete. Moving file to /data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/a6e931b92caff4c79c5c56282f1e89569a0ae558
+Download complete. Moving file to /data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/afb6dda87233098f9583c78a15814c61215833e10a41eda19223a30b5450565e
+Download complete. Moving file to /data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/c4f6f6623b6d2135f9bb62898f0d7a0a8effcb6b232a477201372301cbb8aae4
+Download complete. Moving file to /data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/blobs/091b64fcaeb36c6c1aaf8b5845881e2759bc69539a1a0203fa6b8fa79de89202
+Fetching 11 files:  27%|██▋       | 3/11 [21:48<58:08, 436.12s/it]Fetching 11 files: 100%|██████████| 11/11 [21:48<00:00, 118.94s/it]
+/data/mtech/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-chat-hf/snapshots/a2cb7a712bb6e5e736ca7f8cd98167f81a0b5bd8

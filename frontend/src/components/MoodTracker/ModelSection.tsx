@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Database, Globe, Languages, Scale, Trophy } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, ErrorBar, Legend, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import type { DoseRow, ModelEvaluation, ModelResult } from "../../types/emotion";
+import type { DoseRow, ModeStat, ModelEvaluation, ModelResult } from "../../types/emotion";
 import { Empty, Source, StatusBadge, fixed, interval, label, pValue, percent, signed, statError, tick, tooltipStyle } from "./shared";
 
 const QUALITY: [string, string][] = [
@@ -9,6 +9,62 @@ const QUALITY: [string, string][] = [
   ["naturalness", "Naturalness"], ["hinglish_naturalness", "Hinglish naturalness"],
 ];
 const command = (model: ModelResult) => `python3 -m generation_analysis.neuron_validation --model ${model.key} all`;
+const modesCommand = (model: ModelResult) => `python3 -m generation_analysis.steering_modes --model ${model.key} --stages generate score report`;
+const MODE_SUBSETS: [string, string][] = [["all", "All messages"], ["english", "English"], ["hinglish", "Hinglish"], ["crisis", "Crisis"]];
+const MODE_METRICS: [string, string][] = [["judge_emotion", "Emotion"], ["appropriateness", "Appropriateness"], ["empathy", "Empathy"],
+  ["safety", "Safety"], ["naturalness", "Naturalness"]];
+const change = (stat: ModeStat | null | undefined) =>
+  stat ? <span title={`95% CI ${interval(stat.ci_low, stat.ci_high)}${stat.p_holm != null ? ` · p (Holm) ${pValue(stat.p_holm)}` : ` · p ${pValue(stat.p)}`}`}
+    className={stat.ci_low > 0 ? "good" : stat.ci_high < 0 ? "bad" : undefined}>{signed(stat.mean)}</span> : <span className="na">n/a</span>;
+
+/** Every reply steered vs the calibrated policy vs no steering, on messages no earlier experiment used. */
+function SteeringModesCard({ models, built }: { models: ModelResult[]; built: ModelEvaluation["steering_modes_set"] }) {
+  return (
+    <article className="mood-card">
+      <div className="card-heading"><Scale size={20} /><h2>Steering every reply: fresh held-out comparison</h2><Source kind="judged" /></div>
+      <p className="muted small">
+        Mode “every reply” steers each reply with a strength set by the user's emotional state and sends it unless it is
+        broken. Each row is its change against the same messages answered without steering (mean of the two judges, 1–5
+        scales; hover a value for its 95% CI). Messages: {built
+          ? built.sizes.map((row) => `${row.n} ${row.group}${row.group === "english" ? ` ${row.turns}-turn` : ""}`).join(", ") + ", used by no earlier experiment."
+          : <>not built yet: run <code>python3 -m generation_analysis.steering_modes --stages build</code>.</>}
+      </p>
+      <table className="data-table">
+        <thead>
+          <tr>
+            <th>Model</th><th>Messages</th><th className="num">n</th>
+            {MODE_METRICS.map(([key, name]) => <th key={key} className="num">{name}</th>)}
+            <th className="num">Steered replies harmed</th><th className="num">Preferred over unsteered</th><th className="num">Policy steers</th>
+          </tr>
+        </thead>
+        <tbody>
+          {models.flatMap((model) => {
+            const summary = model.steering_modes;
+            if (!summary) return [<tr key={model.key}><th scope="row">{model.label}</th>
+              <td colSpan={MODE_METRICS.length + 5} className="wrap"><span className="na">Not run</span> · <code>{modesCommand(model)}</code></td></tr>];
+            return MODE_SUBSETS.filter(([key]) => summary.subsets[key]).map(([key, name], index) => {
+              const entry = summary.subsets[key];
+              const contrast = entry.contrasts["always - off"] ?? {};
+              const preference = contrast["preference_minus_0.5"];
+              return (
+                <tr key={`${model.key}-${key}`}>
+                  {index === 0 ? <th scope="row" rowSpan={MODE_SUBSETS.filter(([k]) => summary.subsets[k]).length}>{model.label}</th> : null}
+                  <td>{name}</td><td className="num">{entry.n}</td>
+                  {MODE_METRICS.map(([metric]) => <td key={metric} className="num">{change(contrast[metric])}</td>)}
+                  <td className="num">{percent(entry.harmed_share?.always_vs_off ?? null)}</td>
+                  <td className="num">{preference ? fixed(0.5 + preference.mean) : "–"}</td>
+                  <td className="num">{percent(entry.steered_share.policy ?? null)}</td>
+                </tr>
+              );
+            });
+          })}
+        </tbody>
+      </table>
+      {built?.caveats && <p className="muted small">{Object.entries(built.caveats).map(([group, text]) => <span key={group}><strong>{label(group)}:</strong> {text}. </span>)}</p>}
+      <p className="muted small">Harmed: a steered reply whose quality or safety rating falls by more than 0.5 against the unsteered reply. Preferred: the judges' probability of choosing the steered reply (0.5 = no preference). “Policy steers”: share of the same messages the calibrated policy would steer.</p>
+    </article>
+  );
+}
 
 function DoseChart({ model }: { model: ModelResult }) {
   const data = (model.battery?.doses ?? []).map((row) => ({
@@ -173,6 +229,8 @@ export function ModelSection({ evaluation }: { evaluation: ModelEvaluation }) {
           <div className="multiples">{models.map((model) => <DoseChart key={model.key} model={model} />)}</div>
         </figure>
       </article>
+
+      <SteeringModesCard models={models} built={evaluation.steering_modes_set} />
 
       <article className="mood-card">
         <div className="card-heading"><Scale size={20} /><h2>Emotion expression and response quality by strength</h2><Source kind="judged" /></div>

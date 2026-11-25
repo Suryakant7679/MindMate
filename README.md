@@ -58,13 +58,34 @@ python3 -m backend.server --port 8080
 
 The model uses cached weights when available. Downloading uncached gated weights requires Hugging Face access. You can specify `--model-id /path/to/checkpoint`. Sarvam uses 4-bit NF4 quantization by default; bitsandbytes is included in the requirements. Llama can opt in with `--load-in-4bit`. Use `--no-load-in-4bit` to disable quantization. Without CUDA, inference uses CPU and may be very slow.
 
+### Conversations, accounts and multiple models
+
+The chat stores conversations per user (after consent), with a history sidebar, automatic titles, rename and
+delete, and lets each message be answered by any of the four models; switching models keeps the conversation. Models
+load on first use and stay loaded within `--max-loaded-models` (default 1) and the free GPU memory. Every reply is
+steered by default, with a strength set by the user's emotional state, and each reply shows its emotional tone before
+and after steering (`--steering-mode policy|off` or the per-conversation selector change this). Stop keeps the text
+already shown.
+Useful options:
+
+```sh
+python3 -m backend.server --lazy-load --max-loaded-models 2 --gpu-headroom-gib 3 --idle-unload-minutes 30
+python3 -m backend.server --db-path /secure/place/mindmate.sqlite      # default chatbot_feature/data/mindmate_chat.sqlite
+```
+
+Architecture, model registry, per-model steering status, database schema, API and limitations:
+[docs/CHAT_PLATFORM.md](docs/CHAT_PLATFORM.md). Rebuild the frontend (`npm run build` in `frontend/`) after updating.
+
 ### Choose Llama or Sarvam
 
-Llama 3.1 8B Instruct is the default. Start it with:
+Sarvam-30B (4-bit, about 20 GB of GPU memory) is the model loaded at start. Start it with:
 
 ```sh
 python3 -m backend.server --port 8080
 ```
+
+Llama 3.1 8B Instruct (the emotion-steering research system, about 2x faster per turn) is started with
+`--model llama`.
 
 To save an architecture report without downloading the 8B parameter weights:
 
@@ -106,7 +127,7 @@ The Sarvam preset is in `backend/sarvam_config.py` and loads
 Its custom architecture requires `trust_remote_code=True`, enabled by this preset.
 Install the updated requirements first (Transformers 4.57.2 or newer, below 5).
 Sarvam loads through `backend/sarvam.py`, independently of the Llama entry point.
-Sarvam's weights were removed from the local cache to free disk space; it shows as "not downloaded" in the chat's model selector until they are downloaded again (`hf download sarvamai/sarvam-30b`, about 120 GB).
+If Sarvam's weights are not in the local cache, it shows as "not downloaded" in the chat's model selector until they are downloaded (`hf download sarvamai/sarvam-30b`, about 120 GB).
 Shared loading mechanics are in `backend/runtime.py`. Sarvam receives conversation
 history without a MindMate/persona system prompt. Sarvam uses its native thinking
 template; the backend removes reasoning tokens and returns only the final answer.
@@ -197,6 +218,3 @@ cd frontend
 npm run build
 ```
 
-### Safety & Risk Assessment Agent (Agent 1)
-
-Chat now passes through contextual risk assessment, deterministic safety routing, and outgoing validation before delivery. Safety-sensitive replies bypass tools and neuron steering; streams are buffered until checked. New safety state is ephemeral and session-isolated. See [implementation, commands, measured offline evaluation, and limitations](docs/SAFETY_AGENT.md). This research implementation is not clinically validated.

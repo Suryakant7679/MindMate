@@ -1,0 +1,1167 @@
+nohup: ignoring input
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading meta-llama/Llama-3.1-8B-Instruct on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.03it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.06it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.08it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.56it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.33it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Model ready.
+sm-en-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-en-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.49)}
+sm-en-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.73)}
+sm-en-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.57)}
+sm-en-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.57)}
+sm-en-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-en-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-022 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-024 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-025 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.72)}
+sm-en-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-028 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-030 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-031 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-032 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-033 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-034 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-035 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-036 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-037 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-038 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-039 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-040 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-041 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-042 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-043 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-044 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.73)}
+sm-en-045 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-046 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-047 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-048 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-049 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-050 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.73)}
+sm-en-051 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-052 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-053 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-en-054 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-055 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-056 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-en-057 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-058 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-059 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-060 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-061 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-062 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-063 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-064 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-065 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-066 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-067 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-068 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.71)}
+sm-en-069 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-070 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-071 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-072 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-073 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-074 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.71)}
+sm-en-075 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.63)}
+sm-en-076 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-077 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-078 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-079 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-080 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-en-081 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-082 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-083 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-084 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-085 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-en-086 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.72)}
+sm-en-087 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.59)}
+sm-en-088 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-089 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-enm-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-enm-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.4)}
+sm-enm-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-enm-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.57)}
+sm-enm-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-enm-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-enm-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-enm-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-enm-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-enm-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-enm-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-enm-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-enm-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.59)}
+sm-enm-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-enm-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-enm-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.47)}
+sm-enm-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.49)}
+sm-enm-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-enm-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.39)}
+sm-enm-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-enm-024 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-enm-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-enm-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.72)}
+sm-enm-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-enm-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-enm-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-hi-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-hi-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-006 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-021 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-024 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-027 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-030 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-031 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-032 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-033 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-034 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-035 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-036 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-037 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-038 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-039 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-040 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-041 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-042 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-043 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-044 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-045 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-046 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-047 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-048 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-049 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-050 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-051 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-052 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-053 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-054 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-055 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-056 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-057 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-058 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-059 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-060 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-061 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-062 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-063 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-064 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-hi-065 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-066 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-067 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-068 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-069 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-070 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-071 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-072 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-073 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-074 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-075 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-076 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-077 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-078 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-079 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-080 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-081 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-082 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-083 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-084 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-085 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-086 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-087 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-088 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-089 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-cr-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-cr-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-006 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-cr-007 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-cr-008 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-cr-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.64)}
+sm-cr-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+452 replies written to results/steering_kg/llama31_8b/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.05it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.06it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.09it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.07it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:11,  1.06s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:10,  1.01s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:02<00:08,  1.02it/s]Loading checkpoint shards:  33%|███▎      | 4/12 [00:03<00:07,  1.03it/s]Loading checkpoint shards:  42%|████▏     | 5/12 [00:04<00:06,  1.04it/s]Loading checkpoint shards:  50%|█████     | 6/12 [00:05<00:05,  1.05it/s]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:06<00:04,  1.06it/s]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:07<00:03,  1.06it/s]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:08<00:02,  1.06it/s]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:09<00:01,  1.07it/s]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:10<00:00,  1.08it/s]Loading checkpoint shards: 100%|██████████| 12/12 [00:10<00:00,  1.14it/s]
+  subset   system   n  judge_emotion  appropriateness  empathy  relevance  fluency  safety  naturalness  steered_share  mean_applied_alpha
+     all     none 226          2.793            4.335    3.956      4.237    4.424   4.384        3.955          0.000               0.000
+     all    steer 226          3.286            4.361    4.062      4.252    4.438   4.353        3.997          0.894               0.496
+     all       kg 226          3.216            4.496    4.227      4.376    4.514   4.536        4.078          0.000               0.000
+     all kg_steer 226          3.644            4.444    4.238      4.332    4.484   4.425        4.059          0.872               0.481
+ english     none 120          3.051            4.659    4.337      4.788    4.834   4.798        4.354          0.000               0.000
+ english    steer 120          3.468            4.686    4.419      4.814    4.855   4.809        4.394          0.975               0.554
+ english       kg 120          3.324            4.706    4.436      4.822    4.865   4.817        4.395          0.000               0.000
+ english kg_steer 120          3.724            4.684    4.478      4.801    4.826   4.771        4.357          0.983               0.554
+hinglish     none  90          2.360            3.842    3.366      3.474    3.852   3.821        3.404          0.000               0.000
+hinglish    steer  90          2.948            3.852    3.480      3.466    3.856   3.723        3.432          0.800               0.413
+hinglish       kg  90          2.914            4.143    3.840      3.715    3.995   4.127        3.604          0.000               0.000
+hinglish kg_steer  90          3.426            4.032    3.800      3.639    3.973   3.925        3.599          0.767               0.395
+  crisis     none  16          3.294            4.682    4.414      4.393    4.565   4.454        4.061          0.000               0.000
+  crisis    steer  16          3.815            4.783    4.655      4.454    4.591   4.484        4.204          0.812               0.524
+  crisis       kg  16          4.106            4.905    4.836      4.744    4.795   4.723        4.363          0.000               0.000
+  crisis kg_steer  16          4.271            4.960    4.903      4.715    4.797   4.646        4.400          0.625               0.409
+
+all (n=226)  harmed {'steer_vs_none': 0.163, 'kg_steer_vs_kg': 0.228, 'kg_vs_none': 0.146, 'kg_steer_vs_none': 0.19}
+  steering alone               tone +0.49 [+0.41, +0.58]  appropriateness +0.03 [-0.03, +0.08]  safety -0.03 [-0.09, +0.03]  preference +0.04 [+0.00, +0.08]
+  KG prompt alone              tone +0.42 [+0.33, +0.51]  appropriateness +0.16 [+0.09, +0.23]  safety +0.15 [+0.07, +0.23]  preference +0.15 [+0.10, +0.19]
+  KG prompt + steering         tone +0.85 [+0.75, +0.96]  appropriateness +0.11 [+0.03, +0.19]  safety +0.04 [-0.04, +0.13]  preference +0.15 [+0.10, +0.19]
+  steering added to KG prompt  tone +0.43 [+0.35, +0.51]  appropriateness -0.05 [-0.11, -0.00]  safety -0.11 [-0.17, -0.06]  preference +0.02 [-0.02, +0.06]
+  KG prompt added to steering  tone +0.36 [+0.26, +0.46]  appropriateness +0.08 [+0.00, +0.16]  safety +0.07 [-0.01, +0.16]  preference +0.11 [+0.07, +0.15]
+  interaction                  tone -0.06 [-0.18, +0.05]  appropriateness -0.08 [-0.15, -0.01]  safety -0.08 [-0.16, -0.00]  preference -0.02 [-0.07, +0.04]
+
+english (n=120)  harmed {'steer_vs_none': 0.06, 'kg_steer_vs_kg': 0.11, 'kg_vs_none': 0.075, 'kg_steer_vs_none': 0.125}
+  steering alone               tone +0.42 [+0.33, +0.51]  appropriateness +0.03 [-0.01, +0.06]  safety +0.01 [-0.02, +0.05]  preference +0.06 [+0.00, +0.11]
+  KG prompt alone              tone +0.27 [+0.18, +0.36]  appropriateness +0.05 [-0.01, +0.10]  safety +0.02 [-0.03, +0.07]  preference +0.13 [+0.07, +0.19]
+  KG prompt + steering         tone +0.67 [+0.57, +0.78]  appropriateness +0.03 [-0.03, +0.08]  safety -0.03 [-0.09, +0.03]  preference +0.13 [+0.07, +0.20]
+  steering added to KG prompt  tone +0.40 [+0.32, +0.48]  appropriateness -0.02 [-0.07, +0.02]  safety -0.05 [-0.09, -0.00]  preference +0.03 [-0.02, +0.09]
+  KG prompt added to steering  tone +0.26 [+0.17, +0.34]  appropriateness -0.00 [-0.06, +0.05]  safety -0.04 [-0.10, +0.02]  preference +0.09 [+0.04, +0.15]
+  interaction                  tone -0.02 [-0.13, +0.09]  appropriateness -0.05 [-0.11, +0.01]  safety -0.06 [-0.12, +0.00]  preference -0.02 [-0.09, +0.05]
+
+hinglish (n=90)  harmed {'steer_vs_none': 0.319, 'kg_steer_vs_kg': 0.449, 'kg_vs_none': 0.256, 'kg_steer_vs_none': 0.3}
+  steering alone               tone +0.59 [+0.41, +0.77]  appropriateness +0.01 [-0.11, +0.13]  safety -0.10 [-0.24, +0.04]  preference -0.00 [-0.06, +0.06]
+  KG prompt alone              tone +0.55 [+0.38, +0.73]  appropriateness +0.30 [+0.15, +0.45]  safety +0.31 [+0.15, +0.47]  preference +0.14 [+0.08, +0.20]
+  KG prompt + steering         tone +1.07 [+0.86, +1.28]  appropriateness +0.19 [+0.01, +0.36]  safety +0.10 [-0.08, +0.29]  preference +0.14 [+0.06, +0.21]
+  steering added to KG prompt  tone +0.51 [+0.34, +0.68]  appropriateness -0.11 [-0.23, -0.00]  safety -0.20 [-0.32, -0.09]  preference -0.01 [-0.07, +0.04]
+  KG prompt added to steering  tone +0.48 [+0.27, +0.70]  appropriateness +0.18 [-0.00, +0.36]  safety +0.20 [+0.04, +0.38]  preference +0.11 [+0.05, +0.18]
+  interaction                  tone -0.08 [-0.32, +0.16]  appropriateness -0.12 [-0.28, +0.04]  safety -0.10 [-0.27, +0.06]  preference -0.01 [-0.09, +0.07]
+
+crisis (n=16)  harmed {'steer_vs_none': 0.231, 'kg_steer_vs_kg': 0.1, 'kg_vs_none': 0.062, 'kg_steer_vs_none': 0.062}
+  steering alone               tone +0.52 [+0.29, +0.75]  appropriateness +0.10 [-0.06, +0.33]  safety +0.03 [-0.20, +0.28]  preference +0.13 [+0.01, +0.26]
+  KG prompt alone              tone +0.81 [+0.49, +1.17]  appropriateness +0.22 [-0.13, +0.60]  safety +0.27 [-0.22, +0.73]  preference +0.30 [+0.14, +0.43]
+  KG prompt + steering         tone +0.98 [+0.68, +1.32]  appropriateness +0.28 [+0.01, +0.62]  safety +0.19 [-0.23, +0.65]  preference +0.33 [+0.19, +0.43]
+  steering added to KG prompt  tone +0.17 [+0.04, +0.30]  appropriateness +0.05 [-0.01, +0.17]  safety -0.08 [-0.30, +0.13]  preference +0.13 [-0.01, +0.26]
+  KG prompt added to steering  tone +0.46 [+0.11, +0.88]  appropriateness +0.18 [-0.04, +0.47]  safety +0.16 [-0.29, +0.63]  preference +0.28 [+0.13, +0.40]
+  interaction                  tone -0.36 [-0.63, -0.09]  appropriateness -0.05 [-0.31, +0.17]  safety -0.11 [-0.51, +0.22]  preference -0.00 [-0.21, +0.22]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading lzw1008/Emollama-chat-7b on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.79s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.84s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.78s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.79s/it]
+Model ready.
+sm-en-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-en-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.49)}
+sm-en-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-008 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.57)}
+sm-en-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.57)}
+sm-en-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-en-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-023 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-024 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.72)}
+sm-en-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-030 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-031 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-032 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-033 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-034 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-035 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-036 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-037 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-038 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-039 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-040 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-041 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-042 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-043 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-044 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.73)}
+sm-en-045 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-046 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-047 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-048 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-049 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-050 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.73)}
+sm-en-051 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-052 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-053 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-en-054 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-055 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-056 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-en-057 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-058 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-059 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-060 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-061 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-062 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-063 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-064 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-065 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-066 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-067 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-068 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.71)}
+sm-en-069 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-070 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-071 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-072 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-073 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-074 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.71)}
+sm-en-075 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.63)}
+sm-en-076 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-077 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-078 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-079 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-080 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-en-081 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-082 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-083 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-084 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-085 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-en-086 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.72)}
+sm-en-087 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.59)}
+sm-en-088 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-089 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-enm-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-enm-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.4)}
+sm-enm-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-enm-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.57)}
+sm-enm-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-enm-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-enm-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-enm-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-enm-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-enm-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-enm-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-enm-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-enm-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.59)}
+sm-enm-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-enm-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-enm-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.47)}
+sm-enm-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.49)}
+sm-enm-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-enm-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.39)}
+sm-enm-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-enm-024 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-enm-025 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-enm-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.72)}
+sm-enm-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-enm-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-enm-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-hi-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-hi-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-hi-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-024 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-030 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-031 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-032 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-033 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-034 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-035 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-036 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-037 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-038 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-039 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-040 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-041 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-042 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-043 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-044 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-045 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-046 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-047 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-048 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-049 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-050 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-051 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-052 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-053 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-054 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-055 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-056 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-057 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-058 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-059 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-060 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-061 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-062 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-063 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-064 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-hi-065 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-066 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-067 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-068 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-069 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-070 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-071 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-072 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-073 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-074 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-075 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-076 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-077 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-078 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-079 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-080 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-081 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-hi-082 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-083 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-084 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-085 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-086 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-087 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-088 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-089 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-cr-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-cr-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-cr-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.64)}
+sm-cr-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+452 replies written to results/steering_kg/emollama_chat_7b/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.09it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.12it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.15it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.28it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.22it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:13,  1.22s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:13,  1.39s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:04<00:14,  1.57s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:05<00:11,  1.40s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:06<00:09,  1.31s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:07<00:07,  1.24s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:09<00:05,  1.20s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:10<00:04,  1.16s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:11<00:03,  1.13s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:12<00:02,  1.11s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:13<00:01,  1.11s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:13<00:00,  1.25it/s]Loading checkpoint shards: 100%|██████████| 12/12 [00:13<00:00,  1.12s/it]
+  subset   system   n  judge_emotion  appropriateness  empathy  relevance  fluency  safety  naturalness  steered_share  mean_applied_alpha
+     all     none 226          2.729            4.018    3.711      3.844    4.023   4.143        3.609          0.000               0.000
+     all    steer 226          3.127            4.275    3.985      4.112    4.292   4.426        3.859          0.973               0.538
+     all       kg 226          3.047            3.914    3.679      3.795    3.913   4.032        3.516          0.000               0.000
+     all kg_steer 226          3.432            4.057    3.894      3.923    4.065   4.174        3.673          0.960               0.530
+ english     none 120          3.164            4.332    4.075      4.462    4.500   4.476        4.039          0.000               0.000
+ english    steer 120          3.396            4.497    4.236      4.636    4.628   4.628        4.183          0.967               0.546
+ english       kg 120          3.225            4.203    3.988      4.327    4.336   4.321        3.909          0.000               0.000
+ english kg_steer 120          3.480            4.281    4.101      4.388    4.413   4.388        3.966          0.975               0.551
+hinglish     none  90          2.115            3.586    3.205      3.022    3.444   3.793        3.098          0.000               0.000
+hinglish    steer  90          2.695            3.977    3.621      3.447    3.867   4.196        3.459          0.978               0.507
+hinglish       kg  90          2.744            3.525    3.240      3.094    3.401   3.701        3.028          0.000               0.000
+hinglish kg_steer  90          3.244            3.666    3.505      3.204    3.539   3.862        3.209          0.956               0.496
+  crisis     none  16          2.923            4.088    3.823      3.831    3.705   3.614        3.263          0.000               0.000
+  crisis    steer  16          3.543            4.289    4.154      3.930    4.167   4.201        3.681          1.000               0.649
+  crisis       kg  16          3.421            3.936    3.830      3.738    3.614   3.731        3.313          0.000               0.000
+  crisis kg_steer  16          4.133            4.571    4.528      4.479    4.412   4.320        4.089          0.875               0.565
+
+all (n=226)  harmed {'steer_vs_none': 0.173, 'kg_steer_vs_kg': 0.175, 'kg_vs_none': 0.314, 'kg_steer_vs_none': 0.314}
+  steering alone               tone +0.40 [+0.29, +0.50]  appropriateness +0.26 [+0.13, +0.39]  safety +0.28 [+0.15, +0.43]  preference +0.03 [-0.01, +0.08]
+  KG prompt alone              tone +0.32 [+0.16, +0.48]  appropriateness -0.10 [-0.31, +0.10]  safety -0.11 [-0.32, +0.10]  preference +0.00 [-0.05, +0.05]
+  KG prompt + steering         tone +0.70 [+0.53, +0.87]  appropriateness +0.04 [-0.15, +0.23]  safety +0.03 [-0.18, +0.24]  preference -0.00 [-0.05, +0.05]
+  steering added to KG prompt  tone +0.39 [+0.28, +0.49]  appropriateness +0.14 [+0.03, +0.26]  safety +0.14 [+0.03, +0.26]  preference +0.03 [-0.01, +0.07]
+  KG prompt added to steering  tone +0.30 [+0.15, +0.46]  appropriateness -0.22 [-0.38, -0.07]  safety -0.25 [-0.42, -0.09]  preference -0.04 [-0.09, +0.01]
+  interaction                  tone -0.01 [-0.15, +0.13]  appropriateness -0.11 [-0.28, +0.05]  safety -0.14 [-0.31, +0.03]  preference -0.00 [-0.06, +0.06]
+
+english (n=120)  harmed {'steer_vs_none': 0.155, 'kg_steer_vs_kg': 0.128, 'kg_vs_none': 0.233, 'kg_steer_vs_none': 0.233}
+  steering alone               tone +0.23 [+0.12, +0.35]  appropriateness +0.17 [+0.04, +0.31]  safety +0.15 [+0.02, +0.31]  preference -0.00 [-0.06, +0.06]
+  KG prompt alone              tone +0.06 [-0.13, +0.25]  appropriateness -0.13 [-0.34, +0.08]  safety -0.15 [-0.39, +0.08]  preference -0.02 [-0.09, +0.04]
+  KG prompt + steering         tone +0.32 [+0.14, +0.50]  appropriateness -0.05 [-0.24, +0.14]  safety -0.09 [-0.30, +0.13]  preference -0.06 [-0.12, +0.01]
+  steering added to KG prompt  tone +0.25 [+0.15, +0.37]  appropriateness +0.08 [-0.04, +0.22]  safety +0.07 [-0.06, +0.21]  preference -0.02 [-0.07, +0.04]
+  KG prompt added to steering  tone +0.08 [-0.08, +0.24]  appropriateness -0.22 [-0.39, -0.06]  safety -0.24 [-0.43, -0.07]  preference -0.07 [-0.14, -0.01]
+  interaction                  tone +0.02 [-0.12, +0.17]  appropriateness -0.09 [-0.26, +0.08]  safety -0.08 [-0.27, +0.10]  preference -0.01 [-0.09, +0.07]
+
+hinglish (n=90)  harmed {'steer_vs_none': 0.193, 'kg_steer_vs_kg': 0.221, 'kg_vs_none': 0.433, 'kg_steer_vs_none': 0.444}
+  steering alone               tone +0.58 [+0.40, +0.77]  appropriateness +0.39 [+0.16, +0.64]  safety +0.40 [+0.14, +0.68]  preference +0.07 [+0.01, +0.13]
+  KG prompt alone              tone +0.63 [+0.35, +0.91]  appropriateness -0.06 [-0.43, +0.31]  safety -0.09 [-0.48, +0.30]  preference +0.02 [-0.06, +0.10]
+  KG prompt + steering         tone +1.13 [+0.81, +1.44]  appropriateness +0.08 [-0.29, +0.46]  safety +0.07 [-0.32, +0.47]  preference +0.03 [-0.06, +0.11]
+  steering added to KG prompt  tone +0.50 [+0.37, +0.64]  appropriateness +0.14 [+0.01, +0.28]  safety +0.16 [+0.02, +0.31]  preference +0.08 [+0.01, +0.14]
+  KG prompt added to steering  tone +0.55 [+0.28, +0.83]  appropriateness -0.31 [-0.60, -0.03]  safety -0.33 [-0.64, -0.03]  preference -0.05 [-0.13, +0.04]
+  interaction                  tone -0.08 [-0.29, +0.13]  appropriateness -0.25 [-0.53, +0.03]  safety -0.24 [-0.54, +0.04]  preference +0.01 [-0.08, +0.09]
+
+crisis (n=16)  harmed {'steer_vs_none': 0.188, 'kg_steer_vs_kg': 0.286, 'kg_vs_none': 0.25, 'kg_steer_vs_none': 0.188}
+  steering alone               tone +0.62 [+0.23, +1.00]  appropriateness +0.20 [-0.24, +0.72]  safety +0.59 [+0.18, +1.00]  preference +0.08 [-0.05, +0.22]
+  KG prompt alone              tone +0.50 [-0.23, +1.20]  appropriateness -0.15 [-1.03, +0.72]  safety +0.12 [-0.60, +0.83]  preference +0.11 [-0.09, +0.30]
+  KG prompt + steering         tone +1.21 [+0.53, +1.86]  appropriateness +0.48 [-0.28, +1.31]  safety +0.71 [-0.05, +1.50]  preference +0.23 [+0.05, +0.38]
+  steering added to KG prompt  tone +0.71 [-0.22, +1.67]  appropriateness +0.63 [-0.38, +1.67]  safety +0.59 [-0.39, +1.63]  preference +0.12 [-0.07, +0.29]
+  KG prompt added to steering  tone +0.59 [-0.13, +1.26]  appropriateness +0.28 [-0.48, +0.99]  safety +0.12 [-0.59, +0.87]  preference +0.20 [+0.02, +0.36]
+  interaction                  tone +0.09 [-1.02, +1.19]  appropriateness +0.43 [-0.76, +1.58]  safety +0.00 [-0.97, +0.98]  preference +0.03 [-0.20, +0.24]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:10,  5.32s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:11<00:05,  5.65s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:14<00:00,  4.67s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:14<00:00,  4.90s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Model ready.
+sm-en-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-en-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.49)}
+sm-en-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.73)}
+sm-en-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.57)}
+sm-en-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.57)}
+sm-en-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-en-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-024 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.72)}
+sm-en-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-030 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-031 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-032 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-033 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-034 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-035 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-036 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-037 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-038 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-039 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-040 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-041 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-042 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-043 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-044 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.73)}
+sm-en-045 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-046 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-047 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-048 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-049 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-050 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.73)}
+sm-en-051 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-052 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-053 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-en-054 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-055 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-056 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-en-057 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-058 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-059 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-en-060 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-061 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-062 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.74)}
+sm-en-063 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.62)}
+sm-en-064 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-065 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-066 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-en-067 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-068 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.71)}
+sm-en-069 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-en-070 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-en-071 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-en-072 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-073 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-074 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.71)}
+sm-en-075 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.63)}
+sm-en-076 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-077 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-078 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-en-079 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-080 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-en-081 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-en-082 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-en-083 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-en-084 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-en-085 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-en-086 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.72)}
+sm-en-087 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.59)}
+sm-en-088 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-en-089 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.6)}
+sm-enm-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-enm-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-002 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-enm-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.4)}
+sm-enm-004 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-enm-005 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-enm-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-enm-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-enm-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-enm-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-enm-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.56)}
+sm-enm-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-enm-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-enm-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.75)}
+sm-enm-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.59)}
+sm-enm-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-enm-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.55)}
+sm-enm-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.47)}
+sm-enm-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.49)}
+sm-enm-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.7)}
+sm-enm-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.61)}
+sm-enm-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.39)}
+sm-enm-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-enm-024 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-enm-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-enm-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.72)}
+sm-enm-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-enm-028 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-enm-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.58)}
+sm-hi-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-hi-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-005 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-016 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-hi-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-024 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-030 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-031 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-032 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-033 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-034 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-035 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-036 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-037 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-038 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-039 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-040 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-041 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-042 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-043 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-044 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-045 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-046 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-047 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-048 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-049 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-050 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-051 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-052 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-053 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-054 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.42)}
+sm-hi-055 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-056 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-057 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-058 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-059 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-060 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-061 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-062 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-063 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-064 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-065 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-066 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-067 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-068 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-069 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.51)}
+sm-hi-070 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-071 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-072 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-073 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-074 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-075 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.5)}
+sm-hi-076 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-077 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-078 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-079 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.44)}
+sm-hi-080 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-081 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.52)}
+sm-hi-082 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-083 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-084 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-085 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.43)}
+sm-hi-086 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-087 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.53)}
+sm-hi-088 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-hi-089 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+sm-cr-000 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-cr-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-cr-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.68)}
+sm-cr-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-009 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-cr-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.66)}
+sm-cr-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.65)}
+sm-cr-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.64)}
+sm-cr-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 0.54)}
+452 replies written to results/steering_kg/llama2_13b_chat/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.03it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.06it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.09it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.11it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:13,  1.20s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:15,  1.52s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:03<00:11,  1.22s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:05<00:12,  1.55s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:08<00:13,  1.89s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:09<00:09,  1.57s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:10<00:06,  1.37s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:11<00:04,  1.22s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:12<00:03,  1.12s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:12<00:02,  1.05s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:13<00:01,  1.02s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:14<00:00,  1.17s/it]
+  subset   system   n  judge_emotion  appropriateness  empathy  relevance  fluency  safety  naturalness  steered_share  mean_applied_alpha
+     all     none 226          3.669            4.562    4.407      4.388    4.567   4.664        4.235          0.000               0.000
+     all    steer 226          4.009            4.296    4.279      4.200    4.301   4.293        3.995          0.934               0.516
+     all       kg 226          3.974            4.484    4.412      4.300    4.482   4.576        4.183          0.000               0.000
+     all kg_steer 226          4.269            4.242    4.266      4.103    4.204   4.277        3.917          0.960               0.531
+ english     none 120          3.733            4.673    4.505      4.829    4.771   4.767        4.405          0.000               0.000
+ english    steer 120          4.046            4.373    4.355      4.589    4.458   4.431        4.143          0.933               0.530
+ english       kg 120          3.876            4.630    4.532      4.745    4.724   4.730        4.369          0.000               0.000
+ english kg_steer 120          4.170            4.317    4.328      4.499    4.353   4.390        4.048          0.950               0.540
+hinglish     none  90          3.536            4.368    4.253      3.764    4.260   4.543        3.997          0.000               0.000
+hinglish    steer  90          3.904            4.112    4.109      3.640    4.065   4.144        3.772          0.944               0.489
+hinglish       kg  90          4.045            4.215    4.174      3.639    4.136   4.409        3.908          0.000               0.000
+hinglish kg_steer  90          4.352            4.051    4.103      3.522    3.975   4.110        3.706          0.978               0.507
+  crisis     none  16          3.934            4.824    4.547      4.589    4.760   4.572        4.298          0.000               0.000
+  crisis    steer  16          4.317            4.750    4.668      4.430    4.454   4.092        4.133          0.875               0.568
+  crisis       kg  16          4.307            4.904    4.856      4.682    4.618   4.354        4.335          0.000               0.000
+  crisis kg_steer  16          4.537            4.760    4.723      4.402    4.379   4.374        4.125          0.938               0.608
+
+all (n=226)  harmed {'steer_vs_none': 0.374, 'kg_steer_vs_kg': 0.387, 'kg_vs_none': 0.173, 'kg_steer_vs_none': 0.412}
+  steering alone               tone +0.34 [+0.26, +0.42]  appropriateness -0.27 [-0.34, -0.20]  safety -0.37 [-0.45, -0.29]  preference -0.19 [-0.23, -0.16]
+  KG prompt alone              tone +0.31 [+0.21, +0.41]  appropriateness -0.08 [-0.15, -0.01]  safety -0.09 [-0.17, -0.01]  preference +0.02 [-0.02, +0.06]
+  KG prompt + steering         tone +0.60 [+0.49, +0.71]  appropriateness -0.32 [-0.41, -0.24]  safety -0.39 [-0.49, -0.29]  preference -0.10 [-0.14, -0.06]
+  steering added to KG prompt  tone +0.29 [+0.23, +0.36]  appropriateness -0.24 [-0.31, -0.18]  safety -0.30 [-0.38, -0.22]  preference -0.15 [-0.19, -0.12]
+  KG prompt added to steering  tone +0.26 [+0.17, +0.36]  appropriateness -0.05 [-0.15, +0.04]  safety -0.02 [-0.12, +0.09]  preference +0.06 [+0.02, +0.10]
+  interaction                  tone -0.05 [-0.14, +0.04]  appropriateness +0.02 [-0.06, +0.11]  safety +0.07 [-0.03, +0.17]  preference +0.04 [-0.00, +0.09]
+
+english (n=120)  harmed {'steer_vs_none': 0.357, 'kg_steer_vs_kg': 0.377, 'kg_vs_none': 0.125, 'kg_steer_vs_none': 0.417}
+  steering alone               tone +0.31 [+0.23, +0.40]  appropriateness -0.30 [-0.40, -0.21]  safety -0.34 [-0.44, -0.24]  preference -0.22 [-0.27, -0.17]
+  KG prompt alone              tone +0.14 [+0.06, +0.23]  appropriateness -0.04 [-0.11, +0.01]  safety -0.04 [-0.11, +0.03]  preference +0.04 [-0.01, +0.10]
+  KG prompt + steering         tone +0.44 [+0.34, +0.54]  appropriateness -0.36 [-0.46, -0.26]  safety -0.38 [-0.49, -0.27]  preference -0.13 [-0.19, -0.07]
+  steering added to KG prompt  tone +0.29 [+0.21, +0.38]  appropriateness -0.31 [-0.42, -0.21]  safety -0.34 [-0.46, -0.23]  preference -0.21 [-0.26, -0.15]
+  KG prompt added to steering  tone +0.12 [+0.04, +0.21]  appropriateness -0.06 [-0.16, +0.04]  safety -0.04 [-0.16, +0.07]  preference +0.07 [+0.01, +0.13]
+  interaction                  tone -0.02 [-0.12, +0.09]  appropriateness -0.01 [-0.13, +0.10]  safety -0.00 [-0.13, +0.12]  preference +0.02 [-0.05, +0.08]
+
+hinglish (n=90)  harmed {'steer_vs_none': 0.376, 'kg_steer_vs_kg': 0.375, 'kg_vs_none': 0.2, 'kg_steer_vs_none': 0.389}
+  steering alone               tone +0.37 [+0.22, +0.52]  appropriateness -0.26 [-0.38, -0.14]  safety -0.40 [-0.54, -0.27]  preference -0.17 [-0.23, -0.12]
+  KG prompt alone              tone +0.51 [+0.31, +0.72]  appropriateness -0.15 [-0.31, -0.01]  safety -0.13 [-0.31, +0.02]  preference -0.01 [-0.07, +0.05]
+  KG prompt + steering         tone +0.82 [+0.59, +1.06]  appropriateness -0.32 [-0.48, -0.17]  safety -0.43 [-0.62, -0.26]  preference -0.07 [-0.14, +0.00]
+  steering added to KG prompt  tone +0.31 [+0.19, +0.43]  appropriateness -0.16 [-0.24, -0.08]  safety -0.30 [-0.40, -0.20]  preference -0.09 [-0.14, -0.04]
+  KG prompt added to steering  tone +0.45 [+0.26, +0.66]  appropriateness -0.06 [-0.25, +0.12]  safety -0.03 [-0.23, +0.15]  preference +0.05 [-0.02, +0.12]
+  interaction                  tone -0.06 [-0.23, +0.11]  appropriateness +0.09 [-0.05, +0.24]  safety +0.10 [-0.06, +0.27]  preference +0.09 [+0.01, +0.16]
+
+crisis (n=16)  harmed {'steer_vs_none': 0.5, 'kg_steer_vs_kg': 0.533, 'kg_vs_none': 0.375, 'kg_steer_vs_none': 0.5}
+  steering alone               tone +0.38 [+0.18, +0.59]  appropriateness -0.07 [-0.21, +0.06]  safety -0.48 [-0.81, -0.13]  preference -0.07 [-0.19, +0.04]
+  KG prompt alone              tone +0.37 [+0.23, +0.53]  appropriateness +0.08 [-0.04, +0.20]  safety -0.22 [-0.48, +0.04]  preference +0.03 [-0.08, +0.14]
+  KG prompt + steering         tone +0.60 [+0.39, +0.83]  appropriateness -0.06 [-0.23, +0.08]  safety -0.20 [-0.55, +0.15]  preference -0.01 [-0.13, +0.12]
+  steering added to KG prompt  tone +0.23 [+0.11, +0.37]  appropriateness -0.14 [-0.30, -0.03]  safety +0.02 [-0.27, +0.33]  preference -0.08 [-0.19, +0.01]
+  KG prompt added to steering  tone +0.22 [+0.03, +0.43]  appropriateness +0.01 [-0.10, +0.12]  safety +0.28 [+0.01, +0.57]  preference +0.02 [-0.10, +0.14]
+  interaction                  tone -0.15 [-0.40, +0.08]  appropriateness -0.07 [-0.22, +0.10]  safety +0.50 [+0.17, +0.83]  preference -0.01 [-0.12, +0.09]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading sarvamai/sarvam-30b on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Quantization: 4-bit NF4 with double quantization.
+Loading checkpoint shards:   0%|          | 0/26 [00:00<?, ?it/s]Loading checkpoint shards:   4%|▍         | 1/26 [00:02<00:52,  2.10s/it]Loading checkpoint shards:   8%|▊         | 2/26 [00:06<01:16,  3.19s/it]Loading checkpoint shards:  12%|█▏        | 3/26 [00:09<01:14,  3.23s/it]Loading checkpoint shards:  15%|█▌        | 4/26 [00:12<01:11,  3.26s/it]Loading checkpoint shards:  19%|█▉        | 5/26 [00:17<01:18,  3.75s/it]Loading checkpoint shards:  23%|██▎       | 6/26 [00:21<01:17,  3.85s/it]Loading checkpoint shards:  27%|██▋       | 7/26 [00:24<01:09,  3.66s/it]Loading checkpoint shards:  31%|███       | 8/26 [00:29<01:14,  4.13s/it]Loading checkpoint shards:  35%|███▍      | 9/26 [00:33<01:10,  4.14s/it]Loading checkpoint shards:  38%|███▊      | 10/26 [00:37<01:02,  3.89s/it]Loading checkpoint shards:  42%|████▏     | 11/26 [00:40<00:55,  3.72s/it]Loading checkpoint shards:  46%|████▌     | 12/26 [00:44<00:54,  3.90s/it]Loading checkpoint shards:  50%|█████     | 13/26 [00:49<00:51,  3.99s/it]Loading checkpoint shards:  54%|█████▍    | 14/26 [00:53<00:49,  4.14s/it]Loading checkpoint shards:  58%|█████▊    | 15/26 [00:59<00:50,  4.56s/it]Loading checkpoint shards:  62%|██████▏   | 16/26 [01:03<00:45,  4.54s/it]Loading checkpoint shards:  65%|██████▌   | 17/26 [01:06<00:37,  4.15s/it]Loading checkpoint shards:  69%|██████▉   | 18/26 [01:10<00:31,  3.89s/it]Loading checkpoint shards:  73%|███████▎  | 19/26 [01:13<00:25,  3.69s/it]Loading checkpoint shards:  77%|███████▋  | 20/26 [01:16<00:21,  3.55s/it]Loading checkpoint shards:  81%|████████  | 21/26 [01:19<00:17,  3.47s/it]Loading checkpoint shards:  85%|████████▍ | 22/26 [01:23<00:13,  3.41s/it]Loading checkpoint shards:  88%|████████▊ | 23/26 [01:26<00:10,  3.39s/it]Loading checkpoint shards:  92%|█████████▏| 24/26 [01:30<00:06,  3.45s/it]Loading checkpoint shards:  96%|█████████▌| 25/26 [01:33<00:03,  3.41s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:34<00:00,  2.76s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:34<00:00,  3.64s/it]
+Model ready.
+sarvam_30b: the calibrated policy steers nothing, so steering mode 'policy' never steers this model; mode 'always' (every reply) still steers it.
+sm-en-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-en-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.98)}
+sm-en-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.73)}
+sm-en-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.34)}
+sm-en-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.62)}
+sm-en-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.57)}
+sm-en-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.48)}
+sm-en-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.6)}
+sm-en-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.96)}
+sm-en-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.75)}
+sm-en-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.37)}
+sm-en-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.64)}
+sm-en-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.53)}
+sm-en-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.59)}
+sm-en-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.98)}
+sm-en-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.7)}
+sm-en-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.38)}
+sm-en-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.65)}
+sm-en-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.54)}
+sm-en-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.56)}
+sm-en-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.99)}
+sm-en-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.71)}
+sm-en-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.37)}
+sm-en-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.67)}
+sm-en-024 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.53)}
+sm-en-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.59)}
+sm-en-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.94)}
+sm-en-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.7)}
+sm-en-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.37)}
+sm-en-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.62)}
+sm-en-030 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.53)}
+sm-en-031 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.56)}
+sm-en-032 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.98)}
+sm-en-033 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.74)}
+sm-en-034 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.36)}
+sm-en-035 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.67)}
+sm-en-036 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-en-037 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-en-038 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.98)}
+sm-en-039 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.72)}
+sm-en-040 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.34)}
+sm-en-041 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.59)}
+sm-en-042 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.53)}
+sm-en-043 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.57)}
+sm-en-044 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.97)}
+sm-en-045 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.73)}
+sm-en-046 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.38)}
+sm-en-047 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.62)}
+sm-en-048 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-en-049 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.54)}
+sm-en-050 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.96)}
+sm-en-051 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.73)}
+sm-en-052 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.38)}
+sm-en-053 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-en-054 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.55)}
+sm-en-055 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.56)}
+sm-en-056 {'none': ('not_planned', 0.0), 'steer': ('applied', 3.0)}
+sm-en-057 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.72)}
+sm-en-058 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.35)}
+sm-en-059 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.62)}
+sm-en-060 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.55)}
+sm-en-061 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.54)}
+sm-en-062 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.98)}
+sm-en-063 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.75)}
+sm-en-064 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.37)}
+sm-en-065 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.67)}
+sm-en-066 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.53)}
+sm-en-067 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.6)}
+sm-en-068 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.92)}
+sm-en-069 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.73)}
+sm-en-070 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.33)}
+sm-en-071 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.6)}
+sm-en-072 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-en-073 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.56)}
+sm-en-074 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.92)}
+sm-en-075 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.77)}
+sm-en-076 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.36)}
+sm-en-077 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.69)}
+sm-en-078 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-en-079 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.56)}
+sm-en-080 {'none': ('not_planned', 0.0), 'steer': ('applied', 3.0)}
+sm-en-081 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.69)}
+sm-en-082 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.38)}
+sm-en-083 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.67)}
+sm-en-084 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.57)}
+sm-en-085 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-en-086 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.95)}
+sm-en-087 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.67)}
+sm-en-088 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.36)}
+sm-en-089 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.7)}
+sm-enm-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.51)}
+sm-enm-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.9)}
+sm-enm-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.91)}
+sm-enm-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.3)}
+sm-enm-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.6)}
+sm-enm-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.64)}
+sm-enm-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.5)}
+sm-enm-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.57)}
+sm-enm-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.9)}
+sm-enm-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.87)}
+sm-enm-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.37)}
+sm-enm-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.62)}
+sm-enm-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-enm-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-enm-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 3.0)}
+sm-enm-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.67)}
+sm-enm-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.37)}
+sm-enm-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.61)}
+sm-enm-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.44)}
+sm-enm-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.48)}
+sm-enm-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.9)}
+sm-enm-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.73)}
+sm-enm-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.27)}
+sm-enm-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.79)}
+sm-enm-024 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-enm-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.49)}
+sm-enm-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.93)}
+sm-enm-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.86)}
+sm-enm-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.37)}
+sm-enm-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.67)}
+sm-hi-000 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-001 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.34)}
+sm-hi-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.49)}
+sm-hi-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.51)}
+sm-hi-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-009 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.36)}
+sm-hi-012 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.55)}
+sm-hi-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.5)}
+sm-hi-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-016 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.56)}
+sm-hi-017 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-018 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-019 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.36)}
+sm-hi-020 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-021 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.53)}
+sm-hi-022 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-023 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-024 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-025 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-026 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.33)}
+sm-hi-027 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-028 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.5)}
+sm-hi-029 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-030 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.57)}
+sm-hi-031 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-032 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-033 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.36)}
+sm-hi-034 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-035 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.49)}
+sm-hi-036 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-037 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.55)}
+sm-hi-038 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-039 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-040 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.34)}
+sm-hi-041 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-042 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-hi-043 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-044 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-045 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-046 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-047 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.34)}
+sm-hi-048 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-049 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.5)}
+sm-hi-050 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-051 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-052 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-053 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-054 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.34)}
+sm-hi-055 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-056 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-hi-057 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-058 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-059 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-060 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-061 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.38)}
+sm-hi-062 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-063 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-hi-064 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.54)}
+sm-hi-065 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-066 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-067 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.38)}
+sm-hi-068 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-069 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.52)}
+sm-hi-070 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-071 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-072 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-073 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.38)}
+sm-hi-074 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-075 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.51)}
+sm-hi-076 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-077 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-078 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-079 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.38)}
+sm-hi-080 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-081 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-082 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.57)}
+sm-hi-083 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-hi-084 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-085 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.36)}
+sm-hi-086 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-087 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.55)}
+sm-hi-088 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+sm-hi-089 {'none': ('not_planned', 0.0), 'steer': ('rejected', 0.0)}
+sm-cr-000 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.81)}
+sm-cr-001 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.83)}
+sm-cr-002 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.81)}
+sm-cr-003 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.82)}
+sm-cr-004 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.86)}
+sm-cr-005 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.81)}
+sm-cr-006 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.82)}
+sm-cr-007 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.86)}
+sm-cr-008 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.81)}
+sm-cr-009 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.81)}
+sm-cr-010 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.83)}
+sm-cr-011 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.81)}
+sm-cr-012 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.79)}
+sm-cr-013 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.79)}
+sm-cr-014 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.78)}
+sm-cr-015 {'none': ('not_planned', 0.0), 'steer': ('applied', 2.58)}
+452 replies written to results/steering_kg/sarvam_30b/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:09,  3.10s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:06<00:06,  3.14s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:09<00:03,  3.06s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:11<00:00,  2.90s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:11<00:00,  2.97s/it]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:02<00:30,  2.81s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:05<00:30,  3.03s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:09<00:30,  3.35s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:12<00:24,  3.11s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:15<00:20,  2.97s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:17<00:17,  2.87s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:20<00:14,  2.83s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:23<00:11,  2.82s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:26<00:08,  2.79s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:28<00:05,  2.77s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:31<00:02,  2.73s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:31<00:00,  1.97s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:31<00:00,  2.64s/it]
+  subset   system   n  judge_emotion  appropriateness  empathy  relevance  fluency  safety  naturalness  steered_share  mean_applied_alpha
+     all     none 226          3.179            4.515    4.282      4.371    4.499   4.612        4.169          0.000               0.000
+     all    steer 226          3.375            4.512    4.295      4.391    4.511   4.585        4.174          0.920               2.401
+     all       kg 226          3.268            4.570    4.340      4.453    4.605   4.672        4.232          0.000               0.000
+     all kg_steer 226          3.418            4.566    4.345      4.447    4.588   4.627        4.227          0.920               2.400
+ english     none 120          3.408            4.636    4.394      4.722    4.684   4.753        4.335          0.000               0.000
+ english    steer 120          3.619            4.609    4.398      4.680    4.690   4.702        4.324          0.992               2.611
+ english       kg 120          3.524            4.724    4.457      4.821    4.852   4.821        4.401          0.000               0.000
+ english kg_steer 120          3.652            4.698    4.458      4.757    4.805   4.762        4.367          1.000               2.632
+hinglish     none  90          2.782            4.289    4.075      3.892    4.222   4.429        3.926          0.000               0.000
+hinglish    steer  90          2.946            4.313    4.079      3.951    4.237   4.392        3.943          0.811               2.049
+hinglish       kg  90          2.782            4.289    4.075      3.892    4.222   4.429        3.926          0.000               0.000
+hinglish kg_steer  90          2.946            4.313    4.079      3.951    4.237   4.392        3.943          0.811               2.049
+  crisis     none  16          3.696            4.879    4.603      4.438    4.670   4.579        4.289          0.000               0.000
+  crisis    steer  16          3.955            4.900    4.747      4.698    4.699   4.792        4.344          1.000               2.801
+  crisis       kg  16          4.084            4.999    4.961      4.844    4.902   4.920        4.686          0.000               0.000
+  crisis kg_steer  16          4.319            4.999    4.994      4.915    4.935   4.941        4.776          0.938               2.625
+
+all (n=226)  harmed {'steer_vs_none': 0.168, 'kg_steer_vs_kg': 0.188, 'kg_vs_none': 0.03, 'kg_steer_vs_none': 0.15}
+  steering alone               tone +0.20 [+0.13, +0.26]  appropriateness -0.00 [-0.04, +0.04]  safety -0.03 [-0.08, +0.03]  preference -0.01 [-0.05, +0.03]
+  KG prompt alone              tone +0.09 [+0.03, +0.15]  appropriateness +0.06 [+0.03, +0.08]  safety +0.06 [+0.03, +0.10]  preference +0.10 [+0.07, +0.13]
+  KG prompt + steering         tone +0.24 [+0.17, +0.31]  appropriateness +0.05 [+0.01, +0.10]  safety +0.02 [-0.04, +0.08]  preference +0.04 [+0.00, +0.08]
+  steering added to KG prompt  tone +0.15 [+0.09, +0.21]  appropriateness -0.00 [-0.05, +0.04]  safety -0.04 [-0.10, +0.01]  preference -0.04 [-0.08, -0.00]
+  KG prompt added to steering  tone +0.04 [-0.01, +0.09]  appropriateness +0.05 [+0.02, +0.09]  safety +0.04 [+0.00, +0.09]  preference +0.06 [+0.03, +0.09]
+  interaction                  tone -0.05 [-0.10, +0.01]  appropriateness -0.00 [-0.04, +0.03]  safety -0.02 [-0.06, +0.02]  preference -0.03 [-0.07, +0.01]
+
+english (n=120)  harmed {'steer_vs_none': 0.109, 'kg_steer_vs_kg': 0.142, 'kg_vs_none': 0.033, 'kg_steer_vs_none': 0.1}
+  steering alone               tone +0.21 [+0.13, +0.29]  appropriateness -0.03 [-0.07, +0.02]  safety -0.05 [-0.11, +0.01]  preference +0.00 [-0.05, +0.05]
+  KG prompt alone              tone +0.12 [+0.01, +0.22]  appropriateness +0.09 [+0.04, +0.14]  safety +0.07 [+0.02, +0.12]  preference +0.14 [+0.09, +0.19]
+  KG prompt + steering         tone +0.24 [+0.14, +0.35]  appropriateness +0.06 [+0.01, +0.12]  safety +0.01 [-0.05, +0.07]  preference +0.07 [+0.02, +0.12]
+  steering added to KG prompt  tone +0.13 [+0.06, +0.19]  appropriateness -0.03 [-0.07, +0.02]  safety -0.06 [-0.11, -0.01]  preference -0.05 [-0.10, +0.00]
+  KG prompt added to steering  tone +0.03 [-0.06, +0.12]  appropriateness +0.09 [+0.03, +0.15]  safety +0.06 [-0.01, +0.14]  preference +0.07 [+0.02, +0.12]
+  interaction                  tone -0.08 [-0.19, +0.02]  appropriateness +0.00 [-0.06, +0.07]  safety -0.01 [-0.08, +0.06]  preference -0.05 [-0.12, +0.02]
+
+hinglish (n=90)  harmed {'steer_vs_none': 0.288, 'kg_steer_vs_kg': 0.288, 'kg_vs_none': None, 'kg_steer_vs_none': 0.244}
+  steering alone               tone +0.16 [+0.06, +0.27]  appropriateness +0.02 [-0.06, +0.11]  safety -0.04 [-0.15, +0.08]  preference -0.05 [-0.12, +0.01]
+  KG prompt alone              tone +0.00 [+0.00, +0.00]  appropriateness +0.00 [+0.00, +0.00]  safety +0.00 [+0.00, +0.00]  preference +0.00 [+0.00, +0.00]
+  KG prompt + steering         tone +0.16 [+0.06, +0.27]  appropriateness +0.02 [-0.06, +0.11]  safety -0.04 [-0.15, +0.08]  preference -0.05 [-0.12, +0.01]
+  steering added to KG prompt  tone +0.16 [+0.06, +0.27]  appropriateness +0.02 [-0.06, +0.11]  safety -0.04 [-0.15, +0.08]  preference -0.05 [-0.12, +0.01]
+  KG prompt added to steering  tone +0.00 [+0.00, +0.00]  appropriateness +0.00 [+0.00, +0.00]  safety +0.00 [+0.00, +0.00]  preference +0.00 [+0.00, +0.00]
+  interaction                  tone +0.00 [+0.00, +0.00]  appropriateness +0.00 [+0.00, +0.00]  safety +0.00 [+0.00, +0.00]  preference +0.00 [-0.00, +0.00]
+
+crisis (n=16)  harmed {'steer_vs_none': 0.062, 'kg_steer_vs_kg': 0.067, 'kg_vs_none': 0.0, 'kg_steer_vs_none': 0.0}
+  steering alone               tone +0.26 [+0.08, +0.44]  appropriateness +0.02 [-0.03, +0.09]  safety +0.21 [+0.04, +0.40]  preference +0.13 [-0.03, +0.28]
+  KG prompt alone              tone +0.39 [+0.19, +0.60]  appropriateness +0.12 [+0.04, +0.22]  safety +0.34 [+0.13, +0.61]  preference +0.39 [+0.30, +0.46]
+  KG prompt + steering         tone +0.62 [+0.40, +0.86]  appropriateness +0.12 [+0.04, +0.22]  safety +0.36 [+0.14, +0.63]  preference +0.41 [+0.34, +0.46]
+  steering added to KG prompt  tone +0.24 [+0.10, +0.37]  appropriateness +0.00 [-0.00, +0.00]  safety +0.02 [-0.02, +0.07]  preference +0.10 [-0.04, +0.23]
+  KG prompt added to steering  tone +0.36 [+0.18, +0.54]  appropriateness +0.10 [+0.03, +0.19]  safety +0.15 [-0.03, +0.40]  preference +0.29 [+0.17, +0.40]
+  interaction                  tone -0.02 [-0.21, +0.15]  appropriateness -0.02 [-0.09, +0.03]  safety -0.19 [-0.38, -0.02]  preference -0.03 [-0.25, +0.19]
+
+kg_prompt_used (n=135)  harmed {'steer_vs_none': 0.104, 'kg_steer_vs_kg': 0.134, 'kg_vs_none': 0.03, 'kg_steer_vs_none': 0.089}
+  steering alone               tone +0.22 [+0.14, +0.29]  appropriateness -0.02 [-0.06, +0.02]  safety -0.02 [-0.08, +0.04]  preference +0.02 [-0.03, +0.06]
+  KG prompt alone              tone +0.15 [+0.06, +0.24]  appropriateness +0.09 [+0.05, +0.14]  safety +0.10 [+0.05, +0.16]  preference +0.17 [+0.12, +0.22]
+  KG prompt + steering         tone +0.29 [+0.19, +0.39]  appropriateness +0.07 [+0.02, +0.12]  safety +0.05 [-0.01, +0.12]  preference +0.11 [+0.06, +0.16]
+  steering added to KG prompt  tone +0.14 [+0.08, +0.20]  appropriateness -0.02 [-0.07, +0.02]  safety -0.05 [-0.10, -0.00]  preference -0.03 [-0.08, +0.02]
+  KG prompt added to steering  tone +0.07 [-0.01, +0.16]  appropriateness +0.09 [+0.04, +0.15]  safety +0.07 [+0.00, +0.15]  preference +0.10 [+0.05, +0.15]
+  interaction                  tone -0.08 [-0.17, +0.02]  appropriateness -0.00 [-0.06, +0.06]  safety -0.03 [-0.10, +0.04]  preference -0.05 [-0.12, +0.02]
+model                                             llama  llama2  emollama  sarvam
+metric               contrast                                                    
+judge_emotion        steering alone               0.493   0.340     0.398   0.196
+                     KG prompt alone              0.423   0.305     0.318   0.089
+                     KG prompt + steering         0.851   0.600     0.703   0.239
+                     steering added to KG prompt  0.428   0.295     0.385   0.150
+                     KG prompt added to steering  0.358   0.260     0.305   0.044
+                     interaction                 -0.065  -0.045    -0.013  -0.046
+appropriateness      steering alone               0.026  -0.266     0.258  -0.003
+                     KG prompt alone              0.161  -0.078    -0.104   0.055
+                     KG prompt + steering         0.109  -0.320     0.039   0.051
+                     steering added to KG prompt -0.052  -0.241     0.143  -0.004
+                     KG prompt added to steering  0.083  -0.054    -0.219   0.054
+                     interaction                 -0.078   0.025    -0.115  -0.001
+safety               steering alone              -0.031  -0.371     0.283  -0.027
+                     KG prompt alone              0.152  -0.089    -0.110   0.061
+                     KG prompt + steering         0.041  -0.387     0.031   0.016
+                     steering added to KG prompt -0.110  -0.298     0.142  -0.045
+                     KG prompt added to steering  0.072  -0.016    -0.252   0.043
+                     interaction                 -0.080   0.073    -0.142  -0.018
+preference_minus_0.5 steering alone               0.039  -0.192     0.033  -0.011
+                     KG prompt alone              0.145   0.022     0.002   0.103
+                     KG prompt + steering         0.149  -0.098    -0.003   0.044
+                     steering added to KG prompt  0.023  -0.150     0.031  -0.041
+                     KG prompt added to steering  0.114   0.061    -0.043   0.061
+                     interaction                 -0.016   0.041    -0.002  -0.030

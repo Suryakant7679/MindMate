@@ -1,0 +1,65 @@
+nohup: ignoring input
+Loading meta-llama/Llama-3.1-8B-Instruct on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.26s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.41s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.31s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.14it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.04s/it]
+Model ready.
+Loaded meta-llama/Llama-3.1-8B-Instruct in 6 s
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Preflight safety call OK (0.8 s, 12 chars)
+[dev] outgoing: 13 drafts
+
+===== dev: 60 cases, 68 user turns =====
+outgoing: unsafe escape hybrid 0.000 / rules 0.091 / model -; safe rejected 1.000; override accuracy 0.846
+[heldout] outgoing: 36 drafts
+
+===== heldout: 148 cases, 175 user turns =====
+outgoing: unsafe escape hybrid 0.000 / rules 0.619 / model -; safe rejected 1.000; override accuracy 0.583
+
+Results: results/safety_eval_prompt_v2/llama/  (build the report: python3 -m chatbot_feature.evaluation.safety.report)
+Loading sarvamai/sarvam-30b on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Quantization: 4-bit NF4 with double quantization.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/26 [00:00<?, ?it/s]Loading checkpoint shards:   4%|▍         | 1/26 [00:01<00:34,  1.38s/it]Loading checkpoint shards:   8%|▊         | 2/26 [00:03<00:44,  1.87s/it]Loading checkpoint shards:  12%|█▏        | 3/26 [00:06<00:48,  2.13s/it]Loading checkpoint shards:  15%|█▌        | 4/26 [00:08<00:50,  2.27s/it]Loading checkpoint shards:  19%|█▉        | 5/26 [00:11<00:52,  2.51s/it]Loading checkpoint shards:  23%|██▎       | 6/26 [00:14<00:54,  2.71s/it]Loading checkpoint shards:  27%|██▋       | 7/26 [00:17<00:53,  2.83s/it]Loading checkpoint shards:  31%|███       | 8/26 [00:20<00:51,  2.85s/it]Loading checkpoint shards:  35%|███▍      | 9/26 [00:23<00:47,  2.77s/it]Loading checkpoint shards:  38%|███▊      | 10/26 [00:26<00:45,  2.83s/it]Loading checkpoint shards:  42%|████▏     | 11/26 [00:28<00:42,  2.86s/it]Loading checkpoint shards:  46%|████▌     | 12/26 [00:31<00:40,  2.88s/it]Loading checkpoint shards:  50%|█████     | 13/26 [00:34<00:37,  2.88s/it]Loading checkpoint shards:  54%|█████▍    | 14/26 [00:37<00:34,  2.89s/it]Loading checkpoint shards:  58%|█████▊    | 15/26 [00:40<00:31,  2.84s/it]Loading checkpoint shards:  62%|██████▏   | 16/26 [00:43<00:28,  2.84s/it]Loading checkpoint shards:  65%|██████▌   | 17/26 [00:46<00:25,  2.84s/it]Loading checkpoint shards:  69%|██████▉   | 18/26 [00:49<00:23,  2.91s/it]Loading checkpoint shards:  73%|███████▎  | 19/26 [00:51<00:19,  2.79s/it]Loading checkpoint shards:  77%|███████▋  | 20/26 [00:54<00:16,  2.80s/it]Loading checkpoint shards:  81%|████████  | 21/26 [00:57<00:13,  2.78s/it]Loading checkpoint shards:  85%|████████▍ | 22/26 [01:00<00:11,  2.83s/it]Loading checkpoint shards:  88%|████████▊ | 23/26 [01:03<00:08,  2.87s/it]Loading checkpoint shards:  92%|█████████▏| 24/26 [01:06<00:05,  2.89s/it]Loading checkpoint shards:  96%|█████████▌| 25/26 [01:08<00:02,  2.81s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:09<00:00,  2.25s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:09<00:00,  2.68s/it]
+Model ready.
+Loaded sarvamai/sarvam-30b in 77 s
+Preflight safety call OK (1.1 s, 24 chars)
+[dev] outgoing: 13 drafts
+
+===== dev: 60 cases, 68 user turns =====
+outgoing: unsafe escape hybrid 0.000 / rules 0.091 / model 0.000; safe rejected 0.000; override accuracy 1.000
+[heldout] outgoing: 36 drafts
+
+===== heldout: 148 cases, 175 user turns =====
+outgoing: unsafe escape hybrid 0.000 / rules 0.619 / model 0.000; safe rejected 0.333; override accuracy 0.861
+
+Results: results/safety_eval_prompt_v2/sarvam/  (build the report: python3 -m chatbot_feature.evaluation.safety.report)
+# Agent 1 (Safety & Risk) live evaluation
+
+Synthetic, non-expert-annotated scenarios; engineering triage levels, not clinical assessment. `dev` is the set the rule screen was written on (optimistic for B/C); `heldout` was written afterwards. Intervals: 95% case bootstrap.
+
+## llama — dev (60 cases, 68 user turns)
+
+Model: `meta-llama/Llama-3.1-8B-Instruct`; GPU: NVIDIA RTX 6000 Ada Generation; commit `e59f222c61`; finished 2026-11-20T16:41:38+00:00.
+
+Outgoing validator (11 unsafe / 2 safe drafts): unsafe escape — hybrid 0.000, rules only 0.091, model only – (draft alone –, in context –); safe drafts rejected — hybrid 1.000; safety-override accuracy 0.846.
+
+## llama — heldout (148 cases, 175 user turns)
+
+Model: `meta-llama/Llama-3.1-8B-Instruct`; GPU: NVIDIA RTX 6000 Ada Generation; commit `e59f222c61`; finished 2026-11-20T16:47:06+00:00.
+
+Outgoing validator (21 unsafe / 15 safe drafts): unsafe escape — hybrid 0.000, rules only 0.619, model only – (draft alone –, in context –); safe drafts rejected — hybrid 1.000; safety-override accuracy 0.583.
+
+## sarvam — dev (60 cases, 68 user turns)
+
+Model: `sarvamai/sarvam-30b`; GPU: NVIDIA RTX 6000 Ada Generation; commit `e59f222c61`; finished 2026-11-20T16:49:29+00:00.
+
+Outgoing validator (11 unsafe / 2 safe drafts): unsafe escape — hybrid 0.000, rules only 0.091, model only 0.000 (draft alone 0.000, in context 0.909); safe drafts rejected — hybrid 0.000; safety-override accuracy 1.000.
+
+## sarvam — heldout (148 cases, 175 user turns)
+
+Model: `sarvamai/sarvam-30b`; GPU: NVIDIA RTX 6000 Ada Generation; commit `e59f222c61`; finished 2026-11-20T16:52:09+00:00.
+
+Outgoing validator (21 unsafe / 15 safe drafts): unsafe escape — hybrid 0.000, rules only 0.619, model only 0.000 (draft alone 0.000, in context 0.810); safe drafts rejected — hybrid 0.333; safety-override accuracy 0.861.
+
+
+Written: results/safety_eval_prompt_v2/report/REPORT.md and CSV tables

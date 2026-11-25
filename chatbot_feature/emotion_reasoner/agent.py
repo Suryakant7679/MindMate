@@ -33,6 +33,8 @@ MAX_ALPHA_HINGLISH = 0.7   # Hinglish replies degrade earlier
 DETECTOR_WEIGHT = 0.6
 WEAK_DETECTOR_WEIGHT = 0.45   # for the Llama probe fallback: cue-backed graph evidence outranks it
 CONTRADICTION_CONFIDENCE = 0.6   # detector share above which an opposite-valence cue is ignored
+# When every reply is steered, a reply to a crisis message is steered toward warmth at the highest base strength.
+CRISIS_WARMTH = ("love", 0.9)
 
 
 @dataclass
@@ -91,7 +93,7 @@ class EmotionReasonerAgent:
         for node, data in self.graph.nodes(data=True):
             if data["kind"] != "cause":
                 continue
-            cues = matched_cues(text, data["cues"])
+            cues = matched_cues(text, data["cues"], negatable=data["label"] == "crisis")
             if cues:
                 found.append({"cause": data["label"], "description": data["description"], "cues": cues,
                               "weight": min(1.0, 0.6 + 0.2 * len(cues))})
@@ -203,6 +205,12 @@ class EmotionReasonerAgent:
                         "rule": self.policy.get("rule"), "ceiling": self.policy.get("ceiling"),
                         "panel": cell.get("panel")}
             return alpha, factors, evidence
+        return self._state_rule(strategy, response, intensity, valence, history, text)
+
+    def _state_rule(self, strategy: Mapping[str, Any], response: str, intensity: float, valence: float,
+                    history: Sequence[Mapping[str, Any]], text: str) -> tuple[float, list[dict[str, Any]], None]:
+        """Strength from the user's emotional state: strategy base x intensity x panel sensitivity, adjusted for
+        persistent distress or a lifting mood, capped for fluency (the rule used without a calibrated policy)."""
         base = float(strategy["base_strength"])
         factors = [{"factor": "strategy", "effect": f"base {base:.2f}",
                     "reason": f"{strategy['title']} calls for this much emotional expression"}]
@@ -232,6 +240,35 @@ class EmotionReasonerAgent:
                             if limit == MAX_ALPHA_HINGLISH else "stronger steering costs fluency"})
             alpha = limit
         return round(max(alpha, 0.0), 2), factors, None
+
+    def state_strength(self, plan: Mapping[str, Any], text: str) -> tuple[str | None, float, list[dict[str, Any]]]:
+        """``(response emotion, level 0-1, factors)`` for steering every reply, from the user's emotional state only.
+
+        The level is the state rule's strength divided by its fluency limit (``MAX_ALPHA``): it rises with the
+        strategy's base strength, the intensity of the user's emotion, persistent distress and the panel's
+        sensitivity, falls when the mood lifts, and is capped lower for Hinglish.  The calibrated policy is not
+        consulted.  A crisis message is steered toward warmth (``CRISIS_WARMTH``).
+        """
+        strategy = dict(self.graph.nodes[f"strategy:{plan['strategy']}"])
+        response = plan.get("response_emotion")
+        factors: list[dict[str, Any]] = []
+        if plan["strategy"] == "crisis_support":
+            response, base = CRISIS_WARMTH
+            strategy["base_strength"] = base
+            factors.append({"factor": "crisis", "effect": f"steer toward {response}",
+                            "reason": "a crisis message is answered with the strongest warmth, to comfort the user "
+                                      "and encourage them to stay safe and reach out"})
+        elif response is None:
+            graph_response = next((self.graph.nodes[node]["label"] for _, node, edge in
+                                   self.graph.out_edges(f"strategy:{plan['strategy']}", data=True)
+                                   if edge["relation"] == "expresses"), None)
+            response = graph_response
+        if response is None:
+            return None, 0.0, [{"factor": "panel", "effect": "no steering",
+                                "reason": "the planned strategy expresses no response emotion"}]
+        alpha, rule, _ = self._state_rule(strategy, response, float(plan["intensity"]), float(plan["valence"]),
+                                          plan.get("history") or [], text)
+        return response, round(min(alpha / MAX_ALPHA, 1.0), 3), factors + rule
 
     def plan(self, text: str, probe_scores: Mapping[str, float],
              history: Sequence[Mapping[str, Any]] = ()) -> EmotionPlan:

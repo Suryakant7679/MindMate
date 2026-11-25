@@ -31,8 +31,6 @@ class SpecialistAgent:
         self.manager = manager
 
     async def __call__(self, state: AgentState) -> dict[str, Any]:
-        if not state.get("safety", {}).get("policy", {}).get("tools_allowed", True):
-            return {"pending_agents": [], "current_agent": "safety"}
         pending = list(state.get("pending_agents", []))
         if pending and pending[0] == self.name:
             pending.pop(0)

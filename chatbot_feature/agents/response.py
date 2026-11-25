@@ -15,8 +15,6 @@ class ResponseAgent:
         self.model = model
 
     async def __call__(self, state: AgentState) -> dict[str, Any]:
-        if not state.get("safety", {}).get("policy", {}).get("steering_allowed", True):
-            return {"draft_response": ""}
         run_id = state.get("run_id", "")
         results = [item for item in state.get("intermediate_results", []) if item.get("run_id") == run_id]
         errors = [item["message"] for item in state.get("errors", []) if item.get("run_id") == run_id]

@@ -22,7 +22,5 @@ def classify_task(task: str, *, limit: int = 4) -> list[str]:
 
 
 async def next_node(state: AgentState) -> str:
-    if state.get("safety", {}).get("policy", {}).get("route", "normal") != "normal":
-        return "crisis_response"
     pending = state.get("pending_agents", [])
     return pending[0] if pending else "response"

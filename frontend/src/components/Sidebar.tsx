@@ -1,11 +1,20 @@
-import { Leaf, ChartNoAxesCombined, MessageCircle } from "lucide-react";
+import type { ReactNode } from "react";
+import { Leaf, ChartNoAxesCombined, MessageCircle, UserRound } from "lucide-react";
 export type ActiveSection = "chat" | "mood";
 export function Sidebar({
   active,
   onChange,
+  children,
+  account,
+  onAccount,
 }: {
   active: ActiveSection;
   onChange: (section: ActiveSection) => void;
+  /** Conversation history, shown below the navigation. */
+  children?: ReactNode;
+  /** Label of the account button (hidden when the server stores no conversations). */
+  account?: string;
+  onAccount?: () => void;
 }) {
   return (
     <aside className="sidebar">
@@ -37,6 +46,12 @@ export function Sidebar({
           </button>
         ))}
       </nav>
+      {children}
+      {account && (
+        <button type="button" className="account-button" onClick={onAccount}>
+          <UserRound size={17} /> <span>{account}</span>
+        </button>
+      )}
     </aside>
   );
 }

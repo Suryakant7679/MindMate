@@ -6,8 +6,9 @@ from .sarvam_config import SARVAM_CONFIG
 class SarvamRuntime(HuggingFaceRuntime):
     reasoning = bool(SARVAM_CONFIG.enable_thinking)
 
-    def __init__(self, model_id=SARVAM_CONFIG.model_id, load_in_4bit=None, *, local_files_only=False):
-        super().__init__(model_id, load_in_4bit, config=SARVAM_CONFIG, local_files_only=local_files_only)
+    def __init__(self, model_id=SARVAM_CONFIG.model_id, load_in_4bit=None, *, local_files_only=False, placement=None):
+        super().__init__(model_id, load_in_4bit, config=SARVAM_CONFIG, local_files_only=local_files_only,
+                         placement=placement)
         self._accept_output_dtype()
         self.set_reasoning(bool(SARVAM_CONFIG.enable_thinking))
 
@@ -50,6 +51,7 @@ class SarvamRuntime(HuggingFaceRuntime):
         """
         import time
         from .config import STEERING_GAIN
+        from .generation_control import control_settings
         torch = self.torch
         neurons_by_layer = panel if panel is not None else (self._emotion_panels.get(steering_emotion) or {})
         direction = None if panel is not None else self._emotion_directions.get(steering_emotion)
@@ -108,21 +110,23 @@ class SarvamRuntime(HuggingFaceRuntime):
             return hook
 
         settings = {"max_new_tokens": max_new_tokens, "do_sample": False, "pad_token_id": self.tokenizer.pad_token_id,
-                    **self.generation_settings()}
+                    **self.generation_settings(), **control_settings()}
         started = time.perf_counter()
-        try:
-            for layer, (neurons, shifts) in neurons_by_layer.items():
-                handles.append(self.steering_module(layer).register_forward_pre_hook(neuron_hook(layer, neurons, shifts)))
-            if direction is not None:
-                layer, unit = direction
-                order = sorted(range(len(unit)), key=lambda index: -abs(unit[index]))[:64]
-                shown.extend(sorted(order))                 # the residual dimensions the direction moves most
-                handles.append(self.model.model.layers[layer].register_forward_hook(direction_hook(unit)))
-            with self.lock, torch.inference_mode():
-                output = self.model.generate(input_ids=input_ids, attention_mask=attention, **settings)
-        finally:
-            for handle in handles:
-                handle.remove()
+        # Hooks are registered and removed only under the runtime lock (shared modules; see the base class).
+        with self.lock:
+            try:
+                for layer, (neurons, shifts) in neurons_by_layer.items():
+                    handles.append(self.steering_module(layer).register_forward_pre_hook(neuron_hook(layer, neurons, shifts)))
+                if direction is not None:
+                    layer, unit = direction
+                    order = sorted(range(len(unit)), key=lambda index: -abs(unit[index]))[:64]
+                    shown.extend(sorted(order))                 # the residual dimensions the direction moves most
+                    handles.append(self.model.model.layers[layer].register_forward_hook(direction_hook(unit)))
+                with torch.inference_mode():
+                    output = self.model.generate(input_ids=input_ids, attention_mask=attention, **settings)
+            finally:
+                for handle in handles:
+                    handle.remove()
         elapsed = time.perf_counter() - started
         stop = set(settings.get("eos_token_id", [])) | {self.tokenizer.eos_token_id}
         results = []

@@ -16,6 +16,8 @@ const DISABLED_BY: Record<string, string> = {
   no_panel: "because no neuron panel exists for the response emotion",
   strength_rule: "by the strength rule",
   agent: "because the agent answered from tool results",
+  uncalibrated: "because no calibrated policy supports steering for this model",
+  baseline: "because steering is switched off for this conversation (unsteered baseline)",
 };
 const JUDGED_ROWS: [string, string][] = [
   ["emotion", "Intended emotion (1–5)"], ["empathy", "Empathy (1–5)"], ["relevance", "Relevance (1–5)"],

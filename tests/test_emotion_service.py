@@ -1,6 +1,4 @@
-from chatbot_feature.safety import SafetyAgent
-from chatbot_feature.safety.session import SessionStore
-from chatbot_feature.tests.safety_fakes import SafetyModel
+from chatbot_feature.session import SessionStore
 """Steering decision, safeguards and streaming of the shared emotion service,
 and their consistency between direct chat and LangGraph/MCP agent mode."""
 import asyncio
@@ -224,12 +222,10 @@ class StreamingTests(unittest.TestCase):
         handler.rfile, handler.wfile = io.BytesIO(body), io.BytesIO()
         handler.server = Mock(agent_service=None)
         handler.server.session_secret = b"test-secret"
-        handler.server.safety_sessions = SessionStore()
         handler.server.resource_owners = SessionStore()
         handler._emotion_service = lambda: svc
         handler.send_response, handler.send_header, handler.end_headers = Mock(), Mock(), Mock()
-        with patch("backend.server.SafetyRuntimeModel", return_value=SafetyModel()):
-            handler.do_POST()
+        handler.do_POST()
         headers = {call.args[0]: call.args[1] for call in handler.send_header.call_args_list}
         return headers, handler.wfile.getvalue().decode()
 
@@ -239,10 +235,78 @@ class StreamingTests(unittest.TestCase):
         self.assertEqual((headers["X-Steering-Status"], headers["X-Steering-Alpha"]), ("applied", "0.75"))
         self.assertEqual(body, STEERED)
         self.assertIsNotNone(svc.analysis(headers["X-Turn-Id"]))
-        headers, body = self.http(svc, CRISIS)
-        self.assertEqual(headers["X-Steering-Alpha"], "0")
-        self.assertEqual(headers["X-Safety-Route"], "safety")
-        self.assertIn("safe right now", body)
+        headers, body = self.http(svc, CRISIS)                 # the Emotion Reasoner never steers a crisis turn
+        self.assertEqual((headers["X-Steering-Status"], headers["X-Steering-Alpha"]), ("not_planned", "0.0"))
+        self.assertEqual(body, PLAIN)
+
+
+class ChatbotIntegrationTests(unittest.TestCase):
+    """The Emotion Reasoner on the chat endpoints."""
+
+    def test_without_a_calibrated_policy_the_reasoner_plans_but_never_steers(self):
+        runtime = Runtime()
+        runtime.results_tag = "no_such_model_for_tests"          # no results folder, so no policy
+        svc = EmotionSteeringService(runtime, scorer=Scorer(0.05, 0.40), evidence={})
+        self.assertFalse(svc.steering_enabled)
+        plan, analysis = run(svc)
+        self.assertTrue(plan["strategy"] and plan["user_emotion"])   # the Reasoner still plans
+        self.assertEqual(plan["steering_alpha"], 0.0)
+        self.assertEqual(analysis["decision"]["applied_alpha"], 0.0)
+        self.assertNotIn([0.0, 0.75], runtime.calls)               # no steered candidate was generated
+        self.assertEqual(analysis["reply"], PLAIN)
+
+    def test_a_policy_that_steers_nothing_disables_steering(self):
+        runtime = Runtime()
+        runtime.results_tag = "no_such_model_for_tests"
+        with patch("backend.emotion_service.load_policy", return_value={**POLICY, "steering_enabled": False}):
+            svc = EmotionSteeringService(runtime, scorer=Scorer(0.05, 0.40), evidence={})
+        self.assertFalse(svc.steering_enabled)
+
+    def test_sarvam_uses_the_v3_prompt_for_english_only_and_llama_keeps_the_strategy_prompt(self):
+        from backend.config import SYSTEM_PROMPT
+        for tag, text, style in (("sarvam_30b", SAD, "strategy_v3"), ("sarvam_30b", HINGLISH, "mindmate_only"),
+                                 ("sarvam_30b", "आज मन बहुत उदास है", "mindmate_only"),
+                                 ("llama31_8b", SAD, "strategy"), ("llama31_8b", HINGLISH, "strategy")):
+            with self.subTest(tag=tag, text=text):
+                runtime = Runtime()
+                runtime.results_tag = tag
+                svc = EmotionSteeringService(runtime, EmotionReasonerAgent(["love"], policy=POLICY),
+                                             Scorer(0.05, 0.05), evidence={})
+                plan, _ = run(svc, text)
+                self.assertEqual(plan["prompt_style"], style)
+                prompt = runtime.prompts[-1]
+                if style == "mindmate_only":
+                    self.assertEqual(prompt, SYSTEM_PROMPT)
+                else:
+                    self.assertIn("Response strategy for this turn", prompt)
+                    self.assertEqual("Tone:" in prompt, style == "strategy_v3")
+
+    def test_model_switch_answers_with_the_newly_loaded_model(self):
+        from backend.models import ModelManager
+        svc, new_runtime = service(0.05, 0.05)
+        new_runtime.model_id = "new-model"
+        handler = RequestHandler.__new__(RequestHandler)
+        body = json.dumps({"messages": [{"role": "user", "content": SAD}], "model": "sarvam"}).encode()
+        handler.path = "/api/chat"
+        handler.headers = {"Content-Length": str(len(body))}
+        handler.rfile, handler.wfile = io.BytesIO(body), io.BytesIO()
+        handler.server = Mock(agent_service=None)
+        handler.server.runtime = old_runtime = object()
+        handler.server.models = Mock(spec=ModelManager)
+        # The endpoint leases the selected model for the whole request (loading it if needed).
+        handler.server.models.acquire.side_effect = lambda key: new_runtime
+        handler.server.session_secret = b"test-secret"
+        handler.server.resource_owners = SessionStore()
+        handler._emotion_service = lambda: svc
+        handler.send_response, handler.send_header, handler.end_headers = Mock(), Mock(), Mock()
+        handler.do_POST()
+        handler.server.models.acquire.assert_called_once_with("sarvam")
+        handler.server.models.release.assert_called_once_with("sarvam")         # the lease ends with the request
+        reply = json.loads(handler.wfile.getvalue())
+        self.assertEqual(reply["model"], "new-model")
+        self.assertIsNot(new_runtime, old_runtime)
+        self.assertEqual(reply["response"], PLAIN)
+        self.assertIn("strategy", reply["emotion_plan"])
 
 
 class AgentModeConsistencyTests(unittest.TestCase):
@@ -251,7 +315,7 @@ class AgentModeConsistencyTests(unittest.TestCase):
     def agent_state(self, svc, text):
         node = EmotionReasonerNode(svc.agent, svc.probe_scores)
         graph = build_agent_graph(LocalRuntimeModel(svc.runtime, emotion_service=svc),
-                                  MCPManager({}, adapter_factory=lambda _: None), emotion_reasoner=node, safety_agent=SafetyAgent(SafetyModel()))
+                                  MCPManager({}, adapter_factory=lambda _: None), emotion_reasoner=node)
         return asyncio.run(graph.ainvoke({"messages": [HumanMessage(content=text)], "task": text, "user_id": "u",
                                           "run_id": "r1"}))
 
@@ -266,11 +330,6 @@ class AgentModeConsistencyTests(unittest.TestCase):
                 agent_service, runtime = service(*scores, policy=policy)
                 state = self.agent_state(agent_service, text)
                 self.assertEqual(direct["decision"]["status"], expected)
-                if text == CRISIS:
-                    self.assertEqual(state["safety"]["policy"]["route"], "safety")
-                    self.assertEqual(state["emotion_plan"], {})
-                    self.assertEqual(runtime.calls, [])
-                    continue
                 for key in ("strategy", "response_emotion", "steering_alpha", "safety_flag"):
                     self.assertEqual(state["emotion_plan"][key], plan[key])
                 self.assertEqual(state["steering"]["decision"], direct["decision"])
@@ -285,7 +344,7 @@ class AgentModeConsistencyTests(unittest.TestCase):
         model = LocalRuntimeModel(runtime)
         self.assertFalse(hasattr(model, "complete_planned"))
         node = EmotionReasonerNode(EmotionReasonerAgent(["love"], policy=POLICY), lambda text: Scorer(0, 0).score(text))
-        graph = build_agent_graph(model, MCPManager({}, adapter_factory=lambda _: None), emotion_reasoner=node, safety_agent=SafetyAgent(SafetyModel()))
+        graph = build_agent_graph(model, MCPManager({}, adapter_factory=lambda _: None), emotion_reasoner=node)
         state = asyncio.run(graph.ainvoke({"messages": [HumanMessage(content=SAD)], "task": SAD, "user_id": "u",
                                            "run_id": "r1"}))
         self.assertEqual(state["final_response"], PLAIN)

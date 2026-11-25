@@ -3,6 +3,24 @@ import type {
   ConversationSummary, EmotionPlan, ModelEvaluation, NeuronRecord, PanelView, ReplyComparison, ResearchOverview,
   SteeringDecision, SteeringEffect, SteeringEvidence, SteeringSummary, Trajectory,
 } from "../types/emotion";
+/**
+ * The conversation as the API accepts it: alternating user / assistant turns that end with the new user message,
+ * at most 41 messages of at most 8000 characters.  A failed or interrupted reply leaves an empty assistant bubble
+ * (or none at all); that exchange is left out instead of making every later request fail.
+ */
+export function apiMessages(messages: ChatMessage[]): { role: "user" | "assistant"; content: string }[] {
+  const out: { role: "user" | "assistant"; content: string }[] = [];
+  for (const message of messages) {
+    const content = message.content.trim().slice(0, 8000);
+    if (message.role === "user") {
+      if (out.length && out[out.length - 1].role === "user") out.pop();   // that message never got a reply
+      if (content) out.push({ role: "user", content });
+    } else if (content && out.length && out[out.length - 1].role === "user") {
+      out.push({ role: "assistant", content });
+    }
+  }
+  return out.slice(-41);
+}
 export async function sendMessage(
   messages: ChatMessage[],
   signal?: AbortSignal,
@@ -12,9 +30,7 @@ export async function sendMessage(
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      messages: messages
-        .slice(-41)
-        .map(({ role, content }) => ({ role, content })),
+      messages: apiMessages(messages),
     }),
     signal,
   });
@@ -40,15 +56,13 @@ export async function streamMessage(
   signal?: AbortSignal,
   model?: string,
   conversationId?: string,
-  country?: string,
 ): Promise<StreamResult> {
   const response = await fetch("/api/chat/stream", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      messages: messages.slice(-41).map(({ role, content }) => ({ role, content })),
+      messages: apiMessages(messages),
       ...(model ? { model } : {}),
       ...(conversationId ? { conversation_id: conversationId } : {}),
-      ...(country ? { country } : {}),
     }), signal,
   });
   if (!response.ok || !response.body) {
@@ -119,7 +133,7 @@ export async function sendFeedback(
   return response.json();
 }
 export async function sendAgentMessage(
-  messages: ChatMessage[], sessionId: string, userId: string, signal?: AbortSignal, model?: string, conversationId?: string, country?: string,
+  messages: ChatMessage[], sessionId: string, userId: string, signal?: AbortSignal, model?: string, conversationId?: string,
 ): Promise<{
   response: string; activities: ToolActivity[]; errors: string[]; emotionPlan?: EmotionPlan;
   /** Agent replies go through the same steering path as direct chat, so the same analysis is returned. */
@@ -133,12 +147,11 @@ export async function sendAgentMessage(
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      messages: messages.slice(-41).map(({ role, content }) => ({ role, content })),
+      messages: apiMessages(messages),
       session_id: sessionId,
       user_id: userId,
       ...(model ? { model } : {}),
       ...(conversationId ? { conversation_id: conversationId } : {}),
-      ...(country ? { country } : {}),
     }),
     signal,
   });
@@ -180,6 +193,15 @@ export interface ChatModel {
   available: boolean;
   /** Emotion-neuron steering is active for this model. */
   steering: boolean;
+  /** Steering research status read from disk: panels for this checkpoint and what the calibrated policy allows. */
+  steering_status?: {
+    status: "policy_gated" | "disabled_by_calibration" | "uncalibrated" | "unavailable";
+    reason: string;
+    policy?: { steered_cells?: { context: string; alpha: number }[] };
+  };
+  /** Prompt window the app uses for this model (tokens). */
+  context_tokens?: number | null;
+  generation?: { max_new_tokens: number; deterministic: boolean; temperature: number; top_p: number };
 }
 export async function getModels(signal?: AbortSignal): Promise<{ models: ChatModel[]; active: string | null }> {
   const response = await fetch("/api/models", { signal });
@@ -204,12 +226,3 @@ export const fetchPanel = (name: string, signal?: AbortSignal) =>
 /** Every steered neuron of one turn, as measured by the model hooks. */
 export const fetchNeuronRecord = (turnId: string, signal?: AbortSignal) =>
   readJson<NeuronRecord>(`/api/emotion/neurons/${encodeURIComponent(turnId)}`, signal);
-
-/** Delete ephemeral safety context. Ordinary research records have a separate retention policy. */
-export async function clearSafetyContext(conversationId: string, sessionId: string): Promise<void> {
-  const response = await fetch("/api/safety/clear", {
-    method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ conversation_id: conversationId, session_id: sessionId }),
-  });
-  if (!response.ok) throw new Error("Could not clear safety context.");
-}

@@ -18,8 +18,10 @@ class ModelConfig:
     panel_file: str = "panels.json"
 
 
-DEFAULT_MODEL = "llama"
-DEFAULT_MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+# Model loaded at start (Sarvam-30B since 2026-11-21; best Hinglish replies in the v3 study).  Every other registry
+# model can be selected per message; Llama 3.1-8B remains the main emotion-steering research system.
+DEFAULT_MODEL = "sarvam"
+DEFAULT_MODEL_ID = "sarvamai/sarvam-30b"
 CONTEXT_TOKENS = 16384
 SYSTEM_PROMPT = (
     "You are MindMate, a supportive conversational assistant. "
@@ -90,7 +92,13 @@ class ModelSpec:
     runtime: str = "generic"          # "llama" (main system), "sarvam", or "generic"
     persona: bool = True              # False: no MindMate system prompt (Sarvam's existing behaviour)
     max_new_tokens: int = 1024
-    gpu_gib: float = 0.0              # approximate GPU memory when loaded
+    gpu_gib: float = 0.0              # approximate GPU memory when loaded (used before the first measured load)
+    # Chat generation settings.  Greedy decoding is what every calibration and held-out comparison
+    # used (generate_candidates always decodes greedily), so it stays the default for every model; temperature and
+    # top_p only apply when ``deterministic`` is False.
+    deterministic: bool = True
+    temperature: float = 0.7
+    top_p: float = 0.9
 
 
 MODEL_REGISTRY: dict[str, ModelSpec] = {spec.key: spec for spec in (

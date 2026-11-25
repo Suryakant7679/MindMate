@@ -114,14 +114,10 @@ class ReasonerTests(unittest.TestCase):
         self.assertFalse(summarize_intervention({}, None)["applied"])
 
 
-from chatbot_feature.tests.safety_fakes import SafetyModel
-
-
-class Model(SafetyModel):
+class Model:
     """Agent model wired to a (fake) emotion service: replies come from the shared steering path."""
 
     def __init__(self):
-        super().__init__()
         self.planned = []
 
     async def complete(self, prompt):
@@ -157,12 +153,14 @@ class GraphIntegrationTests(unittest.TestCase):
         self.assertIn("Response strategy", model.planned[0][0])
 
     def test_crisis_reply_is_not_steered(self):
+        # The Emotion Reasoner flags the crisis cue and plans no steering for it.
         model = Model()
         state = self.run_graph("I want to end my life", model)
-        self.assertIn("safe right now", state["final_response"])
-        self.assertEqual(model.planned, [])
-        self.assertEqual(state["steering"]["applied_alpha"], 0.0)
-        self.assertEqual(state["emotion_plan"], {})
+        self.assertTrue(state["emotion_plan"]["safety_flag"])
+        self.assertEqual(model.planned[0][1]["steering_alpha"], 0.0)
+        self.assertEqual(state["final_response"], "plain")
+        self.assertFalse(state["steering"]["applied"])
+        self.assertEqual(state["steering"]["decision"]["status"], "not_planned")
 
 
 if __name__ == "__main__":
@@ -192,6 +190,16 @@ class ContradictedCueTests(unittest.TestCase):
         self.assertIn("celebration", [cause["cause"] for cause in happy.causes])
         unsure = agent.plan("my birthday is tomorrow", self.scores("sadness", 0.3))
         self.assertIn("celebration", [cause["cause"] for cause in unsure.causes])
+
+    def test_negated_crisis_cue_is_not_a_crisis(self):
+        from chatbot_feature.emotion_reasoner import EmotionReasonerAgent
+        agent = EmotionReasonerAgent()
+        for text, crisis in (("I don't wanna die, that horror movie was too much", False),
+                             ("I really don\u2019t want to die from this disease", False),
+                             ("I don't want to live anymore", True), ("I don't know, I just want to die", True),
+                             ("mujhe jeena nahi hai", True)):
+            with self.subTest(text=text):
+                self.assertEqual(agent.plan(text, self.scores("sadness", 0.5)).safety_flag, crisis)
 
     def test_crisis_cue_is_never_dropped(self):
         from chatbot_feature.emotion_reasoner import EmotionReasonerAgent

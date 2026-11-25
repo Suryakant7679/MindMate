@@ -1,0 +1,1316 @@
+nohup: ignoring input
+===== 2026-11-18 11:59:13  twojudge: python3 -m generation_analysis.diagnose_calibration =====
+ judge                                 context  n  selected  strengths_with_reliable_gain  best_gain_up_to_1  emotion gain not reliable  independent classifier did not rise  quality rating dropped  too many harmed replies  judge preferred the unsteered reply  next stronger strength unsafe  preference_fail_but_ci_includes_0.5 sole_blocker_somewhere
+judge1                      admiration|english 29      0.00                             3              0.225                          1                                    1                       4                        3                                    4                              4                                    1                       
+judge1                     admiration|hinglish  9      0.00                             1              0.369                          3                                    1                       4                        4                                    2                              4                                    0                       
+judge1                             joy|english 20      0.00                             4              0.490                          0                                    2                       4                        2                                    3                              4                                    0                       
+judge1                            joy|hinglish  5      0.00                             2              0.205                          2                                    2                       4                        3                                    3                              4                                    0                       
+judge1                            love|english 79      0.00                             4              0.696                          0                                    0                       3                        1                                    3                              4                                    0                       
+judge1                           love|hinglish 18      0.00                             3              0.641                          1                                    0                       4                        3                                    3                              4                                    1                       
+judge1 strategy:appreciative_mirroring|english 20      0.00                             0              0.168                          4                                    1                       4                        1                                    4                              4                                    1                       
+judge1    strategy:celebratory_sharing|english 20      0.00                             4              0.490                          0                                    2                       4                        2                                    3                              4                                    0                       
+judge1  strategy:compassionate_comfort|english 19      0.00                             3              0.759                          1                                    0                       4                        1                                    3                              4                                    3                       
+judge1     strategy:gentle_exploration|english 19      0.00                             4              0.642                          0                                    1                       4                        2                                    3                              4                                    0                       
+judge1  strategy:grounding_reassurance|english 19      0.25                             4              0.794                          0                                    0                       2                        1                                    2                              3                                    0                       
+judge1  strategy:reflective_validation|english 19      0.00                             2              0.664                          2                                    2                       4                        2                                    2                              4                                    0                       
+judge2                      admiration|english 29      0.00                             3              0.444                          1                                    1                       4                        4                                    4                              4                                    0                       
+judge2                     admiration|hinglish  9      0.00                             2              1.326                          2                                    1                       4                        4                                    3                              4                                    0                       
+judge2                             joy|english 20      0.00                             4              0.858                          0                                    2                       4                        4                                    4                              4                                    0                       
+judge2                            joy|hinglish  5      0.00                             4              1.403                          0                                    2                       4                        4                                    4                              4                                    1                       
+judge2                            love|english 79      0.00                             4              0.241                          0                                    0                       4                        4                                    4                              4                                    0                       
+judge2                           love|hinglish 18      0.00                             1              0.247                          3                                    0                       4                        4                                    4                              4                                    0                       
+judge2 strategy:appreciative_mirroring|english 20      0.00                             3              0.393                          1                                    1                       4                        4                                    4                              4                                    0                       
+judge2    strategy:celebratory_sharing|english 20      0.00                             4              0.858                          0                                    2                       4                        4                                    4                              4                                    0                       
+judge2  strategy:compassionate_comfort|english 19      0.00                             2              0.301                          2                                    0                       4                        4                                    4                              4                                    3                       
+judge2     strategy:gentle_exploration|english 19      0.00                             4              0.678                          0                                    1                       4                        4                                    4                              4                                    2                       
+judge2  strategy:grounding_reassurance|english 19      0.00                             0              0.114                          4                                    0                       4                        4                                    3                              4                                    0                       
+judge2  strategy:reflective_validation|english 19      0.00                             0              0.138                          4                                    2                       4                        4                                    4                              4                                    0                       
+    target language  n  emotion_rating_judge1  gate_score  independent_score  share_at_or_above_gate_ceiling  emotion_rating_judge2
+admiration  english 29                  4.366       0.719              0.494                           0.897                  3.687
+admiration hinglish  9                  4.485       0.663              0.463                           0.778                  3.430
+       joy  english 20                  4.370       0.538              0.096                           0.950                  3.896
+       joy hinglish  5                  4.152       0.530              0.147                           0.800                  3.407
+      love  english 79                  3.756       0.048              0.022                           0.013                  3.592
+      love hinglish 18                  4.140       0.023              0.011                           0.000                  3.807
+language  alpha  replies  reply_in_hinglish_share  reply_words  length_vs_unsteered  repeated_bigram_rate  fluency  relevance
+ english   0.00      128                      0.0       64.188                1.000                 0.014    4.885      4.742
+ english   0.25      128                      0.0       61.203                0.991                 0.010    4.886      4.713
+ english   0.50      128                      0.0       58.938                0.951                 0.011    4.849      4.687
+ english   0.75      128                      0.0       59.297                0.967                 0.009    4.747      4.591
+ english   1.00      128                      0.0       58.469                0.960                 0.011    4.513      4.408
+ english   1.25      128                      0.0       60.578                1.001                 0.015    4.307      4.144
+ english   1.50      128                      0.0       60.609                1.003                 0.015    3.932      3.794
+hinglish   0.00       32                      0.0       64.656                1.000                 0.025    4.877      4.449
+hinglish   0.25       32                      0.0       59.250                0.935                 0.017    4.800      4.262
+hinglish   0.50       32                      0.0       56.969                0.896                 0.010    4.812      4.332
+hinglish   0.75       32                      0.0       58.656                0.925                 0.013    4.705      4.201
+hinglish   1.00       32                      0.0       54.125                0.852                 0.008    4.146      3.619
+hinglish   1.25       32                      0.0       57.906                0.929                 0.009    3.856      3.445
+hinglish   1.50       32                      0.0       56.750                0.908                 0.011    3.418      3.050
+    target language  alpha  n  target_label_change                                                                                         largest_changes
+admiration  english    0.5 29                0.034        admiration +0.034, joy -0.032, excitement +0.030, love +0.024, curiosity +0.014, approval -0.013
+admiration  english    1.0 29                0.100            admiration +0.100, curiosity -0.044, joy -0.027, love +0.023, caring -0.021, approval -0.013
+admiration hinglish    0.5  9                0.132    gratitude -0.261, admiration +0.132, disappointment +0.078, love +0.057, joy +0.043, approval -0.039
+admiration hinglish    1.0  9                0.279       gratitude -0.359, admiration +0.279, joy +0.084, love +0.071, curiosity -0.058, excitement +0.057
+       joy  english    0.5 20               -0.011  admiration +0.061, excitement -0.057, love +0.039, curiosity -0.024, disappointment +0.016, joy -0.011
+       joy  english    1.0 20               -0.008    curiosity -0.134, excitement +0.129, admiration -0.080, surprise +0.013, joy -0.008, approval -0.006
+       joy hinglish    0.5  5                0.003 curiosity -0.152, excitement +0.117, annoyance +0.116, love -0.098, anger +0.022, disappointment +0.020
+       joy hinglish    1.0  5               -0.055        love -0.181, curiosity -0.167, admiration +0.087, excitement +0.083, joy -0.055, approval +0.023
+      love  english    0.5 79                0.015    curiosity +0.055, caring -0.033, disappointment -0.021, fear +0.016, love +0.015, nervousness +0.014
+      love  english    1.0 79                0.055          admiration +0.072, love +0.055, fear +0.046, caring -0.044, nervousness +0.023, neutral -0.021
+      love hinglish    0.5 18                0.004     caring -0.070, curiosity +0.066, sadness +0.044, annoyance +0.043, confusion +0.020, neutral -0.019
+      love hinglish    1.0 18                0.055    sadness +0.095, caring -0.068, disappointment +0.064, love +0.055, admiration +0.042, neutral -0.033
+===== 2026-11-18 11:59:20  twojudge: python3 -m generation_analysis.consensus_policy =====
+                                context  n  v2_alpha  judge1_alone  judge2_alone  consensus_alpha                                                                          reason
+                     admiration|english 29      0.00          0.00           0.0              0.0 not steered: no strength was quality-safe for both judges (judge 1 and judge 2)
+                    admiration|hinglish  9      0.00          0.00           0.0              0.0 not steered: no strength was quality-safe for both judges (judge 1 and judge 2)
+                            joy|english 20      0.00          0.00           0.0              0.0 not steered: no strength was quality-safe for both judges (judge 1 and judge 2)
+                           joy|hinglish  5      0.00          0.00           0.0              0.0                       not steered: only 5 calibration messages for this context
+                           love|english 79      0.00          0.00           0.0              0.0             not steered: no strength was quality-safe for both judges (judge 2)
+                          love|hinglish 18      0.00          0.00           0.0              0.0 not steered: no strength was quality-safe for both judges (judge 1 and judge 2)
+strategy:appreciative_mirroring|english 20      0.00          0.00           0.0              0.0 not steered: no strength was quality-safe for both judges (judge 1 and judge 2)
+   strategy:celebratory_sharing|english 20      0.00          0.00           0.0              0.0 not steered: no strength was quality-safe for both judges (judge 1 and judge 2)
+ strategy:compassionate_comfort|english 19      0.00          0.00           0.0              0.0 not steered: no strength was quality-safe for both judges (judge 1 and judge 2)
+    strategy:gentle_exploration|english 19      0.00          0.00           0.0              0.0 not steered: no strength was quality-safe for both judges (judge 1 and judge 2)
+ strategy:grounding_reassurance|english 19      0.25          0.25           0.0              0.0             not steered: no strength was quality-safe for both judges (judge 2)
+ strategy:reflective_validation|english 19      0.00          0.00           0.0              0.0 not steered: no strength was quality-safe for both judges (judge 1 and judge 2)
+===== 2026-11-18 11:59:24  twojudge: python3 -m generation_analysis.holdout2 --stages generate score report =====
+6 shared messages are in llama2's own earlier splits and are left out for this model.
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.89s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.88s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.58s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.66s/it]
+Model ready.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+holdout2-122: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-123: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-124: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-125: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-126: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-127: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-128: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-129: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-130: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-131: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-132: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-133: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-134: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-135: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-136: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-137: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-138: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-139: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-140: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-141: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-142: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-143: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-144: grounding_reassurance -> v2 rejected (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-145: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-146: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-147: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-148: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-149: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-150: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-151: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-152: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-153: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-154: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-155: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-156: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-157: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-158: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-159: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-160: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-161: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-162: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-163: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-164: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-165: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-166: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-167: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-168: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-169: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-170: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-171: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-172: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-173: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-174: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-175: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-176: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-177: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-178: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-179: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-180: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-181: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-182: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-183: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-184: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-185: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-186: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-187: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-188: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-189: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-190: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-191: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-192: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-193: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-194: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-195: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-196: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-197: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-198: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-199: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-200: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-201: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-202: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-203: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-204: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-205: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-206: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-207: warm_connection -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-208: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-209: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-210: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-211: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-212: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-213: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-214: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-215: warm_connection -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-216: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-217: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-218: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-219: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-220: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-221: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-222: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-223: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-224: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-225: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-226: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-227: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-228: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-229: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-230: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-231: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-232: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-233: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-234: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-235: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-236: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-237: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-238: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-239: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-240: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-241: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-242: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-243: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-244: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-245: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-246: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-247: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-248: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-249: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-250: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-251: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-252: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-253: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-254: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-255: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-256: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-257: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-258: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-259: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-260: grounding_reassurance -> v2 skipped (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-261: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-262: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-263: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-264: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-265: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-266: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-267: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-268: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-269: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-270: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-271: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-272: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-273: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-274: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-275: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-276: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-277: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-278: grounding_reassurance -> v2 applied (alpha 0.25), consensus not_planned (alpha 0.0)
+holdout2-279: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-280: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-281: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-282: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-283: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-284: grounding_reassurance -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-285: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-286: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-287: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-288: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-289: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-290: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-291: grounding_reassurance -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-292: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-293: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-294: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-295: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-296: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-297: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-298: grounding_reassurance -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-299: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-300: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-301: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-302: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-303: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-304: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-305: grounding_reassurance -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-306: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-307: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-308: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-309: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-310: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-311: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-312: grounding_reassurance -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-313: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-314: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-315: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-316: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-317: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-318: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-319: grounding_reassurance -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-320: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-321: strengths_affirmation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-322: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-323: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-324: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-325: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-326: grounding_reassurance -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-327: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-328: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-329: celebratory_sharing -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-330: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-331: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-332: grounding_reassurance -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-333: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-334: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-335: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-336: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-337: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-338: appreciative_mirroring -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-339: compassionate_comfort -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-340: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-341: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-342: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-343: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-344: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-345: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-346: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-347: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-348: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-349: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-350: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-351: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-352: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-353: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-354: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-355: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-356: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-357: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-358: gentle_exploration -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+holdout2-359: reflective_validation -> v2 not_planned (alpha 0.0), consensus not_planned (alpha 0.0)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.18it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.09it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.10it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:17,  1.63s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:13,  1.36s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:04<00:13,  1.46s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:05<00:10,  1.31s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:06<00:08,  1.23s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:07<00:07,  1.17s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:08<00:05,  1.15s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:09<00:04,  1.14s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:10<00:03,  1.13s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:12<00:02,  1.13s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:13<00:01,  1.14s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:13<00:00,  1.21it/s]Loading checkpoint shards: 100%|██████████| 12/12 [00:13<00:00,  1.11s/it]
+  subset    system   n  judge_emotion_both  empathy_both  relevance_both  fluency_both  safety_both  indep_target  steered_share
+     all  baseline 354               3.597         4.436           4.706         4.689        4.738         0.164          0.000
+     all kg_prompt 354               3.808         4.451           4.584         4.592        4.642         0.162          0.000
+     all        v2 354               3.824         4.453           4.579         4.583        4.627         0.163          0.107
+     all consensus 354               3.808         4.451           4.584         4.592        4.642         0.162          0.000
+ english  baseline 274               3.639         4.444           4.788         4.752        4.732         0.186          0.000
+ english kg_prompt 274               3.804         4.475           4.680         4.654        4.654         0.178          0.000
+ english        v2 274               3.823         4.478           4.674         4.642        4.635         0.179          0.139
+ english consensus 274               3.804         4.475           4.680         4.654        4.654         0.178          0.000
+hinglish  baseline  80               3.454         4.407           4.425         4.475        4.756         0.088          0.000
+hinglish kg_prompt  80               3.825         4.368           4.255         4.379        4.601         0.109          0.000
+hinglish        v2  80               3.825         4.368           4.255         4.379        4.601         0.109          0.000
+hinglish consensus  80               3.825         4.368           4.255         4.379        4.601         0.109          0.000
+              v2  consensus
+status                     
+not_planned  314        354
+applied       38          0
+rejected       1          0
+skipped        1          0
+{'crisis_messages': 38, 'v2_plans_steering': 0, 'consensus_plans_steering': 0}
+   policy  messages  planned  steered  steered_share  harmed_share_judge1  safety_change_judge1  min_safety_rating_judge1  safety_below_3_share_judge1  harmed_share_judge2  safety_change_judge2  min_safety_rating_judge2  safety_below_3_share_judge2  harmed_share_both  safety_change_both  min_safety_rating_both  safety_below_3_share_both
+       v2       354       40       38          0.107                0.053                -0.004                     1.954                        0.008                0.368                 -0.27                     1.000                        0.045              0.158              -0.137                   1.478                      0.017
+consensus       354        0        0          0.000                  NaN                   NaN                     1.954                        0.008                  NaN                   NaN                     1.000                        0.040                NaN                 NaN                   1.478                      0.017
+ baseline       354        0        0          0.000                  NaN                   NaN                     3.035                        0.000                  NaN                   NaN                     1.971                        0.017                NaN                 NaN                   2.641                      0.008
+kg_prompt       354        0        0          0.000                  NaN                   NaN                     1.954                        0.008                  NaN                   NaN                     1.000                        0.040                NaN                 NaN                   1.478                      0.017
+                                                      ci_high                          ci_low                            mean                         
+source                                                   both classifier judge1 judge2   both classifier judge1 judge2   both classifier judge1 judge2
+subset     contrast              metric                                                                                                               
+all        consensus - kg_prompt empathy                0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 fluency                0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 indep_target             NaN      0.000    NaN    NaN    NaN      0.000    NaN    NaN    NaN      0.000    NaN    NaN
+                                 judge_emotion          0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 preference_minus_0.5   0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 relevance              0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 safety                 0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+           consensus - v2        empathy                0.005        NaN  0.005  0.009 -0.009        NaN -0.008 -0.015 -0.002        NaN -0.002 -0.003
+                                 fluency                0.021        NaN  0.001  0.046 -0.001        NaN -0.011  0.003  0.010        NaN -0.004  0.024
+                                 indep_target             NaN     -0.000    NaN    NaN    NaN     -0.001    NaN    NaN    NaN     -0.001    NaN    NaN
+                                 judge_emotion         -0.005        NaN -0.009  0.004 -0.027        NaN -0.044 -0.015 -0.015        NaN -0.025 -0.005
+                                 preference_minus_0.5   0.006        NaN  0.007  0.009 -0.011        NaN -0.011 -0.014 -0.002        NaN -0.002 -0.003
+                                 relevance              0.020        NaN  0.009  0.035 -0.012        NaN -0.011 -0.017  0.005        NaN -0.002  0.011
+                                 safety                 0.027        NaN  0.009  0.048  0.004        NaN -0.009  0.012  0.015        NaN  0.000  0.029
+           kg_prompt - baseline  empathy                0.059        NaN  0.034  0.094 -0.034        NaN -0.059 -0.016  0.015        NaN -0.010  0.041
+                                 fluency               -0.051        NaN -0.020 -0.070 -0.148        NaN -0.091 -0.219 -0.097        NaN -0.052 -0.142
+                                 indep_target             NaN      0.014    NaN    NaN    NaN     -0.017    NaN    NaN    NaN     -0.002    NaN    NaN
+                                 judge_emotion          0.272        NaN  0.262  0.296  0.151        NaN  0.118  0.171  0.211        NaN  0.190  0.233
+                                 preference_minus_0.5   0.075        NaN  0.050  0.110  0.013        NaN -0.019  0.035  0.044        NaN  0.015  0.073
+                                 relevance             -0.063        NaN -0.031 -0.080 -0.185        NaN -0.137 -0.248 -0.122        NaN -0.082 -0.163
+                                 safety                -0.043        NaN  0.005 -0.079 -0.153        NaN -0.085 -0.230 -0.096        NaN -0.039 -0.153
+           v2 - kg_prompt        empathy                0.009        NaN  0.008  0.015 -0.005        NaN -0.005 -0.009  0.002        NaN  0.002  0.003
+                                 fluency                0.001        NaN  0.011 -0.003 -0.021        NaN -0.001 -0.046 -0.010        NaN  0.004 -0.024
+                                 indep_target             NaN      0.001    NaN    NaN    NaN      0.000    NaN    NaN    NaN      0.001    NaN    NaN
+                                 judge_emotion          0.027        NaN  0.044  0.015  0.005        NaN  0.009 -0.004  0.015        NaN  0.025  0.005
+                                 preference_minus_0.5   0.011        NaN  0.011  0.014 -0.006        NaN -0.007 -0.009  0.002        NaN  0.002  0.003
+                                 relevance              0.012        NaN  0.011  0.017 -0.020        NaN -0.009 -0.035 -0.005        NaN  0.002 -0.011
+                                 safety                -0.004        NaN  0.009 -0.012 -0.027        NaN -0.009 -0.048 -0.015        NaN -0.000 -0.029
+v2_steered consensus - kg_prompt empathy                0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 fluency                0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 indep_target             NaN      0.000    NaN    NaN    NaN      0.000    NaN    NaN    NaN      0.000    NaN    NaN
+                                 judge_emotion          0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 preference_minus_0.5   0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 relevance              0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+                                 safety                 0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000  0.000        NaN  0.000  0.000
+           consensus - v2        empathy                0.046        NaN  0.048  0.083 -0.088        NaN -0.078 -0.144 -0.020        NaN -0.014 -0.026
+                                 fluency                0.193        NaN  0.006  0.422 -0.007        NaN -0.096  0.034  0.089        NaN -0.041  0.219
+                                 indep_target             NaN     -0.003    NaN    NaN    NaN     -0.011    NaN    NaN    NaN     -0.007    NaN    NaN
+                                 judge_emotion         -0.049        NaN -0.092  0.037 -0.245        NaN -0.385 -0.138 -0.141        NaN -0.232 -0.050
+                                 preference_minus_0.5   0.059        NaN  0.070  0.081 -0.100        NaN -0.100 -0.131 -0.021        NaN -0.016 -0.025
+                                 relevance              0.180        NaN  0.082  0.322 -0.112        NaN -0.106 -0.166  0.042        NaN -0.015  0.100
+                                 safety                 0.242        NaN  0.079  0.432  0.046        NaN -0.082  0.131  0.137        NaN  0.004  0.270
+           kg_prompt - baseline  empathy                0.129        NaN  0.030  0.255 -0.006        NaN -0.090  0.049  0.058        NaN -0.030  0.145
+                                 fluency               -0.026        NaN -0.009 -0.012 -0.238        NaN -0.127 -0.384 -0.134        NaN -0.064 -0.205
+                                 indep_target             NaN     -0.002    NaN    NaN    NaN     -0.010    NaN    NaN    NaN     -0.005    NaN    NaN
+                                 judge_emotion          0.120        NaN  0.013  0.263 -0.156        NaN -0.352 -0.011 -0.023        NaN -0.169  0.124
+                                 preference_minus_0.5   0.183        NaN  0.211  0.177  0.004        NaN -0.011 -0.007  0.095        NaN  0.103  0.088
+                                 relevance             -0.019        NaN -0.040  0.035 -0.308        NaN -0.214 -0.439 -0.144        NaN -0.118 -0.170
+                                 safety                 0.078        NaN  0.111  0.076 -0.147        NaN -0.114 -0.236 -0.045        NaN -0.008 -0.081
+           v2 - kg_prompt        empathy                0.088        NaN  0.078  0.144 -0.046        NaN -0.048 -0.083  0.020        NaN  0.014  0.026
+                                 fluency                0.007        NaN  0.096 -0.034 -0.193        NaN -0.006 -0.422 -0.089        NaN  0.041 -0.219
+                                 indep_target             NaN      0.011    NaN    NaN    NaN      0.003    NaN    NaN    NaN      0.007    NaN    NaN
+                                 judge_emotion          0.245        NaN  0.385  0.138  0.049        NaN  0.092 -0.037  0.141        NaN  0.232  0.050
+                                 preference_minus_0.5   0.100        NaN  0.100  0.131 -0.059        NaN -0.070 -0.081  0.021        NaN  0.016  0.025
+                                 relevance              0.112        NaN  0.106  0.166 -0.180        NaN -0.082 -0.322 -0.042        NaN  0.015 -0.100
+                                 safety                -0.046        NaN  0.082 -0.131 -0.242        NaN -0.079 -0.432 -0.137        NaN -0.004 -0.270
+             contrast               metric     source   n    mean  ci_low  ci_high      p  p_holm
+ kg_prompt - baseline        judge_emotion       both 354  0.2114  0.1510   0.2719 0.0000  0.0000
+ kg_prompt - baseline              empathy       both 354  0.0152 -0.0342   0.0593 0.0015  0.0185
+ kg_prompt - baseline            relevance       both 354 -0.1224 -0.1847  -0.0632 0.0083  0.0581
+ kg_prompt - baseline              fluency       both 354 -0.0973 -0.1484  -0.0507 0.0001  0.0011
+ kg_prompt - baseline               safety       both 354 -0.0956 -0.1529  -0.0428 0.0020  0.0205
+ kg_prompt - baseline preference_minus_0.5       both 354  0.0440  0.0128   0.0750 0.0091  0.0581
+ kg_prompt - baseline         indep_target classifier 354 -0.0016 -0.0169   0.0139 0.3392  1.0000
+       v2 - kg_prompt        judge_emotion       both 354  0.0151  0.0046   0.0274 0.0060  0.0479
+       v2 - kg_prompt              empathy       both 354  0.0022 -0.0049   0.0093 0.9364  1.0000
+       v2 - kg_prompt            relevance       both 354 -0.0046 -0.0197   0.0117 0.7224  1.0000
+       v2 - kg_prompt              fluency       both 354 -0.0095 -0.0210   0.0009 0.3066  1.0000
+       v2 - kg_prompt               safety       both 354 -0.0147 -0.0269  -0.0045 0.0050  0.0451
+       v2 - kg_prompt preference_minus_0.5       both 354  0.0022 -0.0061   0.0107 0.4464  1.0000
+       v2 - kg_prompt         indep_target classifier 354  0.0007  0.0003   0.0013 0.0017  0.0186
+consensus - kg_prompt        judge_emotion       both 354  0.0000  0.0000   0.0000    NaN     NaN
+consensus - kg_prompt              empathy       both 354  0.0000  0.0000   0.0000    NaN     NaN
+consensus - kg_prompt            relevance       both 354  0.0000  0.0000   0.0000    NaN     NaN
+consensus - kg_prompt              fluency       both 354  0.0000  0.0000   0.0000    NaN     NaN
+consensus - kg_prompt               safety       both 354  0.0000  0.0000   0.0000    NaN     NaN
+consensus - kg_prompt preference_minus_0.5       both 354  0.0000  0.0000   0.0000    NaN     NaN
+consensus - kg_prompt         indep_target classifier 354  0.0000  0.0000   0.0000    NaN     NaN
+                            metric  replies  spearman_levels  judge1_mean  judge2_mean  mean_abs_difference  steered_pairs  spearman_changes  same_direction_share
+                     judge_emotion      746            0.679        3.918        3.504                0.559           38.0             0.434                 0.711
+                           empathy      746            0.637        4.864        4.038                0.831           38.0             0.348                 0.632
+                         relevance      746            0.720        4.771        4.523                0.340           38.0             0.366                 0.579
+                           fluency      746            0.654        4.912        4.364                0.558           38.0             0.208                 0.605
+                            safety      746            0.603        4.883        4.488                0.429           38.0             0.227                 0.474
+preference kg_prompt over baseline      351            0.571        0.515        0.573                  NaN            NaN               NaN                 0.718
+      preference v2 over kg_prompt       37            0.551        0.516        0.516                  NaN            NaN               NaN                 0.757
+      preference consensus over v2       37            0.551        0.484        0.484                  NaN            NaN               NaN                 0.757
+       preference v2 over baseline      351            0.575        0.510        0.570                  NaN            NaN               NaN                 0.721
+preference consensus over baseline      351            0.571        0.515        0.573                  NaN            NaN               NaN                 0.718
+===== 2026-11-18 12:40:17  finished stage: twojudge =====
+===== 2026-11-18 12:40:17  v3: python3 -m generation_analysis.v3_prompts --stages generate score report =====
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.92s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.08s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.69s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.78s/it]
+Model ready.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+calibration-000
+calibration-001
+calibration-002
+calibration-003
+calibration-004
+calibration-005
+calibration-006
+calibration-007
+calibration-008
+calibration-009
+calibration-010
+calibration-011
+calibration-012
+calibration-013
+calibration-014
+calibration-015
+calibration-016
+calibration-017
+calibration-018
+calibration-019
+calibration-020
+calibration-021
+calibration-022
+calibration-023
+calibration-024
+calibration-025
+calibration-026
+calibration-027
+calibration-028
+calibration-029
+calibration-030
+calibration-031
+calibration-032
+calibration-033
+calibration-034
+calibration-035
+calibration-036
+calibration-037
+calibration-038
+calibration-039
+calibration-040
+calibration-041
+calibration-042
+calibration-043
+calibration-044
+calibration-045
+calibration-046
+calibration-047
+calibration-048
+calibration-049
+calibration-050
+calibration-051
+calibration-052
+calibration-053
+calibration-054
+calibration-055
+calibration-056
+calibration-057
+calibration-058
+calibration-059
+calibration-060
+calibration-061
+calibration-062
+calibration-063
+calibration-064
+calibration-065
+calibration-066
+calibration-067
+calibration-068
+calibration-069
+calibration-070
+calibration-071
+calibration-072
+calibration-073
+calibration-074
+calibration-075
+calibration-076
+calibration-077
+calibration-078
+calibration-079
+calibration-080
+calibration-081
+calibration-082
+calibration-083
+calibration-084
+calibration-085
+calibration-086
+calibration-087
+calibration-088
+calibration-089
+calibration-090
+calibration-091
+calibration-092
+calibration-093
+calibration-094
+calibration-095
+calibration-096
+calibration-097
+calibration-098
+calibration-099
+calibration-100
+calibration-101
+calibration-102
+calibration-103
+calibration-104
+calibration-105
+calibration-106
+calibration-107
+calibration-108
+calibration-109
+calibration-110
+calibration-111
+calibration-112
+calibration-113
+calibration-114
+calibration-115
+calibration-116
+calibration-117
+calibration-118
+calibration-119
+calibration-120
+calibration-121
+calibration-122
+calibration-123
+calibration-124
+calibration-125
+calibration-126
+calibration-127
+calibration-128
+calibration-129
+calibration-130
+calibration-131
+calibration-132
+calibration-133
+calibration-134
+calibration-135
+calibration-136
+calibration-137
+calibration-138
+calibration-139
+calibration-140
+calibration-141
+calibration-142
+calibration-143
+calibration-144
+calibration-145
+calibration-146
+calibration-147
+calibration-148
+calibration-149
+calibration-150
+calibration-151
+calibration-152
+calibration-153
+calibration-154
+calibration-155
+calibration-156
+calibration-157
+calibration-158
+calibration-159
+calhi-000
+calhi-001
+calhi-002
+calhi-003
+calhi-004
+calhi-005
+calhi-006
+calhi-007
+calhi-008
+calhi-009
+calhi-010
+calhi-011
+calhi-012
+calhi-013
+calhi-014
+calhi-015
+calhi-016
+calhi-017
+calhi-018
+calhi-019
+calhi-020
+calhi-021
+calhi-022
+calhi-023
+calhi-024
+calhi-025
+calhi-026
+calhi-027
+calhi-028
+calhi-029
+calhi-030
+calhi-031
+calhi-032
+calhi-033
+calhi-034
+calhi-035
+calhi-036
+calhi-037
+calhi-038
+calhi-039
+calhi-040
+calhi-041
+calhi-042
+calhi-043
+calhi-044
+calhi-045
+calhi-046
+calhi-047
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.39it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.24it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.23it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.24it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:15,  1.40s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:12,  1.22s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:03<00:09,  1.09s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:04<00:08,  1.00s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:05<00:06,  1.05it/s]Loading checkpoint shards:  50%|█████     | 6/12 [00:06<00:05,  1.08it/s]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:06<00:04,  1.09it/s]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:07<00:03,  1.09it/s]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:08<00:02,  1.08it/s]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:09<00:01,  1.07it/s]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:10<00:00,  1.04it/s]Loading checkpoint shards: 100%|██████████| 12/12 [00:10<00:00,  1.11it/s]
+language        variant   n  appropriateness  empathy  relevance  fluency  safety  naturalness  hinglish_naturalness  indep_target  reply_words  repeated_bigram_rate  reply_is_hinglish  degenerate  questions
+     all       baseline 208            4.609    4.451      4.648    4.652   4.759        4.343                 3.454         0.120       54.779                 0.015              0.000         0.0      1.332
+     all       kg_style 208            4.435    4.341      4.473    4.462   4.532        4.166                 3.442         0.152       56.188                 0.016              0.029         0.0      1.466
+     all        kg_tone 208            4.492    4.439      4.471    4.463   4.581        4.141                 3.252         0.147       61.865                 0.015              0.000         0.0      1.404
+     all          kg_v2 208            4.531    4.455      4.506    4.513   4.634        4.238                 3.317         0.136       62.745                 0.017              0.000         0.0      1.442
+     all          kg_v3 208            4.470    4.366      4.496    4.484   4.559        4.174                 3.464         0.161       55.519                 0.014              0.019         0.0      1.409
+     all    kg_v2_guard 208            4.531    4.455      4.506    4.513   4.634        4.238                 3.317         0.136       62.745                 0.017              0.000         0.0      1.442
+     all  kg_tone_guard 208            4.492    4.439      4.471    4.463   4.581        4.141                 3.252         0.147       61.865                 0.015              0.000         0.0      1.404
+     all kg_style_guard 208            4.435    4.341      4.473    4.462   4.532        4.166                 3.442         0.152       56.188                 0.016              0.029         0.0      1.466
+     all    kg_v3_guard 208            4.470    4.366      4.496    4.484   4.559        4.174                 3.464         0.161       55.519                 0.014              0.019         0.0      1.409
+ english       baseline 128            4.600    4.453      4.779    4.734   4.738        4.379                   NaN         0.131       54.727                 0.016              0.000         0.0      1.359
+ english       kg_style 128            4.552    4.425      4.663    4.677   4.656        4.320                   NaN         0.147       59.500                 0.011              0.000         0.0      1.398
+ english        kg_tone 128            4.521    4.432      4.594    4.559   4.568        4.196                   NaN         0.163       62.953                 0.014              0.000         0.0      1.391
+ english          kg_v2 128            4.533    4.449      4.622    4.588   4.606        4.270                   NaN         0.138       64.312                 0.016              0.000         0.0      1.477
+ english          kg_v3 128            4.552    4.418      4.661    4.655   4.639        4.294                   NaN         0.157       58.797                 0.014              0.000         0.0      1.312
+ english    kg_v2_guard 128            4.533    4.449      4.622    4.588   4.606        4.270                   NaN         0.138       64.312                 0.016              0.000         0.0      1.477
+ english  kg_tone_guard 128            4.521    4.432      4.594    4.559   4.568        4.196                   NaN         0.163       62.953                 0.014              0.000         0.0      1.391
+ english kg_style_guard 128            4.552    4.425      4.663    4.677   4.656        4.320                   NaN         0.147       59.500                 0.011              0.000         0.0      1.398
+ english    kg_v3_guard 128            4.552    4.418      4.661    4.655   4.639        4.294                   NaN         0.157       58.797                 0.014              0.000         0.0      1.312
+hinglish       baseline  80            4.624    4.447      4.438    4.521   4.793        4.287                 3.454         0.104       54.862                 0.014              0.000         0.0      1.288
+hinglish       kg_style  80            4.247    4.207      4.169    4.120   4.333        3.920                 3.442         0.161       50.888                 0.022              0.075         0.0      1.575
+hinglish        kg_tone  80            4.445    4.451      4.274    4.309   4.603        4.054                 3.252         0.123       60.125                 0.016              0.000         0.0      1.425
+hinglish          kg_v2  80            4.527    4.463      4.320    4.391   4.678        4.186                 3.317         0.132       60.238                 0.017              0.000         0.0      1.388
+hinglish          kg_v3  80            4.338    4.284      4.232    4.210   4.431        3.982                 3.464         0.167       50.275                 0.013              0.050         0.0      1.562
+hinglish    kg_v2_guard  80            4.527    4.463      4.320    4.391   4.678        4.186                 3.317         0.132       60.238                 0.017              0.000         0.0      1.388
+hinglish  kg_tone_guard  80            4.445    4.451      4.274    4.309   4.603        4.054                 3.252         0.123       60.125                 0.016              0.000         0.0      1.425
+hinglish kg_style_guard  80            4.247    4.207      4.169    4.120   4.333        3.920                 3.442         0.161       50.888                 0.022              0.075         0.0      1.575
+hinglish    kg_v3_guard  80            4.338    4.284      4.232    4.210   4.431        3.982                 3.464         0.167       50.275                 0.013              0.050         0.0      1.562
+contrast                          kg_style - kg_v2      kg_tone - kg_v2     kg_v2 - baseline  kg_v2_guard - kg_v2     kg_v3 - baseline        kg_v3 - kg_v2 kg_v3_guard - baseline
+language metric                                                                                                                                                                   
+all      appropriateness       -0.10 [-0.17,-0.03]  -0.04 [-0.08,+0.00]  -0.08 [-0.15,-0.01]  +0.00 [+0.00,+0.00]  -0.14 [-0.22,-0.07]  -0.06 [-0.13,+0.00]    -0.14 [-0.22,-0.07]
+         empathy               -0.11 [-0.18,-0.06]  -0.02 [-0.06,+0.02]  +0.00 [-0.06,+0.06]  +0.00 [+0.00,+0.00]  -0.08 [-0.16,-0.01]  -0.09 [-0.15,-0.03]    -0.08 [-0.16,-0.01]
+         fluency               -0.05 [-0.13,+0.02]  -0.05 [-0.10,+0.00]  -0.14 [-0.21,-0.07]  +0.00 [+0.00,+0.00]  -0.17 [-0.24,-0.10]  -0.03 [-0.10,+0.04]    -0.17 [-0.24,-0.10]
+         hinglish_naturalness  +0.12 [+0.04,+0.21]  -0.07 [-0.14,+0.01]  -0.14 [-0.21,-0.06]  +0.00 [+0.00,+0.00]  +0.01 [-0.06,+0.08]  +0.15 [+0.08,+0.21]    +0.01 [-0.06,+0.08]
+         naturalness           -0.07 [-0.15,-0.00]  -0.10 [-0.16,-0.04]  -0.11 [-0.17,-0.04]  +0.00 [+0.00,+0.00]  -0.17 [-0.24,-0.10]  -0.06 [-0.13,+0.00]    -0.17 [-0.24,-0.10]
+         preference_minus_0.5  -0.05 [-0.09,-0.01]  -0.08 [-0.12,-0.04]  -0.03 [-0.07,+0.01]                  NaN  -0.11 [-0.15,-0.07]  -0.08 [-0.12,-0.04]                    NaN
+         relevance             -0.03 [-0.11,+0.04]  -0.03 [-0.09,+0.02]  -0.14 [-0.23,-0.06]  +0.00 [+0.00,+0.00]  -0.15 [-0.24,-0.07]  -0.01 [-0.08,+0.06]    -0.15 [-0.24,-0.07]
+         safety                -0.10 [-0.18,-0.03]  -0.05 [-0.10,-0.00]  -0.13 [-0.19,-0.06]  +0.00 [+0.00,+0.00]  -0.20 [-0.28,-0.12]  -0.07 [-0.15,-0.01]    -0.20 [-0.28,-0.12]
+english  appropriateness       +0.02 [-0.04,+0.07]  -0.01 [-0.06,+0.03]  -0.07 [-0.16,+0.01]  +0.00 [+0.00,+0.00]  -0.05 [-0.15,+0.04]  +0.02 [-0.06,+0.10]    -0.05 [-0.15,+0.04]
+         empathy               -0.02 [-0.07,+0.02]  -0.02 [-0.06,+0.03]  -0.00 [-0.09,+0.07]  +0.00 [+0.00,+0.00]  -0.04 [-0.13,+0.05]  -0.03 [-0.11,+0.04]    -0.04 [-0.13,+0.05]
+         fluency               +0.09 [+0.03,+0.15]  -0.03 [-0.09,+0.03]  -0.15 [-0.24,-0.06]  +0.00 [+0.00,+0.00]  -0.08 [-0.18,+0.01]  +0.07 [-0.01,+0.14]    -0.08 [-0.18,+0.01]
+         naturalness           +0.05 [-0.00,+0.10]  -0.07 [-0.14,-0.01]  -0.11 [-0.19,-0.03]  +0.00 [+0.00,+0.00]  -0.08 [-0.17,-0.01]  +0.02 [-0.05,+0.09]    -0.08 [-0.17,-0.01]
+         preference_minus_0.5  +0.05 [+0.00,+0.10]  -0.08 [-0.13,-0.03]  -0.01 [-0.06,+0.04]                  NaN  -0.04 [-0.09,+0.02]  -0.00 [-0.06,+0.05]                    NaN
+         relevance             +0.04 [-0.01,+0.09]  -0.03 [-0.09,+0.03]  -0.16 [-0.27,-0.06]  +0.00 [+0.00,+0.00]  -0.12 [-0.23,-0.02]  +0.04 [-0.03,+0.11]    -0.12 [-0.23,-0.02]
+         safety                +0.05 [-0.01,+0.10]  -0.04 [-0.10,+0.02]  -0.13 [-0.23,-0.05]  +0.00 [+0.00,+0.00]  -0.10 [-0.20,-0.01]  +0.03 [-0.04,+0.10]    -0.10 [-0.20,-0.01]
+hinglish appropriateness       -0.28 [-0.43,-0.14]  -0.08 [-0.16,-0.00]  -0.10 [-0.22,-0.00]  +0.00 [+0.00,+0.00]  -0.29 [-0.40,-0.18]  -0.19 [-0.31,-0.08]    -0.29 [-0.40,-0.18]
+         empathy               -0.26 [-0.39,-0.13]  -0.01 [-0.09,+0.06]  +0.02 [-0.09,+0.10]  +0.00 [+0.00,+0.00]  -0.16 [-0.29,-0.05]  -0.18 [-0.28,-0.09]    -0.16 [-0.29,-0.05]
+         fluency               -0.27 [-0.44,-0.12]  -0.08 [-0.17,+0.01]  -0.13 [-0.24,-0.04]  +0.00 [+0.00,+0.00]  -0.31 [-0.42,-0.21]  -0.18 [-0.30,-0.07]    -0.31 [-0.42,-0.21]
+         hinglish_naturalness  +0.12 [+0.04,+0.21]  -0.07 [-0.14,+0.01]  -0.14 [-0.21,-0.06]  +0.00 [+0.00,+0.00]  +0.01 [-0.06,+0.08]  +0.15 [+0.08,+0.21]    +0.01 [-0.06,+0.08]
+         naturalness           -0.27 [-0.43,-0.11]  -0.13 [-0.25,-0.02]  -0.10 [-0.22,+0.00]  +0.00 [+0.00,+0.00]  -0.30 [-0.42,-0.19]  -0.20 [-0.33,-0.09]    -0.30 [-0.42,-0.19]
+         preference_minus_0.5  -0.21 [-0.27,-0.16]  -0.07 [-0.14,-0.01]  -0.06 [-0.12,+0.00]                  NaN  -0.21 [-0.26,-0.16]  -0.21 [-0.26,-0.16]                    NaN
+         relevance             -0.15 [-0.34,+0.02]  -0.05 [-0.16,+0.07]  -0.12 [-0.27,+0.02]  +0.00 [+0.00,+0.00]  -0.21 [-0.35,-0.06]  -0.09 [-0.22,+0.04]    -0.21 [-0.35,-0.06]
+         safety                -0.35 [-0.51,-0.19]  -0.08 [-0.17,+0.02]  -0.11 [-0.22,-0.02]  +0.00 [+0.00,+0.00]  -0.36 [-0.50,-0.24]  -0.25 [-0.39,-0.12]    -0.36 [-0.50,-0.24]
+===== 2026-11-18 13:57:19  v3: python3 -m generation_analysis.v3_methods --stages screen screen_score screen_report --prompt kg_v2 =====
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.90s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.88s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.58s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.66s/it]
+Model ready.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+screen dev-000
+screen dev-001
+screen dev-002
+screen dev-003
+screen dev-004
+screen dev-005
+screen dev-006
+screen dev-007
+screen dev-008
+screen dev-009
+screen dev-010
+screen dev-011
+screen dev-012
+screen dev-013
+screen dev-014
+screen dev-015
+screen dev-016
+screen dev-017
+screen dev-018
+screen dev-019
+screen dev-020
+screen dev-021
+screen dev-022
+screen dev-023
+screen dev-024
+screen dev-025
+screen dev-026
+screen dev-027
+screen dev-028
+screen dev-029
+screen dev-030
+screen dev-031
+screen dev-032
+screen dev-033
+screen dev-034
+screen dev-035
+screen dev-036
+screen dev-037
+screen dev-038
+screen dev-039
+screen dev-040
+screen dev-041
+screen dev-042
+screen dev-043
+screen dev-044
+screen dev-045
+screen dev-046
+screen dev-047
+screen devhi-000
+screen devhi-001
+screen devhi-002
+screen devhi-003
+screen devhi-004
+screen devhi-005
+screen devhi-006
+screen devhi-007
+screen devhi-008
+screen devhi-009
+screen devhi-010
+screen devhi-011
+screen devhi-012
+screen devhi-013
+screen devhi-014
+screen devhi-015
+screen devhi-016
+screen devhi-017
+screen devhi-018
+screen devhi-019
+screen devhi-020
+screen devhi-021
+screen devhi-022
+screen devhi-023
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.20it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.05it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.05it/s]
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+/data/mtech/.local/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+              config  alpha language  n  emotion_gain  emotion_gain_lo  appropriateness_change  relevance_change  fluency_change  naturalness_change  preference  preservation  length_ratio  harm_share
+            additive    0.5  english 48          0.29             0.13                   -0.09             -0.06           -0.06               -0.19        0.26          4.55          1.11        0.25
+            additive    0.5 hinglish 24          0.42             0.17                   -0.31             -0.49           -0.30               -0.39        0.34          4.16          1.05        0.50
+            additive    1.0  english 48          0.41             0.21                   -0.65             -0.54           -0.55               -0.97        0.10          3.80          1.08        0.65
+            additive    1.0 hinglish 24          0.64             0.34                   -0.54             -0.57           -0.44               -0.72        0.20          3.75          1.02        0.62
+      bounded_cap0.1    1.0  english 48          0.38             0.24                   -0.20             -0.22           -0.15               -0.34        0.20          4.40          1.09        0.31
+      bounded_cap0.1    1.0 hinglish 24          0.50             0.22                   -0.39             -0.58           -0.39               -0.51        0.32          4.03          1.06        0.46
+      bounded_cap0.1    1.5  english 48          0.43             0.27                   -0.18             -0.19           -0.09               -0.29        0.21          4.39          1.07        0.29
+      bounded_cap0.1    1.5 hinglish 24          0.51             0.22                   -0.43             -0.59           -0.39               -0.51        0.31          4.02          1.08        0.50
+      bounded_cap0.1    2.0  english 48          0.38             0.24                   -0.20             -0.22           -0.15               -0.34        0.20          4.40          1.09        0.31
+      bounded_cap0.1    2.0 hinglish 24          0.50             0.22                   -0.39             -0.58           -0.39               -0.51        0.32          4.03          1.06        0.46
+residual_neutral_L10    0.3  english 48          0.00            -0.12                   -0.14             -0.14           -0.09               -0.27        0.34          4.62          1.11        0.33
+residual_neutral_L10    0.3 hinglish 24          0.40             0.05                   -0.37             -0.49           -0.28               -0.43        0.38          4.29          1.08        0.58
+residual_neutral_L10    0.6  english 48          0.09            -0.11                   -1.04             -0.86           -1.15               -1.55        0.06          3.55          1.07        0.83
+residual_neutral_L10    0.6 hinglish 24         -0.08            -0.64                   -1.21             -1.37           -1.40               -1.54        0.12          3.29          0.96        0.92
+residual_neutral_L15    0.3  english 48          0.23             0.05                   -0.41             -0.44           -0.29               -0.74        0.06          3.96          1.08        0.60
+residual_neutral_L15    0.3 hinglish 24          0.48             0.17                   -0.41             -0.72           -0.45               -0.61        0.24          4.08          1.16        0.62
+residual_neutral_L15    0.6  english 48         -0.03            -0.29                   -1.72             -1.60           -1.69               -2.23        0.00          2.77          1.06        0.98
+residual_neutral_L15    0.6 hinglish 24         -0.55            -0.98                   -2.08             -1.90           -2.06               -2.41        0.00          2.30          0.99        1.00
+residual_neutral_L20    0.3  english 48          0.50             0.30                   -0.59             -0.61           -0.47               -0.97        0.04          3.66          0.99        0.67
+residual_neutral_L20    0.3 hinglish 24          0.64             0.35                   -0.66             -0.91           -0.80               -0.97        0.13          3.63          1.01        0.67
+residual_neutral_L20    0.6  english 48         -0.22            -0.58                   -2.23             -2.01           -2.29               -2.76        0.00          2.31          0.95        0.96
+residual_neutral_L20    0.6 hinglish 24         -0.36            -0.83                   -2.62             -2.47           -2.79               -3.14        0.00          1.46          1.01        1.00
+ residual_others_L15    0.3  english 48          0.43             0.26                   -0.16             -0.20           -0.15               -0.32        0.21          4.44          1.10        0.38
+ residual_others_L15    0.3 hinglish 24          0.41             0.06                   -0.49             -0.70           -0.55               -0.72        0.27          3.82          1.04        0.54
+ residual_others_L15    0.6  english 48          0.48             0.32                   -1.11             -1.17           -1.05               -1.48        0.02          3.30          1.09        0.75
+ residual_others_L15    0.6 hinglish 24          0.25            -0.30                   -1.27             -1.32           -1.28               -1.49        0.02          3.09          0.91        0.71
+    selective_L10-13    1.0  english 48         -0.01            -0.13                    0.04              0.03            0.03               -0.02        0.51          4.83          1.05        0.04
+    selective_L10-13    1.0 hinglish 24         -0.11            -0.28                   -0.02             -0.10           -0.06               -0.15        0.49          4.64          1.08        0.21
+    selective_L10-13    2.0  english 48          0.01            -0.13                   -0.00             -0.03           -0.01               -0.07        0.48          4.77          1.06        0.12
+    selective_L10-13    2.0 hinglish 24          0.00            -0.23                   -0.14             -0.24           -0.19               -0.29        0.40          4.42          1.11        0.29
+    selective_L14-17    1.0  english 48          0.26             0.12                   -0.02             -0.01            0.01               -0.08        0.35          4.64          1.12        0.10
+    selective_L14-17    1.0 hinglish 24          0.21            -0.11                   -0.30             -0.43           -0.31               -0.39        0.34          4.09          1.06        0.38
+    selective_L14-17    2.0  english 48          0.35             0.20                   -0.31             -0.35           -0.28               -0.58        0.14          4.12          1.17        0.50
+    selective_L14-17    2.0 hinglish 24          0.40             0.17                   -0.49             -0.64           -0.52               -0.64        0.27          3.97          1.12        0.75
+    selective_L18-22    1.0  english 48          0.43             0.29                   -0.07             -0.06           -0.04               -0.22        0.22          4.41          0.97        0.23
+    selective_L18-22    1.0 hinglish 24          0.59             0.34                   -0.32             -0.46           -0.31               -0.36        0.32          4.05          0.94        0.33
+    selective_L18-22    2.0  english 48          0.45             0.22                   -0.67             -0.54           -0.56               -1.01        0.09          3.71          0.94        0.56
+    selective_L18-22    2.0 hinglish 24          0.51             0.10                   -0.90             -0.95           -1.00               -1.14        0.12          3.21          0.88        0.58
+{
+ "additive": [
+  "additive",
+  0.5
+ ],
+ "bounded": [
+  "bounded_cap0.1",
+  1.5
+ ],
+ "residual": [
+  "residual_others_L15",
+  0.3
+ ],
+ "selective": [
+  "selective_L14-17",
+  1.0
+ ]
+}
+===== 2026-11-18 14:13:58  v3: python3 -m generation_analysis.v3_methods --stages calibrate calibrate_score select --prompt kg_v2 =====
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.89s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.88s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.57s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.66s/it]
+Model ready.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+calibrate calibration-000
+calibrate calibration-001
+calibrate calibration-002
+calibrate calibration-003
+calibrate calibration-004
+calibrate calibration-005
+calibrate calibration-006
+calibrate calibration-007
+calibrate calibration-008
+calibrate calibration-009
+calibrate calibration-010
+calibrate calibration-011
+calibrate calibration-012
+calibrate calibration-013
+calibrate calibration-014
+calibrate calibration-015
+calibrate calibration-016
+calibrate calibration-017
+calibrate calibration-018
+calibrate calibration-019
+calibrate calibration-020
+calibrate calibration-021
+calibrate calibration-022
+calibrate calibration-023
+calibrate calibration-024
+calibrate calibration-025
+calibrate calibration-026
+calibrate calibration-027
+calibrate calibration-028
+calibrate calibration-029
+calibrate calibration-030
+calibrate calibration-031
+calibrate calibration-032
+calibrate calibration-033
+calibrate calibration-034
+calibrate calibration-035
+calibrate calibration-036
+calibrate calibration-037
+calibrate calibration-038
+calibrate calibration-039
+calibrate calibration-040
+calibrate calibration-041
+calibrate calibration-042
+calibrate calibration-043
+calibrate calibration-044
+calibrate calibration-045
+calibrate calibration-046
+calibrate calibration-047
+calibrate calibration-048
+calibrate calibration-049
+calibrate calibration-050
+calibrate calibration-051
+calibrate calibration-052
+calibrate calibration-053
+calibrate calibration-054
+calibrate calibration-055
+calibrate calibration-056
+calibrate calibration-057
+calibrate calibration-058
+calibrate calibration-059
+calibrate calibration-060
+calibrate calibration-061
+calibrate calibration-062
+calibrate calibration-063
+calibrate calibration-064
+calibrate calibration-065
+calibrate calibration-066
+calibrate calibration-067
+calibrate calibration-068
+calibrate calibration-069
+calibrate calibration-070
+calibrate calibration-071
+calibrate calibration-072
+calibrate calibration-073
+calibrate calibration-074
+calibrate calibration-075
+calibrate calibration-076
+calibrate calibration-077
+calibrate calibration-078
+calibrate calibration-079
+calibrate calibration-080
+calibrate calibration-081
+calibrate calibration-082
+calibrate calibration-083
+calibrate calibration-084
+calibrate calibration-085
+calibrate calibration-086
+calibrate calibration-087
+calibrate calibration-088
+calibrate calibration-089
+calibrate calibration-090
+calibrate calibration-091
+calibrate calibration-092
+calibrate calibration-093
+calibrate calibration-094
+calibrate calibration-095
+calibrate calibration-096
+calibrate calibration-097
+calibrate calibration-098
+calibrate calibration-099
+calibrate calibration-100
+calibrate calibration-101
+calibrate calibration-102
+calibrate calibration-103
+calibrate calibration-104
+calibrate calibration-105
+calibrate calibration-106
+calibrate calibration-107
+calibrate calibration-108
+calibrate calibration-109
+calibrate calibration-110
+calibrate calibration-111
+calibrate calibration-112
+calibrate calibration-113
+calibrate calibration-114
+calibrate calibration-115
+calibrate calibration-116
+calibrate calibration-117
+calibrate calibration-118
+calibrate calibration-119
+calibrate calibration-120
+calibrate calibration-121
+calibrate calibration-122
+calibrate calibration-123
+calibrate calibration-124
+calibrate calibration-125
+calibrate calibration-126
+calibrate calibration-127
+calibrate calibration-128
+calibrate calibration-129
+calibrate calibration-130
+calibrate calibration-131
+calibrate calibration-132
+calibrate calibration-133
+calibrate calibration-134
+calibrate calibration-135
+calibrate calibration-136
+calibrate calibration-137
+calibrate calibration-138
+calibrate calibration-139
+calibrate calibration-140
+calibrate calibration-141
+calibrate calibration-142
+calibrate calibration-143
+calibrate calibration-144
+calibrate calibration-145
+calibrate calibration-146
+calibrate calibration-147
+calibrate calibration-148
+calibrate calibration-149
+calibrate calibration-150
+calibrate calibration-151
+calibrate calibration-152
+calibrate calibration-153
+calibrate calibration-154
+calibrate calibration-155
+calibrate calibration-156
+calibrate calibration-157
+calibrate calibration-158
+calibrate calibration-159
+calibrate calhi-000
+calibrate calhi-001
+calibrate calhi-002
+calibrate calhi-003
+calibrate calhi-004
+calibrate calhi-005
+calibrate calhi-006
+calibrate calhi-007
+calibrate calhi-008
+calibrate calhi-009
+calibrate calhi-010
+calibrate calhi-011
+calibrate calhi-012
+calibrate calhi-013
+calibrate calhi-014
+calibrate calhi-015
+calibrate calhi-016
+calibrate calhi-017
+calibrate calhi-018
+calibrate calhi-019
+calibrate calhi-020
+calibrate calhi-021
+calibrate calhi-022
+calibrate calhi-023
+calibrate calhi-024
+calibrate calhi-025
+calibrate calhi-026
+calibrate calhi-027
+calibrate calhi-028
+calibrate calhi-029
+calibrate calhi-030
+calibrate calhi-031
+calibrate calhi-032
+calibrate calhi-033
+calibrate calhi-034
+calibrate calhi-035
+calibrate calhi-036
+calibrate calhi-037
+calibrate calhi-038
+calibrate calhi-039
+calibrate calhi-040
+calibrate calhi-041
+calibrate calhi-042
+calibrate calhi-043
+calibrate calhi-044
+calibrate calhi-045
+calibrate calhi-046
+calibrate calhi-047
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.50it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.41it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.38it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.43it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.42it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:14,  1.30s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:10,  1.04s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:02<00:08,  1.06it/s]Loading checkpoint shards:  33%|███▎      | 4/12 [00:03<00:07,  1.09it/s]Loading checkpoint shards:  42%|████▏     | 5/12 [00:04<00:06,  1.11it/s]Loading checkpoint shards:  50%|█████     | 6/12 [00:05<00:05,  1.12it/s]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:06<00:04,  1.11it/s]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:07<00:03,  1.10it/s]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:08<00:02,  1.09it/s]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:09<00:01,  1.07it/s]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:10<00:00,  1.04it/s]Loading checkpoint shards: 100%|██████████| 12/12 [00:10<00:00,  1.15it/s]
+messages left out because the unsteered reply was degenerate: 0
+                                context  n  v2_alpha v3_method  v3_alpha                                                                           reason
+                     admiration|english 30      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+                    admiration|hinglish 18      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+                            joy|english 19      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+                           joy|hinglish 13      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+                           love|english 79      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+                          love|hinglish 49      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+strategy:appreciative_mirroring|english 19      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+   strategy:celebratory_sharing|english 19      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+  strategy:celebratory_sharing|hinglish 13       NaN      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+ strategy:compassionate_comfort|english 19      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+strategy:compassionate_comfort|hinglish 13       NaN      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+    strategy:gentle_exploration|english 19      0.00      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+   strategy:gentle_exploration|hinglish 13       NaN      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+ strategy:grounding_reassurance|english 19      0.25      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+strategy:grounding_reassurance|hinglish 12       NaN      None       0.0                                    not steered: not quality-safe for both judges
+ strategy:reflective_validation|english 19      0.00      None       0.0                                    not steered: not quality-safe for both judges
+strategy:reflective_validation|hinglish 11       NaN      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+ strategy:strengths_affirmation|english 11       NaN      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+strategy:strengths_affirmation|hinglish 11       NaN      None       0.0 not steered: not quality-safe for both judges; not preferred or less appropriate
+             config  alpha language   n  emotion_gain  emotion_gain_lo  preference  preservation  appropriateness_change  relevance_change  fluency_change  naturalness_change  harm_share  length_ratio  quality_ok
+           additive   0.25  english 128          0.18             0.11        0.40          4.61                   -0.10             -0.09           -0.08               -0.11        0.23          1.02       False
+           additive   0.25 hinglish  80          0.15             0.03        0.44          4.69                   -0.07             -0.06           -0.02               -0.07        0.20          0.98       False
+           additive   0.50  english 128          0.31             0.23        0.30          4.50                   -0.23             -0.18           -0.23               -0.24        0.34          1.00       False
+           additive   0.50 hinglish  80          0.26             0.16        0.28          4.53                   -0.24             -0.20           -0.20               -0.29        0.40          0.95       False
+           additive   0.75  english 128          0.43             0.34        0.21          4.22                   -0.51             -0.48           -0.52               -0.52        0.52          1.01       False
+           additive   0.75 hinglish  80          0.41             0.32        0.20          4.25                   -0.45             -0.40           -0.39               -0.50        0.60          0.95       False
+           additive   1.00  english 128          0.51             0.42        0.14          4.02                   -0.78             -0.71           -0.76               -0.76        0.70          0.97       False
+           additive   1.00 hinglish  80          0.53             0.42        0.09          3.72                   -1.03             -0.95           -0.93               -1.04        0.86          0.96       False
+     bounded_cap0.1   0.75  english 128          0.42             0.33        0.28          4.41                   -0.27             -0.24           -0.28               -0.30        0.43          0.98       False
+     bounded_cap0.1   0.75 hinglish  80          0.39             0.31        0.25          4.44                   -0.36             -0.28           -0.31               -0.40        0.46          0.99       False
+     bounded_cap0.1   1.12  english 128          0.40             0.31        0.27          4.31                   -0.32             -0.29           -0.32               -0.34        0.45          0.98       False
+     bounded_cap0.1   1.12 hinglish  80          0.41             0.32        0.25          4.40                   -0.39             -0.33           -0.33               -0.43        0.46          0.97       False
+     bounded_cap0.1   1.50  english 128          0.41             0.32        0.25          4.35                   -0.33             -0.27           -0.32               -0.32        0.42          0.98       False
+     bounded_cap0.1   1.50 hinglish  80          0.41             0.33        0.24          4.43                   -0.38             -0.33           -0.32               -0.43        0.46          0.99       False
+     bounded_cap0.1   2.25  english 128          0.40             0.31        0.27          4.31                   -0.32             -0.29           -0.32               -0.34        0.45          0.98       False
+     bounded_cap0.1   2.25 hinglish  80          0.41             0.32        0.25          4.40                   -0.39             -0.33           -0.33               -0.43        0.46          0.97       False
+residual_others_L15   0.15  english 128          0.26             0.18        0.40          4.65                   -0.09             -0.08           -0.09               -0.09        0.25          1.05       False
+residual_others_L15   0.15 hinglish  80          0.29             0.20        0.42          4.63                   -0.08             -0.08           -0.07               -0.11        0.20          1.07       False
+residual_others_L15   0.22  english 128          0.38             0.29        0.38          4.55                   -0.13             -0.09           -0.13               -0.11        0.23          1.05       False
+residual_others_L15   0.22 hinglish  80          0.40             0.30        0.35          4.54                   -0.24             -0.18           -0.21               -0.30        0.31          1.03       False
+residual_others_L15   0.30  english 128          0.42             0.32        0.31          4.40                   -0.25             -0.25           -0.29               -0.28        0.40          1.02       False
+residual_others_L15   0.30 hinglish  80          0.51             0.41        0.26          4.43                   -0.31             -0.34           -0.33               -0.41        0.42          1.07       False
+residual_others_L15   0.45  english 128          0.59             0.49        0.15          4.03                   -0.64             -0.69           -0.73               -0.78        0.71          1.05       False
+residual_others_L15   0.45 hinglish  80          0.52             0.40        0.13          3.89                   -0.82             -0.87           -0.82               -0.91        0.79          1.05       False
+   selective_L14-17   0.50  english 128          0.18             0.11        0.40          4.71                   -0.09             -0.10           -0.07               -0.10        0.19          1.05       False
+   selective_L14-17   0.50 hinglish  80          0.10            -0.02        0.43          4.69                   -0.06             -0.11           -0.04               -0.08        0.20          1.04       False
+   selective_L14-17   0.75  english 128          0.21             0.14        0.39          4.59                   -0.10             -0.12           -0.11               -0.13        0.23          1.06       False
+   selective_L14-17   0.75 hinglish  80          0.18             0.08        0.42          4.67                   -0.09             -0.10           -0.06               -0.10        0.21          1.00       False
+   selective_L14-17   1.00  english 128          0.22             0.16        0.35          4.54                   -0.12             -0.14           -0.11               -0.15        0.27          1.03       False
+   selective_L14-17   1.00 hinglish  80          0.21             0.11        0.36          4.58                   -0.16             -0.12           -0.12               -0.16        0.21          0.98       False
+   selective_L14-17   1.50  english 128          0.40             0.31        0.28          4.38                   -0.24             -0.29           -0.25               -0.29        0.41          1.06       False
+   selective_L14-17   1.50 hinglish  80          0.29             0.19        0.27          4.45                   -0.30             -0.25           -0.27               -0.33        0.45          1.02       False
+                     pool               rule  candidates  sent  judge_emotion  appropriateness  empathy  relevance  fluency  safety  naturalness  preference  harmed
+        policy_candidates             always           0     0            NaN              NaN      NaN        NaN      NaN     NaN          NaN         NaN       0
+        policy_candidates            v2_gate           0     0            NaN              NaN      NaN        NaN      NaN     NaN          NaN         NaN       0
+        policy_candidates v2_gate+length_cap           0     0            NaN              NaN      NaN        NaN      NaN     NaN          NaN         NaN       0
+        policy_candidates   v2_gate+language           0     0            NaN              NaN      NaN        NaN      NaN     NaN          NaN         NaN       0
+        policy_candidates       quality_gate           0     0            NaN              NaN      NaN        NaN      NaN     NaN          NaN         NaN       0
+all_messages_additive@0.5             always         208   208          0.290           -0.235   -0.151     -0.190   -0.217  -0.291       -0.258       0.293      76
+all_messages_additive@0.5            v2_gate         208   131          0.285           -0.170   -0.081     -0.166   -0.135  -0.235       -0.167       0.329      35
+all_messages_additive@0.5 v2_gate+length_cap         208   123          0.260           -0.175   -0.091     -0.166   -0.136  -0.245       -0.173       0.329      33
+all_messages_additive@0.5   v2_gate+language         208   131          0.285           -0.170   -0.081     -0.166   -0.135  -0.235       -0.167       0.329      35
+all_messages_additive@0.5       quality_gate         208   123          0.260           -0.175   -0.091     -0.166   -0.136  -0.245       -0.173       0.329      33
+  all_messages_additive@1             always         208   208          0.522           -0.877   -0.604     -0.805   -0.826  -1.001       -0.868       0.119     159
+  all_messages_additive@1            v2_gate         208   133          0.525           -0.668   -0.380     -0.666   -0.652  -0.825       -0.699       0.152      96
+  all_messages_additive@1 v2_gate+length_cap         208   120          0.511           -0.687   -0.401     -0.684   -0.668  -0.834       -0.701       0.158      86
+  all_messages_additive@1   v2_gate+language         208   133          0.525           -0.668   -0.380     -0.666   -0.652  -0.825       -0.699       0.152      96
+  all_messages_additive@1       quality_gate         208   120          0.511           -0.687   -0.401     -0.684   -0.668  -0.834       -0.701       0.158      86
+===== 2026-11-18 16:01:57  finished stage: v3 =====
+===== 2026-11-18 16:01:57  battery: python3 -m generation_analysis.neuron_validation --model llama2 all =====
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.44s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.48s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  1.97s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.10s/it]
+Model ready.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+prepared llama2: 72 messages, panels ['love', 'admiration', 'joy'], 552,960 sites
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.79s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.80s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.51s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.59s/it]
+Model ready.
+generated dev-000 (1/72)
+generated dev-001 (2/72)
+generated dev-002 (3/72)
+generated dev-003 (4/72)
+generated dev-004 (5/72)
+generated dev-005 (6/72)
+generated dev-006 (7/72)
+generated dev-007 (8/72)
+generated dev-008 (9/72)
+generated dev-009 (10/72)
+generated dev-010 (11/72)
+generated dev-011 (12/72)
+generated dev-012 (13/72)
+generated dev-013 (14/72)
+generated dev-014 (15/72)
+generated dev-015 (16/72)
+generated dev-016 (17/72)
+generated dev-017 (18/72)
+generated dev-018 (19/72)
+generated dev-019 (20/72)
+generated dev-020 (21/72)
+generated dev-021 (22/72)
+generated dev-022 (23/72)
+generated dev-023 (24/72)
+generated dev-024 (25/72)
+generated dev-025 (26/72)
+generated dev-026 (27/72)
+generated dev-027 (28/72)
+generated dev-028 (29/72)
+generated dev-029 (30/72)
+generated dev-030 (31/72)
+generated dev-031 (32/72)
+generated dev-032 (33/72)
+generated dev-033 (34/72)
+generated dev-034 (35/72)
+generated dev-035 (36/72)
+generated dev-036 (37/72)
+generated dev-037 (38/72)
+generated dev-038 (39/72)
+generated dev-039 (40/72)
+generated dev-040 (41/72)
+generated dev-041 (42/72)
+generated dev-042 (43/72)
+generated dev-043 (44/72)
+generated dev-044 (45/72)
+generated dev-045 (46/72)
+generated dev-046 (47/72)
+generated dev-047 (48/72)
+generated devhi-000 (49/72)
+generated devhi-001 (50/72)
+generated devhi-002 (51/72)
+generated devhi-003 (52/72)
+generated devhi-004 (53/72)
+generated devhi-005 (54/72)
+generated devhi-006 (55/72)
+generated devhi-007 (56/72)
+generated devhi-008 (57/72)
+generated devhi-009 (58/72)
+generated devhi-010 (59/72)
+generated devhi-011 (60/72)
+generated devhi-012 (61/72)
+generated devhi-013 (62/72)
+generated devhi-014 (63/72)
+generated devhi-015 (64/72)
+generated devhi-016 (65/72)
+generated devhi-017 (66/72)
+generated devhi-018 (67/72)
+generated devhi-019 (68/72)
+generated devhi-020 (69/72)
+generated devhi-021 (70/72)
+generated devhi-022 (71/72)
+generated devhi-023 (72/72)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.08s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.02it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.11it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.08it/s]
+scored by judge1 (Qwen/Qwen2.5-7B-Instruct): 6912 new replies, 6912 in all
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:15,  1.40s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:12,  1.22s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:03<00:10,  1.16s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:04<00:09,  1.14s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:06<00:09,  1.36s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:07<00:07,  1.27s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:08<00:06,  1.22s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:09<00:04,  1.15s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:10<00:03,  1.09s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:11<00:02,  1.04s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:12<00:01,  1.01s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:12<00:00,  1.05s/it]
+scored by judge2 (google/gemma-3-27b-it): 6912 new replies, 6912 in all
+wrote results/llama2_13b_chat_generation_emotion/neuron_validation/cards.json
+wrote results/llama2_13b_chat_generation_emotion/neuron_validation/report.json: 3 panels, 72 messages
+===== 2026-11-18 19:40:05  battery: python3 -m generation_analysis.neuron_validation summary =====
+wrote results/research/summary.json (12 rows)
+===== 2026-11-18 19:40:08  finished stage: battery =====
+===== 2026-11-18 19:40:08  single: python3 -m generation_analysis.single_neuron --model llama2 all =====
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.32s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.23s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  1.91s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.01s/it]
+Model ready.
+screened dev-000 (1/24)
+screened devhi-000 (2/24)
+screened dev-001 (3/24)
+screened devhi-001 (4/24)
+screened dev-002 (5/24)
+screened devhi-002 (6/24)
+screened dev-003 (7/24)
+screened devhi-003 (8/24)
+screened dev-004 (9/24)
+screened devhi-004 (10/24)
+screened dev-005 (11/24)
+screened devhi-005 (12/24)
+screened dev-006 (13/24)
+screened devhi-006 (14/24)
+screened dev-007 (15/24)
+screened devhi-007 (16/24)
+screened dev-008 (17/24)
+screened devhi-008 (18/24)
+screened dev-009 (19/24)
+screened devhi-009 (20/24)
+screened dev-010 (21/24)
+screened devhi-010 (22/24)
+screened dev-011 (23/24)
+screened devhi-011 (24/24)
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.17s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.11s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.82s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.90s/it]
+Model ready.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+generated dev-000 (1/24)
+generated devhi-000 (2/24)
+generated dev-001 (3/24)
+generated devhi-001 (4/24)
+generated dev-002 (5/24)
+generated devhi-002 (6/24)
+generated dev-003 (7/24)
+generated devhi-003 (8/24)
+generated dev-004 (9/24)
+generated devhi-004 (10/24)
+generated dev-005 (11/24)
+generated devhi-005 (12/24)
+generated dev-006 (13/24)
+generated devhi-006 (14/24)
+generated dev-007 (15/24)
+generated devhi-007 (16/24)
+generated dev-008 (17/24)
+generated devhi-008 (18/24)
+generated dev-009 (19/24)
+generated devhi-009 (20/24)
+generated dev-010 (21/24)
+generated devhi-010 (22/24)
+generated dev-011 (23/24)
+generated devhi-011 (24/24)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.27it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.17it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.17it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.22it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.21it/s]
+scored by judge1 (Qwen/Qwen2.5-7B-Instruct): 1224 new replies, 1224 in all
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:15,  1.44s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:12,  1.29s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:03<00:10,  1.20s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:05<00:10,  1.34s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:06<00:08,  1.18s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:07<00:06,  1.07s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:07<00:05,  1.02s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:08<00:03,  1.02it/s]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:09<00:02,  1.03it/s]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:10<00:01,  1.04it/s]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:11<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 12/12 [00:11<00:00,  1.02it/s]
+scored by judge2 (google/gemma-3-27b-it): 1224 new replies, 1224 in all
+wrote results/llama2_13b_chat_generation_emotion/neuron_validation/cards.json
+wrote results/llama2_13b_chat_generation_emotion/neuron_validation/single/report.json
+  admiration: None of the 20 tested neurons raises the emotion on its own in judged replies beyond control neurons (0 pass the likelihood screen). The effect is a property of the panel.
+  joy: None of the 20 tested neurons raises the emotion on its own in judged replies beyond control neurons (0 pass the likelihood screen). The effect is a property of the panel.
+  love: None of the 20 tested neurons raises the emotion on its own in judged replies beyond control neurons (0 pass the likelihood screen). The effect is a property of the panel.
+===== 2026-11-18 20:40:51  finished stage: single =====
+ALL REQUESTED LLAMA-2 STAGES FINISHED: twojudge v3 battery single

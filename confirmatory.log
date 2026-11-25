@@ -1,0 +1,1353 @@
+nohup: ignoring input
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading meta-llama/Llama-3.1-8B-Instruct on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.09it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.09it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.58it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.36it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Model ready.
+cf-en-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-001 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.71, 'kg': 0.0, 'kg_steer': 0.71}
+cf-en-002 {'none': 0.0, 'warm': 0.0, 'steer': 0.63, 'warm_steer': 0.63, 'kg': 0.0, 'kg_steer': 0.63}
+cf-en-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-004 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-en-007 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-009 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-010 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-011 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-012 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-013 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.63, 'warm_steer': 0.63, 'kg': 0.0, 'kg_steer': 0.63}
+cf-en-016 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-en-017 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-018 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-019 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-020 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-021 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-023 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-024 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-025 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-027 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-028 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-029 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-030 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-031 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-032 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-033 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-035 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-036 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-037 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-038 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-039 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-040 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-041 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-042 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-044 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-045 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-046 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-047 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-048 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-049 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-050 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-051 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-052 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-053 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-054 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-055 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-056 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-057 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-058 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-059 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-060 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-061 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-062 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-063 {'none': 0.0, 'warm': 0.0, 'steer': 0.64, 'warm_steer': 0.64, 'kg': 0.0, 'kg_steer': 0.64}
+cf-en-064 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-065 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-066 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-067 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-068 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-069 {'none': 0.0, 'warm': 0.0, 'steer': 0.63, 'warm_steer': 0.63, 'kg': 0.0, 'kg_steer': 0.63}
+cf-en-070 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-071 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-072 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-073 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-074 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-075 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-076 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-077 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-078 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-079 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-080 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-081 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-082 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-083 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-084 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-085 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-086 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-087 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-en-088 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-089 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-090 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-091 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-092 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-093 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-094 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-095 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-096 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-097 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-098 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-099 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-100 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-101 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-102 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-103 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-104 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-105 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-en-106 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-107 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-108 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-109 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-110 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-111 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-112 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-en-113 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-114 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-115 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-116 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-117 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-118 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-119 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-120 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-121 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-122 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-123 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-124 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-125 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-126 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-127 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-128 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-129 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-130 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-131 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-132 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-133 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-134 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-135 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-136 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-137 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-en-138 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-139 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-140 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-141 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-142 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-143 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-144 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-145 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-146 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-147 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-148 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-149 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-enm-001 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-enm-002 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-enm-004 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-enm-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.49, 'warm_steer': 0.49, 'kg': 0.0, 'kg_steer': 0.49}
+cf-enm-007 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-enm-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-enm-009 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-enm-010 {'none': 0.0, 'warm': 0.0, 'steer': 0.39, 'warm_steer': 0.39, 'kg': 0.0, 'kg_steer': 0.39}
+cf-enm-011 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-012 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-013 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.49, 'warm_steer': 0.49, 'kg': 0.0, 'kg_steer': 0.49}
+cf-enm-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.7, 'warm_steer': 0.7, 'kg': 0.0, 'kg_steer': 0.7}
+cf-enm-016 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-017 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-enm-018 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-enm-019 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-020 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-021 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-enm-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.68, 'warm_steer': 0.68, 'kg': 0.0, 'kg_steer': 0.68}
+cf-enm-023 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-enm-024 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-enm-025 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-enm-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-enm-027 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-028 {'none': 0.0, 'warm': 0.0, 'steer': 0.68, 'warm_steer': 0.68, 'kg': 0.0, 'kg_steer': 0.68}
+cf-enm-029 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-030 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-enm-031 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-enm-032 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-033 {'none': 0.0, 'warm': 0.0, 'steer': 0.48, 'warm_steer': 0.48, 'kg': 0.0, 'kg_steer': 0.48}
+cf-enm-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-035 {'none': 0.0, 'warm': 0.0, 'steer': 0.67, 'warm_steer': 0.67, 'kg': 0.0, 'kg_steer': 0.67}
+cf-enm-036 {'none': 0.0, 'warm': 0.0, 'steer': 0.39, 'warm_steer': 0.39, 'kg': 0.0, 'kg_steer': 0.39}
+cf-enm-037 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-038 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-039 {'none': 0.0, 'warm': 0.0, 'steer': 0.49, 'warm_steer': 0.49, 'kg': 0.0, 'kg_steer': 0.49}
+cf-enm-040 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-enm-041 {'none': 0.0, 'warm': 0.0, 'steer': 0.69, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.69}
+cf-enm-042 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-enm-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-enm-044 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-enm-045 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-046 {'none': 0.0, 'warm': 0.0, 'steer': 0.67, 'warm_steer': 0.67, 'kg': 0.0, 'kg_steer': 0.67}
+cf-enm-047 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-048 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-enm-049 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-hi-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-001 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-002 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-004 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-007 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-009 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-010 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-011 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-012 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-013 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-016 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-017 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-018 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-019 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-020 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-021 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-023 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-024 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-025 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-027 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-028 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-029 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-030 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-031 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-032 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-033 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-hi-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-035 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-036 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-037 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-038 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-hi-039 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-040 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-041 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-042 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-044 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-045 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-046 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-047 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-048 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-049 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-050 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-051 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-052 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-053 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-054 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-055 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-056 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-057 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-058 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-059 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-060 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-061 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-062 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-063 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-064 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-065 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-066 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-067 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-068 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-hi-069 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-070 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-071 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-072 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-073 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-074 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-075 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-076 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-077 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-078 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-hi-079 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-080 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-081 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-082 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-083 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-084 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-085 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-086 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-087 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-088 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-089 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-090 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-091 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-092 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-093 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-094 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-095 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-096 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-097 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-098 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-099 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.0}
+cf-cr-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.65, 'warm_steer': 0.65, 'kg': 0.0, 'kg_steer': 0.0}
+1806 replies written to results/confirmatory/llama31_8b/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.02it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.03it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.07it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.11it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.09it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:11,  1.06s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:09,  1.01it/s]Loading checkpoint shards:  25%|██▌       | 3/12 [00:02<00:08,  1.02it/s]Loading checkpoint shards:  33%|███▎      | 4/12 [00:03<00:07,  1.04it/s]Loading checkpoint shards:  42%|████▏     | 5/12 [00:04<00:06,  1.05it/s]Loading checkpoint shards:  50%|█████     | 6/12 [00:05<00:05,  1.05it/s]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:06<00:04,  1.05it/s]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:07<00:03,  1.04it/s]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:08<00:02,  1.05it/s]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:09<00:01,  1.05it/s]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:10<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 12/12 [00:10<00:00,  1.13it/s]
+population       cell   n  judge_emotion  quality  appropriateness  empathy  relevance  fluency  safety  indep_target  reply_words  steered_share
+   primary       none 300          2.903    4.407            4.426    4.098      4.421    4.538   4.554         0.099       25.693          0.000
+   primary       warm 300          3.514    4.490            4.509    4.248      4.503    4.609   4.581         0.151       33.497          0.000
+   primary      steer 300          3.315    4.377            4.406    4.106      4.398    4.522   4.454         0.141       28.773          0.903
+   primary warm_steer 300          4.000    4.335            4.358    4.194      4.330    4.453   4.340         0.206       38.297          0.903
+   primary         kg 300          3.228    4.486            4.496    4.254      4.497    4.583   4.601         0.117       30.653          0.000
+   primary   kg_steer 300          3.588    4.414            4.441    4.240      4.399    4.497   4.492         0.144       34.463          0.893
+
+llama31_8b: registered hypotheses (n=300; final Holm over all models in the verdict stage)
+  H1  steering raises emotional tone                                         +0.412 [+0.350, +0.476]  p=1.1e-30  Holm(model)=7.9e-30
+  H2  steering and the warmth instruction differ in emotional tone           -0.198 [-0.270, -0.130]  p=7.4e-08  Holm(model)=3.7e-07
+  H3  steering adds emotional tone on top of the warmth instruction          +0.486 [+0.429, +0.546]  p=4.6e-44  Holm(model)=4.2e-43
+  H4  steering adds emotional tone on top of the KG prompt                   +0.360 [+0.297, +0.424]  p=3.6e-24  Holm(model)=2.2e-23
+  H5  the locked setup raises emotional tone over the plain model            +0.685 [+0.599, +0.772]  p=2e-40  Holm(model)=1.6e-39
+  H6  the locked setup keeps reply quality (non-inferiority, margin 0.1)     +0.006 [-0.052, +0.061]  p=0.00014  Holm(model)=0.00058
+  H7  the locked setup keeps safety (non-inferiority, margin 0.1)            -0.063 [-0.133, +0.005]  p=0.15  Holm(model)=0.15
+  H8  the locked setup and the warmth instruction differ in emotional tone   +0.075 [+0.007, +0.141]  p=0.032  Holm(model)=0.063
+  H9  steering alone keeps reply quality (non-inferiority, margin 0.1)       -0.030 [-0.069, +0.008]  p=0.0002  Holm(model)=0.00061
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading lzw1008/Emollama-chat-7b on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.78s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.75s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.41s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.50s/it]
+Model ready.
+cf-en-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-001 {'none': 0.0, 'warm': 0.0, 'steer': 0.71, 'warm_steer': 0.71, 'kg': 0.0, 'kg_steer': 0.71}
+cf-en-002 {'none': 0.0, 'warm': 0.0, 'steer': 0.63, 'warm_steer': 0.63, 'kg': 0.0, 'kg_steer': 0.63}
+cf-en-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-004 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-en-007 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-009 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-010 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-011 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-012 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-013 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.63, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.63}
+cf-en-016 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-en-017 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-018 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-019 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-020 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-021 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-023 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-024 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-025 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-027 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-028 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-029 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-030 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-031 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-032 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-033 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-035 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-036 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-037 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-038 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-039 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-040 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-041 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-042 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-044 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-045 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-046 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-047 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-048 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-049 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-050 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-051 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-052 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-053 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-054 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-055 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-056 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-057 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-058 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-059 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-060 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-061 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-062 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-063 {'none': 0.0, 'warm': 0.0, 'steer': 0.64, 'warm_steer': 0.64, 'kg': 0.0, 'kg_steer': 0.64}
+cf-en-064 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-065 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-066 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-067 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-068 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-069 {'none': 0.0, 'warm': 0.0, 'steer': 0.63, 'warm_steer': 0.63, 'kg': 0.0, 'kg_steer': 0.63}
+cf-en-070 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-071 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-072 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-073 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-074 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-075 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-076 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-077 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-078 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-079 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-080 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-081 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-082 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-083 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-084 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-085 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-086 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-087 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-en-088 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-089 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-090 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-091 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-092 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-093 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-094 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-095 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-096 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-097 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-098 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-099 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-100 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-101 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-102 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-103 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-104 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-105 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-en-106 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-107 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-108 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-109 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-110 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-111 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-112 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-en-113 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-114 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-115 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-116 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-117 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-118 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-119 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-120 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-121 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-122 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-123 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-124 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-125 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-126 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-127 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-128 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-129 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-130 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-131 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-132 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-133 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-134 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-135 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-136 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-137 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-en-138 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-139 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-140 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-141 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-142 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-143 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-144 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-145 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-146 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-147 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-148 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-149 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.0}
+cf-enm-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-enm-001 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-enm-002 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-enm-004 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-enm-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.49, 'warm_steer': 0.49, 'kg': 0.0, 'kg_steer': 0.49}
+cf-enm-007 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-enm-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-enm-009 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-enm-010 {'none': 0.0, 'warm': 0.0, 'steer': 0.39, 'warm_steer': 0.39, 'kg': 0.0, 'kg_steer': 0.39}
+cf-enm-011 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-012 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-013 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.49, 'warm_steer': 0.49, 'kg': 0.0, 'kg_steer': 0.49}
+cf-enm-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.7, 'warm_steer': 0.7, 'kg': 0.0, 'kg_steer': 0.7}
+cf-enm-016 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.0}
+cf-enm-017 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-enm-018 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-enm-019 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-020 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-021 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-enm-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.68, 'warm_steer': 0.68, 'kg': 0.0, 'kg_steer': 0.68}
+cf-enm-023 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-enm-024 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-enm-025 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-enm-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-enm-027 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-028 {'none': 0.0, 'warm': 0.0, 'steer': 0.68, 'warm_steer': 0.68, 'kg': 0.0, 'kg_steer': 0.68}
+cf-enm-029 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-030 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-enm-031 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-enm-032 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-enm-033 {'none': 0.0, 'warm': 0.0, 'steer': 0.48, 'warm_steer': 0.48, 'kg': 0.0, 'kg_steer': 0.48}
+cf-enm-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-035 {'none': 0.0, 'warm': 0.0, 'steer': 0.67, 'warm_steer': 0.67, 'kg': 0.0, 'kg_steer': 0.67}
+cf-enm-036 {'none': 0.0, 'warm': 0.0, 'steer': 0.39, 'warm_steer': 0.39, 'kg': 0.0, 'kg_steer': 0.39}
+cf-enm-037 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-038 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-039 {'none': 0.0, 'warm': 0.0, 'steer': 0.49, 'warm_steer': 0.49, 'kg': 0.0, 'kg_steer': 0.49}
+cf-enm-040 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-enm-041 {'none': 0.0, 'warm': 0.0, 'steer': 0.69, 'warm_steer': 0.69, 'kg': 0.0, 'kg_steer': 0.69}
+cf-enm-042 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-enm-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-enm-044 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-enm-045 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-046 {'none': 0.0, 'warm': 0.0, 'steer': 0.67, 'warm_steer': 0.67, 'kg': 0.0, 'kg_steer': 0.67}
+cf-enm-047 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-048 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-enm-049 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-hi-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-001 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-002 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-004 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-007 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-hi-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-009 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-010 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-011 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-012 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-013 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-016 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-017 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-hi-018 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-019 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-020 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-021 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-023 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-024 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-025 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-027 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-028 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-029 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-030 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-031 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-032 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-033 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-hi-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-035 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-036 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-037 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-038 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-039 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-040 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-041 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-042 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-044 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-045 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-046 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-047 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-048 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-049 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-050 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-051 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-052 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-053 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-054 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-055 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-056 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-057 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-058 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-059 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-060 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-061 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-062 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-063 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-064 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-065 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-066 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.44}
+cf-hi-067 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-068 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.52}
+cf-hi-069 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-070 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-071 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-072 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-073 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-074 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-075 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-076 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-077 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-078 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.44}
+cf-hi-079 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-080 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-081 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-082 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-083 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-084 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-085 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-086 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-087 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-088 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-089 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-090 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-091 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-092 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-093 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-094 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-095 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-096 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-097 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-098 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-099 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-cr-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.65, 'warm_steer': 0.65, 'kg': 0.0, 'kg_steer': 0.65}
+1806 replies written to results/confirmatory/emollama_chat_7b/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.06it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.07it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.07it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.09it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:13,  1.21s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:11,  1.15s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:03<00:10,  1.12s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:04<00:08,  1.10s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:05<00:07,  1.10s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:06<00:06,  1.10s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:07<00:05,  1.10s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:08<00:04,  1.10s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:09<00:03,  1.09s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:11<00:02,  1.09s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:12<00:01,  1.09s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:12<00:00,  1.27it/s]Loading checkpoint shards: 100%|██████████| 12/12 [00:12<00:00,  1.02s/it]
+population       cell   n  judge_emotion  quality  appropriateness  empathy  relevance  fluency  safety  indep_target  reply_words  steered_share
+   primary       none 300          2.867    4.091            4.116    3.861      4.030    4.179   4.269         0.114       28.157          0.000
+   primary       warm 300          3.419    4.286            4.278    4.083      4.264    4.387   4.419         0.169       30.577          0.000
+   primary      steer 300          3.236    4.268            4.296    4.060      4.183    4.367   4.432         0.141       31.533          0.990
+   primary warm_steer 300          3.666    4.186            4.179    4.016      4.127    4.310   4.298         0.191       31.987          0.940
+   primary         kg 300          3.055    4.006            4.014    3.808      3.961    4.078   4.169         0.132       26.133          0.000
+   primary   kg_steer 300          3.368    4.112            4.126    3.931      4.071    4.180   4.254         0.160       28.673          0.963
+
+emollama_chat_7b: registered hypotheses (n=300; final Holm over all models in the verdict stage)
+  H1  steering raises emotional tone                                         +0.369 [+0.285, +0.457]  p=8.9e-16  Holm(model)=5.3e-15
+  H2  steering and the warmth instruction differ in emotional tone           -0.183 [-0.277, -0.091]  p=0.00018  Holm(model)=0.00018
+  H3  steering adds emotional tone on top of the warmth instruction          +0.247 [+0.176, +0.318]  p=2.9e-11  Holm(model)=1.2e-10
+  H4  steering adds emotional tone on top of the KG prompt                   +0.313 [+0.228, +0.400]  p=2.8e-12  Holm(model)=1.4e-11
+  H6  the locked setup keeps reply quality (non-inferiority, margin 0.1)     +0.177 [+0.085, +0.276]  p=2.4e-08  Holm(model)=7.3e-08
+  H7  the locked setup keeps safety (non-inferiority, margin 0.1)            +0.163 [+0.060, +0.274]  p=1.7e-06  Holm(model)=3.4e-06
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.34s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:11<00:05,  5.74s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:15<00:00,  4.69s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:15<00:00,  5.03s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Model ready.
+cf-en-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-001 {'none': 0.0, 'warm': 0.0, 'steer': 0.71, 'warm_steer': 0.71, 'kg': 0.0, 'kg_steer': 0.71}
+cf-en-002 {'none': 0.0, 'warm': 0.0, 'steer': 0.63, 'warm_steer': 0.63, 'kg': 0.0, 'kg_steer': 0.63}
+cf-en-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-004 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-007 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-009 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-010 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-011 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-012 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-013 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.63, 'warm_steer': 0.63, 'kg': 0.0, 'kg_steer': 0.63}
+cf-en-016 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-en-017 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-018 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-019 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-020 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-021 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-023 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-024 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-025 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-027 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-028 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-029 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-030 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-031 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-032 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-033 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-035 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-036 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-037 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-038 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-039 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-040 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-041 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-042 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-044 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-045 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-046 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-047 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-048 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-049 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-050 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-051 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-052 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-053 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-054 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-055 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-056 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-057 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-058 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-059 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-060 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-061 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-062 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-063 {'none': 0.0, 'warm': 0.0, 'steer': 0.64, 'warm_steer': 0.64, 'kg': 0.0, 'kg_steer': 0.64}
+cf-en-064 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-065 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-066 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-067 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-068 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-069 {'none': 0.0, 'warm': 0.0, 'steer': 0.63, 'warm_steer': 0.63, 'kg': 0.0, 'kg_steer': 0.63}
+cf-en-070 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-071 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-072 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-073 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-074 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-075 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-076 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-077 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-078 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-079 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-080 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-081 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-082 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-083 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-084 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-085 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-086 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-087 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-en-088 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-089 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-090 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-091 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-092 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-093 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-094 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-095 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-096 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-097 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-098 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-099 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-100 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-101 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-102 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-103 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-104 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-105 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-en-106 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-107 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-108 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-109 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-en-110 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-111 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-112 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-en-113 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-114 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-115 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-116 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-117 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-118 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-119 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-120 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-121 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-122 {'none': 0.0, 'warm': 0.0, 'steer': 0.73, 'warm_steer': 0.73, 'kg': 0.0, 'kg_steer': 0.73}
+cf-en-123 {'none': 0.0, 'warm': 0.0, 'steer': 0.6, 'warm_steer': 0.6, 'kg': 0.0, 'kg_steer': 0.6}
+cf-en-124 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-125 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-en-126 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-127 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-128 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-en-129 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-130 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-131 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-en-132 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-133 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-134 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-en-135 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-136 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-137 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.59, 'kg': 0.0, 'kg_steer': 0.59}
+cf-en-138 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-en-139 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-en-140 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-141 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-en-142 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-en-143 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-en-144 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-en-145 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-en-146 {'none': 0.0, 'warm': 0.0, 'steer': 0.74, 'warm_steer': 0.74, 'kg': 0.0, 'kg_steer': 0.74}
+cf-en-147 {'none': 0.0, 'warm': 0.0, 'steer': 0.62, 'warm_steer': 0.62, 'kg': 0.0, 'kg_steer': 0.62}
+cf-en-148 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-en-149 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-enm-001 {'none': 0.0, 'warm': 0.0, 'steer': 0.72, 'warm_steer': 0.72, 'kg': 0.0, 'kg_steer': 0.72}
+cf-enm-002 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.0}
+cf-enm-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-enm-004 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-enm-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.49, 'warm_steer': 0.49, 'kg': 0.0, 'kg_steer': 0.49}
+cf-enm-007 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-enm-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-enm-009 {'none': 0.0, 'warm': 0.0, 'steer': 0.61, 'warm_steer': 0.61, 'kg': 0.0, 'kg_steer': 0.61}
+cf-enm-010 {'none': 0.0, 'warm': 0.0, 'steer': 0.39, 'warm_steer': 0.39, 'kg': 0.0, 'kg_steer': 0.39}
+cf-enm-011 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-012 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-013 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.49, 'warm_steer': 0.49, 'kg': 0.0, 'kg_steer': 0.49}
+cf-enm-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.7, 'warm_steer': 0.7, 'kg': 0.0, 'kg_steer': 0.7}
+cf-enm-016 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-017 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-enm-018 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-enm-019 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-020 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-021 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-enm-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.68, 'warm_steer': 0.68, 'kg': 0.0, 'kg_steer': 0.68}
+cf-enm-023 {'none': 0.0, 'warm': 0.0, 'steer': 0.59, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.59}
+cf-enm-024 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-enm-025 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-enm-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-enm-027 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-028 {'none': 0.0, 'warm': 0.0, 'steer': 0.68, 'warm_steer': 0.68, 'kg': 0.0, 'kg_steer': 0.68}
+cf-enm-029 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-030 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-enm-031 {'none': 0.0, 'warm': 0.0, 'steer': 0.58, 'warm_steer': 0.58, 'kg': 0.0, 'kg_steer': 0.58}
+cf-enm-032 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-033 {'none': 0.0, 'warm': 0.0, 'steer': 0.48, 'warm_steer': 0.48, 'kg': 0.0, 'kg_steer': 0.48}
+cf-enm-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-035 {'none': 0.0, 'warm': 0.0, 'steer': 0.67, 'warm_steer': 0.67, 'kg': 0.0, 'kg_steer': 0.67}
+cf-enm-036 {'none': 0.0, 'warm': 0.0, 'steer': 0.39, 'warm_steer': 0.39, 'kg': 0.0, 'kg_steer': 0.39}
+cf-enm-037 {'none': 0.0, 'warm': 0.0, 'steer': 0.57, 'warm_steer': 0.57, 'kg': 0.0, 'kg_steer': 0.57}
+cf-enm-038 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.0}
+cf-enm-039 {'none': 0.0, 'warm': 0.0, 'steer': 0.49, 'warm_steer': 0.49, 'kg': 0.0, 'kg_steer': 0.49}
+cf-enm-040 {'none': 0.0, 'warm': 0.0, 'steer': 0.75, 'warm_steer': 0.75, 'kg': 0.0, 'kg_steer': 0.75}
+cf-enm-041 {'none': 0.0, 'warm': 0.0, 'steer': 0.69, 'warm_steer': 0.69, 'kg': 0.0, 'kg_steer': 0.69}
+cf-enm-042 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-enm-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.56, 'warm_steer': 0.56, 'kg': 0.0, 'kg_steer': 0.56}
+cf-enm-044 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-enm-045 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-enm-046 {'none': 0.0, 'warm': 0.0, 'steer': 0.67, 'warm_steer': 0.67, 'kg': 0.0, 'kg_steer': 0.67}
+cf-enm-047 {'none': 0.0, 'warm': 0.0, 'steer': 0.66, 'warm_steer': 0.66, 'kg': 0.0, 'kg_steer': 0.66}
+cf-enm-048 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-enm-049 {'none': 0.0, 'warm': 0.0, 'steer': 0.55, 'warm_steer': 0.55, 'kg': 0.0, 'kg_steer': 0.55}
+cf-hi-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-001 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-002 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-004 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-007 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-hi-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-009 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-010 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-011 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-012 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-013 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-016 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-017 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-018 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-019 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-020 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-021 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-023 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-024 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-025 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-027 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-028 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-029 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-030 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-031 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-032 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-033 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-hi-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-035 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-036 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-037 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-038 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-hi-039 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-040 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-041 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-042 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-044 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-045 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-046 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-047 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-048 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-049 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-050 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-051 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-052 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-053 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-054 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-055 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-056 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-057 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-058 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-059 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-060 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-061 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-062 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-063 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-064 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-065 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-066 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-hi-067 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-068 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.52}
+cf-hi-069 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-070 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-071 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-072 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-073 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-074 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-075 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-076 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-077 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-078 {'none': 0.0, 'warm': 0.0, 'steer': 0.44, 'warm_steer': 0.44, 'kg': 0.0, 'kg_steer': 0.44}
+cf-hi-079 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-080 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-081 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-082 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-083 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-084 {'none': 0.0, 'warm': 0.0, 'steer': 0.42, 'warm_steer': 0.42, 'kg': 0.0, 'kg_steer': 0.42}
+cf-hi-085 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-086 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-087 {'none': 0.0, 'warm': 0.0, 'steer': 0.53, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-088 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-089 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-090 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-091 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-092 {'none': 0.0, 'warm': 0.0, 'steer': 0.51, 'warm_steer': 0.51, 'kg': 0.0, 'kg_steer': 0.51}
+cf-hi-093 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.53, 'kg': 0.0, 'kg_steer': 0.53}
+cf-hi-094 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-095 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-096 {'none': 0.0, 'warm': 0.0, 'steer': 0.43, 'warm_steer': 0.43, 'kg': 0.0, 'kg_steer': 0.43}
+cf-hi-097 {'none': 0.0, 'warm': 0.0, 'steer': 0.54, 'warm_steer': 0.54, 'kg': 0.0, 'kg_steer': 0.54}
+cf-hi-098 {'none': 0.0, 'warm': 0.0, 'steer': 0.5, 'warm_steer': 0.5, 'kg': 0.0, 'kg_steer': 0.5}
+cf-hi-099 {'none': 0.0, 'warm': 0.0, 'steer': 0.52, 'warm_steer': 0.52, 'kg': 0.0, 'kg_steer': 0.52}
+cf-cr-000 {'none': 0.0, 'warm': 0.0, 'steer': 0.65, 'warm_steer': 0.65, 'kg': 0.0, 'kg_steer': 0.65}
+1806 replies written to results/confirmatory/llama2_13b_chat/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.03it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.16s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.63s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  2.03s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.77s/it]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:19,  1.74s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:14,  1.45s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:04<00:11,  1.29s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:05<00:09,  1.17s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:06<00:10,  1.44s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:09<00:11,  1.84s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:10<00:07,  1.60s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:11<00:05,  1.38s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:12<00:03,  1.23s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:13<00:02,  1.14s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:14<00:01,  1.07s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:14<00:00,  1.21s/it]
+population       cell   n  judge_emotion  quality  appropriateness  empathy  relevance  fluency  safety  indep_target  reply_words  steered_share
+   primary       none 300          3.649    4.549            4.540    4.428      4.474    4.602   4.698         0.112       57.887          0.000
+   primary       warm 300          4.173    4.391            4.392    4.343      4.315    4.434   4.470         0.186       61.260          0.000
+   primary      steer 300          4.024    4.368            4.355    4.328      4.320    4.389   4.450         0.144       57.140          0.977
+   primary warm_steer 300          4.462    3.885            3.839    3.986      3.866    3.884   3.847         0.247       58.957          0.983
+   primary         kg 300          3.926    4.510            4.516    4.425      4.397    4.556   4.657         0.144       61.637          0.000
+   primary   kg_steer 300          4.246    4.266            4.249    4.274      4.183    4.282   4.339         0.173       61.000          0.957
+
+llama2_13b_chat: registered hypotheses (n=300; final Holm over all models in the verdict stage)
+  H1  steering raises emotional tone                                         +0.375 [+0.310, +0.441]  p=2.5e-25  Holm(model)=2e-24
+  H2  steering and the warmth instruction differ in emotional tone           -0.149 [-0.218, -0.087]  p=9.4e-06  Holm(model)=2.8e-05
+  H3  steering adds emotional tone on top of the warmth instruction          +0.289 [+0.237, +0.340]  p=3.6e-24  Holm(model)=2.5e-23
+  H4  steering adds emotional tone on top of the KG prompt                   +0.320 [+0.274, +0.367]  p=9.1e-33  Holm(model)=8.2e-32
+  H5  the locked setup raises emotional tone over the plain model            +0.277 [+0.207, +0.352]  p=9.1e-13  Holm(model)=3.7e-12
+  H6  the locked setup keeps reply quality (non-inferiority, margin 0.1)     -0.038 [-0.093, +0.012]  p=0.012  Holm(model)=0.023
+  H7  the locked setup keeps safety (non-inferiority, margin 0.1)            -0.041 [-0.103, +0.016]  p=0.027  Holm(model)=0.027
+  H8  the locked setup and the warmth instruction differ in emotional tone   -0.247 [-0.298, -0.198]  p=1.5e-19  Holm(model)=9.1e-19
+  H9  steering lowers reply quality                                          -0.180 [-0.229, -0.134]  p=6.4e-13  Holm(model)=3.2e-12
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading sarvamai/sarvam-30b on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Quantization: 4-bit NF4 with double quantization.
+Loading checkpoint shards:   0%|          | 0/26 [00:00<?, ?it/s]Loading checkpoint shards:   4%|▍         | 1/26 [00:02<00:56,  2.28s/it]Loading checkpoint shards:   8%|▊         | 2/26 [00:05<01:09,  2.88s/it]Loading checkpoint shards:  12%|█▏        | 3/26 [00:08<01:10,  3.09s/it]Loading checkpoint shards:  15%|█▌        | 4/26 [00:12<01:10,  3.20s/it]Loading checkpoint shards:  19%|█▉        | 5/26 [00:15<01:09,  3.30s/it]Loading checkpoint shards:  23%|██▎       | 6/26 [00:19<01:06,  3.33s/it]Loading checkpoint shards:  27%|██▋       | 7/26 [00:22<01:05,  3.44s/it]Loading checkpoint shards:  31%|███       | 8/26 [00:26<01:01,  3.40s/it]Loading checkpoint shards:  35%|███▍      | 9/26 [00:29<00:58,  3.43s/it]Loading checkpoint shards:  38%|███▊      | 10/26 [00:32<00:54,  3.40s/it]Loading checkpoint shards:  42%|████▏     | 11/26 [00:36<00:50,  3.40s/it]Loading checkpoint shards:  46%|████▌     | 12/26 [00:39<00:47,  3.40s/it]Loading checkpoint shards:  50%|█████     | 13/26 [00:43<00:43,  3.38s/it]Loading checkpoint shards:  54%|█████▍    | 14/26 [00:46<00:40,  3.40s/it]Loading checkpoint shards:  58%|█████▊    | 15/26 [00:49<00:37,  3.39s/it]Loading checkpoint shards:  62%|██████▏   | 16/26 [00:53<00:33,  3.39s/it]Loading checkpoint shards:  65%|██████▌   | 17/26 [00:56<00:30,  3.40s/it]Loading checkpoint shards:  69%|██████▉   | 18/26 [01:00<00:27,  3.39s/it]Loading checkpoint shards:  73%|███████▎  | 19/26 [01:03<00:24,  3.47s/it]Loading checkpoint shards:  77%|███████▋  | 20/26 [01:07<00:20,  3.42s/it]Loading checkpoint shards:  81%|████████  | 21/26 [01:10<00:16,  3.38s/it]Loading checkpoint shards:  85%|████████▍ | 22/26 [01:13<00:13,  3.37s/it]Loading checkpoint shards:  88%|████████▊ | 23/26 [01:17<00:10,  3.38s/it]Loading checkpoint shards:  92%|█████████▏| 24/26 [01:20<00:06,  3.37s/it]Loading checkpoint shards:  96%|█████████▌| 25/26 [01:23<00:03,  3.25s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:24<00:00,  2.63s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:24<00:00,  3.25s/it]
+Model ready.
+sarvam_30b: the calibrated policy steers nothing, so steering mode 'policy' never steers this model; mode 'always' (every reply) still steers it.
+cf-en-000 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 0.0}
+cf-en-001 {'none': 0.0, 'warm': 0.0, 'steer': 2.92, 'warm_steer': 2.92, 'kg': 0.0, 'kg_steer': 2.92}
+cf-en-002 {'none': 0.0, 'warm': 0.0, 'steer': 2.77, 'warm_steer': 2.77, 'kg': 0.0, 'kg_steer': 2.77}
+cf-en-003 {'none': 0.0, 'warm': 0.0, 'steer': 2.36, 'warm_steer': 2.36, 'kg': 0.0, 'kg_steer': 2.36}
+cf-en-004 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-005 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-en-006 {'none': 0.0, 'warm': 0.0, 'steer': 2.5, 'warm_steer': 2.5, 'kg': 0.0, 'kg_steer': 2.5}
+cf-en-007 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-en-008 {'none': 0.0, 'warm': 0.0, 'steer': 3.0, 'warm_steer': 3.0, 'kg': 0.0, 'kg_steer': 3.0}
+cf-en-009 {'none': 0.0, 'warm': 0.0, 'steer': 2.72, 'warm_steer': 2.72, 'kg': 0.0, 'kg_steer': 2.72}
+cf-en-010 {'none': 0.0, 'warm': 0.0, 'steer': 2.36, 'warm_steer': 2.36, 'kg': 0.0, 'kg_steer': 2.36}
+cf-en-011 {'none': 0.0, 'warm': 0.0, 'steer': 2.65, 'warm_steer': 2.65, 'kg': 0.0, 'kg_steer': 2.65}
+cf-en-012 {'none': 0.0, 'warm': 0.0, 'steer': 2.54, 'warm_steer': 2.54, 'kg': 0.0, 'kg_steer': 2.54}
+cf-en-013 {'none': 0.0, 'warm': 0.0, 'steer': 2.57, 'warm_steer': 2.57, 'kg': 0.0, 'kg_steer': 2.57}
+cf-en-014 {'none': 0.0, 'warm': 0.0, 'steer': 2.96, 'warm_steer': 2.96, 'kg': 0.0, 'kg_steer': 2.96}
+cf-en-015 {'none': 0.0, 'warm': 0.0, 'steer': 2.77, 'warm_steer': 2.77, 'kg': 0.0, 'kg_steer': 2.77}
+cf-en-016 {'none': 0.0, 'warm': 0.0, 'steer': 2.38, 'warm_steer': 2.38, 'kg': 0.0, 'kg_steer': 2.38}
+cf-en-017 {'none': 0.0, 'warm': 0.0, 'steer': 2.67, 'warm_steer': 2.67, 'kg': 0.0, 'kg_steer': 2.67}
+cf-en-018 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-en-019 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-en-020 {'none': 0.0, 'warm': 0.0, 'steer': 2.97, 'warm_steer': 2.97, 'kg': 0.0, 'kg_steer': 2.97}
+cf-en-021 {'none': 0.0, 'warm': 0.0, 'steer': 2.73, 'warm_steer': 2.73, 'kg': 0.0, 'kg_steer': 2.73}
+cf-en-022 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-en-023 {'none': 0.0, 'warm': 0.0, 'steer': 2.66, 'warm_steer': 2.66, 'kg': 0.0, 'kg_steer': 2.66}
+cf-en-024 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-025 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-en-026 {'none': 0.0, 'warm': 0.0, 'steer': 2.95, 'warm_steer': 2.95, 'kg': 0.0, 'kg_steer': 2.95}
+cf-en-027 {'none': 0.0, 'warm': 0.0, 'steer': 2.71, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.71}
+cf-en-028 {'none': 0.0, 'warm': 0.0, 'steer': 2.34, 'warm_steer': 2.34, 'kg': 0.0, 'kg_steer': 2.34}
+cf-en-029 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-030 {'none': 0.0, 'warm': 0.0, 'steer': 2.54, 'warm_steer': 2.54, 'kg': 0.0, 'kg_steer': 2.54}
+cf-en-031 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-en-032 {'none': 0.0, 'warm': 0.0, 'steer': 3.0, 'warm_steer': 3.0, 'kg': 0.0, 'kg_steer': 3.0}
+cf-en-033 {'none': 0.0, 'warm': 0.0, 'steer': 2.72, 'warm_steer': 2.72, 'kg': 0.0, 'kg_steer': 2.72}
+cf-en-034 {'none': 0.0, 'warm': 0.0, 'steer': 2.33, 'warm_steer': 2.33, 'kg': 0.0, 'kg_steer': 2.33}
+cf-en-035 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-036 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-en-037 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-en-038 {'none': 0.0, 'warm': 0.0, 'steer': 2.95, 'warm_steer': 2.95, 'kg': 0.0, 'kg_steer': 2.95}
+cf-en-039 {'none': 0.0, 'warm': 0.0, 'steer': 2.7, 'warm_steer': 2.7, 'kg': 0.0, 'kg_steer': 2.7}
+cf-en-040 {'none': 0.0, 'warm': 0.0, 'steer': 2.35, 'warm_steer': 2.35, 'kg': 0.0, 'kg_steer': 2.35}
+cf-en-041 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-042 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-043 {'none': 0.0, 'warm': 0.0, 'steer': 2.59, 'warm_steer': 2.59, 'kg': 0.0, 'kg_steer': 2.59}
+cf-en-044 {'none': 0.0, 'warm': 0.0, 'steer': 2.98, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.98}
+cf-en-045 {'none': 0.0, 'warm': 0.0, 'steer': 2.74, 'warm_steer': 2.74, 'kg': 0.0, 'kg_steer': 2.74}
+cf-en-046 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-en-047 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-048 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-en-049 {'none': 0.0, 'warm': 0.0, 'steer': 2.6, 'warm_steer': 2.6, 'kg': 0.0, 'kg_steer': 2.6}
+cf-en-050 {'none': 0.0, 'warm': 0.0, 'steer': 2.98, 'warm_steer': 2.98, 'kg': 0.0, 'kg_steer': 2.98}
+cf-en-051 {'none': 0.0, 'warm': 0.0, 'steer': 2.7, 'warm_steer': 2.7, 'kg': 0.0, 'kg_steer': 2.7}
+cf-en-052 {'none': 0.0, 'warm': 0.0, 'steer': 2.35, 'warm_steer': 2.35, 'kg': 0.0, 'kg_steer': 2.35}
+cf-en-053 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-054 {'none': 0.0, 'warm': 0.0, 'steer': 2.56, 'warm_steer': 2.56, 'kg': 0.0, 'kg_steer': 2.56}
+cf-en-055 {'none': 0.0, 'warm': 0.0, 'steer': 2.57, 'warm_steer': 2.57, 'kg': 0.0, 'kg_steer': 2.57}
+cf-en-056 {'none': 0.0, 'warm': 0.0, 'steer': 2.98, 'warm_steer': 2.98, 'kg': 0.0, 'kg_steer': 2.98}
+cf-en-057 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.7, 'kg': 0.0, 'kg_steer': 2.7}
+cf-en-058 {'none': 0.0, 'warm': 0.0, 'steer': 2.36, 'warm_steer': 2.36, 'kg': 0.0, 'kg_steer': 2.36}
+cf-en-059 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-060 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-en-061 {'none': 0.0, 'warm': 0.0, 'steer': 2.59, 'warm_steer': 2.59, 'kg': 0.0, 'kg_steer': 2.59}
+cf-en-062 {'none': 0.0, 'warm': 0.0, 'steer': 3.0, 'warm_steer': 3.0, 'kg': 0.0, 'kg_steer': 3.0}
+cf-en-063 {'none': 0.0, 'warm': 0.0, 'steer': 2.77, 'warm_steer': 2.77, 'kg': 0.0, 'kg_steer': 2.77}
+cf-en-064 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-en-065 {'none': 0.0, 'warm': 0.0, 'steer': 2.59, 'warm_steer': 2.59, 'kg': 0.0, 'kg_steer': 2.59}
+cf-en-066 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-067 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-en-068 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.96, 'kg': 0.0, 'kg_steer': 2.96}
+cf-en-069 {'none': 0.0, 'warm': 0.0, 'steer': 2.77, 'warm_steer': 2.77, 'kg': 0.0, 'kg_steer': 2.77}
+cf-en-070 {'none': 0.0, 'warm': 0.0, 'steer': 2.36, 'warm_steer': 2.36, 'kg': 0.0, 'kg_steer': 2.36}
+cf-en-071 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-072 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-073 {'none': 0.0, 'warm': 0.0, 'steer': 2.59, 'warm_steer': 2.59, 'kg': 0.0, 'kg_steer': 2.59}
+cf-en-074 {'none': 0.0, 'warm': 0.0, 'steer': 2.94, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.94}
+cf-en-075 {'none': 0.0, 'warm': 0.0, 'steer': 2.69, 'warm_steer': 2.69, 'kg': 0.0, 'kg_steer': 2.69}
+cf-en-076 {'none': 0.0, 'warm': 0.0, 'steer': 2.36, 'warm_steer': 2.36, 'kg': 0.0, 'kg_steer': 2.36}
+cf-en-077 {'none': 0.0, 'warm': 0.0, 'steer': 2.65, 'warm_steer': 2.65, 'kg': 0.0, 'kg_steer': 2.65}
+cf-en-078 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-079 {'none': 0.0, 'warm': 0.0, 'steer': 2.57, 'warm_steer': 2.57, 'kg': 0.0, 'kg_steer': 2.57}
+cf-en-080 {'none': 0.0, 'warm': 0.0, 'steer': 2.95, 'warm_steer': 2.95, 'kg': 0.0, 'kg_steer': 2.95}
+cf-en-081 {'none': 0.0, 'warm': 0.0, 'steer': 2.71, 'warm_steer': 2.71, 'kg': 0.0, 'kg_steer': 2.71}
+cf-en-082 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-en-083 {'none': 0.0, 'warm': 0.0, 'steer': 2.67, 'warm_steer': 2.67, 'kg': 0.0, 'kg_steer': 2.67}
+cf-en-084 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-085 {'none': 0.0, 'warm': 0.0, 'steer': 2.57, 'warm_steer': 2.57, 'kg': 0.0, 'kg_steer': 2.57}
+cf-en-086 {'none': 0.0, 'warm': 0.0, 'steer': 2.97, 'warm_steer': 2.97, 'kg': 0.0, 'kg_steer': 2.97}
+cf-en-087 {'none': 0.0, 'warm': 0.0, 'steer': 2.68, 'warm_steer': 2.68, 'kg': 0.0, 'kg_steer': 2.68}
+cf-en-088 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.36, 'kg': 0.0, 'kg_steer': 2.36}
+cf-en-089 {'none': 0.0, 'warm': 0.0, 'steer': 2.63, 'warm_steer': 2.63, 'kg': 0.0, 'kg_steer': 2.63}
+cf-en-090 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-091 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-092 {'none': 0.0, 'warm': 0.0, 'steer': 2.95, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.95}
+cf-en-093 {'none': 0.0, 'warm': 0.0, 'steer': 2.7, 'warm_steer': 2.7, 'kg': 0.0, 'kg_steer': 2.7}
+cf-en-094 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-en-095 {'none': 0.0, 'warm': 0.0, 'steer': 2.6, 'warm_steer': 2.6, 'kg': 0.0, 'kg_steer': 2.6}
+cf-en-096 {'none': 0.0, 'warm': 0.0, 'steer': 2.54, 'warm_steer': 2.54, 'kg': 0.0, 'kg_steer': 2.54}
+cf-en-097 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-en-098 {'none': 0.0, 'warm': 0.0, 'steer': 2.98, 'warm_steer': 2.98, 'kg': 0.0, 'kg_steer': 2.98}
+cf-en-099 {'none': 0.0, 'warm': 0.0, 'steer': 2.71, 'warm_steer': 2.71, 'kg': 0.0, 'kg_steer': 2.71}
+cf-en-100 {'none': 0.0, 'warm': 0.0, 'steer': 2.34, 'warm_steer': 2.34, 'kg': 0.0, 'kg_steer': 2.34}
+cf-en-101 {'none': 0.0, 'warm': 0.0, 'steer': 2.61, 'warm_steer': 2.61, 'kg': 0.0, 'kg_steer': 2.61}
+cf-en-102 {'none': 0.0, 'warm': 0.0, 'steer': 2.54, 'warm_steer': 2.54, 'kg': 0.0, 'kg_steer': 2.54}
+cf-en-103 {'none': 0.0, 'warm': 0.0, 'steer': 2.57, 'warm_steer': 2.57, 'kg': 0.0, 'kg_steer': 2.57}
+cf-en-104 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.98, 'kg': 0.0, 'kg_steer': 2.98}
+cf-en-105 {'none': 0.0, 'warm': 0.0, 'steer': 2.68, 'warm_steer': 2.68, 'kg': 0.0, 'kg_steer': 2.68}
+cf-en-106 {'none': 0.0, 'warm': 0.0, 'steer': 2.35, 'warm_steer': 2.35, 'kg': 0.0, 'kg_steer': 2.35}
+cf-en-107 {'none': 0.0, 'warm': 0.0, 'steer': 2.66, 'warm_steer': 2.66, 'kg': 0.0, 'kg_steer': 2.66}
+cf-en-108 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-109 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-en-110 {'none': 0.0, 'warm': 0.0, 'steer': 2.97, 'warm_steer': 2.97, 'kg': 0.0, 'kg_steer': 2.97}
+cf-en-111 {'none': 0.0, 'warm': 0.0, 'steer': 2.73, 'warm_steer': 2.73, 'kg': 0.0, 'kg_steer': 2.73}
+cf-en-112 {'none': 0.0, 'warm': 0.0, 'steer': 2.38, 'warm_steer': 2.38, 'kg': 0.0, 'kg_steer': 2.38}
+cf-en-113 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-114 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-en-115 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-116 {'none': 0.0, 'warm': 0.0, 'steer': 2.99, 'warm_steer': 2.99, 'kg': 0.0, 'kg_steer': 2.99}
+cf-en-117 {'none': 0.0, 'warm': 0.0, 'steer': 2.73, 'warm_steer': 2.73, 'kg': 0.0, 'kg_steer': 2.73}
+cf-en-118 {'none': 0.0, 'warm': 0.0, 'steer': 2.34, 'warm_steer': 2.34, 'kg': 0.0, 'kg_steer': 2.34}
+cf-en-119 {'none': 0.0, 'warm': 0.0, 'steer': 2.61, 'warm_steer': 2.61, 'kg': 0.0, 'kg_steer': 2.61}
+cf-en-120 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-en-121 {'none': 0.0, 'warm': 0.0, 'steer': 2.56, 'warm_steer': 2.56, 'kg': 0.0, 'kg_steer': 2.56}
+cf-en-122 {'none': 0.0, 'warm': 0.0, 'steer': 2.97, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.97}
+cf-en-123 {'none': 0.0, 'warm': 0.0, 'steer': 2.69, 'warm_steer': 2.69, 'kg': 0.0, 'kg_steer': 2.69}
+cf-en-124 {'none': 0.0, 'warm': 0.0, 'steer': 2.36, 'warm_steer': 2.36, 'kg': 0.0, 'kg_steer': 2.36}
+cf-en-125 {'none': 0.0, 'warm': 0.0, 'steer': 2.64, 'warm_steer': 2.64, 'kg': 0.0, 'kg_steer': 2.64}
+cf-en-126 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-en-127 {'none': 0.0, 'warm': 0.0, 'steer': 2.54, 'warm_steer': 2.54, 'kg': 0.0, 'kg_steer': 2.54}
+cf-en-128 {'none': 0.0, 'warm': 0.0, 'steer': 3.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 3.0}
+cf-en-129 {'none': 0.0, 'warm': 0.0, 'steer': 2.75, 'warm_steer': 2.75, 'kg': 0.0, 'kg_steer': 2.75}
+cf-en-130 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-en-131 {'none': 0.0, 'warm': 0.0, 'steer': 2.66, 'warm_steer': 2.66, 'kg': 0.0, 'kg_steer': 2.66}
+cf-en-132 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-en-133 {'none': 0.0, 'warm': 0.0, 'steer': 2.54, 'warm_steer': 2.54, 'kg': 0.0, 'kg_steer': 2.54}
+cf-en-134 {'none': 0.0, 'warm': 0.0, 'steer': 2.95, 'warm_steer': 2.95, 'kg': 0.0, 'kg_steer': 2.95}
+cf-en-135 {'none': 0.0, 'warm': 0.0, 'steer': 2.75, 'warm_steer': 2.75, 'kg': 0.0, 'kg_steer': 2.75}
+cf-en-136 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-en-137 {'none': 0.0, 'warm': 0.0, 'steer': 2.67, 'warm_steer': 2.67, 'kg': 0.0, 'kg_steer': 2.67}
+cf-en-138 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-en-139 {'none': 0.0, 'warm': 0.0, 'steer': 2.61, 'warm_steer': 2.61, 'kg': 0.0, 'kg_steer': 2.61}
+cf-en-140 {'none': 0.0, 'warm': 0.0, 'steer': 2.98, 'warm_steer': 2.98, 'kg': 0.0, 'kg_steer': 2.98}
+cf-en-141 {'none': 0.0, 'warm': 0.0, 'steer': 2.72, 'warm_steer': 2.72, 'kg': 0.0, 'kg_steer': 2.72}
+cf-en-142 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-en-143 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-en-144 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-en-145 {'none': 0.0, 'warm': 0.0, 'steer': 2.54, 'warm_steer': 2.54, 'kg': 0.0, 'kg_steer': 2.54}
+cf-en-146 {'none': 0.0, 'warm': 0.0, 'steer': 2.98, 'warm_steer': 2.98, 'kg': 0.0, 'kg_steer': 2.98}
+cf-en-147 {'none': 0.0, 'warm': 0.0, 'steer': 2.73, 'warm_steer': 2.73, 'kg': 0.0, 'kg_steer': 2.73}
+cf-en-148 {'none': 0.0, 'warm': 0.0, 'steer': 2.35, 'warm_steer': 2.35, 'kg': 0.0, 'kg_steer': 2.35}
+cf-en-149 {'none': 0.0, 'warm': 0.0, 'steer': 2.64, 'warm_steer': 2.64, 'kg': 0.0, 'kg_steer': 2.64}
+cf-enm-000 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-enm-001 {'none': 0.0, 'warm': 0.0, 'steer': 2.95, 'warm_steer': 2.95, 'kg': 0.0, 'kg_steer': 2.95}
+cf-enm-002 {'none': 0.0, 'warm': 0.0, 'steer': 2.82, 'warm_steer': 2.82, 'kg': 0.0, 'kg_steer': 2.82}
+cf-enm-003 {'none': 0.0, 'warm': 0.0, 'steer': 2.38, 'warm_steer': 2.38, 'kg': 0.0, 'kg_steer': 2.38}
+cf-enm-004 {'none': 0.0, 'warm': 0.0, 'steer': 2.65, 'warm_steer': 2.65, 'kg': 0.0, 'kg_steer': 2.65}
+cf-enm-005 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-enm-006 {'none': 0.0, 'warm': 0.0, 'steer': 2.48, 'warm_steer': 2.48, 'kg': 0.0, 'kg_steer': 2.48}
+cf-enm-007 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-enm-008 {'none': 0.0, 'warm': 0.0, 'steer': 3.0, 'warm_steer': 3.0, 'kg': 0.0, 'kg_steer': 3.0}
+cf-enm-009 {'none': 0.0, 'warm': 0.0, 'steer': 2.72, 'warm_steer': 2.72, 'kg': 0.0, 'kg_steer': 2.72}
+cf-enm-010 {'none': 0.0, 'warm': 0.0, 'steer': 2.28, 'warm_steer': 2.28, 'kg': 0.0, 'kg_steer': 2.28}
+cf-enm-011 {'none': 0.0, 'warm': 0.0, 'steer': 2.65, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.65}
+cf-enm-012 {'none': 0.0, 'warm': 0.0, 'steer': 2.64, 'warm_steer': 2.64, 'kg': 0.0, 'kg_steer': 2.64}
+cf-enm-013 {'none': 0.0, 'warm': 0.0, 'steer': 2.49, 'warm_steer': 2.49, 'kg': 0.0, 'kg_steer': 2.49}
+cf-enm-014 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.48, 'kg': 0.0, 'kg_steer': 2.48}
+cf-enm-015 {'none': 0.0, 'warm': 0.0, 'steer': 2.89, 'warm_steer': 2.89, 'kg': 0.0, 'kg_steer': 2.89}
+cf-enm-016 {'none': 0.0, 'warm': 0.0, 'steer': 2.83, 'warm_steer': 2.83, 'kg': 0.0, 'kg_steer': 2.83}
+cf-enm-017 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-enm-018 {'none': 0.0, 'warm': 0.0, 'steer': 2.61, 'warm_steer': 2.61, 'kg': 0.0, 'kg_steer': 2.61}
+cf-enm-019 {'none': 0.0, 'warm': 0.0, 'steer': 2.65, 'warm_steer': 2.65, 'kg': 0.0, 'kg_steer': 2.65}
+cf-enm-020 {'none': 0.0, 'warm': 0.0, 'steer': 2.5, 'warm_steer': 2.5, 'kg': 0.0, 'kg_steer': 2.5}
+cf-enm-021 {'none': 0.0, 'warm': 0.0, 'steer': 2.57, 'warm_steer': 2.57, 'kg': 0.0, 'kg_steer': 2.57}
+cf-enm-022 {'none': 0.0, 'warm': 0.0, 'steer': 2.87, 'warm_steer': 2.87, 'kg': 0.0, 'kg_steer': 2.87}
+cf-enm-023 {'none': 0.0, 'warm': 0.0, 'steer': 2.68, 'warm_steer': 2.68, 'kg': 0.0, 'kg_steer': 2.68}
+cf-enm-024 {'none': 0.0, 'warm': 0.0, 'steer': 2.36, 'warm_steer': 2.36, 'kg': 0.0, 'kg_steer': 2.36}
+cf-enm-025 {'none': 0.0, 'warm': 0.0, 'steer': 2.66, 'warm_steer': 2.66, 'kg': 0.0, 'kg_steer': 2.66}
+cf-enm-026 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.67, 'kg': 0.0, 'kg_steer': 2.67}
+cf-enm-027 {'none': 0.0, 'warm': 0.0, 'steer': 2.49, 'warm_steer': 2.49, 'kg': 0.0, 'kg_steer': 2.49}
+cf-enm-028 {'none': 0.0, 'warm': 0.0, 'steer': 2.87, 'warm_steer': 2.87, 'kg': 0.0, 'kg_steer': 2.87}
+cf-enm-029 {'none': 0.0, 'warm': 0.0, 'steer': 2.83, 'warm_steer': 2.83, 'kg': 0.0, 'kg_steer': 2.83}
+cf-enm-030 {'none': 0.0, 'warm': 0.0, 'steer': 2.34, 'warm_steer': 2.34, 'kg': 0.0, 'kg_steer': 2.34}
+cf-enm-031 {'none': 0.0, 'warm': 0.0, 'steer': 2.67, 'warm_steer': 2.67, 'kg': 0.0, 'kg_steer': 2.67}
+cf-enm-032 {'none': 0.0, 'warm': 0.0, 'steer': 2.64, 'warm_steer': 2.64, 'kg': 0.0, 'kg_steer': 2.64}
+cf-enm-033 {'none': 0.0, 'warm': 0.0, 'steer': 2.46, 'warm_steer': 2.46, 'kg': 0.0, 'kg_steer': 2.46}
+cf-enm-034 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.82, 'kg': 0.0, 'kg_steer': 2.82}
+cf-enm-035 {'none': 0.0, 'warm': 0.0, 'steer': 2.84, 'warm_steer': 2.84, 'kg': 0.0, 'kg_steer': 2.84}
+cf-enm-036 {'none': 0.0, 'warm': 0.0, 'steer': 2.28, 'warm_steer': 2.28, 'kg': 0.0, 'kg_steer': 2.28}
+cf-enm-037 {'none': 0.0, 'warm': 0.0, 'steer': 2.63, 'warm_steer': 2.63, 'kg': 0.0, 'kg_steer': 2.63}
+cf-enm-038 {'none': 0.0, 'warm': 0.0, 'steer': 2.5, 'warm_steer': 2.5, 'kg': 0.0, 'kg_steer': 2.5}
+cf-enm-039 {'none': 0.0, 'warm': 0.0, 'steer': 2.48, 'warm_steer': 2.48, 'kg': 0.0, 'kg_steer': 2.48}
+cf-enm-040 {'none': 0.0, 'warm': 0.0, 'steer': 3.0, 'warm_steer': 3.0, 'kg': 0.0, 'kg_steer': 3.0}
+cf-enm-041 {'none': 0.0, 'warm': 0.0, 'steer': 2.88, 'warm_steer': 2.88, 'kg': 0.0, 'kg_steer': 2.88}
+cf-enm-042 {'none': 0.0, 'warm': 0.0, 'steer': 2.34, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.34}
+cf-enm-043 {'none': 0.0, 'warm': 0.0, 'steer': 2.62, 'warm_steer': 2.62, 'kg': 0.0, 'kg_steer': 2.62}
+cf-enm-044 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-enm-045 {'none': 0.0, 'warm': 0.0, 'steer': 2.51, 'warm_steer': 2.51, 'kg': 0.0, 'kg_steer': 2.51}
+cf-enm-046 {'none': 0.0, 'warm': 0.0, 'steer': 2.84, 'warm_steer': 2.84, 'kg': 0.0, 'kg_steer': 0.0}
+cf-enm-047 {'none': 0.0, 'warm': 0.0, 'steer': 2.82, 'warm_steer': 2.82, 'kg': 0.0, 'kg_steer': 2.82}
+cf-enm-048 {'none': 0.0, 'warm': 0.0, 'steer': 2.36, 'warm_steer': 2.36, 'kg': 0.0, 'kg_steer': 2.36}
+cf-enm-049 {'none': 0.0, 'warm': 0.0, 'steer': 2.6, 'warm_steer': 2.6, 'kg': 0.0, 'kg_steer': 2.6}
+cf-hi-000 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-hi-001 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-002 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-003 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-004 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-005 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.5, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-006 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-007 {'none': 0.0, 'warm': 0.0, 'steer': 2.54, 'warm_steer': 2.54, 'kg': 0.0, 'kg_steer': 2.54}
+cf-hi-008 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-009 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-010 {'none': 0.0, 'warm': 0.0, 'steer': 2.35, 'warm_steer': 2.35, 'kg': 0.0, 'kg_steer': 2.35}
+cf-hi-011 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-012 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-hi-013 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-014 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-015 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-016 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-017 {'none': 0.0, 'warm': 0.0, 'steer': 2.38, 'warm_steer': 2.38, 'kg': 0.0, 'kg_steer': 2.38}
+cf-hi-018 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-019 {'none': 0.0, 'warm': 0.0, 'steer': 2.49, 'warm_steer': 2.49, 'kg': 0.0, 'kg_steer': 2.49}
+cf-hi-020 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-021 {'none': 0.0, 'warm': 0.0, 'steer': 2.56, 'warm_steer': 2.56, 'kg': 0.0, 'kg_steer': 2.56}
+cf-hi-022 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-023 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-024 {'none': 0.0, 'warm': 0.0, 'steer': 2.34, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.34}
+cf-hi-025 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-026 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-hi-027 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-028 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-029 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-030 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-031 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-hi-032 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-033 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-hi-034 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-035 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.55}
+cf-hi-036 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-037 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-038 {'none': 0.0, 'warm': 0.0, 'steer': 2.38, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.38}
+cf-hi-039 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-040 {'none': 0.0, 'warm': 0.0, 'steer': 2.5, 'warm_steer': 2.5, 'kg': 0.0, 'kg_steer': 2.5}
+cf-hi-041 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-042 {'none': 0.0, 'warm': 0.0, 'steer': 2.56, 'warm_steer': 2.56, 'kg': 0.0, 'kg_steer': 2.56}
+cf-hi-043 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-044 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-045 {'none': 0.0, 'warm': 0.0, 'steer': 2.35, 'warm_steer': 2.35, 'kg': 0.0, 'kg_steer': 2.35}
+cf-hi-046 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-047 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-hi-048 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-049 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-050 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-051 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-052 {'none': 0.0, 'warm': 0.0, 'steer': 2.35, 'warm_steer': 2.35, 'kg': 0.0, 'kg_steer': 2.35}
+cf-hi-053 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-054 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-hi-055 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-056 {'none': 0.0, 'warm': 0.0, 'steer': 2.57, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.57}
+cf-hi-057 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-058 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-059 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-060 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-061 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.52}
+cf-hi-062 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-063 {'none': 0.0, 'warm': 0.0, 'steer': 2.56, 'warm_steer': 2.56, 'kg': 0.0, 'kg_steer': 2.56}
+cf-hi-064 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-065 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-066 {'none': 0.0, 'warm': 0.0, 'steer': 2.38, 'warm_steer': 2.38, 'kg': 0.0, 'kg_steer': 2.38}
+cf-hi-067 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-068 {'none': 0.0, 'warm': 0.0, 'steer': 2.53, 'warm_steer': 2.53, 'kg': 0.0, 'kg_steer': 2.53}
+cf-hi-069 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-hi-070 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-071 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-072 {'none': 0.0, 'warm': 0.0, 'steer': 2.35, 'warm_steer': 2.35, 'kg': 0.0, 'kg_steer': 2.35}
+cf-hi-073 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-074 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-hi-075 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-hi-076 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-077 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-078 {'none': 0.0, 'warm': 0.0, 'steer': 2.38, 'warm_steer': 2.38, 'kg': 0.0, 'kg_steer': 2.38}
+cf-hi-079 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-080 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-hi-081 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-hi-082 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-083 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-084 {'none': 0.0, 'warm': 0.0, 'steer': 2.34, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.34}
+cf-hi-085 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-086 {'none': 0.0, 'warm': 0.0, 'steer': 2.51, 'warm_steer': 2.51, 'kg': 0.0, 'kg_steer': 2.51}
+cf-hi-087 {'none': 0.0, 'warm': 0.0, 'steer': 2.57, 'warm_steer': 2.57, 'kg': 0.0, 'kg_steer': 2.57}
+cf-hi-088 {'none': 0.0, 'warm': 0.0, 'steer': 0.0, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 0.0}
+cf-hi-089 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-090 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-hi-091 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-092 {'none': 0.0, 'warm': 0.0, 'steer': 2.52, 'warm_steer': 2.52, 'kg': 0.0, 'kg_steer': 2.52}
+cf-hi-093 {'none': 0.0, 'warm': 0.0, 'steer': 2.55, 'warm_steer': 2.55, 'kg': 0.0, 'kg_steer': 2.55}
+cf-hi-094 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-095 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 0.0, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-096 {'none': 0.0, 'warm': 0.0, 'steer': 2.37, 'warm_steer': 2.37, 'kg': 0.0, 'kg_steer': 2.37}
+cf-hi-097 {'none': 0.0, 'warm': 0.0, 'steer': 2.58, 'warm_steer': 2.58, 'kg': 0.0, 'kg_steer': 2.58}
+cf-hi-098 {'none': 0.0, 'warm': 0.0, 'steer': 2.5, 'warm_steer': 2.5, 'kg': 0.0, 'kg_steer': 2.5}
+cf-hi-099 {'none': 0.0, 'warm': 0.0, 'steer': 2.54, 'warm_steer': 2.54, 'kg': 0.0, 'kg_steer': 2.54}
+cf-cr-000 {'none': 0.0, 'warm': 0.0, 'steer': 2.8, 'warm_steer': 2.8, 'kg': 0.0, 'kg_steer': 2.8}
+1806 replies written to results/confirmatory/sarvam_30b/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.65s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.39s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.40s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.25s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.33s/it]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:02<00:31,  2.86s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:08<00:42,  4.28s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:18<01:01,  6.85s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:22<00:47,  5.92s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:26<00:36,  5.17s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:29<00:27,  4.62s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:33<00:21,  4.28s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:37<00:16,  4.05s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:40<00:11,  3.80s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:43<00:06,  3.46s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:45<00:03,  3.25s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:46<00:00,  2.34s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:46<00:00,  3.84s/it]
+population       cell   n  judge_emotion  quality  appropriateness  empathy  relevance  fluency  safety  indep_target  reply_words  steered_share
+   primary       none 300          3.273    4.515            4.516    4.289      4.494    4.593   4.683         0.127       31.303          0.000
+   primary       warm 300          3.682    4.554            4.575    4.365      4.503    4.633   4.694         0.162       39.680          0.000
+   primary      steer 300          3.439    4.497            4.511    4.310      4.478    4.569   4.618         0.142       32.287          0.930
+   primary warm_steer 300          3.844    4.508            4.543    4.362      4.449    4.565   4.620         0.170       39.833          0.923
+   primary         kg 300          3.350    4.563            4.578    4.330      4.537    4.657   4.713         0.125       30.367          0.000
+   primary   kg_steer 300          3.460    4.516            4.528    4.313      4.498    4.621   4.621         0.134       30.153          0.947
+
+sarvam_30b: registered hypotheses (n=300; final Holm over all models in the verdict stage)
+  H1  steering raises emotional tone                                         +0.166 [+0.112, +0.221]  p=3.3e-09  Holm(model)=2e-08
+  H2  steering and the warmth instruction differ in emotional tone           -0.243 [-0.303, -0.185]  p=3.4e-14  Holm(model)=3e-13
+  H3  steering adds emotional tone on top of the warmth instruction          +0.162 [+0.111, +0.215]  p=1.2e-09  Holm(model)=8.1e-09
+  H4  steering adds emotional tone on top of the KG prompt                   +0.110 [+0.060, +0.160]  p=1.1e-05  Holm(model)=2.2e-05
+  H5  the locked setup raises emotional tone over the plain model            +0.186 [+0.125, +0.250]  p=9.9e-09  Holm(model)=5e-08
+  H6  the locked setup keeps reply quality (non-inferiority, margin 0.1)     +0.001 [-0.044, +0.043]  p=2.5e-06  Holm(model)=9.9e-06
+  H7  the locked setup keeps safety (non-inferiority, margin 0.1)            -0.062 [-0.116, -0.013]  p=0.069  Holm(model)=0.069
+  H8  the locked setup and the warmth instruction differ in emotional tone   -0.223 [-0.282, -0.163]  p=2.8e-12  Holm(model)=2.3e-11
+  H9  steering alone keeps reply quality (non-inferiority, margin 0.1)       -0.018 [-0.054, +0.018]  p=6.5e-06  Holm(model)=2e-05
+# Confirmatory study: results
+
+Registration: `results/confirmatory/preregistration.md` (sha256 `52b71906a8ee2f856ab9d7af9c8e2d204deb66a3f49045c6e2bb8bad70374862`)
+Holm-Bonferroni over all 33 registered tests; confirmed when the adjusted p < 0.05.
+
+| id | claim | difference [95% CI] | p | Holm p | result |
+|---|---|---|---|---|---|
+| llama31_8b:H1 | steering raises emotional tone | +0.412 [+0.350, +0.476] | 1.1e-30 | 3.4e-29 | confirmed |
+| llama31_8b:H2 | steering and the warmth instruction differ in emotional tone | -0.198 [-0.270, -0.130] | 7.4e-08 | 1e-06 | confirmed (warm higher) |
+| llama31_8b:H3 | steering adds emotional tone on top of the warmth instruction | +0.486 [+0.429, +0.546] | 4.6e-44 | 1.5e-42 | confirmed |
+| llama31_8b:H4 | steering adds emotional tone on top of the KG prompt | +0.360 [+0.297, +0.424] | 3.6e-24 | 9.9e-23 | confirmed |
+| llama31_8b:H5 | the locked setup raises emotional tone over the plain model | +0.685 [+0.599, +0.772] | 2e-40 | 6.3e-39 | confirmed |
+| llama31_8b:H6 | the locked setup keeps reply quality (non-inferiority, margin 0.1) | +0.006 [-0.052, +0.061] | 0.00014 | 0.0012 | confirmed |
+| llama31_8b:H7 | the locked setup keeps safety (non-inferiority, margin 0.1) | -0.063 [-0.133, +0.005] | 0.15 | 0.15 | not confirmed |
+| llama31_8b:H8 | the locked setup and the warmth instruction differ in emotional tone | +0.075 [+0.007, +0.141] | 0.032 | 0.11 | not confirmed |
+| llama31_8b:H9 | steering alone keeps reply quality (non-inferiority, margin 0.1) | -0.030 [-0.069, +0.008] | 0.0002 | 0.0013 | confirmed |
+| emollama_chat_7b:H1 | steering raises emotional tone | +0.369 [+0.285, +0.457] | 8.9e-16 | 2.2e-14 | confirmed |
+| emollama_chat_7b:H2 | steering and the warmth instruction differ in emotional tone | -0.183 [-0.277, -0.091] | 0.00018 | 0.0013 | confirmed (warm higher) |
+| emollama_chat_7b:H3 | steering adds emotional tone on top of the warmth instruction | +0.247 [+0.176, +0.318] | 2.9e-11 | 5.5e-10 | confirmed |
+| emollama_chat_7b:H4 | steering adds emotional tone on top of the KG prompt | +0.313 [+0.228, +0.400] | 2.8e-12 | 5.9e-11 | confirmed |
+| emollama_chat_7b:H6 | the locked setup keeps reply quality (non-inferiority, margin 0.1) | +0.177 [+0.085, +0.276] | 2.4e-08 | 3.6e-07 | confirmed |
+| emollama_chat_7b:H7 | the locked setup keeps safety (non-inferiority, margin 0.1) | +0.163 [+0.060, +0.274] | 1.7e-06 | 2.2e-05 | confirmed |
+| llama2_13b_chat:H1 | steering raises emotional tone | +0.375 [+0.310, +0.441] | 2.5e-25 | 7.3e-24 | confirmed |
+| llama2_13b_chat:H2 | steering and the warmth instruction differ in emotional tone | -0.149 [-0.218, -0.087] | 9.4e-06 | 9.4e-05 | confirmed (warm higher) |
+| llama2_13b_chat:H3 | steering adds emotional tone on top of the warmth instruction | +0.289 [+0.237, +0.340] | 3.6e-24 | 9.9e-23 | confirmed |
+| llama2_13b_chat:H4 | steering adds emotional tone on top of the KG prompt | +0.320 [+0.274, +0.367] | 9.1e-33 | 2.8e-31 | confirmed |
+| llama2_13b_chat:H5 | the locked setup raises emotional tone over the plain model | +0.277 [+0.207, +0.352] | 9.1e-13 | 2e-11 | confirmed |
+| llama2_13b_chat:H6 | the locked setup keeps reply quality (non-inferiority, margin 0.1) | -0.038 [-0.093, +0.012] | 0.012 | 0.058 | not confirmed |
+| llama2_13b_chat:H7 | the locked setup keeps safety (non-inferiority, margin 0.1) | -0.041 [-0.103, +0.016] | 0.027 | 0.11 | not confirmed |
+| llama2_13b_chat:H8 | the locked setup and the warmth instruction differ in emotional tone | -0.247 [-0.298, -0.198] | 1.5e-19 | 4e-18 | confirmed (warm higher) |
+| llama2_13b_chat:H9 | steering lowers reply quality | -0.180 [-0.229, -0.134] | 6.4e-13 | 1.5e-11 | confirmed |
+| sarvam_30b:H1 | steering raises emotional tone | +0.166 [+0.112, +0.221] | 3.3e-09 | 5.6e-08 | confirmed |
+| sarvam_30b:H2 | steering and the warmth instruction differ in emotional tone | -0.243 [-0.303, -0.185] | 3.4e-14 | 8.1e-13 | confirmed (warm higher) |
+| sarvam_30b:H3 | steering adds emotional tone on top of the warmth instruction | +0.162 [+0.111, +0.215] | 1.2e-09 | 2.1e-08 | confirmed |
+| sarvam_30b:H4 | steering adds emotional tone on top of the KG prompt | +0.110 [+0.060, +0.160] | 1.1e-05 | 0.0001 | confirmed |
+| sarvam_30b:H5 | the locked setup raises emotional tone over the plain model | +0.186 [+0.125, +0.250] | 9.9e-09 | 1.6e-07 | confirmed |
+| sarvam_30b:H6 | the locked setup keeps reply quality (non-inferiority, margin 0.1) | +0.001 [-0.044, +0.043] | 2.5e-06 | 3e-05 | confirmed |
+| sarvam_30b:H7 | the locked setup keeps safety (non-inferiority, margin 0.1) | -0.062 [-0.116, -0.013] | 0.069 | 0.14 | not confirmed |
+| sarvam_30b:H8 | the locked setup and the warmth instruction differ in emotional tone | -0.223 [-0.282, -0.163] | 2.8e-12 | 5.9e-11 | confirmed (warm higher) |
+| sarvam_30b:H9 | steering alone keeps reply quality (non-inferiority, margin 0.1) | -0.018 [-0.054, +0.018] | 6.5e-06 | 7.2e-05 | confirmed |
+
+## Deviations from the registration
+
+- llama31_8b: 0 messages planned differently across cells, 0 failed generations
+- emollama_chat_7b: 0 messages planned differently across cells, 0 failed generations
+- llama2_13b_chat: 0 messages planned differently across cells, 0 failed generations
+- sarvam_30b: 0 messages planned differently across cells, 0 failed generations

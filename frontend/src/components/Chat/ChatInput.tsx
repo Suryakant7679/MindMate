@@ -1,15 +1,21 @@
-import { Paperclip, ArrowUp } from "lucide-react";
+import { Paperclip, ArrowUp, Square } from "lucide-react";
 import { useState } from "react";
 import type { ChatModel } from "../../api/chat";
 export function ChatInput({
   onSend,
   busy,
+  blocked = false,
+  onStop,
   models = [],
   selectedModel,
   onSelectModel,
 }: {
   onSend: (text: string) => void;
+  /** A reply is being prepared: the send button becomes a stop button. */
   busy: boolean;
+  /** Sending is not possible right now (e.g. an error must be resolved first). */
+  blocked?: boolean;
+  onStop?: () => void;
   /** Models offered in the selector; hidden when the server lists none. */
   models?: ChatModel[];
   selectedModel?: string;
@@ -17,7 +23,7 @@ export function ChatInput({
 }) {
   const [text, setText] = useState("");
   function submit() {
-    if (!text.trim() || busy) return;
+    if (!text.trim() || busy || blocked) return;
     onSend(text.trim());
     setText("");
   }
@@ -71,13 +77,19 @@ export function ChatInput({
             ))}
           </select>
         )}
-        <button
-          className="send-button"
-          aria-label="Send message"
-          disabled={!text.trim() || busy}
-        >
-          <ArrowUp size={22} />
-        </button>
+        {busy && onStop ? (
+          <button type="button" className="send-button stop" aria-label="Stop generating" title="Stop generating" onClick={onStop}>
+            <Square size={16} fill="currentColor" />
+          </button>
+        ) : (
+          <button
+            className="send-button"
+            aria-label="Send message"
+            disabled={!text.trim() || busy || blocked}
+          >
+            <ArrowUp size={22} />
+          </button>
+        )}
       </form>
       <p className="composer-note">
         A little space to be yourself.{" "}

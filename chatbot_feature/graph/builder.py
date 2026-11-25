@@ -4,42 +4,47 @@ from __future__ import annotations
 
 from typing import Any
 
+from langchain_core.messages import AIMessage
 from langgraph.graph import END, START, StateGraph
 
 from ..agents import ResponseAgent, SpecialistAgent, supervisor_node
 from ..mcp_connector import MCPManager
 from .routing import AGENT_ORDER, next_node
 from .state import AgentState
-from ..agents.safety import SafetyNodes
-from ..safety import SafetyAgent
 
 
-def build_agent_graph(model: Any, manager: MCPManager, *, checkpointer: Any = None, emotion_reasoner: Any = None, safety_agent: Any = None):
-    """Safety gates both branches; Emotion Reasoner remains optional on normal turns."""
-    safety = SafetyNodes(safety_agent or SafetyAgent(model))
+async def begin_turn(state: AgentState) -> dict[str, Any]:
+    """Per-turn fields start empty; the conversation (messages, emotion history) carries over between turns."""
+    return {"pending_agents": [], "draft_response": "", "final_response": "", "emotion_plan": {}, "steering": {},
+            "current_agent": "start"}
+
+
+async def finish_turn(state: AgentState) -> dict[str, Any]:
+    """The reply becomes the turn's final response and enters the conversation history."""
+    reply = state.get("draft_response", "")
+    return {"messages": [AIMessage(content=reply)], "draft_response": "", "final_response": reply}
+
+
+def build_agent_graph(model: Any, manager: MCPManager, *, checkpointer: Any = None, emotion_reasoner: Any = None):
+    """start -> (Emotion Reasoner) -> supervisor -> specialists -> response -> finish."""
     graph = StateGraph(AgentState)
-    graph.add_node("safety_assessment", safety.assess)
-    graph.add_node("crisis_response", safety.crisis)
-    graph.add_node("outgoing_safety", safety.validate)
-    graph.add_edge(START, "safety_assessment")
-    async def after_safety(state):
-        if state["safety"]["policy"]["route"] != "normal":
-            return "crisis_response"
-        return "emotion_reasoner" if emotion_reasoner is not None else "supervisor"
-
-    graph.add_conditional_edges("safety_assessment", after_safety)
-    graph.add_edge("crisis_response", "outgoing_safety")
+    graph.add_node("begin", begin_turn)
+    graph.add_edge(START, "begin")
     graph.add_node("supervisor", supervisor_node)
     for name in AGENT_ORDER:
         graph.add_node(name, SpecialistAgent(name, model, manager))
     graph.add_node("response", ResponseAgent(model))
+    graph.add_node("finish", finish_turn)
     if emotion_reasoner is not None:
         graph.add_node("emotion_reasoner", emotion_reasoner)
+        graph.add_edge("begin", "emotion_reasoner")
         graph.add_edge("emotion_reasoner", "supervisor")
-    destinations = {**{name: name for name in AGENT_ORDER}, "response": "response", "crisis_response": "crisis_response"}
+    else:
+        graph.add_edge("begin", "supervisor")
+    destinations = {**{name: name for name in AGENT_ORDER}, "response": "response"}
     graph.add_conditional_edges("supervisor", next_node, destinations)
     for name in AGENT_ORDER:
         graph.add_conditional_edges(name, next_node, destinations)
-    graph.add_edge("response", "outgoing_safety")
-    graph.add_edge("outgoing_safety", END)
+    graph.add_edge("response", "finish")
+    graph.add_edge("finish", END)
     return graph.compile(checkpointer=checkpointer)

@@ -36,9 +36,12 @@ EMOTIONS = {
 # cause: (description, cue phrases, {emotion: weight}, {need: weight})
 CAUSES = {
     "crisis": ("thoughts of self-harm or not wanting to live",
-               ("kill myself", "suicide", "end my life", "want to die", "wanna die", "hurt myself", "self harm",
-                "self-harm", "no reason to live", "better off without me", "marna chahta", "marna chahti",
-                "mar jaun", "mar jana chahta", "jeene ka mann nahi", "jeena nahi chahta", "khatam kar lun"),
+               ("kill myself", "suicide", "suicidal", "end my life", "take my own life", "want to die", "wanna die",
+                "hurt myself", "self harm", "self-harm", "no reason to live", "better off without me",
+                "don't want to live", "dont want to live", "do not want to live", "don't want to be alive",
+                "end it all", "took an overdose", "taken an overdose", "overdosed", "swallowed pills", "sleeping pills", "marna chahta", "marna chahti",
+                "mar jaun", "mar jana chahta", "jeene ka mann nahi", "jeena nahi chahta", "jeena nahi chahti",
+                "jeena nahi hai", "khatam kar lun", "khudkushi", "aatmahatya"),
                {"sadness": 1.0, "fear": 0.5}, {"immediate_safety": 1.0}),
     "loss_grief": ("losing someone or something loved",
                    ("passed away", "died", "death", "funeral", "lost my", "is no more", "guzar gaye", "guzar gayi",
@@ -141,9 +144,12 @@ NEED_STRATEGIES = {
 STRATEGIES = {
     "crisis_support": (
         "Crisis support", "safety-first response",
-        "The user may be in danger. Respond calmly and directly, take what they said seriously, encourage "
-        "contacting local emergency services or a crisis helpline and a trusted person nearby right now, and "
-        "stay with them in the conversation.", None, 0.0),
+        "The user may be in danger. Respond with warmth and hope, in their language. Take what they said "
+        "seriously and acknowledge how much pain they are in, without judging. Tell them their life matters, "
+        "that this feeling can change and that help exists, and gently encourage them not to act on these "
+        "thoughts. Help with one small next step: reaching a trusted person nearby or a crisis helpline or local "
+        "emergency services right now, and staying away from anything they could use to hurt themselves. Stay "
+        "with them in the conversation and invite them to share what is making things so hard.", None, 0.0),
     "compassionate_comfort": (
         "Compassionate comfort", "empathic reflection",
         "Acknowledge the pain before anything else and name the feeling in the user's own words. Stay with it; "
@@ -216,10 +222,26 @@ def build_graph() -> nx.DiGraph:
     return graph
 
 
-def matched_cues(text: str, cues: tuple[str, ...]) -> list[str]:
-    """Cue phrases found in ``text`` on word boundaries."""
-    lowered = " " + re.sub(r"\s+", " ", text.lower()) + " "
-    return [cue for cue in cues if re.search(r"(?<![a-z])" + re.escape(cue) + r"(?![a-z])", lowered)]
+NEGATIONS = ("don't", "dont", "do not", "doesn't", "didn't", "never", "not", "won't", "wouldn't", "no longer")
+
+
+def _negated(before: str) -> bool:
+    """A negation among the three words right before a cue ("I don't really want to die")."""
+    window = " ".join(re.findall(r"[a-z']+", before.replace("’", "'"))[-3:])
+    return any(re.search(r"(?<![a-z'])" + re.escape(word) + r"(?![a-z'])", window) for word in NEGATIONS)
+
+
+def matched_cues(text: str, cues: tuple[str, ...], negatable: bool = False) -> list[str]:
+    """Cue phrases found in ``text`` on word boundaries.  ``negatable``: an occurrence right after a negation does not
+    count (used for the crisis cause, so "I don't wanna die" is not read as a wish to die)."""
+    lowered = " " + re.sub(r"\s+", " ", text.lower().replace("’", "'")) + " "
+    found = []
+    for cue in cues:
+        for match in re.finditer(r"(?<![a-z])" + re.escape(cue) + r"(?![a-z])", lowered):
+            if not (negatable and _negated(lowered[:match.start()])):
+                found.append(cue)
+                break
+    return found
 
 
 def is_hinglish(text: str) -> bool:

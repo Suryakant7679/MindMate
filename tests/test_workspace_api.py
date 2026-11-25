@@ -4,8 +4,7 @@ import unittest
 import tempfile
 from pathlib import Path
 from unittest.mock import Mock, patch
-from chatbot_feature.safety.session import SessionStore
-from chatbot_feature.tests.safety_fakes import SafetyModel
+from chatbot_feature.session import SessionStore
 from backend.server import RequestHandler
 
 
@@ -18,13 +17,11 @@ class WorkspaceEndpointTests(unittest.TestCase):
         handler.rfile = io.BytesIO(body)
         handler.server = Mock()
         handler.server.session_secret = b"test-secret"
-        handler.server.safety_sessions = SessionStore()
         handler.server.resource_owners = SessionStore()
         handler.server.agent_service = None
         handler.server.runtime.generate.return_value = {"response": "Hello", "model": "llama"}
         handler.send_json = Mock()
-        with patch("backend.server.SafetyRuntimeModel", return_value=SafetyModel()):
-            handler.do_POST()
+        handler.do_POST()
         return handler
 
     def test_workspace_prompt_reaches_model(self):

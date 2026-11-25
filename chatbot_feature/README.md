@@ -14,7 +14,6 @@ integration. Direct chat remains the fallback when `MCP_ENABLED` is false. See
 | `memory/` | Recent turns, summaries, semantic recall, retention, and deletion |
 | `rag/` | Ingest documents, chunk/embed them, retrieve evidence, and return citations |
 | `tools/` | Tool schemas, argument validation, permissions, execution, and audit logs |
-| `safety/` | Mental-health safety, crisis flow, privacy, moderation, and injection defense |
 | `conversation/` | Sessions, context budgeting, prompt construction, and response streaming |
 | `personalization/` | Explicit user preferences, language, tone, and accessibility settings |
 | `observability/` | Privacy-safe logs, tracing, model/tool latency, errors, and quality metrics |

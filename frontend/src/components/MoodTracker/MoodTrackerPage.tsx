@@ -31,6 +31,7 @@ export function MoodTrackerPage({ turns, onTurn }: { turns: EmotionTurn[]; onTur
   const [rated, setRated] = useState<{ conversation: string; turns: number; trajectory: Trajectory; summary: ConversationSummary } | null>(null);
   const latest = [...turns].reverse().find((item) => item.trajectory);
   const ready = turns.filter((item) => item.status === "ready").length;
+  const analysing = turns.some((item) => item.status === "analysing");
 
   // Saved results only: opening the dashboard never runs a model.
   useEffect(() => {
@@ -84,6 +85,11 @@ export function MoodTrackerPage({ turns, onTurn }: { turns: EmotionTurn[]; onTur
   const needsTurn = (
     <Empty title="No conversation yet">
       Send a chat message first. This section shows real measurements of a conversation turn; nothing is shown until one exists.
+    </Empty>
+  );
+  const noRecord = (
+    <Empty title="No emotion record yet">
+      The analysis of the turns sent so far is unavailable. Send another message or use Refresh data.
     </Empty>
   );
 
@@ -144,7 +150,7 @@ export function MoodTrackerPage({ turns, onTurn }: { turns: EmotionTurn[]; onTur
         )}
         {tab === "timeline" && (trajectory
           ? <TimelineSection trajectory={trajectory} canRate={Boolean(conversation)} onFeedback={feedback} />
-          : turns.length ? <Loading what="the conversation timeline" /> : needsTurn)}
+          : analysing ? <Loading what="the conversation timeline" /> : turns.length ? noRecord : needsTurn)}
         {tab === "comparison" && (turn
           ? turn.plan && <ImpactSection turn={turn} turnNumber={turnNumber} trajectory={trajectory} research={research} onToggleCompare={toggleCompare} toggling={toggling} />
           : needsTurn)}

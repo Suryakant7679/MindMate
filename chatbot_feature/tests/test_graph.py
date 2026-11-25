@@ -19,10 +19,7 @@ class Tool:
         return "evidence for " + arguments["query"]
 
 
-from chatbot_feature.tests.safety_fakes import SafetyModel
-
-
-class Model(SafetyModel):
+class Model:
     async def complete(self, prompt):
         if "Authorized tools:" in prompt:
             return '{"calls":[{"tool":"fetch_search","arguments":{"query":"LangGraph"}}]}'

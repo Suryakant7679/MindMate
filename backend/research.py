@@ -131,6 +131,12 @@ class ResearchStore:
         if persist:
             self._append("turns.jsonl", entry)
 
+    def forget(self, conversation_id: str) -> None:
+        """Remove a conversation's in-memory records (a user deleted it).  Opt-in telemetry files are not rewritten:
+        they are operator-managed research data collected with participant consent."""
+        with self._lock:
+            self._conversations.pop(conversation_id, None)
+
     def has_turn(self, conversation_id: str, turn_index: int, text: str | None = None) -> bool:
         with self._lock:
             entry = self._conversations.get(conversation_id, {}).get("turns", {}).get(turn_index)
@@ -279,6 +285,9 @@ def model_evaluation(loaded_tag: str | None = None) -> dict[str, Any]:
             "battery_status": "complete" if report else "in progress" if in_progress else "not run",
             "held_out": evidence.get("held_out"),
             "calibration": _sarvam_calibration(root) if key == "sarvam" else [],
+            # Steering-mode comparison on the fresh held-out set (generation_analysis.steering_modes), when run.
+            "steering_modes": load_json(RESULTS / "steering_modes" / tag / "summary.json"),
         })
     return {"models": models, "detector": load_json(RESULTS / "emotion_trajectory" / "validation.json"),
+            "steering_modes_set": load_json(RESULTS / "steering_modes" / "messages.json"),
             "harm_rule": "a reply counts as harmed when any quality rating (mean of the judges) falls by more than 0.5 points"}

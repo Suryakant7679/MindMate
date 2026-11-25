@@ -23,8 +23,4 @@ class AgentState(TypedDict, total=False):
     emotion_plan: dict[str, Any]
     emotion_history: Annotated[list[dict[str, Any]], operator.add]
     steering: dict[str, Any]
-
-    safety: dict[str, Any]
-    safety_validation: dict[str, Any]
     draft_response: str
-    country: str | None

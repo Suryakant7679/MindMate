@@ -67,8 +67,8 @@ export interface SteeringDecision {
   reason: string;
   planned_alpha: number;
   applied_alpha: number;
-  /** Why no steering was planned: calibrated policy, safety turn, no panel, a strength rule or a tool-grounded agent answer. */
-  disabled_by?: "policy" | "safety" | "no_panel" | "strength_rule" | "agent";
+  /** Why no steering was planned: calibrated policy, crisis cue ("safety"), no panel, a strength rule, a tool-grounded agent answer or the baseline switch. */
+  disabled_by?: "policy" | "safety" | "no_panel" | "strength_rule" | "agent" | "uncalibrated" | "baseline";
   /** Research mode: strength and panel of the comparison-only candidate (never sent). */
   shadow_alpha?: number;
   shadow_panel?: string;
@@ -568,11 +568,27 @@ export interface ModelResult {
     language: string; alpha: number; n: number; emotion: Stat; quality: Record<string, number | null>;
     harm_share: number | null; preference: number | null; hinglish_share_change: number | null;
   }[];
+  /** Steering-mode comparison (every reply / calibrated policy / off) on the fresh held-out set, when run. */
+  steering_modes?: SteeringModesSummary | null;
+}
+export interface ModeStat { n: number; mean: number; ci_low: number; ci_high: number; p: number; p_holm?: number | null }
+export interface SteeringModesSummary {
+  model: string | null;
+  messages: number;
+  harm_rule: string;
+  subsets: Record<string, {
+    n: number;
+    steered_share: Record<string, number>;
+    harmed_share: { always_vs_off: number | null; policy_vs_off: number | null } | null;
+    contrasts: Record<string, Record<string, ModeStat | null>>;
+  }>;
 }
 /** Saved results of every model, read from disk by the server. */
 export interface ModelEvaluation {
   models: ModelResult[];
   detector: TrajectoryValidation | null;
+  /** The frozen message set of the steering-mode comparison (null until it is built). */
+  steering_modes_set?: { sizes: { group: string; turns: string; n: number }[]; sha256: string; caveats?: Record<string, string> } | null;
   harm_rule: string;
 }
 export interface PanelNeuron extends NeuronCard {

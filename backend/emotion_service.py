@@ -50,7 +50,7 @@ from chatbot_feature.emotion_reasoner import EmotionReasonerAgent, load_policy, 
 from chatbot_feature.emotion_reasoner.agent import DETECTOR_WEIGHT, WEAK_DETECTOR_WEIGHT
 from chatbot_feature.emotion_reasoner.comparison import compare_replies, tally, with_judged
 from chatbot_feature.emotion_reasoner.intervention import summarize_intervention
-from chatbot_feature.emotion_reasoner.tone import degenerate_reply
+from chatbot_feature.emotion_reasoner.tone import degenerate_reply, strategy_prompt_v3
 from chatbot_feature.emotion_reasoner.trajectory import after_response, reply_state, summarize, turn_state
 
 from .config import SYSTEM_PROMPT
@@ -78,7 +78,37 @@ EVIDENCE_PATH = (Path(__file__).resolve().parent.parent / "results" / "llama31_8
 # Diagnostic strength of the shadow candidate in research-compare mode: a strength each model's own
 # calibration found quality-safe in at least one context (Llama and EmoLLaMA 0.5; Sarvam tone panel 2).
 SHADOW_ALPHA = {"llama31_8b": 0.5, "llama2_13b_chat": 0.5, "emollama_chat_7b": 0.5, "sarvam_30b": 2.0}
+# Steering mode "always" (every reply steered): the Emotion Reasoner's state level (0-1, from the user's emotional
+# state) is mapped onto each model's steering range.  The ranges are the strengths its calibration tested and found
+# quality-safe in at least one context: the Llama-family policies steer at 0.25-0.75 (alpha 1.5 harmed 97% of Llama
+# replies in the validation battery); Sarvam's tone panels at 2-3 for English.
+STATE_ALPHA_RANGE = {"default": (0.25, 0.75), "sarvam_30b": (2.0, 3.0)}
+STEERING_MODES = ("always", "policy", "off")
 MAX_CACHED_TEXTS = 2000
+# Which system prompt carries the Emotion Reasoner's strategy, per model (results tag); default "strategy" (the
+# MindMate prompt plus the strategy guidance, as in every Llama / Llama-2 / EmoLLaMA calibration and held-out test).
+# Sarvam-30B: on two held-out sets (results/sarvam_30b_generation_emotion/steering/heldout, 168 messages, and
+# causal_steering/v3/holdout3, 300 messages; two judges each) the strategy prompt lowered Hinglish appropriateness,
+# empathy and safety against the MindMate prompt alone (CIs exclude 0), while the version-3 prompt (strategy + tone
+# + style) improved English replies over it (appropriateness +0.08, relevance +0.11, preference +0.10).  Hindi in
+# Devanagari was not tested and gets the MindMate prompt alone.  The strategy is still planned and recorded.
+PROMPT_STYLE = {"sarvam_30b": "v3_english_only"}
+# Prompt variants for offline experiments only (``begin_turn(prompt_variant=...)``; the chat never uses them):
+# "plain" is the MindMate prompt without the Emotion Reasoner's strategy guidance; "warm" adds a plain instruction to
+# reply warmly, naming the emotion steering would express (the confirmatory study's prompt baseline: what neuron
+# steering does, asked for in words).  The emotion words are the judges' rubric descriptions
+# (generation_analysis/common.py EMOTION_DESCRIPTIONS), so the baseline is told exactly what the tone is rated on.
+PROMPT_VARIANTS = ("plain", "warm")
+WARMTH_WORDS = {"love": "warmth, affection and care", "joy": "happiness, delight and excitement",
+                "admiration": "respect, praise and appreciation"}
+
+
+def warmth_prompt(base: str, emotion: str | None) -> str:
+    """``base`` plus the "reply warmly" instruction for ``emotion`` (warmth for an emotion without words)."""
+    words = WARMTH_WORDS.get(emotion or "", WARMTH_WORDS["love"])
+    return (f"{base}\n\nReply warmly: let your reply clearly express {words} toward the user, in a natural way "
+            "that fits what they said.")
+DEVANAGARI = re.compile(r"[\u0900-\u097f]")
 SEPARATION = (
     "Chatbot emotion expression (what the reply text expresses) is estimated by a classifier and, offline, by two judge models.",
     "User emotion is what the detector estimated from the user's own messages; it is not a calibrated mood measurement.",
@@ -94,6 +124,11 @@ def load_evidence(path: str | Path = EVIDENCE_PATH) -> dict[str, Any]:
         return evidence if isinstance(evidence, dict) else {}
     except (OSError, ValueError):
         return {}
+
+
+# The GoEmotions classifier is independent of the chat model, so services of several loaded models share one copy.
+_CLASSIFIERS: dict[str, Any] = {}
+_CLASSIFIER_LOCK = threading.Lock()
 
 
 class ReplyEmotionScorer:
@@ -115,18 +150,24 @@ class ReplyEmotionScorer:
         if self._loaded:
             return
         self._loaded = True
-        try:
-            from transformers import AutoModelForSequenceClassification, AutoTokenizer
-            self._tokenizer = AutoTokenizer.from_pretrained(self.model_id)
-            model = AutoModelForSequenceClassification.from_pretrained(self.model_id)
-            if model.config.num_labels != len(GOEMOTIONS):
-                raise ValueError("unexpected label count")
-            torch = self.runtime.torch
-            self._model = model.to("cuda" if torch.cuda.is_available() else "cpu").eval()
+        with _CLASSIFIER_LOCK:
+            shared = _CLASSIFIERS.get(self.model_id)
+            if shared is None:
+                try:
+                    from transformers import AutoModelForSequenceClassification, AutoTokenizer
+                    tokenizer = AutoTokenizer.from_pretrained(self.model_id)
+                    model = AutoModelForSequenceClassification.from_pretrained(self.model_id)
+                    if model.config.num_labels != len(GOEMOTIONS):
+                        raise ValueError("unexpected label count")
+                    torch = self.runtime.torch
+                    shared = (tokenizer, model.to("cuda" if torch.cuda.is_available() else "cpu").eval())
+                except Exception as exc:   # fall back to the probe; the tracker names the method used
+                    print(f"Reply emotion classifier unavailable ({type(exc).__name__}); using the Llama probe.")
+                    shared = (None, None)
+                _CLASSIFIERS[self.model_id] = shared
+        self._tokenizer, self._model = shared
+        if self._model is not None:
             self.method = f"{self.model_id} (independent sigmoid score per label)"
-        except Exception as exc:   # fall back to the probe; the tracker names the method used
-            print(f"Reply emotion classifier unavailable ({type(exc).__name__}); using the Llama probe.")
-            self._model = None
 
     @property
     def uses_classifier(self) -> bool:
@@ -176,9 +217,16 @@ class EmotionSteeringService:
         self._probes: OrderedDict[str, dict[str, float]] = OrderedDict()
         self._replies: OrderedDict[str, dict[str, float]] = OrderedDict()
         self.policy = agent.policy if agent is not None else load_policy(results / "steering_policy" / "policy.json")
-        if self.policy is None:
-            print("No calibrated steering policy found; using heuristic strengths. "
-                  "Run generation_analysis.recalibrate_policy.")
+        # Steering needs a calibrated policy for this model.  Without one (or with one whose calibration steers
+        # nothing) the Emotion Reasoner still detects the emotion, plans the strategy and records the trajectory,
+        # but never steers: heuristic strengths were never validated for any model.  A service built with an
+        # explicit agent (tests, experiments) keeps that agent's behavior.
+        self.steering_enabled = agent is not None or (
+            self.policy is not None and self.policy.get("steering_enabled", True) is not False)
+        if not self.steering_enabled:
+            print(f"{self.tag}: " + ("no calibrated steering policy" if self.policy is None
+                                     else "the calibrated policy steers nothing")
+                  + ", so steering mode 'policy' never steers this model; mode 'always' (every reply) still steers it.")
         self.agent = agent or EmotionReasonerAgent(
             available_panels=list(runtime._emotion_panels), policy=self.policy,
             detector_weight=DETECTOR_WEIGHT if self.scorer.uses_classifier else WEAK_DETECTOR_WEIGHT)
@@ -223,14 +271,32 @@ class EmotionSteeringService:
 
     def begin_turn(self, messages: list[dict[str, str]], *, alpha_override: float | None = None,
                    emotion_override: str | None = None, conversation_id: str | None = None,
-                   mode: str = "direct") -> tuple[str, dict[str, Any]]:
+                   mode: str = "direct", steering_off: bool = False,
+                   steering_mode: str | None = None,
+                   prompt_variant: str | None = None) -> tuple[str, dict[str, Any]]:
         """Plan the reply to the last user message; returns ``(turn_id, plan)``.
+
+        ``steering_mode``:
+          * ``"policy"`` (default): the calibrated policy sets the strength and the run-time gate decides;
+          * ``"always"``: every reply is steered; the strength follows the user's emotional state
+            (``EmotionReasonerAgent.state_strength`` mapped onto ``STATE_ALPHA_RANGE``), a crisis message is steered
+            toward warmth, and the steered reply is sent unless it is broken (see ``_check``);
+          * ``"off"`` (or ``steering_off``): the unsteered baseline; strategy, response emotion and prompt are planned
+            exactly as usual and recorded, only the strength is 0.
+
+        ``prompt_variant`` (offline experiments only; the chat and the API never set it): ``"plain"`` gives the reply
+        the MindMate prompt alone, without the Emotion Reasoner's knowledge-graph strategy guidance; ``"warm"`` the
+        MindMate prompt plus an instruction to reply warmly, naming the emotion steering mode ``always`` would steer
+        toward (``plan["warmth_emotion"]``).  The plan, the strength and the steering are unchanged;
+        ``plan["deployed_prompt_style"]`` keeps the style the chat would have used.
 
         The overrides exist for experiments through the API.  They are ignored unless the service was
         created with ``allow_overrides``, are never applied on a safety turn or for a model whose policy
         names its own panels, and the forced candidate still has to pass the repetition, length and
         language safeguards.  The chat UI never sends them.
         """
+        if prompt_variant is not None and prompt_variant not in PROMPT_VARIANTS:
+            raise ValueError("prompt_variant must be one of: " + ", ".join(PROMPT_VARIANTS) + ".")
         ignored = None
         if alpha_override is not None or emotion_override:
             if self.agent._policy_names_panels():
@@ -246,6 +312,8 @@ class EmotionSteeringService:
             state = self.user_state(text)[1]
             history.append({"emotion": state["emotion"], "valence": state["valence"]})
         plan = self.agent.plan(users[-1], self.probe_scores(users[-1]), history).to_dict()
+        # The emotion steering mode "always" would steer toward (computed before any mode changes the plan).
+        warmth_emotion = self.agent.state_strength(plan, users[-1])[0] if prompt_variant == "warm" else None
         plan["detector"] = self.detector
         manual = False
         if ignored:
@@ -259,14 +327,80 @@ class EmotionSteeringService:
             plan["steering_alpha"], manual = alpha_override, True
             plan["strength_factors"].append({"factor": "manual", "effect": f"alpha {alpha_override:.2f}",
                                              "reason": "steering strength set by the API request"})
+        if not self.steering_enabled and not manual and plan.get("steering_alpha"):
+            plan["steering_alpha"] = 0.0
+            plan["strength_factors"].insert(0, {"factor": "uncalibrated", "effect": "alpha 0",
+                                                "reason": "steering is disabled for this model: no calibrated "
+                                                          "policy supports it"})
+        steering_mode = "off" if steering_off else (steering_mode or "policy")
+        if steering_mode not in STEERING_MODES:
+            raise ValueError("steering_mode must be one of: " + ", ".join(STEERING_MODES) + ".")
+        if steering_mode == "always" and not manual:
+            self._steer_from_state(plan, users[-1])
+        if steering_mode == "off":
+            plan["steering_alpha"], manual = 0.0, False
+            plan["strength_factors"].insert(0, {"factor": "baseline", "effect": "alpha 0",
+                                                "reason": "steering is switched off for this conversation "
+                                                          "(unsteered baseline)"})
+        plan["steering_mode"] = steering_mode
+        system_prompt, plan["prompt_style"] = self.system_prompt_for(plan, users[-1])
+        if prompt_variant is not None:
+            plan["deployed_prompt_style"] = plan["prompt_style"]
+            if prompt_variant == "plain":
+                system_prompt, plan["prompt_style"] = SYSTEM_PROMPT, "mindmate_only"
+            else:
+                plan["warmth_emotion"] = warmth_emotion or "love"
+                system_prompt = warmth_prompt(SYSTEM_PROMPT, plan["warmth_emotion"])
+                plan["prompt_style"] = "warmth_instruction"
         turn_id = uuid.uuid4().hex
         with self._lock:
             self._turns[turn_id] = {"plan": plan, "messages": list(messages), "manual": manual, "analysis": None,
-                                    "system_prompt": strategy_prompt(SYSTEM_PROMPT, plan),
+                                    "system_prompt": system_prompt,
                                     "conversation_id": conversation_id, "mode": mode}
             while len(self._turns) > MAX_STORED_TURNS:
                 self._turns.popitem(last=False)
         return turn_id, plan
+
+    def _panel_for(self, strategy: str, response: str | None) -> str | None:
+        """The neuron panel of this model that expresses ``response`` for ``strategy`` (None if it has none)."""
+        panels = getattr(self.runtime, "_emotion_panels", {}) or {}
+        strategy_panels = getattr(self.runtime, "strategy_panels", {}) or {}
+        candidates = [strategy_panels.get(strategy)]
+        if strategy == "crisis_support":              # tone-panel models: warmth is the compassionate-comfort tone
+            candidates.append(strategy_panels.get("compassionate_comfort"))
+        candidates.append(response)
+        return next((name for name in candidates if name and panels.get(name)), None)
+
+    def _steer_from_state(self, plan: dict[str, Any], user_text: str) -> None:
+        """Steering mode "always": steer this reply with a strength set by the user's emotional state."""
+        response, level, factors = self.agent.state_strength(plan, user_text)
+        panel = self._panel_for(plan["strategy"], response)
+        plan["policy_alpha"] = plan.get("steering_alpha", 0.0)
+        if response is None or panel is None:
+            plan["steering_alpha"], plan["steering_panel"] = 0.0, None
+            plan["strength_factors"].insert(0, {"factor": "panel", "effect": "alpha 0",
+                                                "reason": "this model has no neuron panel for the planned response "
+                                                          f"emotion ({response}), so this reply cannot be steered"})
+            return
+        low, high = STATE_ALPHA_RANGE.get(self.tag, STATE_ALPHA_RANGE["default"])
+        alpha = round(low + (high - low) * level, 2)
+        plan.update(response_emotion=response, steering_alpha=alpha, steering_panel=panel, state_level=level)
+        plan["strength_factors"] = [
+            {"factor": "mode", "effect": f"alpha {alpha:.2f}",
+             "reason": "every reply is steered; the strength follows the user's emotional state"},
+            *factors,
+            {"factor": "model range", "effect": f"level {level:.2f} -> alpha {alpha:.2f}",
+             "reason": f"the state level is mapped onto this model's steering range {low:g}-{high:g} "
+                       "(strengths its calibration tested)"},
+        ]
+
+    def system_prompt_for(self, plan: dict[str, Any], user_text: str) -> tuple[str, str]:
+        """``(system prompt, style name)`` for the planned reply; see ``PROMPT_STYLE``."""
+        if PROMPT_STYLE.get(self.tag) == "v3_english_only":
+            if is_hinglish(user_text) or DEVANAGARI.search(user_text):
+                return SYSTEM_PROMPT, "mindmate_only"
+            return strategy_prompt_v3(SYSTEM_PROMPT, plan, user_text), "strategy_v3"
+        return strategy_prompt(SYSTEM_PROMPT, plan), "strategy"
 
     def will_steer(self, turn_id: str) -> bool:
         """Whether a steered candidate will be generated (False: the reply can be streamed live)."""
@@ -274,7 +408,6 @@ class EmotionSteeringService:
         return bool(plan["response_emotion"] and plan["steering_alpha"])
 
     def respond(self, turn_id: str, max_new_tokens: int, *,
-                safety_filter: Callable[[str], str] | None = None,
                 on_decision: Callable[[dict[str, Any]], None] | None = None,
                 on_text: Callable[[str], None] | None = None) -> dict[str, Any]:
         """Generate the reply for a planned turn; ``analysis["reply"]`` is the text to send.
@@ -285,26 +418,8 @@ class EmotionSteeringService:
         """
         turn = self._turns[turn_id]
         analysis = self.respond_with_plan(turn["messages"], turn["system_prompt"], turn["plan"], max_new_tokens,
-                                          manual=turn["manual"], on_decision=None if safety_filter else on_decision,
-                                          on_text=None if safety_filter else on_text,
+                                          manual=turn["manual"], on_decision=on_decision, on_text=on_text,
                                           turn_id=turn_id)
-        if safety_filter is not None:
-            approved = safety_filter(analysis["reply"])
-            if approved != analysis["reply"]:
-                analysis["reply"] = approved
-                analysis["effect"] = {"sent": "safety_replacement", "method": "safety", "target": None,
-                                      "unsteered_reply": approved, "unsteered_scores": {}}
-                analysis["comparison"] = None
-                analysis["decision"].update(applied_alpha=0.0, status="safety_replacement")
-            for candidate in ("unsteered_reply", "steered_reply"):
-                text = analysis["effect"].get(candidate)
-                if text and text != approved and safety_filter(text) != text:
-                    analysis["effect"][candidate] = "[Safety-blocked research draft]"
-                    analysis["comparison"] = None
-            if on_decision:
-                on_decision(analysis["decision"])
-            if on_text:
-                on_text(approved)
         analysis["turn_id"] = turn_id
         self.finalize_turn(turn["messages"], turn["plan"], analysis, conversation_id=turn.get("conversation_id"),
                            turn_id=turn_id, mode=turn.get("mode", "direct"))
@@ -314,7 +429,8 @@ class EmotionSteeringService:
     # ----------------------------------------------------------------- shared core
 
     def _check(self, target: str, unsteered: str, steered: str, unsteered_scores: dict[str, float],
-               steered_scores: dict[str, float], panel: str | None = None, manual: bool = False) -> tuple[str, str]:
+               steered_scores: dict[str, float], panel: str | None = None, manual: bool = False,
+               always: bool = False) -> tuple[str, str]:
         """Run-time safeguards for a steered candidate: ``(status, reason)``.
 
         ``manual`` (an enabled API override) skips only the rules that decide *whether steering is worth it*
@@ -322,16 +438,21 @@ class EmotionSteeringService:
         """
         gate = self.gate
         before, after = unsteered_scores[target], steered_scores[target]
-        if manual:
+        if manual or always:
+            # Only the rules that protect the reply itself: the steered reply is sent unless it is broken.
+            which = "forced steered reply" if manual else "steered reply"
             if degenerate_reply(steered) and not degenerate_reply(unsteered):
-                return "rejected", "the forced steered reply was discarded because it was not a conversational answer"
+                return "rejected", f"the {which} was discarded because it was not a conversational answer"
             if repeated_bigram_rate(steered) - repeated_bigram_rate(unsteered) > gate["max_repetition_increase"]:
-                return "rejected", "the forced steered reply was discarded because it was more repetitive than the unsteered reply"
+                return "rejected", f"the {which} was discarded because it was more repetitive than the unsteered reply"
             if len(steered) < gate["min_length_ratio"] * len(unsteered):
-                return "rejected", "the forced steered reply was discarded because it was much shorter than the unsteered reply"
+                return "rejected", f"the {which} was discarded because it was much shorter than the unsteered reply"
             if is_hinglish(unsteered) and not is_hinglish(steered):
-                return "rejected", "the forced steered reply was discarded because it left the user's Hinglish for English"
-            return "applied", "steering forced by the API request; the reply passed the repetition, length and language checks"
+                return "rejected", f"the {which} was discarded because it left the user's Hinglish for English"
+            if manual:
+                return "applied", "steering forced by the API request; the reply passed the repetition, length and language checks"
+            return "applied", ("every reply is steered; the steered reply passed the conversational, repetition, "
+                               "length and language checks")
         # A pure language panel (named by the policy's gate) repairs the reply language only: it is used
         # when the unsteered reply left the user's Hinglish, and its candidate must be in Hinglish.
         language_repair = panel is not None and panel == gate.get("language_panel")
@@ -376,6 +497,10 @@ class EmotionSteeringService:
         if plan.get("safety_flag"):
             return "safety"
         factor = (plan.get("strength_factors") or [{}])[0].get("factor")
+        if factor == "uncalibrated":
+            return "uncalibrated"
+        if factor == "baseline":
+            return "baseline"
         if factor == "panel" or not plan.get("response_emotion"):
             return "no_panel"
         return "policy" if plan.get("calibration") else "strength_rule"
@@ -417,12 +542,14 @@ class EmotionSteeringService:
             steered_trace: dict[str, Any] = {}
             return generate(0.0, base_trace), base_trace, generate(alpha, steered_trace), steered_trace
 
-        decision: dict[str, Any] = {"planned_alpha": planned, "applied_alpha": 0.0}
+        decision: dict[str, Any] = {"planned_alpha": planned, "applied_alpha": 0.0,
+                                    "mode": plan.get("steering_mode", "policy")}
         effect: dict[str, Any] = {"method": self.scorer.method, "target": target, "steered_reply": None,
                                   "steered_scores": None, "sent": "unsteered", "shadow": False}
         trace: dict[str, Any] = {}
         reference: dict[str, Any] | None = None
         panel_name = plan.get("steering_panel") or target
+        always = plan.get("steering_mode") == "always"
         shadow = self._shadow(plan) if (not planned and self.research_compare and not manual) else None
         if not planned:
             decision.update(status="not_planned", reason=plan["strength_factors"][0]["reason"],
@@ -462,7 +589,7 @@ class EmotionSteeringService:
             unsteered_scores, steered_scores = self.scorer.score(unsteered), self.scorer.score(steered)
             effect.update(unsteered_reply=unsteered, unsteered_scores=unsteered_scores, steered_reply=steered,
                           steered_scores=steered_scores)
-            status, reason = self._check(target, unsteered, steered, unsteered_scores, steered_scores,
+            status, reason = self._check(target, unsteered, steered, unsteered_scores, steered_scores, always=always,
                                          panel=plan.get("steering_panel"), manual=manual)
             decision.update(status=status, reason=reason, **({"manual": True} if manual else {}))
             if status == "applied":
@@ -688,6 +815,19 @@ class EmotionSteeringService:
             "research_compare": self.research_compare,
             "separation": list(SEPARATION),
         }
+
+    def forget_conversation(self, conversation_id: str) -> int:
+        """Drop the in-memory turns and research records of a deleted conversation; returns turns dropped."""
+        with self._lock:
+            stale = [turn_id for turn_id, turn in self._turns.items() if turn.get("conversation_id") == conversation_id]
+            for turn_id in stale:
+                self._turns.pop(turn_id, None)
+        self.research.forget(conversation_id)
+        return len(stale)
+
+    def has_turn_id(self, turn_id: str) -> bool:
+        with self._lock:
+            return turn_id in self._turns
 
     def add_feedback(self, conversation_id: str, turn_index: int, *, mood_rating: int | None = None,
                      helpfulness: int | None = None) -> dict[str, Any]:

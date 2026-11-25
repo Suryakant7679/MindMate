@@ -18,10 +18,6 @@ class LocalRuntimeModel:
         if emotion_service is not None:
             self.complete_planned = self._complete_planned
 
-    async def complete_safety(self, prompt: str) -> str:
-        from ..safety.runtime import SafetyRuntimeModel
-        return await SafetyRuntimeModel(self.runtime).complete_safety(prompt)
-
     async def complete(self, prompt: str) -> str:
         # The existing API already runs each request in its own handler thread;
         # the runtime lock serializes access to the single local GPU model.

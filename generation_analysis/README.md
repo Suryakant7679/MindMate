@@ -339,3 +339,101 @@ the screen passes (CI above zero, Holm, above the controls' 95th percentile) and
 python3 -m generation_analysis.single_neuron --model <llama|emollama|sarvam> all     # screen, generate, score, analyse
 ```
 Results: `neuron_validation/single/report.json`; shown in the Neuron Explorer (panel explorer and evidence ladder).
+
+## Steering-mode comparison: every reply steered vs calibrated policy vs off (`steering_modes.py`)
+
+Since 2026-11-22 the chat steers every reply by default (mode `always`: strength from the user's emotional state
+mapped onto the model's tested range, crisis turns steered toward warmth, the steered reply sent unless it is
+broken). That overrides the calibrated policy, so this study measures what it does, per model, on messages no
+earlier experiment used.
+
+* Messages (`build`, frozen with its sha256 in `results/steering_modes/messages.json`): EmpatheticDialogues test
+  conversations (90 single-turn, 30 multi-turn), 90 Hinglish messages from `data/mlt_hinghlish_dataset_clean.csv`
+  (GenZ-style, noisier than the earlier authored Hinglish), and up to 30 crisis messages (knowledge-graph crisis cue,
+  flagged by the planner). Every text and conversation of an earlier split, held-out set or experiment is excluded.
+* Systems: the chat's own path (`EmotionSteeringService.begin_turn(steering_mode=...)` + `respond()`): `off`,
+  `policy`, `always`. `policy` reuses the `off` reply where the policy does not steer (identical greedy decoding).
+* Scoring: both judges (Qwen2.5-7B, Gemma-3-27B 4-bit) as in the version-3 study, plus preservation of steered replies
+  and pairwise preferences. Report: paired bootstrap CIs, Wilcoxon, Holm over the primary all-message contrasts
+  (`always - off`, `always - policy`); harmed = a quality or safety rating more than 0.5 below the unsteered reply.
+
+```bash
+python3 -m generation_analysis.steering_modes --stages build                                  # once
+python3 -m generation_analysis.steering_modes --model llama --stages generate score report    # per model
+python3 -m generation_analysis.steering_modes --stages compare                                # all models
+python3 -m generation_analysis.steering_modes --model llama --stages generate --limit 3 --out smoke   # quick check
+```
+Outputs per model in `results/steering_modes/<tag>/` (`generations.jsonl`, `replies.csv`, `ratings_judge*.csv`,
+`contrasts.csv`, `system_means.csv`, `summary.json`); `comparison.json` feeds the Mood Tracker's Model Evaluation tab.
+Never tune a policy, prompt, strength range or rule on this set.
+
+## Steering x knowledge-graph prompt (`steering_kg.py`)
+
+The chat's reply has two emotional levers: the Emotion Reasoner's knowledge-graph strategy guidance in the system
+prompt (the "KG prompt") and neuron steering. Every system in the steering-mode study used the KG prompt, so its
+`always - off` contrast is steering *on top of* the KG prompt. This study adds the two missing cells of a 2 x 2 design
+on the same frozen 226 messages:
+
+| | no steering | steering (mode `always`) |
+|---|---|---|
+| MindMate prompt alone | `none` (generated here) | `steer` (generated here) |
+| KG prompt (the chat's) | `kg` = steering-mode `off` (reused) | `kg_steer` = steering-mode `always` (reused) |
+
+The plan (strategy, response emotion, state level, strength) is the same in every cell; only the prompt
+(`begin_turn(prompt_variant="plain")`) and the steering change. Each generated reply records `plan_matches_kg`. Sarvam
+already gets the MindMate prompt alone for Hinglish, so its plain Hinglish cells reuse the KG replies; its
+`kg_prompt_used` subset covers the messages where the prompts differ. Contrasts: steering alone (`steer - none`), KG
+alone (`kg - none`), both (`kg_steer - none`), steering added to the KG prompt (`kg_steer - kg`), KG added to steering
+(`kg_steer - steer`) and the interaction `(kg_steer - kg) - (steer - none)`. All are paired, use the mean of both
+judges, have bootstrap CIs and use Holm over the all-message contrasts. Both judges re-rate all four cells, so every
+rating comes from one run.
+
+```bash
+python3 -m generation_analysis.steering_kg --model llama --stages generate score report   # per model (needs steering_modes done)
+python3 -m generation_analysis.steering_kg --stages compare                               # all models
+```
+Outputs in `results/steering_kg/<tag>/` and `results/steering_kg/comparison.json`. The same never-tune rule applies.
+
+## Confirmatory study: locked setups and a warmth-prompt baseline on fresh messages (`confirmatory.py`)
+
+The exploratory studies above chose each model's setup on the same 226 messages they measured, and they had no
+prompt baseline. This study fixes both problems:
+
+- **Fresh messages.** `build` draws 300 messages (150 single-turn and 50 multi-turn EmpatheticDialogues test
+  conversations, 100 Hinglish) that no earlier split, held-out set or study used. That includes the 226-message set.
+  Almost no unused crisis messages remain, so crisis is exploratory.
+- **Locked setups** (`LOCKED`), chosen from the exploratory evidence:
+
+  | Model | Locked setup |
+  |---|---|
+  | Llama 3.1 | KG prompt + steering |
+  | EmoLLaMA | MindMate prompt + steering |
+  | Llama-2 | KG prompt, steering off |
+  | Sarvam | KG prompt + steering |
+
+- **Warmth-prompt baseline.** `begin_turn(prompt_variant="warm")` adds "Reply warmly: let your reply clearly express
+  <emotion words> toward the user…" to the MindMate prompt. The emotion is the one steering targets for that message,
+  and its words are the judges' rubric words, so the baseline is told exactly what tone is rated on.
+- **Six cells per message:** `none`, `warm`, `steer`, `warm_steer`, `kg`, `kg_steer`. The plan, target and strength
+  are identical in every cell.
+- **Pre-registration.** `register` writes `results/confirmatory/preregistration.{json,md}` before any reply is
+  generated. It contains:
+  - the hypotheses (H1–H9 per model, 33 in all);
+  - the tests: paired t-tests, which are one-sided, two-sided or non-inferiority with a 0.10 margin;
+  - Holm correction over all 33 tests;
+  - the secondary and exploratory analyses;
+  - the settings;
+  - SHA-256 fingerprints of the code and the panel and policy files.
+
+  `generate` and `score` refuse to run if any of these changed. The registration can be replaced only before the
+  first reply is generated.
+- **Verdict.** `verdict` applies Holm over every registered test of every model. A model that wasn't run counts as
+  not confirmed. Deviations are listed in `results/confirmatory/report.md`.
+
+```bash
+python3 -m generation_analysis.confirmatory --stages build          # once (done: sha256 in messages.json)
+python3 -m generation_analysis.confirmatory --stages register       # read preregistration.md, then commit it
+python3 -m generation_analysis.confirmatory --model llama --stages generate score report   # per model
+python3 -m generation_analysis.confirmatory --stages verdict
+python3 -m generation_analysis.confirmatory --model llama --stages generate score report verdict --smoke 3   # check
+```

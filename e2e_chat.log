@@ -1,0 +1,146 @@
+Loading sarvamai/sarvam-30b on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Quantization: 4-bit NF4 with double quantization.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/26 [00:00<?, ?it/s]Loading checkpoint shards:   4%|▍         | 1/26 [00:01<00:40,  1.62s/it]Loading checkpoint shards:   8%|▊         | 2/26 [00:04<00:52,  2.20s/it]Loading checkpoint shards:  12%|█▏        | 3/26 [00:06<00:52,  2.28s/it]Loading checkpoint shards:  15%|█▌        | 4/26 [00:09<00:52,  2.37s/it]Loading checkpoint shards:  19%|█▉        | 5/26 [00:11<00:49,  2.36s/it]Loading checkpoint shards:  23%|██▎       | 6/26 [00:13<00:46,  2.33s/it]Loading checkpoint shards:  27%|██▋       | 7/26 [00:16<00:44,  2.34s/it]Loading checkpoint shards:  31%|███       | 8/26 [00:18<00:42,  2.35s/it]Loading checkpoint shards:  35%|███▍      | 9/26 [00:21<00:42,  2.49s/it]Loading checkpoint shards:  38%|███▊      | 10/26 [00:23<00:39,  2.46s/it]Loading checkpoint shards:  42%|████▏     | 11/26 [00:25<00:35,  2.38s/it]Loading checkpoint shards:  46%|████▌     | 12/26 [00:27<00:32,  2.31s/it]Loading checkpoint shards:  50%|█████     | 13/26 [00:30<00:29,  2.27s/it]Loading checkpoint shards:  54%|█████▍    | 14/26 [00:32<00:26,  2.23s/it]Loading checkpoint shards:  58%|█████▊    | 15/26 [00:34<00:24,  2.27s/it]Loading checkpoint shards:  62%|██████▏   | 16/26 [00:37<00:23,  2.36s/it]Loading checkpoint shards:  65%|██████▌   | 17/26 [00:39<00:21,  2.41s/it]Loading checkpoint shards:  69%|██████▉   | 18/26 [00:42<00:19,  2.46s/it]Loading checkpoint shards:  73%|███████▎  | 19/26 [00:44<00:17,  2.48s/it]Loading checkpoint shards:  77%|███████▋  | 20/26 [00:47<00:14,  2.50s/it]Loading checkpoint shards:  81%|████████  | 21/26 [00:49<00:12,  2.51s/it]Loading checkpoint shards:  85%|████████▍ | 22/26 [00:52<00:10,  2.52s/it]Loading checkpoint shards:  88%|████████▊ | 23/26 [00:55<00:07,  2.52s/it]Loading checkpoint shards:  92%|█████████▏| 24/26 [00:57<00:04,  2.50s/it]Loading checkpoint shards:  96%|█████████▌| 25/26 [00:59<00:02,  2.40s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:00<00:00,  1.80s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:00<00:00,  2.31s/it]
+Model ready.
+Emotion steering disabled for sarvam_30b: its calibrated policy steers nothing.
+MindMate API: http://127.0.0.1:44035
+127.0.0.1 - - [21/Nov/2026 22:13:44] "GET /api/status HTTP/1.1" 200 -
+----------------------------------------
+127.0.0.1 - - [21/Nov/2026 22:13:44] "GET /api/status HTTP/1.1" 200 -
+Exception occurred during processing of request from ('127.0.0.1', 41342)
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 34522)
+127.0.0.1 - - [21/Nov/2026 22:13:44] "GET /api/status HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 51888)
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.10/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.10/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/usr/lib/python3.10/http/server.py", line 433, in handle
+    self.handle_one_request()
+127.0.0.1 - - [21/Nov/2026 22:13:44] "GET /api/status HTTP/1.1" 200 -
+  File "/usr/lib/python3.10/http/server.py", line 421, in handle_one_request
+    method()
+  File "/data/mtech/surya_project/mental_health/backend/server.py", line 127, in do_GET
+    self.send_json(
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.10/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.10/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/usr/lib/python3.10/http/server.py", line 433, in handle
+    self.handle_one_request()
+  File "/usr/lib/python3.10/http/server.py", line 421, in handle_one_request
+    method()
+  File "/data/mtech/surya_project/mental_health/backend/server.py", line 127, in do_GET
+    self.send_json(
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 43522)
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.10/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/data/mtech/surya_project/mental_health/backend/server.py", line 115, in send_json
+    self.wfile.write(body)
+  File "/usr/lib/python3.10/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+  File "/usr/lib/python3.10/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/usr/lib/python3.10/http/server.py", line 433, in handle
+    self.handle_one_request()
+  File "/data/mtech/surya_project/mental_health/backend/server.py", line 115, in send_json
+    self.wfile.write(body)
+  File "/usr/lib/python3.10/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.10/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.10/socketserver.py", line 747, in __init__
+    self.handle()
+127.0.0.1 - - [21/Nov/2026 22:13:44] "GET /api/status HTTP/1.1" 200 -
+  File "/usr/lib/python3.10/http/server.py", line 433, in handle
+    self.handle_one_request()
+  File "/usr/lib/python3.10/http/server.py", line 421, in handle_one_request
+    method()
+  File "/data/mtech/surya_project/mental_health/backend/server.py", line 127, in do_GET
+    self.send_json(
+  File "/data/mtech/surya_project/mental_health/backend/server.py", line 115, in send_json
+    self.wfile.write(body)
+  File "/usr/lib/python3.10/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+  File "/usr/lib/python3.10/http/server.py", line 421, in handle_one_request
+    method()
+  File "/data/mtech/surya_project/mental_health/backend/server.py", line 127, in do_GET
+    self.send_json(
+  File "/data/mtech/surya_project/mental_health/backend/server.py", line 115, in send_json
+    self.wfile.write(body)
+  File "/usr/lib/python3.10/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+127.0.0.1 - - [21/Nov/2026 22:13:52] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 22:14:05] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 22:14:05] "GET /api/emotion/trace/e11af2c2dbe045c9aa848effb6c2c77f HTTP/1.1" 404 -
+Started backend.server --model sarvam on http://127.0.0.1:44035 (pid 3471676); loading the model...
+Server ready: {"ready": true, "model": "sarvamai/sarvam-30b", "model_key": "sarvam", "mcp_enabled": false, "mcp_servers": {}}
+  ok   loaded model is sarvam (sarvamai/sarvam-30b)
+
+### [hinglish] Aaj office mein boss ne sabke saamne daant diya, bahut embarrassing laga aur ab kuch karne ka mann nahi hai.
+  reply (7.7s): 'It sounds like things may be very difficult. I want to understand: are you having thoughts of harming yourself, or are you describing another kind of difficulty?'
+  safety: route=clarification risk=R1 reply approved=True
+  ok   non-empty reply
+  ok   no reasoning markers in the reply
+  ok   Safety Agent route reported
+  ok   reply within two minutes (8s)
+  (not routed to normal chat: safety template, Emotion Reasoner skipped)
+  ok   no Emotion Reasoner plan on a safety turn
+
+### [hinglish] Yaar exam ka result aa gaya, maine top kiya! Mummy papa ko bata ke bahut khushi hui.
+  reply (13.1s): 'Bahut khushi ki baat hai! Top karne par badhaiyaan. Mummy-papa ko batane se unki khushi double ho jaati hai.\n\nKya unhe batane ke baad unka reaction kaisa tha?'
+  safety: route=normal risk=R0 reply approved=True
+  ok   non-empty reply
+  ok   no reasoning markers in the reply
+  ok   Safety Agent route reported
+  ok   reply within two minutes (13s)
+  strategy=celebratory_sharing prompt=mindmate_only response_emotion=joy panel=None planned_alpha=0.0 status=not_planned applied=0.0
+  reason: not steered: not quality-safe for both judges; not preferred or less appropriate
+  ok   turn id returned
+  ok   knowledge-graph strategy chosen (celebratory_sharing)
+  ok   reply approved by the Safety Agent (or replaced by its template)
+  ok   Sarvam prompt style mindmate_only (expected mindmate_only)
+Traceback (most recent call last):
+  File "/data/mtech/surya_project/mental_health/tests/e2e_sarvam_chat.py", line 216, in <module>
+    main()
+  File "/data/mtech/surya_project/mental_health/tests/e2e_sarvam_chat.py", line 139, in main
+    trace = request(f"{url}/api/emotion/trace/{reply.get('turn_id')}")
+  File "/data/mtech/surya_project/mental_health/tests/e2e_sarvam_chat.py", line 47, in request
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+  File "/usr/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.10/urllib/request.py", line 525, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.10/urllib/request.py", line 634, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.10/urllib/request.py", line 563, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.10/urllib/request.py", line 643, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found

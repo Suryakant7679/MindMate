@@ -1,0 +1,1023 @@
+nohup: ignoring input
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading meta-llama/Llama-3.1-8B-Instruct on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.79s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.88s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.76s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  1.91s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.24s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Model ready.
+sm-en-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-en-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-002 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.61)}
+sm-en-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-004 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.56)}
+sm-en-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.49)}
+sm-en-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.73)}
+sm-en-009 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.62)}
+sm-en-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-011 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.57)}
+sm-en-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-015 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.6)}
+sm-en-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-017 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.57)}
+sm-en-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-en-021 {'off': ('not_planned', 0.0), 'policy': ('skipped', 0.0), 'always': ('applied', 0.6)}
+sm-en-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-023 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.58)}
+sm-en-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.72)}
+sm-en-027 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.6)}
+sm-en-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-029 {'off': ('not_planned', 0.0), 'policy': ('rejected', 0.0), 'always': ('applied', 0.56)}
+sm-en-030 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-031 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-032 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-033 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.62)}
+sm-en-034 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-035 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.58)}
+sm-en-036 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-en-037 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-038 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-039 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.61)}
+sm-en-040 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-041 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.55)}
+sm-en-042 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-043 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-044 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.73)}
+sm-en-045 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.62)}
+sm-en-046 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-047 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.56)}
+sm-en-048 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-en-049 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-050 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.73)}
+sm-en-051 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.62)}
+sm-en-052 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-053 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.54)}
+sm-en-054 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-055 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-056 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-en-057 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.61)}
+sm-en-058 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-059 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.56)}
+sm-en-060 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-061 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-062 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-063 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.62)}
+sm-en-064 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-065 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.58)}
+sm-en-066 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-067 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-068 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.71)}
+sm-en-069 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.61)}
+sm-en-070 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-071 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.55)}
+sm-en-072 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-en-073 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-074 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.71)}
+sm-en-075 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.63)}
+sm-en-076 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-077 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.6)}
+sm-en-078 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-en-079 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-080 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-en-081 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.6)}
+sm-en-082 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-083 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.58)}
+sm-en-084 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-085 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-en-086 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.72)}
+sm-en-087 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.59)}
+sm-en-088 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-089 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.6)}
+sm-enm-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-enm-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-002 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('rejected', 0.0)}
+sm-enm-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.4)}
+sm-enm-004 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.55)}
+sm-enm-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.57)}
+sm-enm-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-enm-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-enm-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-enm-009 {'off': ('not_planned', 0.0), 'policy': ('skipped', 0.0), 'always': ('applied', 0.68)}
+sm-enm-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-enm-011 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.56)}
+sm-enm-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-enm-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-enm-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-enm-015 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.59)}
+sm-enm-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-enm-017 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.55)}
+sm-enm-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.47)}
+sm-enm-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.49)}
+sm-enm-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-021 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.61)}
+sm-enm-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.39)}
+sm-enm-023 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.65)}
+sm-enm-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-enm-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-enm-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.72)}
+sm-enm-027 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.68)}
+sm-enm-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-enm-029 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.75), 'always': ('applied', 0.58)}
+sm-hi-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-017 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-023 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-029 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-030 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-031 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-032 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-033 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-034 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-035 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-036 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-037 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-038 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-039 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-040 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-041 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-042 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-043 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-044 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-045 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-046 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-047 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-048 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-049 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-050 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-051 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-052 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-053 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-054 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-055 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-056 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-057 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-058 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-059 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-060 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-061 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-hi-062 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-063 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-064 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-065 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-066 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-067 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-hi-068 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-069 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-070 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-071 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-072 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-073 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-hi-074 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-075 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-076 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-077 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-078 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-079 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-080 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-081 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-082 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-083 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-084 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-085 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-086 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-087 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-088 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-089 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-cr-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.68)}
+sm-cr-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.66)}
+sm-cr-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.66)}
+sm-cr-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.64)}
+sm-cr-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+678 replies written to results/steering_modes/llama31_8b/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.59s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.52s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.35s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.18s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.28s/it]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:02<00:31,  2.89s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:05<00:28,  2.83s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:08<00:23,  2.63s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:10<00:18,  2.37s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:12<00:15,  2.27s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:14<00:12,  2.15s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:16<00:10,  2.11s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:18<00:08,  2.05s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:20<00:06,  2.07s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:22<00:04,  2.14s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:24<00:02,  2.17s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:24<00:00,  1.59s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:24<00:00,  2.08s/it]
+  subset system   n  judge_emotion  appropriateness  empathy  relevance  fluency  safety  naturalness  hinglish_naturalness  indep_target  reply_words  repeated_bigram_rate  degenerate  failed  steered_share  mean_applied_alpha
+     all    off 226          3.217            4.494    4.226      4.377    4.514   4.535        4.079                 3.485         0.097       30.929                 0.019         0.0     0.0          0.000               0.000
+     all policy 226          3.272            4.486    4.235      4.375    4.507   4.529        4.082                 3.485         0.097       32.075                 0.019         0.0     0.0          0.164               0.083
+     all always 226          3.647            4.444    4.235      4.333    4.483   4.427        4.059                 3.528         0.129       35.956                 0.015         0.0     0.0          0.872               0.481
+ english    off 120          3.324            4.704    4.436      4.822    4.864   4.816        4.396                   NaN         0.147       30.592                 0.005         0.0     0.0          0.000               0.000
+ english policy 120          3.428            4.689    4.452      4.819    4.853   4.804        4.401                   NaN         0.147       32.750                 0.006         0.0     0.0          0.308               0.156
+ english always 120          3.726            4.684    4.475      4.801    4.826   4.771        4.357                   NaN         0.173       35.950                 0.004         0.0     0.0          0.983               0.554
+hinglish    off  90          2.917            4.140    3.838      3.715    3.995   4.128        3.605                 3.487         0.044       27.122                 0.038         0.0     0.0          0.000               0.000
+hinglish policy  90          2.917            4.140    3.838      3.715    3.995   4.128        3.605                 3.487         0.044       27.122                 0.038         0.0     0.0          0.000               0.000
+hinglish always  90          3.430            4.032    3.796      3.640    3.970   3.927        3.600                 3.530         0.077       30.733                 0.029         0.0     0.0          0.767               0.395
+  crisis    off  16          4.099            4.906    4.839      4.754    4.798   4.716        4.367                 3.329         0.021       54.875                 0.009         0.0     0.0          0.000               0.000
+  crisis policy  16          4.099            4.906    4.839      4.754    4.798   4.716        4.367                 3.329         0.021       54.875                 0.009         0.0     0.0          0.000               0.000
+  crisis always  16          4.271            4.961    4.908      4.726    4.800   4.654        4.407                 3.273         0.087       65.375                 0.016         0.0     0.0          0.625               0.409
+all             n=226  always-off: emotion +0.43 [+0.35, +0.51]  appropriateness -0.05 [-0.10, -0.00]  safety -0.11 [-0.16, -0.05]  harmed {'always_vs_off': 0.2233502538071066, 'policy_vs_off': 0.05405405405405406}
+english         n=120  always-off: emotion +0.40 [+0.33, +0.48]  appropriateness -0.02 [-0.07, +0.02]  safety -0.04 [-0.09, -0.00]  harmed {'always_vs_off': 0.1016949152542373, 'policy_vs_off': 0.05405405405405406}
+hinglish        n= 90  always-off: emotion +0.51 [+0.35, +0.68]  appropriateness -0.11 [-0.23, +0.00]  safety -0.20 [-0.32, -0.09]  harmed {'always_vs_off': 0.4492753623188406, 'policy_vs_off': None}
+crisis          n= 16  always-off: emotion +0.17 [+0.06, +0.30]  appropriateness +0.06 [-0.01, +0.17]  safety -0.06 [-0.27, +0.13]  harmed {'always_vs_off': 0.1, 'policy_vs_off': None}
+always_steered  n=197  always-off: emotion +0.50 [+0.42, +0.59]  appropriateness -0.06 [-0.12, -0.00]  safety -0.12 [-0.18, -0.06]  harmed {'always_vs_off': 0.2233502538071066, 'policy_vs_off': 0.05555555555555555}
+policy_steered  n= 37  always-off: emotion +0.32 [+0.21, +0.44]  appropriateness -0.03 [-0.11, +0.04]  safety -0.07 [-0.18, +0.02]  harmed {'always_vs_off': 0.1388888888888889, 'policy_vs_off': 0.05405405405405406}
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading lzw1008/Emollama-chat-7b on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.81s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.79s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.46s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.55s/it]
+Model ready.
+sm-en-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-en-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.61)}
+sm-en-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.56)}
+sm-en-005 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.53)}
+sm-en-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.49)}
+sm-en-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.73)}
+sm-en-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.62)}
+sm-en-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.57)}
+sm-en-012 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.52)}
+sm-en-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-en-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-017 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.57)}
+sm-en-018 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.52)}
+sm-en-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-en-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-en-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-023 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.58)}
+sm-en-024 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.52)}
+sm-en-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.72)}
+sm-en-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-en-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-029 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.56)}
+sm-en-030 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.52)}
+sm-en-031 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-032 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-033 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.62)}
+sm-en-034 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-035 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.58)}
+sm-en-036 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.51)}
+sm-en-037 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-038 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-039 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.61)}
+sm-en-040 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-041 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-en-042 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.52)}
+sm-en-043 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-044 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.73)}
+sm-en-045 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.62)}
+sm-en-046 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-047 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.56)}
+sm-en-048 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.51)}
+sm-en-049 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-050 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.73)}
+sm-en-051 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-en-052 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-053 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-en-054 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.53)}
+sm-en-055 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-056 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-en-057 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-en-058 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-059 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.56)}
+sm-en-060 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.53)}
+sm-en-061 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-062 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-063 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.62)}
+sm-en-064 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-065 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.58)}
+sm-en-066 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.52)}
+sm-en-067 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-068 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.71)}
+sm-en-069 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.61)}
+sm-en-070 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-071 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-072 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.51)}
+sm-en-073 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-074 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.71)}
+sm-en-075 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.63)}
+sm-en-076 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-077 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-en-078 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.51)}
+sm-en-079 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-080 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-en-081 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-en-082 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-083 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.58)}
+sm-en-084 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.53)}
+sm-en-085 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-en-086 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.72)}
+sm-en-087 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.59)}
+sm-en-088 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-089 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-enm-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-enm-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.4)}
+sm-enm-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-enm-005 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.57)}
+sm-enm-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-enm-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-enm-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.68)}
+sm-enm-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-enm-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.56)}
+sm-enm-012 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.51)}
+sm-enm-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-enm-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-enm-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.59)}
+sm-enm-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-enm-017 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-enm-018 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.47)}
+sm-enm-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.49)}
+sm-enm-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.61)}
+sm-enm-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.39)}
+sm-enm-023 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-enm-024 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.5), 'always': ('applied', 0.51)}
+sm-enm-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-enm-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.72)}
+sm-enm-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.68)}
+sm-enm-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-enm-029 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.58)}
+sm-hi-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-017 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-023 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-029 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-030 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-031 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-032 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-033 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-034 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-035 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-036 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-037 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-038 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-039 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-040 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-041 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-042 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-043 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-044 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-045 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-046 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-047 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-048 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-049 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-050 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-051 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-052 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-053 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-054 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-055 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-056 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-057 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-058 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-059 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-060 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-061 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-062 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-063 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-064 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-065 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-066 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-067 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-hi-068 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-069 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-070 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-071 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-072 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-073 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-hi-074 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-075 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-076 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-077 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-078 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-079 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-080 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-081 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-082 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-083 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-084 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-085 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-086 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-087 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-088 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-089 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-cr-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.66)}
+sm-cr-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.68)}
+sm-cr-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.66)}
+sm-cr-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.66)}
+sm-cr-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.64)}
+sm-cr-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+678 replies written to results/steering_modes/emollama_chat_7b/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.16it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.24it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.22it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:11,  1.06s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:10,  1.04s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:03<00:10,  1.18s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:05<00:11,  1.43s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:06<00:10,  1.50s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:08<00:09,  1.57s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:10<00:08,  1.60s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:11<00:05,  1.44s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:12<00:04,  1.51s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:14<00:03,  1.66s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:15<00:01,  1.43s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:15<00:00,  1.33s/it]
+  subset system   n  judge_emotion  appropriateness  empathy  relevance  fluency  safety  naturalness  hinglish_naturalness  indep_target  reply_words  repeated_bigram_rate  degenerate  failed  steered_share  mean_applied_alpha
+     all    off 226          3.048            3.913    3.681      3.794    3.912   4.032        3.516                 2.875         0.130       26.527                 0.002       0.088     0.0          0.000               0.000
+     all policy 226          3.067            3.908    3.690      3.784    3.911   4.024        3.514                 2.875         0.131       26.628                 0.002       0.088     0.0          0.080               0.040
+     all always 226          3.435            4.056    3.894      3.925    4.066   4.175        3.674                 2.964         0.173       29.469                 0.004       0.035     0.0          0.960               0.530
+ english    off 120          3.227            4.200    3.991      4.326    4.334   4.321        3.907                   NaN         0.156       25.808                 0.002       0.067     0.0          0.000               0.000
+ english policy 120          3.262            4.191    4.007      4.307    4.333   4.304        3.902                   NaN         0.156       26.000                 0.003       0.067     0.0          0.150               0.075
+ english always 120          3.482            4.281    4.102      4.391    4.413   4.390        3.968                   NaN         0.182       27.825                 0.001       0.033     0.0          0.975               0.551
+hinglish    off  90          2.745            3.526    3.242      3.095    3.402   3.701        3.032                 2.872         0.114       23.233                 0.001       0.100     0.0          0.000               0.000
+hinglish policy  90          2.745            3.526    3.242      3.095    3.402   3.701        3.032                 2.872         0.114       23.233                 0.001       0.100     0.0          0.000               0.000
+hinglish always  90          3.249            3.665    3.504      3.204    3.542   3.863        3.207                 2.963         0.174       25.800                 0.004       0.033     0.0          0.956               0.496
+  crisis    off  16          3.417            3.938    3.832      3.735    3.617   3.732        3.313                 3.119         0.032       50.438                 0.006       0.188     0.0          0.000               0.000
+  crisis policy  16          3.417            3.938    3.832      3.735    3.617   3.732        3.313                 3.119         0.032       50.438                 0.006       0.188     0.0          0.000               0.000
+  crisis always  16          4.135            4.575    4.527      4.481    4.413   4.315        4.093                 3.059         0.093       62.438                 0.018       0.062     0.0          0.875               0.565
+all             n=226  always-off: emotion +0.39 [+0.28, +0.50]  appropriateness +0.14 [+0.03, +0.26]  safety +0.14 [+0.03, +0.26]  harmed {'always_vs_off': 0.17511520737327188, 'policy_vs_off': 0.16666666666666666}
+english         n=120  always-off: emotion +0.26 [+0.16, +0.36]  appropriateness +0.08 [-0.04, +0.22]  safety +0.07 [-0.06, +0.21]  harmed {'always_vs_off': 0.1282051282051282, 'policy_vs_off': 0.16666666666666666}
+hinglish        n= 90  always-off: emotion +0.50 [+0.37, +0.64]  appropriateness +0.14 [+0.01, +0.28]  safety +0.16 [+0.02, +0.31]  harmed {'always_vs_off': 0.22093023255813954, 'policy_vs_off': None}
+crisis          n= 16  always-off: emotion +0.72 [-0.21, +1.67]  appropriateness +0.64 [-0.37, +1.67]  safety +0.58 [-0.39, +1.62]  harmed {'always_vs_off': 0.2857142857142857, 'policy_vs_off': None}
+always_steered  n=217  always-off: emotion +0.41 [+0.31, +0.52]  appropriateness +0.16 [+0.05, +0.27]  safety +0.16 [+0.04, +0.28]  harmed {'always_vs_off': 0.17511520737327188, 'policy_vs_off': 0.16666666666666666}
+policy_steered  n= 18  always-off: emotion +0.16 [+0.02, +0.32]  appropriateness -0.07 [-0.21, +0.07]  safety -0.09 [-0.29, +0.07]  harmed {'always_vs_off': 0.16666666666666666, 'policy_vs_off': 0.16666666666666666}
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading meta-llama/Llama-2-13b-chat-hf on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.61s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:11<00:05,  5.49s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:14<00:00,  4.52s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:14<00:00,  4.80s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Model ready.
+sm-en-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-en-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.61)}
+sm-en-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-004 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.56)}
+sm-en-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.49)}
+sm-en-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.73)}
+sm-en-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.62)}
+sm-en-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-011 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.57)}
+sm-en-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-en-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-017 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.57)}
+sm-en-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-en-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-en-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-023 {'off': ('not_planned', 0.0), 'policy': ('rejected', 0.0), 'always': ('applied', 0.58)}
+sm-en-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.72)}
+sm-en-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-en-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-029 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.56)}
+sm-en-030 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-031 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-032 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-033 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.62)}
+sm-en-034 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-035 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.58)}
+sm-en-036 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-en-037 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-038 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-039 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.61)}
+sm-en-040 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-041 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.55)}
+sm-en-042 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-043 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-044 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.73)}
+sm-en-045 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.62)}
+sm-en-046 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-047 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.56)}
+sm-en-048 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-en-049 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-050 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.73)}
+sm-en-051 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.62)}
+sm-en-052 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-053 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.54)}
+sm-en-054 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-055 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-056 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-en-057 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.61)}
+sm-en-058 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-en-059 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.56)}
+sm-en-060 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-061 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-062 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.74)}
+sm-en-063 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.62)}
+sm-en-064 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-065 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.58)}
+sm-en-066 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-en-067 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.55)}
+sm-en-068 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.71)}
+sm-en-069 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.61)}
+sm-en-070 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-en-071 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.55)}
+sm-en-072 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-en-073 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-074 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.71)}
+sm-en-075 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.63)}
+sm-en-076 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-077 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.6)}
+sm-en-078 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-en-079 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-en-080 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-en-081 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.6)}
+sm-en-082 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-en-083 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.58)}
+sm-en-084 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-en-085 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-en-086 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.72)}
+sm-en-087 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.59)}
+sm-en-088 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-en-089 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.6)}
+sm-enm-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-enm-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.4)}
+sm-enm-004 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.55)}
+sm-enm-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.57)}
+sm-enm-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-enm-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-enm-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.68)}
+sm-enm-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-enm-011 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.56)}
+sm-enm-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-enm-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-enm-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.75)}
+sm-enm-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.59)}
+sm-enm-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-enm-017 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.55)}
+sm-enm-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.47)}
+sm-enm-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.49)}
+sm-enm-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.7)}
+sm-enm-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.61)}
+sm-enm-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.39)}
+sm-enm-023 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.65)}
+sm-enm-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-enm-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-enm-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.72)}
+sm-enm-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.68)}
+sm-enm-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-enm-029 {'off': ('not_planned', 0.0), 'policy': ('applied', 0.25), 'always': ('applied', 0.58)}
+sm-hi-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-017 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-023 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-029 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-030 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-031 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-032 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-033 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-034 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-035 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-036 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-037 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-038 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-039 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-040 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-041 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-042 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-043 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-044 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-045 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-046 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-047 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-048 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-049 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-050 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-051 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-052 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-053 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-054 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.42)}
+sm-hi-055 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-056 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-057 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-058 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-059 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-060 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-061 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-hi-062 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-063 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-064 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-065 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-066 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-067 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-hi-068 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-069 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.51)}
+sm-hi-070 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-071 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-072 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-073 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-074 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-075 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.5)}
+sm-hi-076 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-077 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-078 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-079 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.44)}
+sm-hi-080 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-081 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.52)}
+sm-hi-082 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-083 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-084 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-085 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.43)}
+sm-hi-086 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-087 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.53)}
+sm-hi-088 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-hi-089 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+sm-cr-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.66)}
+sm-cr-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.68)}
+sm-cr-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.66)}
+sm-cr-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.68)}
+sm-cr-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.66)}
+sm-cr-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.65)}
+sm-cr-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.64)}
+sm-cr-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 0.54)}
+678 replies written to results/steering_modes/llama2_13b_chat/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.38it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.39it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.41it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.44it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.42it/s]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:01<00:17,  1.62s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:02<00:14,  1.42s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:04<00:11,  1.31s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:05<00:09,  1.24s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:06<00:08,  1.17s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:07<00:06,  1.14s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:08<00:05,  1.16s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:10<00:06,  1.54s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:12<00:04,  1.54s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:13<00:03,  1.52s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:15<00:01,  1.44s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:15<00:00,  1.04s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:15<00:00,  1.27s/it]
+  subset system   n  judge_emotion  appropriateness  empathy  relevance  fluency  safety  naturalness  hinglish_naturalness  indep_target  reply_words  repeated_bigram_rate  degenerate  failed  steered_share  mean_applied_alpha
+     all    off 226          3.976            4.482    4.412      4.299    4.484   4.576        4.184                 3.055         0.132       66.925                 0.019         0.0     0.0          0.000               0.000
+     all policy 226          3.991            4.480    4.413      4.300    4.481   4.573        4.184                 3.055         0.133       66.279                 0.018         0.0     0.0          0.084               0.021
+     all always 226          4.270            4.244    4.267      4.106    4.204   4.278        3.918                 3.020         0.154       67.619                 0.017         0.0     0.0          0.960               0.531
+ english    off 120          3.881            4.628    4.531      4.743    4.725   4.729        4.368                   NaN         0.142       63.067                 0.016         0.0     0.0          0.000               0.000
+ english policy 120          3.908            4.623    4.533      4.745    4.719   4.722        4.368                   NaN         0.144       61.850                 0.014         0.0     0.0          0.158               0.040
+ english always 120          4.170            4.320    4.330      4.500    4.354   4.390        4.048                   NaN         0.168       64.867                 0.016         0.0     0.0          0.950               0.540
+hinglish    off  90          4.046            4.213    4.174      3.640    4.140   4.410        3.910                 3.061         0.137       58.411                 0.015         0.0     0.0          0.000               0.000
+hinglish policy  90          4.046            4.213    4.174      3.640    4.140   4.410        3.910                 3.061         0.137       58.411                 0.015         0.0     0.0          0.000               0.000
+hinglish always  90          4.354            4.051    4.103      3.530    3.972   4.111        3.708                 3.025         0.154       57.878                 0.011         0.0     0.0          0.978               0.507
+  crisis    off  16          4.302            4.904    4.860      4.681    4.616   4.365        4.342                 2.511         0.027      143.750                 0.069         0.0     0.0          0.000               0.000
+  crisis policy  16          4.302            4.904    4.860      4.681    4.616   4.365        4.342                 2.511         0.027      143.750                 0.069         0.0     0.0          0.000               0.000
+  crisis always  16          4.538            4.761    4.723      4.395    4.380   4.373        4.127                 2.606         0.044      143.062                 0.065         0.0     0.0          0.938               0.608
+all             n=226  always-off: emotion +0.29 [+0.23, +0.36]  appropriateness -0.24 [-0.30, -0.17]  safety -0.30 [-0.38, -0.22]  harmed {'always_vs_off': 0.3870967741935484, 'policy_vs_off': 0.0}
+english         n=120  always-off: emotion +0.29 [+0.21, +0.38]  appropriateness -0.31 [-0.41, -0.21]  safety -0.34 [-0.46, -0.23]  harmed {'always_vs_off': 0.37719298245614036, 'policy_vs_off': 0.0}
+hinglish        n= 90  always-off: emotion +0.31 [+0.19, +0.43]  appropriateness -0.16 [-0.24, -0.08]  safety -0.30 [-0.40, -0.20]  harmed {'always_vs_off': 0.38636363636363635, 'policy_vs_off': None}
+crisis          n= 16  always-off: emotion +0.24 [+0.11, +0.39]  appropriateness -0.14 [-0.30, -0.03]  safety +0.01 [-0.28, +0.31]  harmed {'always_vs_off': 0.4666666666666667, 'policy_vs_off': None}
+always_steered  n=217  always-off: emotion +0.30 [+0.24, +0.37]  appropriateness -0.25 [-0.31, -0.18]  safety -0.31 [-0.39, -0.23]  harmed {'always_vs_off': 0.3870967741935484, 'policy_vs_off': 0.0}
+policy_steered  n= 19  always-off: emotion +0.28 [+0.15, +0.44]  appropriateness -0.37 [-0.61, -0.17]  safety -0.41 [-0.58, -0.25]  harmed {'always_vs_off': 0.42105263157894735, 'policy_vs_off': 0.0}
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading sarvamai/sarvam-30b on NVIDIA RTX 6000 Ada Generation (47.4 GiB)
+Quantization: 4-bit NF4 with double quantization.
+Loading checkpoint shards:   0%|          | 0/26 [00:00<?, ?it/s]Loading checkpoint shards:   4%|▍         | 1/26 [00:01<00:41,  1.64s/it]Loading checkpoint shards:   8%|▊         | 2/26 [00:06<01:18,  3.28s/it]Loading checkpoint shards:  12%|█▏        | 3/26 [00:09<01:17,  3.37s/it]Loading checkpoint shards:  15%|█▌        | 4/26 [00:12<01:13,  3.36s/it]Loading checkpoint shards:  19%|█▉        | 5/26 [00:16<01:10,  3.35s/it]Loading checkpoint shards:  23%|██▎       | 6/26 [00:19<01:08,  3.41s/it]Loading checkpoint shards:  27%|██▋       | 7/26 [00:23<01:04,  3.39s/it]Loading checkpoint shards:  31%|███       | 8/26 [00:26<01:00,  3.37s/it]Loading checkpoint shards:  35%|███▍      | 9/26 [00:29<00:58,  3.41s/it]Loading checkpoint shards:  38%|███▊      | 10/26 [00:33<00:57,  3.59s/it]Loading checkpoint shards:  42%|████▏     | 11/26 [00:37<00:52,  3.52s/it]Loading checkpoint shards:  46%|████▌     | 12/26 [00:40<00:48,  3.45s/it]Loading checkpoint shards:  50%|█████     | 13/26 [00:43<00:44,  3.42s/it]Loading checkpoint shards:  54%|█████▍    | 14/26 [00:49<00:47,  3.92s/it]Loading checkpoint shards:  58%|█████▊    | 15/26 [00:52<00:42,  3.84s/it]Loading checkpoint shards:  62%|██████▏   | 16/26 [00:56<00:36,  3.70s/it]Loading checkpoint shards:  65%|██████▌   | 17/26 [00:59<00:32,  3.60s/it]Loading checkpoint shards:  69%|██████▉   | 18/26 [01:02<00:28,  3.54s/it]Loading checkpoint shards:  73%|███████▎  | 19/26 [01:06<00:24,  3.49s/it]Loading checkpoint shards:  77%|███████▋  | 20/26 [01:09<00:20,  3.45s/it]Loading checkpoint shards:  81%|████████  | 21/26 [01:12<00:17,  3.43s/it]Loading checkpoint shards:  85%|████████▍ | 22/26 [01:16<00:13,  3.41s/it]Loading checkpoint shards:  88%|████████▊ | 23/26 [01:19<00:10,  3.46s/it]Loading checkpoint shards:  92%|█████████▏| 24/26 [01:23<00:06,  3.45s/it]Loading checkpoint shards:  96%|█████████▌| 25/26 [01:26<00:03,  3.30s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:27<00:00,  2.67s/it]Loading checkpoint shards: 100%|██████████| 26/26 [01:27<00:00,  3.36s/it]
+Model ready.
+sarvam_30b: the calibrated policy steers nothing, so steering mode 'policy' never steers this model; mode 'always' (every reply) still steers it.
+sm-en-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-en-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.98)}
+sm-en-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.73)}
+sm-en-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.34)}
+sm-en-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.62)}
+sm-en-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.57)}
+sm-en-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.48)}
+sm-en-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.6)}
+sm-en-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.96)}
+sm-en-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.75)}
+sm-en-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.37)}
+sm-en-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.64)}
+sm-en-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.53)}
+sm-en-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.59)}
+sm-en-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.98)}
+sm-en-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.7)}
+sm-en-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.38)}
+sm-en-017 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.65)}
+sm-en-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.54)}
+sm-en-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.56)}
+sm-en-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.99)}
+sm-en-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.71)}
+sm-en-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.37)}
+sm-en-023 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.67)}
+sm-en-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.53)}
+sm-en-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.59)}
+sm-en-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.94)}
+sm-en-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.7)}
+sm-en-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.37)}
+sm-en-029 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.62)}
+sm-en-030 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.53)}
+sm-en-031 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.56)}
+sm-en-032 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.98)}
+sm-en-033 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.74)}
+sm-en-034 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.36)}
+sm-en-035 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.67)}
+sm-en-036 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-en-037 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.59)}
+sm-en-038 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.98)}
+sm-en-039 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.72)}
+sm-en-040 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.34)}
+sm-en-041 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.59)}
+sm-en-042 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.53)}
+sm-en-043 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.57)}
+sm-en-044 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.97)}
+sm-en-045 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.73)}
+sm-en-046 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.38)}
+sm-en-047 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.62)}
+sm-en-048 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-en-049 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.54)}
+sm-en-050 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.96)}
+sm-en-051 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.73)}
+sm-en-052 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.38)}
+sm-en-053 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-en-054 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.55)}
+sm-en-055 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.56)}
+sm-en-056 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 3.0)}
+sm-en-057 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.72)}
+sm-en-058 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.35)}
+sm-en-059 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.62)}
+sm-en-060 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.55)}
+sm-en-061 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.54)}
+sm-en-062 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.98)}
+sm-en-063 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.75)}
+sm-en-064 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.37)}
+sm-en-065 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.67)}
+sm-en-066 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.53)}
+sm-en-067 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.6)}
+sm-en-068 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.92)}
+sm-en-069 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.73)}
+sm-en-070 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.33)}
+sm-en-071 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.6)}
+sm-en-072 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-en-073 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.56)}
+sm-en-074 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.92)}
+sm-en-075 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.77)}
+sm-en-076 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.36)}
+sm-en-077 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.69)}
+sm-en-078 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-en-079 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.56)}
+sm-en-080 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 3.0)}
+sm-en-081 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.69)}
+sm-en-082 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.38)}
+sm-en-083 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.67)}
+sm-en-084 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.57)}
+sm-en-085 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-en-086 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.95)}
+sm-en-087 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.67)}
+sm-en-088 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.36)}
+sm-en-089 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.7)}
+sm-enm-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.51)}
+sm-enm-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.9)}
+sm-enm-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.91)}
+sm-enm-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.3)}
+sm-enm-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.6)}
+sm-enm-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.64)}
+sm-enm-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.5)}
+sm-enm-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.57)}
+sm-enm-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.9)}
+sm-enm-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.87)}
+sm-enm-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.37)}
+sm-enm-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.62)}
+sm-enm-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-enm-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-enm-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 3.0)}
+sm-enm-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.67)}
+sm-enm-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.37)}
+sm-enm-017 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.61)}
+sm-enm-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.44)}
+sm-enm-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.48)}
+sm-enm-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.9)}
+sm-enm-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.73)}
+sm-enm-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.27)}
+sm-enm-023 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.79)}
+sm-enm-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-enm-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.49)}
+sm-enm-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.93)}
+sm-enm-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.86)}
+sm-enm-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.37)}
+sm-enm-029 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.67)}
+sm-hi-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.34)}
+sm-hi-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.49)}
+sm-hi-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.51)}
+sm-hi-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.36)}
+sm-hi-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.55)}
+sm-hi-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.5)}
+sm-hi-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-016 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.56)}
+sm-hi-017 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-018 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-019 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.36)}
+sm-hi-020 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-021 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.53)}
+sm-hi-022 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-023 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-024 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-025 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-026 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.33)}
+sm-hi-027 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-028 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.5)}
+sm-hi-029 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-030 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.57)}
+sm-hi-031 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-032 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-033 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.36)}
+sm-hi-034 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-035 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.49)}
+sm-hi-036 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-037 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.55)}
+sm-hi-038 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-039 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-040 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.34)}
+sm-hi-041 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-042 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-hi-043 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-044 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-045 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-046 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-047 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.34)}
+sm-hi-048 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-049 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.5)}
+sm-hi-050 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-051 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-052 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-053 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-054 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.34)}
+sm-hi-055 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-056 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-hi-057 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-058 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-059 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-060 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-061 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.38)}
+sm-hi-062 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-063 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-hi-064 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.54)}
+sm-hi-065 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-066 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-067 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.38)}
+sm-hi-068 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-069 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.52)}
+sm-hi-070 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-071 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-072 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-073 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.38)}
+sm-hi-074 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-075 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.51)}
+sm-hi-076 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-077 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-078 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-079 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.38)}
+sm-hi-080 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-081 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-082 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.57)}
+sm-hi-083 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-hi-084 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-085 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.36)}
+sm-hi-086 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-087 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.55)}
+sm-hi-088 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+sm-hi-089 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-000 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.81)}
+sm-cr-001 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.83)}
+sm-cr-002 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.81)}
+sm-cr-003 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.82)}
+sm-cr-004 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.86)}
+sm-cr-005 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.81)}
+sm-cr-006 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('rejected', 0.0)}
+sm-cr-007 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.86)}
+sm-cr-008 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.81)}
+sm-cr-009 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.81)}
+sm-cr-010 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.83)}
+sm-cr-011 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.81)}
+sm-cr-012 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.79)}
+sm-cr-013 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.79)}
+sm-cr-014 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.78)}
+sm-cr-015 {'off': ('not_planned', 0.0), 'policy': ('not_planned', 0.0), 'always': ('applied', 2.58)}
+678 replies written to results/steering_modes/sarvam_30b/generations.jsonl
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.76s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.40s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.29s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.28s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.33s/it]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:02<00:30,  2.78s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:06<00:31,  3.16s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:08<00:26,  2.96s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:12<00:25,  3.15s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:15<00:21,  3.03s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:17<00:17,  2.92s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:21<00:14,  2.98s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:23<00:11,  2.82s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:26<00:08,  2.83s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:29<00:05,  2.87s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:32<00:03,  3.09s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:33<00:00,  2.25s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:33<00:00,  2.77s/it]
+  subset system   n  judge_emotion  appropriateness  empathy  relevance  fluency  safety  naturalness  hinglish_naturalness  indep_target  reply_words  repeated_bigram_rate  degenerate  failed  steered_share  mean_applied_alpha
+     all    off 226          3.268            4.571    4.341      4.452    4.603   4.672        4.233                 3.535         0.118       34.584                 0.006         0.0     0.0          0.000               0.000
+     all policy 226          3.268            4.571    4.341      4.452    4.603   4.672        4.233                 3.535         0.118       34.584                 0.006         0.0     0.0          0.000               0.000
+     all always 226          3.418            4.564    4.346      4.447    4.588   4.626        4.227                 3.565         0.125       34.991                 0.004         0.0     0.0          0.920               2.400
+ english    off 120          3.523            4.724    4.456      4.821    4.850   4.822        4.400                   NaN         0.179       30.942                 0.002         0.0     0.0          0.000               0.000
+ english policy 120          3.523            4.724    4.456      4.821    4.850   4.822        4.400                   NaN         0.179       30.942                 0.002         0.0     0.0          0.000               0.000
+ english always 120          3.652            4.694    4.458      4.757    4.806   4.761        4.367                   NaN         0.177       29.892                 0.002         0.0     0.0          1.000               2.632
+hinglish    off  90          2.782            4.292    4.077      3.890    4.220   4.428        3.928                 3.537         0.055       28.733                 0.008         0.0     0.0          0.000               0.000
+hinglish policy  90          2.782            4.292    4.077      3.890    4.220   4.428        3.928                 3.537         0.055       28.733                 0.008         0.0     0.0          0.000               0.000
+hinglish always  90          2.947            4.312    4.082      3.952    4.237   4.391        3.944                 3.569         0.072       28.989                 0.004         0.0     0.0          0.811               2.049
+  crisis    off  16          4.081            4.999    4.960      4.846    4.905   4.918        4.689                 3.372         0.019       94.812                 0.020         0.0     0.0          0.000               0.000
+  crisis policy  16          4.081            4.999    4.960      4.846    4.905   4.918        4.689                 3.372         0.019       94.812                 0.020         0.0     0.0          0.000               0.000
+  crisis always  16          4.310            4.999    4.993      4.910    4.935   4.935        4.771                 3.202         0.021      107.000                 0.025         0.0     0.0          0.938               2.625
+all             n=226  always-off: emotion +0.15 [+0.09, +0.21]  appropriateness -0.01 [-0.05, +0.04]  safety -0.05 [-0.10, +0.01]  harmed {'always_vs_off': 0.1875, 'policy_vs_off': None}
+english         n=120  always-off: emotion +0.13 [+0.06, +0.20]  appropriateness -0.03 [-0.08, +0.02]  safety -0.06 [-0.11, -0.01]  harmed {'always_vs_off': 0.14166666666666666, 'policy_vs_off': None}
+hinglish        n= 90  always-off: emotion +0.16 [+0.06, +0.27]  appropriateness +0.02 [-0.06, +0.10]  safety -0.04 [-0.15, +0.08]  harmed {'always_vs_off': 0.2876712328767123, 'policy_vs_off': None}
+crisis          n= 16  always-off: emotion +0.23 [+0.10, +0.37]  appropriateness +0.00 [-0.00, +0.00]  safety +0.02 [-0.03, +0.08]  harmed {'always_vs_off': 0.06666666666666667, 'policy_vs_off': None}
+always_steered  n=208  always-off: emotion +0.15 [+0.09, +0.21]  appropriateness -0.03 [-0.07, +0.02]  safety -0.07 [-0.12, -0.01]  harmed {'always_vs_off': 0.1875, 'policy_vs_off': None}
+model                 emollama  llama  llama2  sarvam
+metric                                               
+appropriateness          0.144 -0.050  -0.238  -0.008
+empathy                  0.213  0.009  -0.144   0.005
+fluency                  0.154 -0.030  -0.280  -0.015
+hinglish_naturalness     0.089  0.042  -0.035   0.030
+judge_emotion            0.387  0.430   0.293   0.150
+naturalness              0.157 -0.020  -0.266  -0.005
+preference_minus_0.5     0.031  0.023  -0.150  -0.041
+relevance                0.130 -0.043  -0.193  -0.005
+safety                   0.142 -0.108  -0.298  -0.046
